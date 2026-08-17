@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أمدكو - شركة أمد الأولى للخدمات</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="nav-c">
+            <a href="#hero" class="nav-logo">
+                <img src="./logo/logo_white.webp" alt="أمدكو" style="height: 90px; width: auto; object-fit: contain; filter: drop-shadow(0 2px 10px rgba(0,0,0,0.5)); transition: transform 0.3s ease;">
+            </a>
+            <ul class="nav-links">
+                <li><a href="#hero" class="active">الرئيسية</a></li>
+                <li><a href="#services">خدماتنا</a></li>
+                <li><a href="#pricing">اطلب الآن</a></li>
+                <li><a href="#why-us">عن الشركة</a></li>
+                <li><a href="#contact">تواصل معنا</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+        </div>
+    </nav>
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="mobile-close" id="mobileClose"><i class="fas fa-times"></i></button>
+        <a href="#hero">الرئيسية</a><a href="#services">خدماتنا</a><a href="#pricing">اطلب الآن</a><a href="#why-us">عن الشركة</a><a href="#contact">تواصل معنا</a>
+    </div>
+    <section class="hero" id="hero">
+        <svg class="hero-shield-bg" viewBox="0 0 400 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M200 12 L360 76 V220 C360 335 200 450 200 450 C200 450 40 335 40 220 V76 L200 12 Z" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.12)" stroke-width="4"/>
+            <path d="M200 32 L340 88 V215 C340 318 200 420 200 420 C200 420 60 318 60 215 V88 L200 32 Z" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="2"/>
+        </svg>
+        <div class="hero-content">
+            <h1 class="hero-title">
+                شركة مكافحة حشرات<br>
+                <span class="hero-title-highlight">وتعقيم معتمدة في</span><br>
+                جدة
+            </h1>
+            <p class="hero-desc">مكافحة حشرات وتعقيم وخدمات تنظيف احترافية بضمان وجودة عالية.</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-white">احجز موعدك الآن</a>
+                <a href="https://wa.me/966500000000" class="btn btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> تواصل عبر واتساب</a>
+            </div>
+            <div class="hero-stats">
+                <div class="hero-stat-item">
+                    <div class="hero-stat-num">10+</div>
+                    <div class="hero-stat-lbl">سنوات خبرة</div>
+                </div>
+                <div class="hero-stat-item">
+                    <div class="hero-stat-num">5000+</div>
+                    <div class="hero-stat-lbl">عميل سعيد</div>
+                </div>
+                <div class="hero-stat-item">
+                    <div class="hero-stat-num">20+</div>
+                    <div class="hero-stat-lbl">فني متخصص</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section services" id="services">
+        <div class="section-c">
+            <div class="section-h reveal">
+                <p class="section-desc" style="font-size: 18px; color: var(--gray-600); max-width: 750px; font-weight: 600;">نوفر لكم مجموعة شاملة من الخدمات المنزلية والصحية بأعلى معايير الجودة والاحترافية</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card reveal">
+                    <div class="service-card-image">
+                        <img src="./images/pest_control.png" alt="مكافحة حشرات" loading="lazy">
+                        <div class="service-card-overlay"></div>
+                        <div class="service-card-header-badge">
+                            <h3 class="service-card-title">مكافحة حشرات</h3>
+                            <div class="service-card-badge-icon"><i class="fas fa-bug"></i></div>
+                        </div>
+                    </div>
+                    <div class="service-card-body">
+                        <p class="service-card-text">نتعامل مع جميع أنواع الحشرات باستخدام أحدث المبيدات المعتمدة والآمنة صحياً. فريقنا المتخصص يضمن لك التخلص النهائي من الصراصير، النمل، البق، والقوارض بضمان كامل.</p>
+                        <div class="service-features-grid">
+                            <div class="service-feature-item"><i class="fas fa-check"></i> <span>مبيدات معتمدة عالمياً</span></div>
+                            <div class="service-feature-item"><i class="fas fa-check"></i> <span>ضمان 6 أشهر</span></div>
+                            <div class="service-feature-item"><i class="fas fa-check"></i> <span>آمن للأطفال والحيوانات</span></div>
+                            <div class="service-feature-item"><i class="fas fa-check"></i> <span>معالجة فورية</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-card-image">
+                        <img src="./images/disinfection.png" alt="تعقيم ضد الفيروسات" loading="lazy">
+                        <div class="service-card-overlay"></div>
+                        <div class="service-card-header-badge">
+                            <h3 class="service-card-title">تعقيم ضد الفيروسات</h3>
+                            <div class="service-card-badge-icon"><i class="fas fa-shield-virus"></i></div>
+                        </div>
+                    </div>
+                    <div class="service-card-body">
+                        <p class="service-card-text">خدمة تعقيم شاملة بالأشعة فوق البنفسجية والمطهرات الطبية المعتمدة. نحمي منزلكم ومكان عملكم من الفيروسات والبكتيريا بطرق علمية حديثة وموثوقة.</p>
+                        <div class="service-features-grid">
+                            <div class="service-feature-item"><i class="fas fa-check"></i> <span>تعقيم بـ UV</span></div>
+                            <div class="service-feature-item"><i class="fas fa-check"></i> <span>مطهرات طبية</span></div>
+                            <div class="service-feature-item"><i class="fas fa-check"></i> <span>شهادة تعقيم</span></div>
+                            <div class="service-feature-item"><i class="fas fa-check"></i> <span>حماية طويلة الأمد</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-card-image">
+                        <img src="./images/steam_cleaning.png" alt="تنظيف الأساس بالبخار" loading="lazy">
+                        <div class="service-card-overlay"></div>
+                        <div class="service-card-header-badge">
+                            <h3 class="service-card-title">تنظيف الأساس بالبخار</h3>
+                            <div class="service-card-badge-icon"><i class="fas fa-couch"></i></div>
+                        </div>
+                    </div>
+                    <div class="service-card-body">
+                        <p class="service-card-text">تنظيف عميق للأساسات باستخدام تقنية البخار عالي الضغط التي تزيل أصعب البقع والرواسب دون إلحاق أي ضرر بالأسطح. مثالي للمنازل والمحلات التجارية.</p>
+                        <div class="service-features-grid">
+                            <div class="service-feature-item"><i class="fas fa-check"></i> <span>تقنية بخار 180°</span></div>
+                            <div class="service-feature-item"><i class="fas fa-check"></i> <span>التخلص من الروائح</span></div>
+                            <div class="service-feature-item"><i class="fas fa-check"></i> <span>تجفيف سريع</span></div>
+                            <div class="service-feature-item"><i class="fas fa-check"></i> <span>حماية القماش</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-card-image">
+                        <img src="./images/tank_cleaning.png" alt="تنظيف وتعقيم الخزانات" loading="lazy">
+                        <div class="service-card-overlay"></div>
+                        <div class="service-card-header-badge">
+                            <h3 class="service-card-title">تنظيف وتعقيم الخزانات</h3>
+                            <div class="service-card-badge-icon"><i class="fas fa-tint"></i></div>
+                        </div>
+                    </div>
+                    <div class="service-card-body">
+                        <p class="service-card-text">خدمة متكاملة لتنظيف وتعقيم خزانات المياه باتباع أعلى معايير السلامة والصحة. نضمن مياه نظيفة وصحية لعائلتك مع فحص شامل.</p>
+                        <div class="service-features-grid">
+                            <div class="service-feature-item"><i class="fas fa-check"></i> <span>مواد معتمدة صحياً</span></div>
+                            <div class="service-feature-item"><i class="fas fa-check"></i> <span>قياس نسبة الكلور</span></div>
+                            <div class="service-feature-item"><i class="fas fa-check"></i> <span>عزل وتسريب</span></div>
+                            <div class="service-feature-item"><i class="fas fa-check"></i> <span>تقرير فحص مجاني</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section pricing" id="pricing">
+        <div class="section-c">
+            <div class="section-h reveal">
+                <div class="section-badge">اطلب الآن</div>
+                <h2 class="section-title">اختر خدماتك وأرسل طلبك</h2>
+                <p class="section-desc">حدد الخدمات التي تحتاجها وسنتواصل معك عبر واتساب فوراً</p>
+            </div>
+
+            <!-- Order Tabs -->
+            <div class="order-tabs reveal">
+                <button class="order-tab active" data-tab="apartments" id="tab-apartments">
+                    <i class="fas fa-building"></i>
+                    <span>الشقق والفيلات</span>
+                </button>
+                <button class="order-tab" data-tab="pests" id="tab-pests">
+                    <i class="fas fa-bug"></i>
+                    <span>اخرى</span>
+                </button>
+                <button class="order-tab" data-tab="spraying" id="tab-spraying">
+                    <i class="fas fa-spray-can"></i>
+                    <span>الصرف الصحي وغرف التفتيش</span>
+                </button>
+            </div>
+
+            <div class="order-layout">
+                <!-- Services List -->
+                <div class="order-services-wrap">
+
+                    <!-- Tab: Apartments & Villas -->
+                    <div class="order-tab-content active" id="content-apartments">
+                        <div class="order-category-header reveal">
+                            <div class="order-cat-icon"><i class="fas fa-home"></i></div>
+                            <div>
+                                <h3>خدمات الشقق والفيلات</h3>
+                                <p>رش ومكافحة حشرات شاملة حسب حجم المكان</p>
+                            </div>
+                        </div>
+                        <div class="order-services-grid">
+                            <div class="order-service-card reveal" data-service="أستوديو" data-price="100">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-door-open"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>أستوديو</h4>
+                                        <span class="order-card-desc">رش شامل للأستوديو</span>
+                                    </div>
+                                    <div class="order-card-price">
+                                        <span class="price-val">100</span>
+                                        <span class="price-unit">ر.س</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <div class="order-qty">
+                                        <button class="qty-btn qty-minus" aria-label="تقليل"><i class="fas fa-minus"></i></button>
+                                        <span class="qty-num">0</span>
+                                        <button class="qty-btn qty-plus" aria-label="زيادة"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <button class="add-to-order-btn">أضف للطلب</button>
+                                </div>
+                            </div>
+
+                            <div class="order-service-card reveal" data-service="شقة غرفة نوم" data-price="150">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-bed"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>شقة غرفة نوم</h4>
+                                        <span class="order-card-desc">رش شامل - غرفة واحدة</span>
+                                    </div>
+                                    <div class="order-card-price">
+                                        <span class="price-val">150</span>
+                                        <span class="price-unit">ر.س</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <div class="order-qty">
+                                        <button class="qty-btn qty-minus" aria-label="تقليل"><i class="fas fa-minus"></i></button>
+                                        <span class="qty-num">0</span>
+                                        <button class="qty-btn qty-plus" aria-label="زيادة"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <button class="add-to-order-btn">أضف للطلب</button>
+                                </div>
+                            </div>
+
+                            <div class="order-service-card reveal" data-service="شقة غرفتين نوم" data-price="200">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-bed"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>شقة غرفتين نوم</h4>
+                                        <span class="order-card-desc">رش شامل - غرفتين</span>
+                                    </div>
+                                    <div class="order-card-price">
+                                        <span class="price-val">200</span>
+                                        <span class="price-unit">ر.س</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <div class="order-qty">
+                                        <button class="qty-btn qty-minus" aria-label="تقليل"><i class="fas fa-minus"></i></button>
+                                        <span class="qty-num">0</span>
+                                        <button class="qty-btn qty-plus" aria-label="زيادة"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <button class="add-to-order-btn">أضف للطلب</button>
+                                </div>
+                            </div>
+
+                            <div class="order-service-card reveal" data-service="شقة ثلاث غرف نوم" data-price="250">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-bed"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>شقة ثلاث غرف نوم</h4>
+                                        <span class="order-card-desc">رش شامل - 3 غرف</span>
+                                    </div>
+                                    <div class="order-card-price">
+                                        <span class="price-val">250</span>
+                                        <span class="price-unit">ر.س</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <div class="order-qty">
+                                        <button class="qty-btn qty-minus" aria-label="تقليل"><i class="fas fa-minus"></i></button>
+                                        <span class="qty-num">0</span>
+                                        <button class="qty-btn qty-plus" aria-label="زيادة"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <button class="add-to-order-btn">أضف للطلب</button>
+                                </div>
+                            </div>
+
+                            <div class="order-service-card reveal" data-service="شقة أربع غرف نوم" data-price="300">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-bed"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>شقة أربع غرف نوم</h4>
+                                        <span class="order-card-desc">رش شامل - 4 غرف</span>
+                                    </div>
+                                    <div class="order-card-price">
+                                        <span class="price-val">300</span>
+                                        <span class="price-unit">ر.س</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <div class="order-qty">
+                                        <button class="qty-btn qty-minus" aria-label="تقليل"><i class="fas fa-minus"></i></button>
+                                        <span class="qty-num">0</span>
+                                        <button class="qty-btn qty-plus" aria-label="زيادة"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <button class="add-to-order-btn">أضف للطلب</button>
+                                </div>
+                            </div>
+
+                            <div class="order-service-card reveal" data-service="شقة خمس غرف نوم" data-price="350">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-bed"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>شقة خمس غرف نوم</h4>
+                                        <span class="order-card-desc">رش شامل - 5 غرف</span>
+                                    </div>
+                                    <div class="order-card-price">
+                                        <span class="price-val">350</span>
+                                        <span class="price-unit">ر.س</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <div class="order-qty">
+                                        <button class="qty-btn qty-minus" aria-label="تقليل"><i class="fas fa-minus"></i></button>
+                                        <span class="qty-num">0</span>
+                                        <button class="qty-btn qty-plus" aria-label="زيادة"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <button class="add-to-order-btn">أضف للطلب</button>
+                                </div>
+                            </div>
+
+                            <div class="order-service-card reveal" data-service="فيلا 3 غرف نوم + المجالس" data-price="450">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-house-chimney"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>فيلا 3 غرف + المجالس</h4>
+                                        <span class="order-card-desc">رش شامل للفيلا والمجالس</span>
+                                    </div>
+                                    <div class="order-card-price">
+                                        <span class="price-val">450</span>
+                                        <span class="price-unit">ر.س</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <div class="order-qty">
+                                        <button class="qty-btn qty-minus" aria-label="تقليل"><i class="fas fa-minus"></i></button>
+                                        <span class="qty-num">0</span>
+                                        <button class="qty-btn qty-plus" aria-label="زيادة"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <button class="add-to-order-btn">أضف للطلب</button>
+                                </div>
+                            </div>
+
+                            <div class="order-service-card reveal" data-service="فيلا 6 غرف نوم (المواصفات الكاملة)" data-price="600">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-house-chimney"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>فيلا 6 غرف نوم</h4>
+                                        <span class="order-card-desc">المواصفات الكاملة</span>
+                                    </div>
+                                    <div class="order-card-price">
+                                        <span class="price-val">600</span>
+                                        <span class="price-unit">ر.س</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <div class="order-qty">
+                                        <button class="qty-btn qty-minus" aria-label="تقليل"><i class="fas fa-minus"></i></button>
+                                        <span class="qty-num">0</span>
+                                        <button class="qty-btn qty-plus" aria-label="زيادة"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <button class="add-to-order-btn">أضف للطلب</button>
+                                </div>
+                            </div>
+
+                            <div class="order-service-card reveal" data-service="رش دوبلكس 4 غرف" data-price="450">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-building"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>رش دوبلكس 4 غرف</h4>
+                                        <span class="order-card-desc">رش شامل للدوبلكس</span>
+                                    </div>
+                                    <div class="order-card-price">
+                                        <span class="price-val">450</span>
+                                        <span class="price-unit">ر.س</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <div class="order-qty">
+                                        <button class="qty-btn qty-minus" aria-label="تقليل"><i class="fas fa-minus"></i></button>
+                                        <span class="qty-num">0</span>
+                                        <button class="qty-btn qty-plus" aria-label="زيادة"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <button class="add-to-order-btn">أضف للطلب</button>
+                                </div>
+                            </div>
+
+                            <div class="order-service-card reveal" data-service="قصر 1500 متر" data-price="1950">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-landmark"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>قصر 1500 متر</h4>
+                                        <span class="order-card-desc">رش شامل للقصر</span>
+                                    </div>
+                                    <div class="order-card-price">
+                                        <span class="price-val">1,950</span>
+                                        <span class="price-unit">ر.س</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <div class="order-qty">
+                                        <button class="qty-btn qty-minus" aria-label="تقليل"><i class="fas fa-minus"></i></button>
+                                        <span class="qty-num">0</span>
+                                        <button class="qty-btn qty-plus" aria-label="زيادة"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <button class="add-to-order-btn">أضف للطلب</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab: Specialized Pest Control -->
+                    <div class="order-tab-content" id="content-pests">
+                        <div class="order-category-header reveal">
+                            <div class="order-cat-icon"><i class="fas fa-bug"></i></div>
+                            <div>
+                                <h3>مكافحة الآفات المتخصصة</h3>
+                                <p>حلول متخصصة للتخلص من آفات محددة</p>
+                            </div>
+                        </div>
+                        <div class="order-services-grid">
+                            <div class="order-service-card reveal" data-service="مكافحة نمل أبيض - باب" data-price="50">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-door-closed"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>مكافحة نمل أبيض - باب</h4>
+                                        <span class="order-card-desc">معالجة النمل الأبيض للباب الواحد</span>
+                                    </div>
+                                    <div class="order-card-price">
+                                        <span class="price-val">50</span>
+                                        <span class="price-unit">ر.س</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <div class="order-qty">
+                                        <button class="qty-btn qty-minus" aria-label="تقليل"><i class="fas fa-minus"></i></button>
+                                        <span class="qty-num">0</span>
+                                        <button class="qty-btn qty-plus" aria-label="زيادة"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <button class="add-to-order-btn">أضف للطلب</button>
+                                </div>
+                            </div>
+
+                            <div class="order-service-card reveal quote-card" data-service="مكافحة طيور" data-price="0">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-dove"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>مكافحة طيور</h4>
+                                        <span class="order-card-desc">حلول متخصصة لإبعاد الطيور</span>
+                                    </div>
+                                    <div class="order-card-price quote-price">
+                                        <span class="price-val"><i class="fas fa-eye"></i></span>
+                                        <span class="price-unit">السعر بعد الزيارة</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <button class="add-to-order-btn quote-btn" style="width:100%">
+                                        <i class="fab fa-whatsapp"></i> اطلب زيارة تقييم
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="order-service-card reveal quote-card" data-service="مكافحة فئران" data-price="0">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-paw"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>مكافحة فئران</h4>
+                                        <span class="order-card-desc">حلول فعالة للقضاء على الفئران</span>
+                                    </div>
+                                    <div class="order-card-price quote-price">
+                                        <span class="price-val"><i class="fas fa-eye"></i></span>
+                                        <span class="price-unit">السعر بعد الزيارة</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <button class="add-to-order-btn quote-btn" style="width:100%">
+                                        <i class="fab fa-whatsapp"></i> اطلب زيارة تقييم
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab: Spraying & Sewage -->
+                    <div class="order-tab-content" id="content-spraying">
+                        <div class="order-category-header reveal">
+                            <div class="order-cat-icon"><i class="fas fa-spray-can"></i></div>
+                            <div>
+                                <h3>خدمات الرش والمجاري</h3>
+                                <p>رش متخصص للصرف الصحي والحدائق وغرف التفتيش</p>
+                            </div>
+                        </div>
+                        <div class="order-services-grid">
+                            <div class="order-service-card reveal" data-service="مكافحة حشرات الصرف + التفتيش + المياه" data-price="400">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-water"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>مكافحة حشرات الصرف + التفتيش + المياه</h4>
+                                        <span class="order-card-desc">خدمة شاملة للصرف والتفتيش والمياه</span>
+                                    </div>
+                                    <div class="order-card-price">
+                                        <span class="price-val">400</span>
+                                        <span class="price-unit">ر.س</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <div class="order-qty">
+                                        <button class="qty-btn qty-minus" aria-label="تقليل"><i class="fas fa-minus"></i></button>
+                                        <span class="qty-num">0</span>
+                                        <button class="qty-btn qty-plus" aria-label="زيادة"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <button class="add-to-order-btn">أضف للطلب</button>
+                                </div>
+                            </div>
+
+                            <div class="order-service-card reveal" data-service="رش حديقة" data-price="350">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-tree"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>رش حديقة</h4>
+                                        <span class="order-card-desc">رش شامل للحديقة</span>
+                                    </div>
+                                    <div class="order-card-price">
+                                        <span class="price-val">350</span>
+                                        <span class="price-unit">ر.س</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <div class="order-qty">
+                                        <button class="qty-btn qty-minus" aria-label="تقليل"><i class="fas fa-minus"></i></button>
+                                        <span class="qty-num">0</span>
+                                        <button class="qty-btn qty-plus" aria-label="زيادة"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <button class="add-to-order-btn">أضف للطلب</button>
+                                </div>
+                            </div>
+
+                            <div class="order-service-card reveal" data-service="رش الصرف الصحي" data-price="200">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-faucet-drip"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>رش الصرف الصحي</h4>
+                                        <span class="order-card-desc">معالجة الصرف الصحي</span>
+                                    </div>
+                                    <div class="order-card-price">
+                                        <span class="price-val">200</span>
+                                        <span class="price-unit">ر.س</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <div class="order-qty">
+                                        <button class="qty-btn qty-minus" aria-label="تقليل"><i class="fas fa-minus"></i></button>
+                                        <span class="qty-num">0</span>
+                                        <button class="qty-btn qty-plus" aria-label="زيادة"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <button class="add-to-order-btn">أضف للطلب</button>
+                                </div>
+                            </div>
+
+                            <div class="order-service-card reveal" data-service="رش غرف التفتيش" data-price="200">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-magnifying-glass"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>رش غرف التفتيش</h4>
+                                        <span class="order-card-desc">رش شامل لغرف التفتيش</span>
+                                    </div>
+                                    <div class="order-card-price">
+                                        <span class="price-val">200</span>
+                                        <span class="price-unit">ر.س</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <div class="order-qty">
+                                        <button class="qty-btn qty-minus" aria-label="تقليل"><i class="fas fa-minus"></i></button>
+                                        <span class="qty-num">0</span>
+                                        <button class="qty-btn qty-plus" aria-label="زيادة"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <button class="add-to-order-btn">أضف للطلب</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cart Summary -->
+                <div class="cart-overlay" id="cartOverlay"></div>
+                <div class="order-cart reveal" id="orderCart">
+                    <div class="cart-header">
+                        <div class="cart-icon-wrap">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count" id="cartCount">0</span>
+                        </div>
+                        <h3>ملخص الطلب</h3>
+                        <button class="cart-close-btn" id="cartCloseBtn"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="cart-items" id="cartItems">
+                        <div class="cart-empty" id="cartEmpty">
+                            <i class="fas fa-cart-plus"></i>
+                            <p>لم تضف أي خدمة بعد</p>
+                            <span>اختر خدماتك من القائمة</span>
+                        </div>
+                    </div>
+                    <div class="cart-footer" id="cartFooter" style="display:none;">
+                        <div class="cart-total">
+                            <span>الإجمالي</span>
+                            <strong id="cartTotal">0 ر.س</strong>
+                        </div>
+                        <button class="cart-submit-btn" id="sendOrderBtn">
+                            <i class="fab fa-whatsapp"></i>
+                            أرسل الطلب عبر واتساب
+                        </button>
+                        <button class="cart-clear-btn" id="clearCartBtn">
+                            <i class="fas fa-trash-alt"></i> إفراغ السلة
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <section class="section why-us" id="why-us">
+        <div class="section-c">
+            <div class="why-us-container">
+                <div class="why-image-col reveal">
+                    <img src="./why-us.webp" alt="فريق أمدكو" class="why-main-img">
+                    <div class="why-exp-badge">
+                        <span class="exp-num">10+</span>
+                        <span class="exp-text">سنوات خبرة</span>
+                    </div>
+                </div>
+                <div class="why-text-col reveal">
+                    <div class="why-subtitle">عن الشركة</div>
+                    <h2 class="why-main-title">لماذا أمدكو؟</h2>
+                    <p class="why-main-desc">شركة أمد الأولى للخدمات تأسست بخبرة تتجاوز العشر سنوات في مجال الخدمات المنزلية والصحية. نسعى دائماً لتقديم أعلى مستويات الجودة والاحترافية لعملائنا الكرام.</p>
+                    <div class="why-features">
+                        <div class="why-feature">
+                            <div class="why-f-icon"><i class="fas fa-shield-alt"></i></div>
+                            <div class="why-f-text">
+                                <h4>ضمان الجودة</h4>
+                                <p>نضمن لكم نتائج مضمونة مع ضمان يصل إلى سنة كاملة على جميع خدماتنا</p>
+                            </div>
+                        </div>
+                        <div class="why-feature">
+                            <div class="why-f-icon"><i class="fas fa-clock"></i></div>
+                            <div class="why-f-text">
+                                <h4>سرعة الاستجابة</h4>
+                                <p>فريقنا جاهز للوصول إليكم في أسرع وقت ممكن مع خدمة طوارئ على مدار الساعة</p>
+                            </div>
+                        </div>
+                        <div class="why-feature">
+                            <div class="why-f-icon"><i class="fas fa-tint"></i></div>
+                            <div class="why-f-text">
+                                <h4>مواد آمنة ومعتمدة</h4>
+                                <p>نستخدم فقط مواد معتمدة من الجهات الصحية وآمنة تماماً للأطفال والحيوانات الأليفة</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section testimonials" id="testimonials">
+        <div class="section-c">
+            <div class="section-h reveal"><div class="section-badge">آراء العملاء</div><h2 class="section-title">ماذا يقول عملاؤنا</h2><p class="section-desc">رضا عملائنا هو أكبر إنجاز لنا</p></div>
+            <div class="test-grid">
+                <div class="test-card reveal"><div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="test-text">خدمة مكافحة الحشرات كانت ممتازة! اختفت الحشرات تمامًا من المنزل وفريق العمل كان محترفًا.</p><div class="test-author"><div class="test-avatar">أ</div><div><div class="test-name">أبو محمد</div><div class="test-role">صاحب فيلا - جدة</div></div></div></div>
+                <div class="test-card reveal"><div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="test-text">تعقيم الخزانات كان شاملًا ودقيقًا. الفريق شرح كل خطوة وأعطاني تقريرًا مفصلًا.</p><div class="test-author"><div class="test-avatar">م</div><div><div class="test-name">منى العتيبي</div><div class="test-role">ربة منزل - جدة</div></div></div></div>
+                <div class="test-card reveal"><div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div><p class="test-text">نظفنا الأرضيات بالبخار في المكتب والنتيجة مذهلة! الأرضيات كأنها جديدة.</p><div class="test-author"><div class="test-avatar">خ</div><div><div class="test-name">خالد السلمي</div><div class="test-role">مدير شركة - جدة</div></div></div></div>
+            </div>
+        </div>
+    </section>
+    <section class="section contact" id="contact">
+        <div class="section-c">
+            <div class="section-h reveal"><div class="section-badge">تواصل معنا</div><h2 class="section-title">نحن هنا لخدمتك</h2><p class="section-desc">تواصل معنا الآن واحصل على استشارة مجانية وعرض سعر خاص</p></div>
+            <div class="contact-grid">
+                <div class="contact-info reveal">
+                    <div class="contact-items-wrapper">
+                        <div class="contact-item"><div class="contact-item-icon"><i class="fas fa-phone-alt"></i></div><div><div class="contact-item-label">اتصل بنا</div><div class="contact-item-value"><a href="tel:+966500000000" dir="ltr">+966 50 000 0000</a></div></div></div>
+                        <div class="contact-item"><div class="contact-item-icon"><i class="fab fa-whatsapp"></i></div><div><div class="contact-item-label">واتساب</div><div class="contact-item-value"><a href="https://wa.me/966500000000" dir="ltr">+966 50 000 0000</a></div></div></div>
+                        <div class="contact-item"><div class="contact-item-icon"><i class="fas fa-envelope"></i></div><div><div class="contact-item-label">البريد الإلكتروني</div><div class="contact-item-value"><a href="mailto:info@amdko.com">info@amdko.com</a></div></div></div>
+                        <div class="contact-item"><div class="contact-item-icon"><i class="fas fa-map-marker-alt"></i></div><div><div class="contact-item-label">العنوان</div><div class="contact-item-value">جدة، المملكة العربية السعودية</div></div></div>
+                    </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand"><img src="./logo/logo_white.webp" alt="أمدكو" style="height: 75px; width: auto; margin-bottom: 12px;"><p>شركة أمد الأولى للخدمات - شريككم الموثوق في النظافة والتعقيم منذ أكثر من 15 عامًا.</p><div class="footer-socials"><a href="https://wa.me/966500000000" class="social-link social-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i></a><a href="#" class="social-link social-facebook" target="_blank"><i class="fab fa-facebook-f"></i></a><a href="#" class="social-link social-instagram" target="_blank"><i class="fab fa-instagram"></i></a><a href="#" class="social-link social-tiktok" target="_blank"><i class="fab fa-tiktok"></i></a></div></div>
+            <div class="footer-col"><h4>خدماتنا</h4><ul><li><a href="#services">مكافحة حشرات</a></li><li><a href="#services">تعقيم ضد الفيروسات</a></li><li><a href="#services">تنظيف بالبخار</a></li><li><a href="#services">تنظيف الخزانات</a></li></ul></div>
+            <div class="footer-col"><h4>روابط سريعة</h4><ul><li><a href="#hero">الرئيسية</a></li><li><a href="#pricing">اطلب الآن</a></li><li><a href="#why-us">لماذا نحن</a></li><li><a href="#contact">تواصل معنا</a></li></ul></div>
+            <div class="footer-col"><h4>ساعات العمل</h4><ul><li><a href="#">السبت - الخميس</a></li><li><a href="#">8 صباحًا - 10 مساءً</a></li><li><a href="#">الجمعة</a></li><li><a href="#">2 ظهرًا - 10 مساءً</a></li></ul></div>
+        </div>
+        <div class="footer-bottom"><span>&copy; 2024 أمدكو - جميع الحقوق محفوظة</span></div>
+    </footer>
+    <button class="mobile-cart-toggle" id="mobileCartToggle"><i class="fas fa-shopping-cart"></i><span class="mobile-cart-count">0</span></button>
+    <a href="https://wa.me/966500000000" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i><span class="wa-tooltip">تحدث معنا على واتساب</span></a>
+    <button class="scroll-top" id="scrollTop"><i class="fas fa-chevron-up"></i></button>
+    
+    <div class="cart-toast" id="cartToast">
+        <i class="fas fa-check-circle"></i>
+        <span>تم إضافة <strong class="toast-name"></strong> للطلب</span>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
