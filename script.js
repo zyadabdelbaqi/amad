@@ -10,7 +10,7 @@
         hamburger.addEventListener('click',openMenu);mobileClose.addEventListener('click',closeMenu);mobileOverlay.addEventListener('click',closeMenu);
         mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
         const revealEls=document.querySelectorAll('.reveal');
-        const revealObs=new IntersectionObserver(e=>{e.forEach(en=>{if(en.isIntersecting)en.target.classList.add('revealed')})},{threshold:.15,rootMargin:'0px 0px -50px 0px'});
+        const revealObs=new IntersectionObserver(e=>{e.forEach(en=>{if(en.isIntersecting)en.target.classList.add('revealed')})},{threshold:0.05,rootMargin:'0px 0px 0px 0px'});
         revealEls.forEach(el=>revealObs.observe(el));
         const counters=document.querySelectorAll('.stat-number');let cStarted=false;
         const cObs=new IntersectionObserver(e=>{e.forEach(en=>{if(en.isIntersecting&&!cStarted){cStarted=true;counters.forEach(c=>{const t=+c.getAttribute('data-target'),suf=c.querySelector('span')?.outerHTML||'',dur=2000,step=t/(dur/16);let cur=0;const up=()=>{cur+=step;if(cur>=t){c.innerHTML=t.toLocaleString('ar-SA')+suf;return}c.innerHTML=Math.floor(cur).toLocaleString('ar-SA')+suf;requestAnimationFrame(up)};up()})}})},{threshold:.5});
@@ -20,7 +20,7 @@
 
         // === ORDER SYSTEM ===
         (function(){
-            const WHATSAPP_NUMBER = '966500000000';
+            const WHATSAPP_NUMBER = '966545759422';
             let cart = [];
 
             // Audio for click sound

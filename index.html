@@ -12,13 +12,14 @@
     <nav class="navbar" id="navbar">
         <div class="nav-c">
             <a href="#hero" class="nav-logo">
-                <img src="./logo/logo_white.webp" alt="أمدكو" style="height: 90px; width: auto; object-fit: contain; filter: drop-shadow(0 2px 10px rgba(0,0,0,0.5)); transition: transform 0.3s ease;">
+                <img src="./logo/logo_new.webp" alt="أمدكو" style="height: 60px; width: auto; object-fit: contain; filter: drop-shadow(0 2px 10px rgba(0,0,0,0.5)); transition: transform 0.3s ease;">
             </a>
             <ul class="nav-links">
                 <li><a href="#hero" class="active">الرئيسية</a></li>
                 <li><a href="#services">خدماتنا</a></li>
+                <li><a href="#contracts">العقود السنوية</a></li>
                 <li><a href="#pricing">اطلب الآن</a></li>
-                <li><a href="#why-us">عن الشركة</a></li>
+                <li><a href="#about">عن الشركة</a></li>
                 <li><a href="#contact">تواصل معنا</a></li>
             </ul>
             <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
@@ -27,40 +28,82 @@
     <div class="mobile-overlay" id="mobileOverlay"></div>
     <div class="mobile-menu" id="mobileMenu">
         <button class="mobile-close" id="mobileClose"><i class="fas fa-times"></i></button>
-        <a href="#hero">الرئيسية</a><a href="#services">خدماتنا</a><a href="#pricing">اطلب الآن</a><a href="#why-us">عن الشركة</a><a href="#contact">تواصل معنا</a>
+        <a href="#hero">الرئيسية</a><a href="#services">خدماتنا</a><a href="#contracts">العقود السنوية</a><a href="#pricing">اطلب الآن</a><a href="#about">عن الشركة</a><a href="#contact">تواصل معنا</a>
     </div>
     <section class="hero" id="hero">
         <svg class="hero-shield-bg" viewBox="0 0 400 480" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M200 12 L360 76 V220 C360 335 200 450 200 450 C200 450 40 335 40 220 V76 L200 12 Z" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.12)" stroke-width="4"/>
-            <path d="M200 32 L340 88 V215 C340 318 200 420 200 420 C200 420 60 318 60 215 V88 L200 32 Z" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="2"/>
+            <path d="M200 12 L360 76 V220 C360 335 200 450 200 450 C200 450 40 335 40 220 V76 L200 12 Z" fill="rgba(255,255,255,0.02)" stroke="var(--gold)" stroke-width="2" opacity="0.5"/>
+            <path d="M200 32 L340 88 V215 C340 318 200 420 200 420 C200 420 60 318 60 215 V88 L200 32 Z" fill="none" stroke="var(--gold)" stroke-width="1" opacity="0.3"/>
         </svg>
         <div class="hero-content">
+
             <h1 class="hero-title">
-                شركة مكافحة حشرات<br>
-                <span class="hero-title-highlight">وتعقيم معتمدة في</span><br>
-                جدة
+                الخيار الأول في<br>
+                <span class="hero-title-highlight" style="color: var(--gold);">مكافحة الحشرات والتعقيم</span><br>
+                في جدة
             </h1>
-            <p class="hero-desc">مكافحة حشرات وتعقيم وخدمات تنظيف احترافية بضمان وجودة عالية.</p>
+            <p class="hero-desc">نقدم خدمات تنظيف ومكافحة حشرات احترافية بمعايير عالمية وضمان حقيقي لراحتك وسلامة عائلتك.</p>
             <div class="hero-buttons">
-                <a href="#contact" class="btn btn-white">احجز موعدك الآن</a>
-                <a href="https://wa.me/966500000000" class="btn btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> تواصل عبر واتساب</a>
+                <a href="#contact" class="btn btn-gold" style="background: var(--gold); color: #fff; box-shadow: 0 8px 25px rgba(195, 157, 104, 0.4);">احجز موعدك الآن</a>
+                <a href="https://wa.me/966545759422" class="btn btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> تواصل عبر واتساب</a>
             </div>
             <div class="hero-stats">
                 <div class="hero-stat-item">
-                    <div class="hero-stat-num">10+</div>
+                    <div class="hero-stat-num" style="color: var(--gold);">10+</div>
                     <div class="hero-stat-lbl">سنوات خبرة</div>
                 </div>
                 <div class="hero-stat-item">
-                    <div class="hero-stat-num">5000+</div>
+                    <div class="hero-stat-num" style="color: var(--gold);">5000+</div>
                     <div class="hero-stat-lbl">عميل سعيد</div>
                 </div>
                 <div class="hero-stat-item">
-                    <div class="hero-stat-num">20+</div>
+                    <div class="hero-stat-num" style="color: var(--gold);">20+</div>
                     <div class="hero-stat-lbl">فني متخصص</div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Portfolio Section -->
+    <section class="section portfolio" id="portfolio">
+        <div class="section-c">
+            <div class="section-h reveal">
+                <div class="section-badge">أعمالنا</div>
+                <h2 class="section-title">معرض أعمالنا</h2>
+                <p class="section-desc">صور من مواقع العمل تبرز جودة واحترافية خدماتنا</p>
+            </div>
+            <div class="portfolio-grid reveal">
+                <div class="portfolio-item">
+                    <img src="./images/portfolio/1.webp" alt="عمل 1">
+                </div>
+                <div class="portfolio-item">
+                    <img src="./images/portfolio/2.webp" alt="عمل 2">
+                </div>
+                <div class="portfolio-item">
+                    <img src="./images/portfolio/3.webp" alt="عمل 3">
+                </div>
+                <div class="portfolio-item">
+                    <img src="./images/portfolio/7.webp" alt="عمل 7">
+                </div>
+                <div class="portfolio-item">
+                    <img src="./images/portfolio/4.webp" alt="عمل 4">
+                </div>
+                <div class="portfolio-item">
+                    <img src="./images/portfolio/5.webp" alt="عمل 5">
+                </div>
+                <div class="portfolio-item">
+                    <img src="./images/portfolio/6.webp" alt="عمل 6">
+                </div>
+                <div class="portfolio-item">
+                    <img src="./images/portfolio/8.webp" alt="عمل 8">
+                </div>
+                <div class="portfolio-item">
+                    <img src="./images/portfolio/9.webp" alt="عمل 9">
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="section services" id="services">
         <div class="section-c">
             <div class="section-h reveal">
@@ -69,7 +112,7 @@
             <div class="services-grid">
                 <div class="service-card reveal">
                     <div class="service-card-image">
-                        <img src="./images/pest_control.png" alt="مكافحة حشرات" loading="lazy">
+                        <img src="./images/pest_control.webp" alt="مكافحة حشرات" loading="lazy">
                         <div class="service-card-overlay"></div>
                         <div class="service-card-header-badge">
                             <h3 class="service-card-title">مكافحة حشرات</h3>
@@ -88,7 +131,7 @@
                 </div>
                 <div class="service-card reveal">
                     <div class="service-card-image">
-                        <img src="./images/disinfection.png" alt="تعقيم ضد الفيروسات" loading="lazy">
+                        <img src="./images/disinfection.webp" alt="تعقيم ضد الفيروسات" loading="lazy">
                         <div class="service-card-overlay"></div>
                         <div class="service-card-header-badge">
                             <h3 class="service-card-title">تعقيم ضد الفيروسات</h3>
@@ -107,7 +150,7 @@
                 </div>
                 <div class="service-card reveal">
                     <div class="service-card-image">
-                        <img src="./images/steam_cleaning.png" alt="تنظيف الأساس بالبخار" loading="lazy">
+                        <img src="./images/steam_cleaning.webp" alt="تنظيف الأساس بالبخار" loading="lazy">
                         <div class="service-card-overlay"></div>
                         <div class="service-card-header-badge">
                             <h3 class="service-card-title">تنظيف الأساس بالبخار</h3>
@@ -126,7 +169,7 @@
                 </div>
                 <div class="service-card reveal">
                     <div class="service-card-image">
-                        <img src="./images/tank_cleaning.png" alt="تنظيف وتعقيم الخزانات" loading="lazy">
+                        <img src="./images/tank_cleaning.webp" alt="تنظيف وتعقيم الخزانات" loading="lazy">
                         <div class="service-card-overlay"></div>
                         <div class="service-card-header-badge">
                             <h3 class="service-card-title">تنظيف وتعقيم الخزانات</h3>
@@ -146,6 +189,50 @@
             </div>
         </div>
     </section>
+    
+    <section class="section contracts" id="contracts" style="background: var(--red); color: var(--white); padding: 80px 0;">
+        <div class="section-c">
+            <div class="section-h reveal" style="margin-bottom: 40px;">
+
+                <h2 class="section-title" style="color: var(--white);">العقود السنوية لمكافحة الحشرات</h2>
+                <p class="section-desc" style="color: rgba(255,255,255,0.85); max-width: 800px;">
+                    يقدم قسم العقود السنوية لمكافحة الحشرات برامج وقائية وعلاجية مستمرة للمنشآت التجارية، المطاعم، المصانع، والمنازل لحمايتها من الآفات على مدار العام عبر زيارات دورية مجدولة وتدخلات طارئة عند الحاجة.
+                </p>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; margin-bottom: 50px;" class="reveal">
+                <div style="background: rgba(255,255,255,0.05); padding: 25px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <i class="fas fa-calendar-check" style="color: var(--gold); font-size: 32px; margin-bottom: 16px;"></i>
+                    <h3 style="font-size: 18px; font-weight: 800; margin-bottom: 10px;">الزيارات الدورية المجدولة</h3>
+                    <p style="font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.6;">فحص ورش المكان بانتظام (شهرياً أو ربع سنويًا) لاكتشاف الثغرات وسدها مبكراً.</p>
+                </div>
+                <div style="background: rgba(255,255,255,0.05); padding: 25px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <i class="fas fa-ambulance" style="color: var(--gold); font-size: 32px; margin-bottom: 16px;"></i>
+                    <h3 style="font-size: 18px; font-weight: 800; margin-bottom: 10px;">الاستجابة للطوارئ</h3>
+                    <p style="font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.6;">توفير زيارات فورية مجانية أو مدعومة في حال ظهور أي غزو مفاجئ للحشرات.</p>
+                </div>
+                <div style="background: rgba(255,255,255,0.05); padding: 25px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <i class="fas fa-file-signature" style="color: var(--gold); font-size: 32px; margin-bottom: 16px;"></i>
+                    <h3 style="font-size: 18px; font-weight: 800; margin-bottom: 10px;">الامتثال للجهات الرقابية</h3>
+                    <p style="font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.6;">إصدار تقارير فنية وشهادات معتمدة ومقبولة لدى هيئات سلامة الغذاء والصحة المهنية.</p>
+                </div>
+                <div style="background: rgba(255,255,255,0.05); padding: 25px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <i class="fas fa-leaf" style="color: var(--gold); font-size: 32px; margin-bottom: 16px;"></i>
+                    <h3 style="font-size: 18px; font-weight: 800; margin-bottom: 10px;">مواد آمنة بدون رائحة</h3>
+                    <p style="font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.6;">استخدام تقنيات وأمصال حديثة مطابقة للمعايير الصحية تتيح المكافحة دون إخلاء المكان.</p>
+                </div>
+            </div>
+
+            <div class="reveal" style="background: rgba(255,255,255,0.05); padding: 30px; border-radius: 20px; text-align: center; color: #fff; border: 1px solid rgba(255,255,255,0.1);">
+                <h3 style="font-size: 22px; font-weight: 800; margin-bottom: 12px; color: #fff;">لطلب عرض سعر لعقد سنوي</h3>
+                <p style="font-size: 15px; margin-bottom: 20px; opacity: 0.9;">يرجى توضيح: (نوع المنشأة - المساحة التقريبية - المدينة أو المنطقة) لأتمكن من توجيهك بالشكل الأمثل.</p>
+                <a href="https://wa.me/966545759422?text=أرغب%20في%20الحصول%20على%20عرض%20سعر%20لعقد%20سنوي.%0A%0Aنوع%20المنشأة:%20%0Aالمساحة%20التقريبية:%20%0Aالمدينة:%20" target="_blank" style="display: inline-flex; background: var(--gold); color: #fff; font-weight: 800; padding: 12px 28px; border-radius: 30px; text-decoration: none; box-shadow: 0 4px 15px rgba(195,157,104,0.3); transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <i class="fab fa-whatsapp" style="margin-left: 8px;"></i> تواصل معنا لطلب عرض سعر
+                </a>
+            </div>
+        </div>
+    </section>
+
     <section class="section pricing" id="pricing">
         <div class="section-c">
             <div class="section-h reveal">
@@ -154,45 +241,34 @@
                 <p class="section-desc">حدد الخدمات التي تحتاجها وسنتواصل معك عبر واتساب فوراً</p>
             </div>
 
-            <!-- Order Tabs -->
             <div class="order-tabs reveal">
-                <button class="order-tab active" data-tab="apartments" id="tab-apartments">
-                    <i class="fas fa-building"></i>
-                    <span>الشقق والفيلات</span>
-                </button>
-                <button class="order-tab" data-tab="pests" id="tab-pests">
-                    <i class="fas fa-bug"></i>
-                    <span>اخرى</span>
-                </button>
-                <button class="order-tab" data-tab="spraying" id="tab-spraying">
-                    <i class="fas fa-spray-can"></i>
-                    <span>الصرف الصحي وغرف التفتيش</span>
-                </button>
+                <button class="order-tab active" data-tab="pest-control"><i class="fas fa-bug"></i> مكافحة الحشرات</button>
+                <button class="order-tab" data-tab="sterilization"><i class="fas fa-shield-virus"></i> التعقيم ضد الفيروسات</button>
+                <button class="order-tab" data-tab="furniture-tanks"><i class="fas fa-couch"></i> تنظيف الاثاث بالبخار والخزانات</button>
+                <button class="order-tab" data-tab="annual-contracts"><i class="fas fa-file-signature"></i> العقود السنوية</button>
             </div>
 
             <div class="order-layout">
                 <!-- Services List -->
-                <div class="order-services-wrap">
-
-                    <!-- Tab: Apartments & Villas -->
-                    <div class="order-tab-content active" id="content-apartments">
+                <div class="order-services-wrap" style="width: 100%;">
+                    
+                    <div class="order-tab-content active" id="content-pest-control">
                         <div class="order-category-header reveal">
-                            <div class="order-cat-icon"><i class="fas fa-home"></i></div>
+                            <div class="order-cat-icon"><i class="fas fa-bug"></i></div>
                             <div>
-                                <h3>خدمات الشقق والفيلات</h3>
-                                <p>رش ومكافحة حشرات شاملة حسب حجم المكان</p>
+                                <h3>قسم مكافحة الحشرات</h3>
                             </div>
                         </div>
                         <div class="order-services-grid">
-                            <div class="order-service-card reveal" data-service="أستوديو" data-price="100">
+                            <div class="order-service-card reveal" data-service="استوديو" data-price="50">
                                 <div class="order-card-top">
                                     <div class="order-card-icon"><i class="fas fa-door-open"></i></div>
                                     <div class="order-card-info">
-                                        <h4>أستوديو</h4>
-                                        <span class="order-card-desc">رش شامل للأستوديو</span>
+                                        <h4>استوديو</h4>
                                     </div>
                                     <div class="order-card-price">
-                                        <span class="price-val">100</span>
+                                        <del style="color: #999; font-size: 0.85em; margin-left: 5px;">100</del>
+                                        <span class="price-val">50</span>
                                         <span class="price-unit">ر.س</span>
                                     </div>
                                 </div>
@@ -206,36 +282,14 @@
                                 </div>
                             </div>
 
-                            <div class="order-service-card reveal" data-service="شقة غرفة نوم" data-price="150">
+                            <div class="order-service-card reveal" data-service="شقة غرفة نوم" data-price="200">
                                 <div class="order-card-top">
                                     <div class="order-card-icon"><i class="fas fa-bed"></i></div>
                                     <div class="order-card-info">
                                         <h4>شقة غرفة نوم</h4>
-                                        <span class="order-card-desc">رش شامل - غرفة واحدة</span>
                                     </div>
                                     <div class="order-card-price">
-                                        <span class="price-val">150</span>
-                                        <span class="price-unit">ر.س</span>
-                                    </div>
-                                </div>
-                                <div class="order-card-bottom">
-                                    <div class="order-qty">
-                                        <button class="qty-btn qty-minus" aria-label="تقليل"><i class="fas fa-minus"></i></button>
-                                        <span class="qty-num">0</span>
-                                        <button class="qty-btn qty-plus" aria-label="زيادة"><i class="fas fa-plus"></i></button>
-                                    </div>
-                                    <button class="add-to-order-btn">أضف للطلب</button>
-                                </div>
-                            </div>
-
-                            <div class="order-service-card reveal" data-service="شقة غرفتين نوم" data-price="200">
-                                <div class="order-card-top">
-                                    <div class="order-card-icon"><i class="fas fa-bed"></i></div>
-                                    <div class="order-card-info">
-                                        <h4>شقة غرفتين نوم</h4>
-                                        <span class="order-card-desc">رش شامل - غرفتين</span>
-                                    </div>
-                                    <div class="order-card-price">
+                                        <del style="color: #999; font-size: 0.85em; margin-left: 5px;">250</del>
                                         <span class="price-val">200</span>
                                         <span class="price-unit">ر.س</span>
                                     </div>
@@ -250,14 +304,14 @@
                                 </div>
                             </div>
 
-                            <div class="order-service-card reveal" data-service="شقة ثلاث غرف نوم" data-price="250">
+                            <div class="order-service-card reveal" data-service="شقة غرفتين نوم" data-price="250">
                                 <div class="order-card-top">
                                     <div class="order-card-icon"><i class="fas fa-bed"></i></div>
                                     <div class="order-card-info">
-                                        <h4>شقة ثلاث غرف نوم</h4>
-                                        <span class="order-card-desc">رش شامل - 3 غرف</span>
+                                        <h4>شقة غرفتين نوم</h4>
                                     </div>
                                     <div class="order-card-price">
+                                        <del style="color: #999; font-size: 0.85em; margin-left: 5px;">300</del>
                                         <span class="price-val">250</span>
                                         <span class="price-unit">ر.س</span>
                                     </div>
@@ -272,14 +326,14 @@
                                 </div>
                             </div>
 
-                            <div class="order-service-card reveal" data-service="شقة أربع غرف نوم" data-price="300">
+                            <div class="order-service-card reveal" data-service="شقة ثلاث غرف نوم" data-price="300">
                                 <div class="order-card-top">
                                     <div class="order-card-icon"><i class="fas fa-bed"></i></div>
                                     <div class="order-card-info">
-                                        <h4>شقة أربع غرف نوم</h4>
-                                        <span class="order-card-desc">رش شامل - 4 غرف</span>
+                                        <h4>شقة ثلاث غرف نوم</h4>
                                     </div>
                                     <div class="order-card-price">
+                                        <del style="color: #999; font-size: 0.85em; margin-left: 5px;">350</del>
                                         <span class="price-val">300</span>
                                         <span class="price-unit">ر.س</span>
                                     </div>
@@ -294,15 +348,37 @@
                                 </div>
                             </div>
 
-                            <div class="order-service-card reveal" data-service="شقة خمس غرف نوم" data-price="350">
+                            <div class="order-service-card reveal" data-service="شقة أربع غرف نوم" data-price="350">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-bed"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>شقة أربع غرف نوم</h4>
+                                    </div>
+                                    <div class="order-card-price">
+                                        <del style="color: #999; font-size: 0.85em; margin-left: 5px;">400</del>
+                                        <span class="price-val">350</span>
+                                        <span class="price-unit">ر.س</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <div class="order-qty">
+                                        <button class="qty-btn qty-minus" aria-label="تقليل"><i class="fas fa-minus"></i></button>
+                                        <span class="qty-num">0</span>
+                                        <button class="qty-btn qty-plus" aria-label="زيادة"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <button class="add-to-order-btn">أضف للطلب</button>
+                                </div>
+                            </div>
+
+                            <div class="order-service-card reveal" data-service="شقة خمس غرف نوم" data-price="400">
                                 <div class="order-card-top">
                                     <div class="order-card-icon"><i class="fas fa-bed"></i></div>
                                     <div class="order-card-info">
                                         <h4>شقة خمس غرف نوم</h4>
-                                        <span class="order-card-desc">رش شامل - 5 غرف</span>
                                     </div>
                                     <div class="order-card-price">
-                                        <span class="price-val">350</span>
+                                        <del style="color: #999; font-size: 0.85em; margin-left: 5px;">450</del>
+                                        <span class="price-val">400</span>
                                         <span class="price-unit">ر.س</span>
                                     </div>
                                 </div>
@@ -320,10 +396,10 @@
                                 <div class="order-card-top">
                                     <div class="order-card-icon"><i class="fas fa-house-chimney"></i></div>
                                     <div class="order-card-info">
-                                        <h4>فيلا 3 غرف + المجالس</h4>
-                                        <span class="order-card-desc">رش شامل للفيلا والمجالس</span>
+                                        <h4>فيلا 3 غرف نوم + المجالس</h4>
                                     </div>
                                     <div class="order-card-price">
+                                        <del style="color: #999; font-size: 0.85em; margin-left: 5px;">500</del>
                                         <span class="price-val">450</span>
                                         <span class="price-unit">ر.س</span>
                                     </div>
@@ -338,15 +414,15 @@
                                 </div>
                             </div>
 
-                            <div class="order-service-card reveal" data-service="فيلا 6 غرف نوم (المواصفات الكاملة)" data-price="600">
+                            <div class="order-service-card reveal" data-service="فيلا 6 غرف نوم + 5 دورات مياه + صالة + مطبخ + مجالس" data-price="400">
                                 <div class="order-card-top">
                                     <div class="order-card-icon"><i class="fas fa-house-chimney"></i></div>
                                     <div class="order-card-info">
-                                        <h4>فيلا 6 غرف نوم</h4>
-                                        <span class="order-card-desc">المواصفات الكاملة</span>
+                                        <h4>فيلا 6 غرف نوم + 5 دورات مياه + صالة + مطبخ + مجالس</h4>
                                     </div>
                                     <div class="order-card-price">
-                                        <span class="price-val">600</span>
+                                        <del style="color: #999; font-size: 0.85em; margin-left: 5px;">450</del>
+                                        <span class="price-val">400</span>
                                         <span class="price-unit">ر.س</span>
                                     </div>
                                 </div>
@@ -360,14 +436,168 @@
                                 </div>
                             </div>
 
-                            <div class="order-service-card reveal" data-service="رش دوبلكس 4 غرف" data-price="450">
+                            <div class="order-service-card reveal" data-service="مكافحة طيور" data-price="50">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-dove"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>مكافحة طيور</h4>
+                                    </div>
+                                    <div class="order-card-price">
+                                        <del style="color: #999; font-size: 0.85em; margin-left: 5px;">100</del>
+                                        <span class="price-val">50</span>
+                                        <span class="price-unit">ر.س</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <div class="order-qty">
+                                        <button class="qty-btn qty-minus" aria-label="تقليل"><i class="fas fa-minus"></i></button>
+                                        <span class="qty-num">0</span>
+                                        <button class="qty-btn qty-plus" aria-label="زيادة"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <button class="add-to-order-btn">أضف للطلب</button>
+                                </div>
+                            </div>
+
+                            <div class="order-service-card reveal" data-service="مكافحة نمل أبيض - باب" data-price="50">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-door-closed"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>مكافحة نمل أبيض - باب</h4>
+                                    </div>
+                                    <div class="order-card-price">
+                                        <del style="color: #999; font-size: 0.85em; margin-left: 5px;">100</del>
+                                        <span class="price-val">50</span>
+                                        <span class="price-unit">ر.س</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <div class="order-qty">
+                                        <button class="qty-btn qty-minus" aria-label="تقليل"><i class="fas fa-minus"></i></button>
+                                        <span class="qty-num">0</span>
+                                        <button class="qty-btn qty-plus" aria-label="زيادة"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <button class="add-to-order-btn">أضف للطلب</button>
+                                </div>
+                            </div>
+
+                            <div class="order-service-card reveal" data-service="مكافحة فئران" data-price="100">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-paw"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>مكافحة فئران</h4>
+                                    </div>
+                                    <div class="order-card-price">
+                                        <del style="color: #999; font-size: 0.85em; margin-left: 5px;">150</del>
+                                        <span class="price-val">100</span>
+                                        <span class="price-unit">ر.س</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <div class="order-qty">
+                                        <button class="qty-btn qty-minus" aria-label="تقليل"><i class="fas fa-minus"></i></button>
+                                        <span class="qty-num">0</span>
+                                        <button class="qty-btn qty-plus" aria-label="زيادة"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <button class="add-to-order-btn">أضف للطلب</button>
+                                </div>
+                            </div>
+
+                            <div class="order-service-card reveal" data-service="مكافحة حشرات الصرف الصحي + غرف التفتيش + دورات المياه" data-price="400">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-water"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>مكافحة حشرات الصرف الصحي + غرف التفتيش + دورات المياه</h4>
+                                    </div>
+                                    <div class="order-card-price">
+                                        <del style="color: #999; font-size: 0.85em; margin-left: 5px;">450</del>
+                                        <span class="price-val">400</span>
+                                        <span class="price-unit">ر.س</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <div class="order-qty">
+                                        <button class="qty-btn qty-minus" aria-label="تقليل"><i class="fas fa-minus"></i></button>
+                                        <span class="qty-num">0</span>
+                                        <button class="qty-btn qty-plus" aria-label="زيادة"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <button class="add-to-order-btn">أضف للطلب</button>
+                                </div>
+                            </div>
+
+                            <div class="order-service-card reveal" data-service="رش حدائق" data-price="150">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-tree"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>رش حدائق</h4>
+                                    </div>
+                                    <div class="order-card-price">
+                                        <del style="color: #999; font-size: 0.85em; margin-left: 5px;">200</del>
+                                        <span class="price-val">150</span>
+                                        <span class="price-unit">ر.س</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <div class="order-qty">
+                                        <button class="qty-btn qty-minus" aria-label="تقليل"><i class="fas fa-minus"></i></button>
+                                        <span class="qty-num">0</span>
+                                        <button class="qty-btn qty-plus" aria-label="زيادة"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <button class="add-to-order-btn">أضف للطلب</button>
+                                </div>
+                            </div>
+
+                            <div class="order-service-card reveal" data-service="رش غرف الصرف الصحي" data-price="200">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-faucet-drip"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>رش غرف الصرف الصحي</h4>
+                                    </div>
+                                    <div class="order-card-price">
+                                        <del style="color: #999; font-size: 0.85em; margin-left: 5px;">250</del>
+                                        <span class="price-val">200</span>
+                                        <span class="price-unit">ر.س</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <div class="order-qty">
+                                        <button class="qty-btn qty-minus" aria-label="تقليل"><i class="fas fa-minus"></i></button>
+                                        <span class="qty-num">0</span>
+                                        <button class="qty-btn qty-plus" aria-label="زيادة"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <button class="add-to-order-btn">أضف للطلب</button>
+                                </div>
+                            </div>
+
+                            <div class="order-service-card reveal" data-service="رش غرف التفتيش" data-price="150">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-magnifying-glass"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>رش غرف التفتيش</h4>
+                                    </div>
+                                    <div class="order-card-price">
+                                        <del style="color: #999; font-size: 0.85em; margin-left: 5px;">200</del>
+                                        <span class="price-val">150</span>
+                                        <span class="price-unit">ر.س</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <div class="order-qty">
+                                        <button class="qty-btn qty-minus" aria-label="تقليل"><i class="fas fa-minus"></i></button>
+                                        <span class="qty-num">0</span>
+                                        <button class="qty-btn qty-plus" aria-label="زيادة"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <button class="add-to-order-btn">أضف للطلب</button>
+                                </div>
+                            </div>
+
+                            <div class="order-service-card reveal" data-service="رش دوبلكس 4 غرف مع دورات المياه + صالة + مطبخ" data-price="450">
                                 <div class="order-card-top">
                                     <div class="order-card-icon"><i class="fas fa-building"></i></div>
                                     <div class="order-card-info">
-                                        <h4>رش دوبلكس 4 غرف</h4>
-                                        <span class="order-card-desc">رش شامل للدوبلكس</span>
+                                        <h4>رش دوبلكس 4 غرف مع دورات المياه + صالة + مطبخ</h4>
                                     </div>
                                     <div class="order-card-price">
+                                        <del style="color: #999; font-size: 0.85em; margin-left: 5px;">500</del>
                                         <span class="price-val">450</span>
                                         <span class="price-unit">ر.س</span>
                                     </div>
@@ -387,44 +617,10 @@
                                     <div class="order-card-icon"><i class="fas fa-landmark"></i></div>
                                     <div class="order-card-info">
                                         <h4>قصر 1500 متر</h4>
-                                        <span class="order-card-desc">رش شامل للقصر</span>
                                     </div>
                                     <div class="order-card-price">
-                                        <span class="price-val">1,950</span>
-                                        <span class="price-unit">ر.س</span>
-                                    </div>
-                                </div>
-                                <div class="order-card-bottom">
-                                    <div class="order-qty">
-                                        <button class="qty-btn qty-minus" aria-label="تقليل"><i class="fas fa-minus"></i></button>
-                                        <span class="qty-num">0</span>
-                                        <button class="qty-btn qty-plus" aria-label="زيادة"><i class="fas fa-plus"></i></button>
-                                    </div>
-                                    <button class="add-to-order-btn">أضف للطلب</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Tab: Specialized Pest Control -->
-                    <div class="order-tab-content" id="content-pests">
-                        <div class="order-category-header reveal">
-                            <div class="order-cat-icon"><i class="fas fa-bug"></i></div>
-                            <div>
-                                <h3>مكافحة الآفات المتخصصة</h3>
-                                <p>حلول متخصصة للتخلص من آفات محددة</p>
-                            </div>
-                        </div>
-                        <div class="order-services-grid">
-                            <div class="order-service-card reveal" data-service="مكافحة نمل أبيض - باب" data-price="50">
-                                <div class="order-card-top">
-                                    <div class="order-card-icon"><i class="fas fa-door-closed"></i></div>
-                                    <div class="order-card-info">
-                                        <h4>مكافحة نمل أبيض - باب</h4>
-                                        <span class="order-card-desc">معالجة النمل الأبيض للباب الواحد</span>
-                                    </div>
-                                    <div class="order-card-price">
-                                        <span class="price-val">50</span>
+                                        <del style="color: #999; font-size: 0.85em; margin-left: 5px;">2000</del>
+                                        <span class="price-val">1950</span>
                                         <span class="price-unit">ر.س</span>
                                     </div>
                                 </div>
@@ -438,16 +634,16 @@
                                 </div>
                             </div>
 
-                            <div class="order-service-card reveal quote-card" data-service="مكافحة طيور" data-price="0">
+                            <div class="order-service-card reveal quote-card" data-service="أخرى" data-price="0">
                                 <div class="order-card-top">
-                                    <div class="order-card-icon"><i class="fas fa-dove"></i></div>
+                                    <div class="order-card-icon"><i class="fas fa-bug"></i></div>
                                     <div class="order-card-info">
-                                        <h4>مكافحة طيور</h4>
-                                        <span class="order-card-desc">حلول متخصصة لإبعاد الطيور</span>
+                                        <h4>أخرى</h4>
+                                        <span class="order-card-desc">مشكلة غير مدرجة؟</span>
                                     </div>
                                     <div class="order-card-price quote-price">
                                         <span class="price-val"><i class="fas fa-eye"></i></span>
-                                        <span class="price-unit">السعر بعد الزيارة</span>
+                                        <span class="price-unit">السعر عند الزيارة</span>
                                     </div>
                                 </div>
                                 <div class="order-card-bottom">
@@ -457,46 +653,27 @@
                                 </div>
                             </div>
 
-                            <div class="order-service-card reveal quote-card" data-service="مكافحة فئران" data-price="0">
-                                <div class="order-card-top">
-                                    <div class="order-card-icon"><i class="fas fa-paw"></i></div>
-                                    <div class="order-card-info">
-                                        <h4>مكافحة فئران</h4>
-                                        <span class="order-card-desc">حلول فعالة للقضاء على الفئران</span>
-                                    </div>
-                                    <div class="order-card-price quote-price">
-                                        <span class="price-val"><i class="fas fa-eye"></i></span>
-                                        <span class="price-unit">السعر بعد الزيارة</span>
-                                    </div>
-                                </div>
-                                <div class="order-card-bottom">
-                                    <button class="add-to-order-btn quote-btn" style="width:100%">
-                                        <i class="fab fa-whatsapp"></i> اطلب زيارة تقييم
-                                    </button>
-                                </div>
-                            </div>
                         </div>
                     </div>
 
-                    <!-- Tab: Spraying & Sewage -->
-                    <div class="order-tab-content" id="content-spraying">
+                    <!-- Tab: Sterilization Section -->
+                    <div class="order-tab-content" id="content-sterilization">
                         <div class="order-category-header reveal">
-                            <div class="order-cat-icon"><i class="fas fa-spray-can"></i></div>
+                            <div class="order-cat-icon"><i class="fas fa-shield-virus"></i></div>
                             <div>
-                                <h3>خدمات الرش والمجاري</h3>
-                                <p>رش متخصص للصرف الصحي والحدائق وغرف التفتيش</p>
+                                <h3>قسم التعقيم ضد الفيروسات</h3>
                             </div>
                         </div>
                         <div class="order-services-grid">
-                            <div class="order-service-card reveal" data-service="مكافحة حشرات الصرف + التفتيش + المياه" data-price="400">
+                            <div class="order-service-card reveal" data-service="تنظيف شقة" data-price="150">
                                 <div class="order-card-top">
-                                    <div class="order-card-icon"><i class="fas fa-water"></i></div>
+                                    <div class="order-card-icon"><i class="fas fa-building"></i></div>
                                     <div class="order-card-info">
-                                        <h4>مكافحة حشرات الصرف + التفتيش + المياه</h4>
-                                        <span class="order-card-desc">خدمة شاملة للصرف والتفتيش والمياه</span>
+                                        <h4>تنظيف شقة</h4>
                                     </div>
                                     <div class="order-card-price">
-                                        <span class="price-val">400</span>
+                                        <del style="color: #999; font-size: 0.85em; margin-left: 5px;">200</del>
+                                        <span class="price-val">150</span>
                                         <span class="price-unit">ر.س</span>
                                     </div>
                                 </div>
@@ -510,14 +687,80 @@
                                 </div>
                             </div>
 
-                            <div class="order-service-card reveal" data-service="رش حديقة" data-price="350">
+                            <div class="order-service-card reveal" data-service="تنظيف شقة 1 غرفة" data-price="200">
                                 <div class="order-card-top">
-                                    <div class="order-card-icon"><i class="fas fa-tree"></i></div>
+                                    <div class="order-card-icon"><i class="fas fa-building"></i></div>
                                     <div class="order-card-info">
-                                        <h4>رش حديقة</h4>
-                                        <span class="order-card-desc">رش شامل للحديقة</span>
+                                        <h4>تنظيف شقة 1 غرفة</h4>
                                     </div>
                                     <div class="order-card-price">
+                                        <del style="color: #999; font-size: 0.85em; margin-left: 5px;">250</del>
+                                        <span class="price-val">200</span>
+                                        <span class="price-unit">ر.س</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <div class="order-qty">
+                                        <button class="qty-btn qty-minus" aria-label="تقليل"><i class="fas fa-minus"></i></button>
+                                        <span class="qty-num">0</span>
+                                        <button class="qty-btn qty-plus" aria-label="زيادة"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <button class="add-to-order-btn">أضف للطلب</button>
+                                </div>
+                            </div>
+
+                            <div class="order-service-card reveal" data-service="تنظيف شقة 2 غرفة" data-price="250">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-building"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>تنظيف شقة 2 غرفة</h4>
+                                    </div>
+                                    <div class="order-card-price">
+                                        <del style="color: #999; font-size: 0.85em; margin-left: 5px;">300</del>
+                                        <span class="price-val">250</span>
+                                        <span class="price-unit">ر.س</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <div class="order-qty">
+                                        <button class="qty-btn qty-minus" aria-label="تقليل"><i class="fas fa-minus"></i></button>
+                                        <span class="qty-num">0</span>
+                                        <button class="qty-btn qty-plus" aria-label="زيادة"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <button class="add-to-order-btn">أضف للطلب</button>
+                                </div>
+                            </div>
+
+                            <div class="order-service-card reveal" data-service="تنظيف شقة 3 غرفة" data-price="300">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-building"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>تنظيف شقة 3 غرفة</h4>
+                                    </div>
+                                    <div class="order-card-price">
+                                        <del style="color: #999; font-size: 0.85em; margin-left: 5px;">350</del>
+                                        <span class="price-val">300</span>
+                                        <span class="price-unit">ر.س</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <div class="order-qty">
+                                        <button class="qty-btn qty-minus" aria-label="تقليل"><i class="fas fa-minus"></i></button>
+                                        <span class="qty-num">0</span>
+                                        <button class="qty-btn qty-plus" aria-label="زيادة"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <button class="add-to-order-btn">أضف للطلب</button>
+                                </div>
+                            </div>
+
+                            <div class="order-service-card reveal" data-service="تنظيف شقة 4 غرفة" data-price="350">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-building"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>تنظيف شقة 4 غرفة</h4>
+                                    </div>
+                                    <div class="order-card-price">
+                                        <del style="color: #999; font-size: 0.85em; margin-left: 5px;">400</del>
                                         <span class="price-val">350</span>
                                         <span class="price-unit">ر.س</span>
                                     </div>
@@ -532,14 +775,715 @@
                                 </div>
                             </div>
 
-                            <div class="order-service-card reveal" data-service="رش الصرف الصحي" data-price="200">
+                            <div class="order-service-card reveal" data-service="تنظيف شقة 5 غرفة" data-price="400">
                                 <div class="order-card-top">
-                                    <div class="order-card-icon"><i class="fas fa-faucet-drip"></i></div>
+                                    <div class="order-card-icon"><i class="fas fa-building"></i></div>
                                     <div class="order-card-info">
-                                        <h4>رش الصرف الصحي</h4>
-                                        <span class="order-card-desc">معالجة الصرف الصحي</span>
+                                        <h4>تنظيف شقة 5 غرفة</h4>
                                     </div>
                                     <div class="order-card-price">
+                                        <del style="color: #999; font-size: 0.85em; margin-left: 5px;">450</del>
+                                        <span class="price-val">400</span>
+                                        <span class="price-unit">ر.س</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <div class="order-qty">
+                                        <button class="qty-btn qty-minus" aria-label="تقليل"><i class="fas fa-minus"></i></button>
+                                        <span class="qty-num">0</span>
+                                        <button class="qty-btn qty-plus" aria-label="زيادة"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <button class="add-to-order-btn">أضف للطلب</button>
+                                </div>
+                            </div>
+
+                            <div class="order-service-card reveal" data-service="فيلا 300–500 متر مربع" data-price="750">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-house-chimney"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>فيلا 300–500 متر مربع</h4>
+                                    </div>
+                                    <div class="order-card-price">
+                                        <del style="color: #999; font-size: 0.85em; margin-left: 5px;">800</del>
+                                        <span class="price-val">750</span>
+                                        <span class="price-unit">ر.س</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <div class="order-qty">
+                                        <button class="qty-btn qty-minus" aria-label="تقليل"><i class="fas fa-minus"></i></button>
+                                        <span class="qty-num">0</span>
+                                        <button class="qty-btn qty-plus" aria-label="زيادة"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <button class="add-to-order-btn">أضف للطلب</button>
+                                </div>
+                            </div>
+
+                            <div class="order-service-card reveal" data-service="فيلا 500–1000 متر مربع" data-price="950">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-house-chimney"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>فيلا 500–1000 متر مربع</h4>
+                                    </div>
+                                    <div class="order-card-price">
+                                        <del style="color: #999; font-size: 0.85em; margin-left: 5px;">1000</del>
+                                        <span class="price-val">950</span>
+                                        <span class="price-unit">ر.س</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <div class="order-qty">
+                                        <button class="qty-btn qty-minus" aria-label="تقليل"><i class="fas fa-minus"></i></button>
+                                        <span class="qty-num">0</span>
+                                        <button class="qty-btn qty-plus" aria-label="زيادة"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <button class="add-to-order-btn">أضف للطلب</button>
+                                </div>
+                            </div>
+
+                            <div class="order-service-card reveal" data-service="فيلا أكثر من 1000 متر مربع" data-price="1150">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-house-chimney"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>فيلا أكثر من 1000 متر مربع</h4>
+                                    </div>
+                                    <div class="order-card-price">
+                                        <del style="color: #999; font-size: 0.85em; margin-left: 5px;">1200</del>
+                                        <span class="price-val">1150</span>
+                                        <span class="price-unit">ر.س</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <div class="order-qty">
+                                        <button class="qty-btn qty-minus" aria-label="تقليل"><i class="fas fa-minus"></i></button>
+                                        <span class="qty-num">0</span>
+                                        <button class="qty-btn qty-plus" aria-label="زيادة"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <button class="add-to-order-btn">أضف للطلب</button>
+                                </div>
+                            </div>
+
+                            <div class="order-service-card reveal" data-service="تنظيف فيلا" data-price="250">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-house-chimney"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>تنظيف فيلا</h4>
+                                    </div>
+                                    <div class="order-card-price">
+                                        <del style="color: #999; font-size: 0.85em; margin-left: 5px;">300</del>
+                                        <span class="price-val">250</span>
+                                        <span class="price-unit">ر.س</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <div class="order-qty">
+                                        <button class="qty-btn qty-minus" aria-label="تقليل"><i class="fas fa-minus"></i></button>
+                                        <span class="qty-num">0</span>
+                                        <button class="qty-btn qty-plus" aria-label="زيادة"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <button class="add-to-order-btn">أضف للطلب</button>
+                                </div>
+                            </div>
+
+                            <div class="order-service-card reveal" data-service="تنظيف فيلا 1 غرفة" data-price="250">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-house-chimney"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>تنظيف فيلا 1 غرفة</h4>
+                                    </div>
+                                    <div class="order-card-price">
+                                        <del style="color: #999; font-size: 0.85em; margin-left: 5px;">300</del>
+                                        <span class="price-val">250</span>
+                                        <span class="price-unit">ر.س</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <div class="order-qty">
+                                        <button class="qty-btn qty-minus" aria-label="تقليل"><i class="fas fa-minus"></i></button>
+                                        <span class="qty-num">0</span>
+                                        <button class="qty-btn qty-plus" aria-label="زيادة"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <button class="add-to-order-btn">أضف للطلب</button>
+                                </div>
+                            </div>
+
+                            <div class="order-service-card reveal" data-service="تنظيف فيلا 2 غرفة" data-price="300">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-house-chimney"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>تنظيف فيلا 2 غرفة</h4>
+                                    </div>
+                                    <div class="order-card-price">
+                                        <del style="color: #999; font-size: 0.85em; margin-left: 5px;">350</del>
+                                        <span class="price-val">300</span>
+                                        <span class="price-unit">ر.س</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <div class="order-qty">
+                                        <button class="qty-btn qty-minus" aria-label="تقليل"><i class="fas fa-minus"></i></button>
+                                        <span class="qty-num">0</span>
+                                        <button class="qty-btn qty-plus" aria-label="زيادة"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <button class="add-to-order-btn">أضف للطلب</button>
+                                </div>
+                            </div>
+
+                            <div class="order-service-card reveal" data-service="تنظيف فيلا 3 غرفة" data-price="350">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-house-chimney"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>تنظيف فيلا 3 غرفة</h4>
+                                    </div>
+                                    <div class="order-card-price">
+                                        <del style="color: #999; font-size: 0.85em; margin-left: 5px;">400</del>
+                                        <span class="price-val">350</span>
+                                        <span class="price-unit">ر.س</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <div class="order-qty">
+                                        <button class="qty-btn qty-minus" aria-label="تقليل"><i class="fas fa-minus"></i></button>
+                                        <span class="qty-num">0</span>
+                                        <button class="qty-btn qty-plus" aria-label="زيادة"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <button class="add-to-order-btn">أضف للطلب</button>
+                                </div>
+                            </div>
+
+                            <div class="order-service-card reveal" data-service="تنظيف فيلا 4 غرفة" data-price="400">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-house-chimney"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>تنظيف فيلا 4 غرفة</h4>
+                                    </div>
+                                    <div class="order-card-price">
+                                        <del style="color: #999; font-size: 0.85em; margin-left: 5px;">450</del>
+                                        <span class="price-val">400</span>
+                                        <span class="price-unit">ر.س</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <div class="order-qty">
+                                        <button class="qty-btn qty-minus" aria-label="تقليل"><i class="fas fa-minus"></i></button>
+                                        <span class="qty-num">0</span>
+                                        <button class="qty-btn qty-plus" aria-label="زيادة"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <button class="add-to-order-btn">أضف للطلب</button>
+                                </div>
+                            </div>
+
+                            <div class="order-service-card reveal" data-service="تنظيف فيلا 5 غرفة" data-price="450">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-house-chimney"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>تنظيف فيلا 5 غرفة</h4>
+                                    </div>
+                                    <div class="order-card-price">
+                                        <del style="color: #999; font-size: 0.85em; margin-left: 5px;">500</del>
+                                        <span class="price-val">450</span>
+                                        <span class="price-unit">ر.س</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <div class="order-qty">
+                                        <button class="qty-btn qty-minus" aria-label="تقليل"><i class="fas fa-minus"></i></button>
+                                        <span class="qty-num">0</span>
+                                        <button class="qty-btn qty-plus" aria-label="زيادة"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <button class="add-to-order-btn">أضف للطلب</button>
+                                </div>
+                            </div>
+
+                            <div class="order-service-card reveal" data-service="تنظيف فيلا 6 غرفة" data-price="500">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-house-chimney"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>تنظيف فيلا 6 غرفة</h4>
+                                    </div>
+                                    <div class="order-card-price">
+                                        <del style="color: #999; font-size: 0.85em; margin-left: 5px;">550</del>
+                                        <span class="price-val">500</span>
+                                        <span class="price-unit">ر.س</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <div class="order-qty">
+                                        <button class="qty-btn qty-minus" aria-label="تقليل"><i class="fas fa-minus"></i></button>
+                                        <span class="qty-num">0</span>
+                                        <button class="qty-btn qty-plus" aria-label="زيادة"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <button class="add-to-order-btn">أضف للطلب</button>
+                                </div>
+                            </div>
+
+                            <div class="order-service-card reveal" data-service="دوبلكس" data-price="450">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-house"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>دوبلكس</h4>
+                                    </div>
+                                    <div class="order-card-price">
+                                        <del style="color: #999; font-size: 0.85em; margin-left: 5px;">500</del>
+                                        <span class="price-val">450</span>
+                                        <span class="price-unit">ر.س</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <div class="order-qty">
+                                        <button class="qty-btn qty-minus" aria-label="تقليل"><i class="fas fa-minus"></i></button>
+                                        <span class="qty-num">0</span>
+                                        <button class="qty-btn qty-plus" aria-label="زيادة"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <button class="add-to-order-btn">أضف للطلب</button>
+                                </div>
+                            </div>
+
+                            <div class="order-service-card reveal" data-service="دوبلكس مع حوش ومسبح" data-price="550">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-house"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>دوبلكس مع حوش ومسبح</h4>
+                                    </div>
+                                    <div class="order-card-price">
+                                        <del style="color: #999; font-size: 0.85em; margin-left: 5px;">600</del>
+                                        <span class="price-val">550</span>
+                                        <span class="price-unit">ر.س</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <div class="order-qty">
+                                        <button class="qty-btn qty-minus" aria-label="تقليل"><i class="fas fa-minus"></i></button>
+                                        <span class="qty-num">0</span>
+                                        <button class="qty-btn qty-plus" aria-label="زيادة"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <button class="add-to-order-btn">أضف للطلب</button>
+                                </div>
+                            </div>
+
+                            <div class="order-service-card reveal" data-service="قصر 1500 متر" data-price="1150">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-landmark"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>قصر 1500 متر</h4>
+                                    </div>
+                                    <div class="order-card-price">
+                                        <del style="color: #999; font-size: 0.85em; margin-left: 5px;">1200</del>
+                                        <span class="price-val">1150</span>
+                                        <span class="price-unit">ر.س</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <div class="order-qty">
+                                        <button class="qty-btn qty-minus" aria-label="تقليل"><i class="fas fa-minus"></i></button>
+                                        <span class="qty-num">0</span>
+                                        <button class="qty-btn qty-plus" aria-label="زيادة"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <button class="add-to-order-btn">أضف للطلب</button>
+                                </div>
+                            </div>
+
+                            <div class="order-service-card reveal quote-card" data-service="تنظيف المزارع - بالقصر الصغير" data-price="0">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-tractor"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>تنظيف المزارع - بالقصر الصغير</h4>
+                                    </div>
+                                    <div class="order-card-price quote-price">
+                                        <span class="price-val"><i class="fas fa-eye"></i></span>
+                                        <span class="price-unit">السعر عند الزيارة</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <button class="add-to-order-btn quote-btn" style="width:100%">
+                                        <i class="fab fa-whatsapp"></i> اطلب زيارة تقييم
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="order-service-card reveal quote-card" data-service="تنظيف مكاتب" data-price="0">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-building-user"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>تنظيف مكاتب</h4>
+                                    </div>
+                                    <div class="order-card-price quote-price">
+                                        <span class="price-val"><i class="fas fa-eye"></i></span>
+                                        <span class="price-unit">السعر عند الزيارة</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <button class="add-to-order-btn quote-btn" style="width:100%">
+                                        <i class="fab fa-whatsapp"></i> اطلب زيارة تقييم
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="order-service-card reveal quote-card" data-service="تنظيف مطاعم وكافيهات" data-price="0">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-utensils"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>تنظيف مطاعم وكافيهات</h4>
+                                    </div>
+                                    <div class="order-card-price quote-price">
+                                        <span class="price-val"><i class="fas fa-eye"></i></span>
+                                        <span class="price-unit">السعر عند الزيارة</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <button class="add-to-order-btn quote-btn" style="width:100%">
+                                        <i class="fab fa-whatsapp"></i> اطلب زيارة تقييم
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="order-service-card reveal" data-service="تنظيف استوديو" data-price="350">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-door-open"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>تنظيف استوديو</h4>
+                                    </div>
+                                    <div class="order-card-price">
+                                        <del style="color: #999; font-size: 0.85em; margin-left: 5px;">400</del>
+                                        <span class="price-val">350</span>
+                                        <span class="price-unit">ر.س</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <div class="order-qty">
+                                        <button class="qty-btn qty-minus" aria-label="تقليل"><i class="fas fa-minus"></i></button>
+                                        <span class="qty-num">0</span>
+                                        <button class="qty-btn qty-plus" aria-label="زيادة"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <button class="add-to-order-btn">أضف للطلب</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Tab: Furniture and Tanks Section -->
+                    <div class="order-tab-content" id="content-furniture-tanks">
+                        <div class="order-category-header reveal">
+                            <div class="order-cat-icon"><i class="fas fa-couch"></i></div>
+                            <div>
+                                <h3>تنظيف الاثاث بالبخار والخزانات</h3>
+                            </div>
+                        </div>
+                        <div class="order-services-grid">
+                            
+                            <div class="order-service-card reveal" data-service="تنظيف وتعقيم خزانات علوي وسفلي" data-price="450">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-water"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>تنظيف وتعقيم خزانات علوي وسفلي</h4>
+                                    </div>
+                                    <div class="order-card-price">
+                                        <del style="color: #999; font-size: 0.85em; margin-left: 5px;">500</del>
+                                        <span class="price-val">450</span>
+                                        <span class="price-unit">ر.س</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <div class="order-qty">
+                                        <button class="qty-btn qty-minus" aria-label="تقليل"><i class="fas fa-minus"></i></button>
+                                        <span class="qty-num">0</span>
+                                        <button class="qty-btn qty-plus" aria-label="زيادة"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <button class="add-to-order-btn">أضف للطلب</button>
+                                </div>
+                            </div>
+
+                            <div class="order-service-card reveal" data-service="فيلا" data-price="1450">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-house-chimney"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>فيلا</h4>
+                                    </div>
+                                    <div class="order-card-price">
+                                        <del style="color: #999; font-size: 0.85em; margin-left: 5px;">1500</del>
+                                        <span class="price-val">1450</span>
+                                        <span class="price-unit">ر.س</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <div class="order-qty">
+                                        <button class="qty-btn qty-minus" aria-label="تقليل"><i class="fas fa-minus"></i></button>
+                                        <span class="qty-num">0</span>
+                                        <button class="qty-btn qty-plus" aria-label="زيادة"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <button class="add-to-order-btn">أضف للطلب</button>
+                                </div>
+                            </div>
+
+                            <div class="order-service-card reveal" data-service="خزان علوي طاهر" data-price="150">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-water"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>خزان علوي طاهر</h4>
+                                    </div>
+                                    <div class="order-card-price">
+                                        <del style="color: #999; font-size: 0.85em; margin-left: 5px;">200</del>
+                                        <span class="price-val">150</span>
+                                        <span class="price-unit">ر.س</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <div class="order-qty">
+                                        <button class="qty-btn qty-minus" aria-label="تقليل"><i class="fas fa-minus"></i></button>
+                                        <span class="qty-num">0</span>
+                                        <button class="qty-btn qty-plus" aria-label="زيادة"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <button class="add-to-order-btn">أضف للطلب</button>
+                                </div>
+                            </div>
+
+                            <div class="order-service-card reveal" data-service="خزان سفلي صغير" data-price="250">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-water"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>خزان سفلي صغير</h4>
+                                    </div>
+                                    <div class="order-card-price">
+                                        <del style="color: #999; font-size: 0.85em; margin-left: 5px;">300</del>
+                                        <span class="price-val">250</span>
+                                        <span class="price-unit">ر.س</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <div class="order-qty">
+                                        <button class="qty-btn qty-minus" aria-label="تقليل"><i class="fas fa-minus"></i></button>
+                                        <span class="qty-num">0</span>
+                                        <button class="qty-btn qty-plus" aria-label="زيادة"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <button class="add-to-order-btn">أضف للطلب</button>
+                                </div>
+                            </div>
+
+                            <div class="order-service-card reveal" data-service="خزان سفلي وسط" data-price="350">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-water"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>خزان سفلي وسط</h4>
+                                    </div>
+                                    <div class="order-card-price">
+                                        <del style="color: #999; font-size: 0.85em; margin-left: 5px;">400</del>
+                                        <span class="price-val">350</span>
+                                        <span class="price-unit">ر.س</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <div class="order-qty">
+                                        <button class="qty-btn qty-minus" aria-label="تقليل"><i class="fas fa-minus"></i></button>
+                                        <span class="qty-num">0</span>
+                                        <button class="qty-btn qty-plus" aria-label="زيادة"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <button class="add-to-order-btn">أضف للطلب</button>
+                                </div>
+                            </div>
+
+                            <div class="order-service-card reveal" data-service="خزان سفلي كبير" data-price="450">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-water"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>خزان سفلي كبير</h4>
+                                    </div>
+                                    <div class="order-card-price">
+                                        <del style="color: #999; font-size: 0.85em; margin-left: 5px;">500</del>
+                                        <span class="price-val">450</span>
+                                        <span class="price-unit">ر.س</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <div class="order-qty">
+                                        <button class="qty-btn qty-minus" aria-label="تقليل"><i class="fas fa-minus"></i></button>
+                                        <span class="qty-num">0</span>
+                                        <button class="qty-btn qty-plus" aria-label="زيادة"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <button class="add-to-order-btn">أضف للطلب</button>
+                                </div>
+                            </div>
+
+                            <div class="order-service-card reveal quote-card" data-service="سجاد" data-price="0">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-rug"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>سجاد</h4>
+                                    </div>
+                                    <div class="order-card-price quote-price">
+                                        <span class="price-val"><i class="fas fa-eye"></i></span>
+                                        <span class="price-unit">السعر عند الزيارة</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <button class="add-to-order-btn quote-btn" style="width:100%">
+                                        <i class="fab fa-whatsapp"></i> اطلب زيارة تقييم
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="order-service-card reveal" data-service="أريكة لشخص واحد" data-price="50">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-chair"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>أريكة لشخص واحد</h4>
+                                    </div>
+                                    <div class="order-card-price">
+                                        <del style="color: #999; font-size: 0.85em; margin-left: 5px;">100</del>
+                                        <span class="price-val">50</span>
+                                        <span class="price-unit">ر.س</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <div class="order-qty">
+                                        <button class="qty-btn qty-minus" aria-label="تقليل"><i class="fas fa-minus"></i></button>
+                                        <span class="qty-num">0</span>
+                                        <button class="qty-btn qty-plus" aria-label="زيادة"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <button class="add-to-order-btn">أضف للطلب</button>
+                                </div>
+                            </div>
+
+                            <div class="order-service-card reveal" data-service="أريكة 7 أشخاص" data-price="300">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-couch"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>أريكة 7 أشخاص</h4>
+                                    </div>
+                                    <div class="order-card-price">
+                                        <del style="color: #999; font-size: 0.85em; margin-left: 5px;">350</del>
+                                        <span class="price-val">300</span>
+                                        <span class="price-unit">ر.س</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <div class="order-qty">
+                                        <button class="qty-btn qty-minus" aria-label="تقليل"><i class="fas fa-minus"></i></button>
+                                        <span class="qty-num">0</span>
+                                        <button class="qty-btn qty-plus" aria-label="زيادة"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <button class="add-to-order-btn">أضف للطلب</button>
+                                </div>
+                            </div>
+
+                            <div class="order-service-card reveal" data-service="ستارة صغيرة" data-price="30">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-window-restore"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>ستارة صغيرة</h4>
+                                    </div>
+                                    <div class="order-card-price">
+                                        <del style="color: #999; font-size: 0.85em; margin-left: 5px;">80</del>
+                                        <span class="price-val">30</span>
+                                        <span class="price-unit">ر.س</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <div class="order-qty">
+                                        <button class="qty-btn qty-minus" aria-label="تقليل"><i class="fas fa-minus"></i></button>
+                                        <span class="qty-num">0</span>
+                                        <button class="qty-btn qty-plus" aria-label="زيادة"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <button class="add-to-order-btn">أضف للطلب</button>
+                                </div>
+                            </div>
+
+                            <div class="order-service-card reveal" data-service="ستارة متوسطة" data-price="70">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-window-restore"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>ستارة متوسطة</h4>
+                                    </div>
+                                    <div class="order-card-price">
+                                        <del style="color: #999; font-size: 0.85em; margin-left: 5px;">120</del>
+                                        <span class="price-val">70</span>
+                                        <span class="price-unit">ر.س</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <div class="order-qty">
+                                        <button class="qty-btn qty-minus" aria-label="تقليل"><i class="fas fa-minus"></i></button>
+                                        <span class="qty-num">0</span>
+                                        <button class="qty-btn qty-plus" aria-label="زيادة"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <button class="add-to-order-btn">أضف للطلب</button>
+                                </div>
+                            </div>
+
+                            <div class="order-service-card reveal" data-service="ستارة كبيرة" data-price="150">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-window-restore"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>ستارة كبيرة</h4>
+                                    </div>
+                                    <div class="order-card-price">
+                                        <del style="color: #999; font-size: 0.85em; margin-left: 5px;">200</del>
+                                        <span class="price-val">150</span>
+                                        <span class="price-unit">ر.س</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <div class="order-qty">
+                                        <button class="qty-btn qty-minus" aria-label="تقليل"><i class="fas fa-minus"></i></button>
+                                        <span class="qty-num">0</span>
+                                        <button class="qty-btn qty-plus" aria-label="زيادة"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <button class="add-to-order-btn">أضف للطلب</button>
+                                </div>
+                            </div>
+
+                            <div class="order-service-card reveal" data-service="جلسات كنب - بالمتر" data-price="50">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-couch"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>جلسات كنب - بالمتر</h4>
+                                    </div>
+                                    <div class="order-card-price">
+                                        <del style="color: #999; font-size: 0.85em; margin-left: 5px;">100</del>
+                                        <span class="price-val">50</span>
+                                        <span class="price-unit">ر.س</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <div class="order-qty">
+                                        <button class="qty-btn qty-minus" aria-label="تقليل"><i class="fas fa-minus"></i></button>
+                                        <span class="qty-num">0</span>
+                                        <button class="qty-btn qty-plus" aria-label="زيادة"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <button class="add-to-order-btn">أضف للطلب</button>
+                                </div>
+                            </div>
+
+                            <div class="order-service-card reveal" data-service="مرتبة سرير مفرد" data-price="100">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-bed"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>مرتبة سرير مفرد</h4>
+                                    </div>
+                                    <div class="order-card-price">
+                                        <del style="color: #999; font-size: 0.85em; margin-left: 5px;">150</del>
+                                        <span class="price-val">100</span>
+                                        <span class="price-unit">ر.س</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <div class="order-qty">
+                                        <button class="qty-btn qty-minus" aria-label="تقليل"><i class="fas fa-minus"></i></button>
+                                        <span class="qty-num">0</span>
+                                        <button class="qty-btn qty-plus" aria-label="زيادة"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <button class="add-to-order-btn">أضف للطلب</button>
+                                </div>
+                            </div>
+
+                            <div class="order-service-card reveal" data-service="مرتبة سرير عائلي" data-price="200">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-bed"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>مرتبة سرير عائلي</h4>
+                                    </div>
+                                    <div class="order-card-price">
+                                        <del style="color: #999; font-size: 0.85em; margin-left: 5px;">250</del>
                                         <span class="price-val">200</span>
                                         <span class="price-unit">ر.س</span>
                                     </div>
@@ -554,15 +1498,14 @@
                                 </div>
                             </div>
 
-                            <div class="order-service-card reveal" data-service="رش غرف التفتيش" data-price="200">
+                            <div class="order-service-card reveal" data-service="تنظيف وتلميع البلاط - بالمتر" data-price="10">
                                 <div class="order-card-top">
-                                    <div class="order-card-icon"><i class="fas fa-magnifying-glass"></i></div>
+                                    <div class="order-card-icon"><i class="fas fa-border-all"></i></div>
                                     <div class="order-card-info">
-                                        <h4>رش غرف التفتيش</h4>
-                                        <span class="order-card-desc">رش شامل لغرف التفتيش</span>
+                                        <h4>تنظيف وتلميع البلاط - بالمتر</h4>
                                     </div>
                                     <div class="order-card-price">
-                                        <span class="price-val">200</span>
+                                        <span class="price-val">10</span>
                                         <span class="price-unit">ر.س</span>
                                     </div>
                                 </div>
@@ -575,6 +1518,224 @@
                                     <button class="add-to-order-btn">أضف للطلب</button>
                                 </div>
                             </div>
+
+                            <div class="order-service-card reveal" data-service="تنظيف وتلميع السيراميك/ بالبلاط - بالمتر" data-price="10">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-border-all"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>تنظيف وتلميع السيراميك/ بالبلاط - بالمتر</h4>
+                                    </div>
+                                    <div class="order-card-price">
+                                        <span class="price-val">10</span>
+                                        <span class="price-unit">ر.س</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <div class="order-qty">
+                                        <button class="qty-btn qty-minus" aria-label="تقليل"><i class="fas fa-minus"></i></button>
+                                        <span class="qty-num">0</span>
+                                        <button class="qty-btn qty-plus" aria-label="زيادة"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <button class="add-to-order-btn">أضف للطلب</button>
+                                </div>
+                            </div>
+
+                            <div class="order-service-card reveal" data-service="تنظيف حوش أو سطح صغير" data-price="150">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-broom"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>تنظيف حوش أو سطح صغير</h4>
+                                    </div>
+                                    <div class="order-card-price">
+                                        <del style="color: #999; font-size: 0.85em; margin-left: 5px;">200</del>
+                                        <span class="price-val">150</span>
+                                        <span class="price-unit">ر.س</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <div class="order-qty">
+                                        <button class="qty-btn qty-minus" aria-label="تقليل"><i class="fas fa-minus"></i></button>
+                                        <span class="qty-num">0</span>
+                                        <button class="qty-btn qty-plus" aria-label="زيادة"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <button class="add-to-order-btn">أضف للطلب</button>
+                                </div>
+                            </div>
+
+                            <div class="order-service-card reveal" data-service="تنظيف حوش أو سطح كبير" data-price="350">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-broom"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>تنظيف حوش أو سطح كبير</h4>
+                                    </div>
+                                    <div class="order-card-price">
+                                        <del style="color: #999; font-size: 0.85em; margin-left: 5px;">400</del>
+                                        <span class="price-val">350</span>
+                                        <span class="price-unit">ر.س</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <div class="order-qty">
+                                        <button class="qty-btn qty-minus" aria-label="تقليل"><i class="fas fa-minus"></i></button>
+                                        <span class="qty-num">0</span>
+                                        <button class="qty-btn qty-plus" aria-label="زيادة"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <button class="add-to-order-btn">أضف للطلب</button>
+                                </div>
+                            </div>
+
+                            <div class="order-service-card reveal" data-service="تنظيف فرن" data-price="150">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-fire-burner"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>تنظيف فرن</h4>
+                                    </div>
+                                    <div class="order-card-price">
+                                        <del style="color: #999; font-size: 0.85em; margin-left: 5px;">200</del>
+                                        <span class="price-val">150</span>
+                                        <span class="price-unit">ر.س</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <div class="order-qty">
+                                        <button class="qty-btn qty-minus" aria-label="تقليل"><i class="fas fa-minus"></i></button>
+                                        <span class="qty-num">0</span>
+                                        <button class="qty-btn qty-plus" aria-label="زيادة"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <button class="add-to-order-btn">أضف للطلب</button>
+                                </div>
+                            </div>
+
+                            <div class="order-service-card reveal quote-card" data-service="أخرى" data-price="0">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-ellipsis-h"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>أخرى</h4>
+                                    </div>
+                                    <div class="order-card-price quote-price">
+                                        <span class="price-val"><i class="fas fa-eye"></i></span>
+                                        <span class="price-unit">السعر عند الزيارة</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <button class="add-to-order-btn quote-btn" style="width:100%">
+                                        <i class="fab fa-whatsapp"></i> اطلب زيارة تقييم
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Tab: Annual Contracts Section -->
+                    <div class="order-tab-content" id="content-annual-contracts">
+                        <div class="order-category-header reveal">
+                            <div class="order-cat-icon"><i class="fas fa-file-signature"></i></div>
+                            <div>
+                                <h3>قسم العقود السنوية لمكافحة الحشرات</h3>
+                                <p>عقود سنوية لضمان بيئة خالية من الحشرات</p>
+                            </div>
+                        </div>
+                        <div class="order-services-grid">
+                            
+                            <div class="order-service-card reveal" data-service="فيلا دوبلكس صغيره - 3 زيارات في السنة" data-price="3500">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-house"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>فيلا دوبلكس صغيره<br><small style="color: #666; font-size: 0.85em;">3 زيارات في السنة</small></h4>
+                                    </div>
+                                    <div class="order-card-price">
+                                        <span style="font-size: 0.85em; color: #666; margin-left: 5px;">تبدأ من</span>
+                                        <span class="price-val">3500</span>
+                                        <span class="price-unit">ر.س</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <div class="order-qty">
+                                        <button class="qty-btn qty-minus" aria-label="تقليل"><i class="fas fa-minus"></i></button>
+                                        <span class="qty-num">0</span>
+                                        <button class="qty-btn qty-plus" aria-label="زيادة"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <button class="add-to-order-btn">أضف للطلب</button>
+                                </div>
+                            </div>
+
+                            <div class="order-service-card reveal" data-service="فيلا كبيرة - 3 زيارات في السنة" data-price="4500">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-house-chimney"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>فيلا كبيرة<br><small style="color: #666; font-size: 0.85em;">3 زيارات في السنة</small></h4>
+                                    </div>
+                                    <div class="order-card-price">
+                                        <span style="font-size: 0.85em; color: #666; margin-left: 5px;">تبدأ من</span>
+                                        <span class="price-val">4500</span>
+                                        <span class="price-unit">ر.س</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <div class="order-qty">
+                                        <button class="qty-btn qty-minus" aria-label="تقليل"><i class="fas fa-minus"></i></button>
+                                        <span class="qty-num">0</span>
+                                        <button class="qty-btn qty-plus" aria-label="زيادة"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <button class="add-to-order-btn">أضف للطلب</button>
+                                </div>
+                            </div>
+
+                            <div class="order-service-card reveal quote-card" data-service="المطاعم - عقد سنوي" data-price="0">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-utensils"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>المطاعم</h4>
+                                    </div>
+                                    <div class="order-card-price quote-price">
+                                        <span class="price-val"><i class="fas fa-eye"></i></span>
+                                        <span class="price-unit">السعر بعد المعاينة</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <button class="add-to-order-btn quote-btn" style="width:100%">
+                                        <i class="fab fa-whatsapp"></i> اطلب زيارة تقييم
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="order-service-card reveal quote-card" data-service="المصانع والشركات - عقد سنوي" data-price="0">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-industry"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>المصانع والشركات</h4>
+                                    </div>
+                                    <div class="order-card-price quote-price">
+                                        <span class="price-val"><i class="fas fa-eye"></i></span>
+                                        <span class="price-unit">السعر بعد المعاينة</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <button class="add-to-order-btn quote-btn" style="width:100%">
+                                        <i class="fab fa-whatsapp"></i> اطلب زيارة تقييم
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="order-service-card reveal quote-card" data-service="الشقق والعمائر - عقد سنوي" data-price="0">
+                                <div class="order-card-top">
+                                    <div class="order-card-icon"><i class="fas fa-building"></i></div>
+                                    <div class="order-card-info">
+                                        <h4>الشقق والعمائر</h4>
+                                    </div>
+                                    <div class="order-card-price quote-price">
+                                        <span class="price-val"><i class="fas fa-eye"></i></span>
+                                        <span class="price-unit">السعر بعد المعاينة</span>
+                                    </div>
+                                </div>
+                                <div class="order-card-bottom">
+                                    <button class="add-to-order-btn quote-btn" style="width:100%">
+                                        <i class="fab fa-whatsapp"></i> اطلب زيارة تقييم
+                                    </button>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -615,6 +1776,59 @@
 
         </div>
     </section>
+    
+    <section class="section about-company" id="about">
+        <div class="section-c">
+            <div class="section-h reveal">
+                <div class="section-badge">من نحن</div>
+                <h2 class="section-title">عن الشركة</h2>
+            </div>
+            
+            <div class="about-grid reveal">
+                <div class="about-col">
+                    <div class="about-card blue-card" style="height: 100%;">
+                        <h3 class="about-card-title">عن الشركة <span style="direction: ltr;">ABOUT US</span></h3>
+                        <p>تدير شركة أمد الأولى المحدودة (أمدكو) نشاطاتها من فروعها الموزعة في العديد من مدن المملكة وتقدم الحلول المتكاملة ذات الجودة العالية في جميع مشاريعها وفق خطى ثابتة ومتطورة من عام 2005م إلى يومنا هذا.</p>
+                        <p class="en-text">Amd Aloula Company Ltd. (amdco) operates from different cities all around the Kingdom of Saudi Arabia. It provides integrated solutions of high quality in all its projects since it started from 2005 AD to the present day.</p>
+                    </div>
+                </div>
+
+                <div class="about-col">
+                    <div class="about-card blue-card" style="flex: 1 0 auto;">
+                        <h3 class="about-card-title">رؤيتنا <span style="direction: ltr;">VISION</span></h3>
+                        <p>أن نكون وجهتك الأولى لتحقيق تطلعاتك ومشاريعك بنجاح وإتقان.</p>
+                        <p class="en-text">To be your first choice to achieve your aspirations and projects with success and perfection.</p>
+                    </div>
+                    <div class="about-card blue-card" style="flex: 1 0 auto;">
+                        <h3 class="about-card-title">رسالتنا <span style="direction: ltr;">MISSION</span></h3>
+                        <p>تقديم خدمات متكاملة ومتميزة لتحقيق تطلعات عملائنا من خلال فريق عمل فعّال وتقنيات معلومات واتصالات متقدمة.</p>
+                        <p class="en-text">Providing integrated and distinguished services to achieve the aspirations of our customers through an effective team and advanced information and communication technologies.</p>
+                    </div>
+                </div>
+
+                <div class="about-col">
+                    <div class="about-card gold-card" style="height: 100%;">
+                        <h3 class="about-card-title">أهدافنا <span style="direction: ltr;">TARGETS</span></h3>
+                        <ul class="targets-list ar-list">
+                            <li>تقديم أفضل الخدمات والحلول.</li>
+                            <li>بناء وتطوير كادر عمل محترف وتطبيق أحدث الأنظمة والتقنيات.</li>
+                            <li>بناء علاقات إستراتيجية مع العملاء والشركات ذات العلاقات التجارية والحكومية المختلفة.</li>
+                            <li>المساهمة في تعزيز المسؤولية المجتمعية.</li>
+                            <li>تحقيق أعلى العوائد للشركاء.</li>
+                        </ul>
+                        <ul class="targets-list en-list" dir="ltr">
+                            <li>Providing the best services and solutions.</li>
+                            <li>Building and developing a professional workforce and applying the latest systems and technologies.</li>
+                            <li>Building strategic relationships with clients and related commercial and governmental companies.</li>
+                            <li>Contributing to enhance social responsibility.</li>
+                            <li>Achieving the highest returns for partners.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="section why-us" id="why-us">
         <div class="section-c">
             <div class="why-us-container">
@@ -626,7 +1840,7 @@
                     </div>
                 </div>
                 <div class="why-text-col reveal">
-                    <div class="why-subtitle">عن الشركة</div>
+                    <div class="why-subtitle">مميزاتنا</div>
                     <h2 class="why-main-title">لماذا أمدكو؟</h2>
                     <p class="why-main-desc">شركة أمد الأولى للخدمات تأسست بخبرة تتجاوز العشر سنوات في مجال الخدمات المنزلية والصحية. نسعى دائماً لتقديم أعلى مستويات الجودة والاحترافية لعملائنا الكرام.</p>
                     <div class="why-features">
@@ -648,7 +1862,7 @@
                             <div class="why-f-icon"><i class="fas fa-tint"></i></div>
                             <div class="why-f-text">
                                 <h4>مواد آمنة ومعتمدة</h4>
-                                <p>نستخدم فقط مواد معتمدة من الجهات الصحية وآمنة تماماً للأطفال والحيوانات الأليفة</p>
+                                <p>نستخدم فقط مواد معتمدة من هيئة الغذاء والدواء وآمنة تماماً للأطفال والحيوانات الأليفة</p>
                             </div>
                         </div>
                     </div>
@@ -656,13 +1870,78 @@
             </div>
         </div>
     </section>
-    <section class="section testimonials" id="testimonials">
+    <section class="section testimonials" id="testimonials" style="overflow: hidden; padding: 100px 0; background: #f8fafc;">
         <div class="section-c">
-            <div class="section-h reveal"><div class="section-badge">آراء العملاء</div><h2 class="section-title">ماذا يقول عملاؤنا</h2><p class="section-desc">رضا عملائنا هو أكبر إنجاز لنا</p></div>
-            <div class="test-grid">
-                <div class="test-card reveal"><div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="test-text">خدمة مكافحة الحشرات كانت ممتازة! اختفت الحشرات تمامًا من المنزل وفريق العمل كان محترفًا.</p><div class="test-author"><div class="test-avatar">أ</div><div><div class="test-name">أبو محمد</div><div class="test-role">صاحب فيلا - جدة</div></div></div></div>
-                <div class="test-card reveal"><div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="test-text">تعقيم الخزانات كان شاملًا ودقيقًا. الفريق شرح كل خطوة وأعطاني تقريرًا مفصلًا.</p><div class="test-author"><div class="test-avatar">م</div><div><div class="test-name">منى العتيبي</div><div class="test-role">ربة منزل - جدة</div></div></div></div>
-                <div class="test-card reveal"><div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div><p class="test-text">نظفنا الأرضيات بالبخار في المكتب والنتيجة مذهلة! الأرضيات كأنها جديدة.</p><div class="test-author"><div class="test-avatar">خ</div><div><div class="test-name">خالد السلمي</div><div class="test-role">مدير شركة - جدة</div></div></div></div>
+            <div class="section-h reveal" style="margin-bottom: 50px;">
+                <div class="section-badge" style="background: rgba(22, 50, 97, 0.1); color: var(--red); display: inline-flex; align-items: center; gap: 8px;">
+                    <i class="fas fa-check-circle"></i> أكثر من 340 عميل سعيد
+                </div>
+                <h2 class="section-title">اخترنا لكم أفضل التقييمات</h2>
+                <p class="section-desc">آراء من عملائنا الكرام الذين نفخر بخدمتهم في جميع أنحاء المملكة</p>
+                <div style="display: flex; justify-content: center; gap: 5px; color: var(--gold); font-size: 24px; margin-top: 15px;">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <div style="font-size: 18px; font-weight: 700; margin-top: 5px; color: var(--red);">متوسط التقييم 4.9 من أصل 5 نجوم</div>
+            </div>
+        </div>
+
+        <div class="testimonials-marquee-wrapper reveal" dir="rtl">
+            <!-- Row 1 -->
+            <div class="marquee-container" style="margin-bottom: 20px;">
+                <div class="marquee-content">
+                    <div class="test-card"><div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="test-text">تعامل راقي وشغل نظيف جداً، تخلصت من مشكلة النمل الأبيض نهائياً. شكراً فريق أمدكو.</p><div class="test-author"><div class="test-avatar" style="background: #eef2ff; color: var(--red);">أ</div><div><div class="test-name">أحمد الدوسري</div><div class="test-role">صاحب فيلا - الرياض</div></div></div></div>
+                    <div class="test-card"><div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="test-text">خدمة ممتازة وسريعة، رش الحشرات عندهم بدون رائحة ولا اضطرينا نطلع من البيت.</p><div class="test-author"><div class="test-avatar" style="background: #fffbeb; color: var(--gold);">ع</div><div><div class="test-name">عبدالله المطيري</div><div class="test-role">رب أسرة - جدة</div></div></div></div>
+                    <div class="test-card"><div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="test-text">شركة محترفة بكل ما تعنيه الكلمة، تنظيف الخزانات كان عميق وتم تعقيمه بالكامل.</p><div class="test-author"><div class="test-avatar" style="background: #f0fdf4; color: #16a34a;">م</div><div><div class="test-name">محمد القحطاني</div><div class="test-role">مدير مطعم - الدمام</div></div></div></div>
+                    <div class="test-card"><div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="test-text">أسعارهم مناسبة جداً مقارنة بجودة الشغل. العمالة مدربة ومحترمة.</p><div class="test-author"><div class="test-avatar" style="background: #fef2f2; color: #dc2626;">ف</div><div><div class="test-name">فهد العتيبي</div><div class="test-role">صاحب مؤسسة - مكة</div></div></div></div>
+                    <div class="test-card"><div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div><p class="test-text">طلبت خدمة التعقيم ضد الفيروسات للمكتب، صراحة شغل يبيض الوجه وأدواتهم حديثة.</p><div class="test-author"><div class="test-avatar" style="background: #fdf4ff; color: #c026d3;">ن</div><div><div class="test-name">نورة السبيعي</div><div class="test-role">مديرة مدرسة - الرياض</div></div></div></div>
+                    <div class="test-card"><div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="test-text">عقد سنوي معاهم مريح جداً، التزام بالمواعيد وزيارات دورية بدون ما أتصل أذكرهم.</p><div class="test-author"><div class="test-avatar" style="background: #fff7ed; color: #ea580c;">س</div><div><div class="test-name">سارة الغامدي</div><div class="test-role">ربة منزل - جدة</div></div></div></div>
+                    <div class="test-card"><div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="test-text">من أفضل الشركات اللي تعاملت معاها، دقة في المواعيد وأمانة في الشغل.</p><div class="test-author"><div class="test-avatar" style="background: #ecfdf5; color: #059669;">ط</div><div><div class="test-name">طارق الشهري</div><div class="test-role">مالك عمارة - أبها</div></div></div></div>
+                    <div class="test-card"><div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="test-text">كان عندي مشكلة بق الفراش وجربت شركات كثير بدون فايدة، أمدكو حلوها من أول زيارة!</p><div class="test-author"><div class="test-avatar" style="background: #eff6ff; color: #2563eb;">ر</div><div><div class="test-name">ريم التميمي</div><div class="test-role">ربة منزل - الخبر</div></div></div></div>
+                    <div class="test-card"><div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="test-text">خدمة تنظيف السجاد بالبخار ممتازة، السجاد رجع كأنه جديد. أنصح فيهم وبقوة.</p><div class="test-author"><div class="test-avatar" style="background: #faf5ff; color: #9333ea;">ع</div><div><div class="test-name">عمر الزهراني</div><div class="test-role">صاحب شقة - الطائف</div></div></div></div>
+                    <div class="test-card"><div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="test-text">استجابة سريعة جداً للطوارئ، اتصلت فيهم بالليل وكانوا عندي الصباح بدري.</p><div class="test-author"><div class="test-avatar" style="background: #fdf2f8; color: #db2777;">س</div><div><div class="test-name">سعد السالم</div><div class="test-role">صاحب مستودع - الرياض</div></div></div></div>
+                </div>
+                <!-- Duplicate for seamless loop -->
+                <div class="marquee-content" aria-hidden="true">
+                    <div class="test-card"><div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="test-text">تعامل راقي وشغل نظيف جداً، تخلصت من مشكلة النمل الأبيض نهائياً. شكراً فريق أمدكو.</p><div class="test-author"><div class="test-avatar" style="background: #eef2ff; color: var(--red);">أ</div><div><div class="test-name">أحمد الدوسري</div><div class="test-role">صاحب فيلا - الرياض</div></div></div></div>
+                    <div class="test-card"><div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="test-text">خدمة ممتازة وسريعة، رش الحشرات عندهم بدون رائحة ولا اضطرينا نطلع من البيت.</p><div class="test-author"><div class="test-avatar" style="background: #fffbeb; color: var(--gold);">ع</div><div><div class="test-name">عبدالله المطيري</div><div class="test-role">رب أسرة - جدة</div></div></div></div>
+                    <div class="test-card"><div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="test-text">شركة محترفة بكل ما تعنيه الكلمة، تنظيف الخزانات كان عميق وتم تعقيمه بالكامل.</p><div class="test-author"><div class="test-avatar" style="background: #f0fdf4; color: #16a34a;">م</div><div><div class="test-name">محمد القحطاني</div><div class="test-role">مدير مطعم - الدمام</div></div></div></div>
+                    <div class="test-card"><div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="test-text">أسعارهم مناسبة جداً مقارنة بجودة الشغل. العمالة مدربة ومحترمة.</p><div class="test-author"><div class="test-avatar" style="background: #fef2f2; color: #dc2626;">ف</div><div><div class="test-name">فهد العتيبي</div><div class="test-role">صاحب مؤسسة - مكة</div></div></div></div>
+                    <div class="test-card"><div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div><p class="test-text">طلبت خدمة التعقيم ضد الفيروسات للمكتب، صراحة شغل يبيض الوجه وأدواتهم حديثة.</p><div class="test-author"><div class="test-avatar" style="background: #fdf4ff; color: #c026d3;">ن</div><div><div class="test-name">نورة السبيعي</div><div class="test-role">مديرة مدرسة - الرياض</div></div></div></div>
+                    <div class="test-card"><div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="test-text">عقد سنوي معاهم مريح جداً، التزام بالمواعيد وزيارات دورية بدون ما أتصل أذكرهم.</p><div class="test-author"><div class="test-avatar" style="background: #fff7ed; color: #ea580c;">س</div><div><div class="test-name">سارة الغامدي</div><div class="test-role">ربة منزل - جدة</div></div></div></div>
+                    <div class="test-card"><div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="test-text">من أفضل الشركات اللي تعاملت معاها، دقة في المواعيد وأمانة في الشغل.</p><div class="test-author"><div class="test-avatar" style="background: #ecfdf5; color: #059669;">ط</div><div><div class="test-name">طارق الشهري</div><div class="test-role">مالك عمارة - أبها</div></div></div></div>
+                    <div class="test-card"><div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="test-text">كان عندي مشكلة بق الفراش وجربت شركات كثير بدون فايدة، أمدكو حلوها من أول زيارة!</p><div class="test-author"><div class="test-avatar" style="background: #eff6ff; color: #2563eb;">ر</div><div><div class="test-name">ريم التميمي</div><div class="test-role">ربة منزل - الخبر</div></div></div></div>
+                    <div class="test-card"><div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="test-text">خدمة تنظيف السجاد بالبخار ممتازة، السجاد رجع كأنه جديد. أنصح فيهم وبقوة.</p><div class="test-author"><div class="test-avatar" style="background: #faf5ff; color: #9333ea;">ع</div><div><div class="test-name">عمر الزهراني</div><div class="test-role">صاحب شقة - الطائف</div></div></div></div>
+                    <div class="test-card"><div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="test-text">استجابة سريعة جداً للطوارئ، اتصلت فيهم بالليل وكانوا عندي الصباح بدري.</p><div class="test-author"><div class="test-avatar" style="background: #fdf2f8; color: #db2777;">س</div><div><div class="test-name">سعد السالم</div><div class="test-role">صاحب مستودع - الرياض</div></div></div></div>
+                </div>
+            </div>
+
+            <!-- Row 2 -->
+            <div class="marquee-container">
+                <div class="marquee-content reverse">
+                    <div class="test-card"><div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="test-text">تعاقدنا معاهم لمطعمنا، شغلهم في المكافحة مطابق لاشتراطات البلدية وموثق بتقارير.</p><div class="test-author"><div class="test-avatar" style="background: #fefce8; color: #ca8a04;">م</div><div><div class="test-name">منال العبدالله</div><div class="test-role">صاحبة كافيه - جدة</div></div></div></div>
+                    <div class="test-card"><div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="test-text">رش آمن تماماً، عندي أطفال وحيوانات أليفة وما تأثروا أبداً والحمدلله.</p><div class="test-author"><div class="test-avatar" style="background: #f8fafc; color: #475569;">خ</div><div><div class="test-name">خالد الحربي</div><div class="test-role">رب أسرة - مكة</div></div></div></div>
+                    <div class="test-card"><div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="test-text">طاقم العمل بشوش وفاهم شغله، أعطوني نصائح ممتازة لتفادي الحشرات مستقبلاً.</p><div class="test-author"><div class="test-avatar" style="background: #f0fdfa; color: #0d9488;">ف</div><div><div class="test-name">فوزية اليامي</div><div class="test-role">ربة منزل - نجران</div></div></div></div>
+                    <div class="test-card"><div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div><p class="test-text">جودة عالية في تعقيم المنازل، صراحة ريحة النظافة تفتح النفس.</p><div class="test-author"><div class="test-avatar" style="background: #fff1f2; color: #e11d48;">و</div><div><div class="test-name">وليد الشمري</div><div class="test-role">صاحب فيلا - حائل</div></div></div></div>
+                    <div class="test-card"><div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="test-text">تواصلت معاهم عن طريق الواتساب وكان الرد سريع وواضح والأسعار شفافة بدون مفاجآت.</p><div class="test-author"><div class="test-avatar" style="background: #f8fafc; color: #334155;">ع</div><div><div class="test-name">عبدالمجيد الشهراني</div><div class="test-role">صاحب مؤسسة - خميس مشيط</div></div></div></div>
+                    <div class="test-card"><div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="test-text">حلولهم جذرية لمشكلة الصراصير في المطبخ، ضمانهم حقيقي وفعال.</p><div class="test-author"><div class="test-avatar" style="background: #fffbeb; color: #d97706;">ن</div><div><div class="test-name">نواف العنزي</div><div class="test-role">رب أسرة - الرياض</div></div></div></div>
+                    <div class="test-card"><div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="test-text">تنظيف الفلل بعد التشطيب كان خيالي، شالوا كل آثار البوية والأسمنت في يوم واحد.</p><div class="test-author"><div class="test-avatar" style="background: #fdf4ff; color: #a21caf;">ن</div><div><div class="test-name">ناصر الشريف</div><div class="test-role">مهندس مقاولات - مكة</div></div></div></div>
+                    <div class="test-card"><div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="test-text">الالتزام بالوقت عندهم ممتاز، جو على الموعد بالضبط وخلصوا في الوقت المحدد.</p><div class="test-author"><div class="test-avatar" style="background: #fef2f2; color: #b91c1c;">م</div><div><div class="test-name">مريم العسيري</div><div class="test-role">ربة منزل - أبها</div></div></div></div>
+                    <div class="test-card"><div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="test-text">فريق متكامل ومعدات حديثة، تحس إنك متعامل مع شركة عالمية مو مجرد مؤسسة عادية.</p><div class="test-author"><div class="test-avatar" style="background: #f0fdf4; color: #15803d;">س</div><div><div class="test-name">سلمان الفرج</div><div class="test-role">مدير تشغيل - جدة</div></div></div></div>
+                    <div class="test-card"><div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="test-text">شكراً لخدمة العملاء على متابعتهم بعد الشغل للتأكد من رضانا، خدمة 5 نجوم.</p><div class="test-author"><div class="test-avatar" style="background: #eff6ff; color: #1d4ed8;">ت</div><div><div class="test-name">تركي العليان</div><div class="test-role">مالك فندق - الرياض</div></div></div></div>
+                </div>
+                <!-- Duplicate for seamless loop -->
+                <div class="marquee-content reverse" aria-hidden="true">
+                    <div class="test-card"><div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="test-text">تعاقدنا معاهم لمطعمنا، شغلهم في المكافحة مطابق لاشتراطات البلدية وموثق بتقارير.</p><div class="test-author"><div class="test-avatar" style="background: #fefce8; color: #ca8a04;">م</div><div><div class="test-name">منال العبدالله</div><div class="test-role">صاحبة كافيه - جدة</div></div></div></div>
+                    <div class="test-card"><div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="test-text">رش آمن تماماً، عندي أطفال وحيوانات أليفة وما تأثروا أبداً والحمدلله.</p><div class="test-author"><div class="test-avatar" style="background: #f8fafc; color: #475569;">خ</div><div><div class="test-name">خالد الحربي</div><div class="test-role">رب أسرة - مكة</div></div></div></div>
+                    <div class="test-card"><div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="test-text">طاقم العمل بشوش وفاهم شغله، أعطوني نصائح ممتازة لتفادي الحشرات مستقبلاً.</p><div class="test-author"><div class="test-avatar" style="background: #f0fdfa; color: #0d9488;">ف</div><div><div class="test-name">فوزية اليامي</div><div class="test-role">ربة منزل - نجران</div></div></div></div>
+                    <div class="test-card"><div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div><p class="test-text">جودة عالية في تعقيم المنازل، صراحة ريحة النظافة تفتح النفس.</p><div class="test-author"><div class="test-avatar" style="background: #fff1f2; color: #e11d48;">و</div><div><div class="test-name">وليد الشمري</div><div class="test-role">صاحب فيلا - حائل</div></div></div></div>
+                    <div class="test-card"><div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="test-text">تواصلت معاهم عن طريق الواتساب وكان الرد سريع وواضح والأسعار شفافة بدون مفاجآت.</p><div class="test-author"><div class="test-avatar" style="background: #f8fafc; color: #334155;">ع</div><div><div class="test-name">عبدالمجيد الشهراني</div><div class="test-role">صاحب مؤسسة - خميس مشيط</div></div></div></div>
+                    <div class="test-card"><div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="test-text">حلولهم جذرية لمشكلة الصراصير في المطبخ، ضمانهم حقيقي وفعال.</p><div class="test-author"><div class="test-avatar" style="background: #fffbeb; color: #d97706;">ن</div><div><div class="test-name">نواف العنزي</div><div class="test-role">رب أسرة - الرياض</div></div></div></div>
+                    <div class="test-card"><div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="test-text">تنظيف الفلل بعد التشطيب كان خيالي، شالوا كل آثار البوية والأسمنت في يوم واحد.</p><div class="test-author"><div class="test-avatar" style="background: #fdf4ff; color: #a21caf;">ن</div><div><div class="test-name">ناصر الشريف</div><div class="test-role">مهندس مقاولات - مكة</div></div></div></div>
+                    <div class="test-card"><div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="test-text">الالتزام بالوقت عندهم ممتاز، جو على الموعد بالضبط وخلصوا في الوقت المحدد.</p><div class="test-author"><div class="test-avatar" style="background: #fef2f2; color: #b91c1c;">م</div><div><div class="test-name">مريم العسيري</div><div class="test-role">ربة منزل - أبها</div></div></div></div>
+                    <div class="test-card"><div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="test-text">فريق متكامل ومعدات حديثة، تحس إنك متعامل مع شركة عالمية مو مجرد مؤسسة عادية.</p><div class="test-author"><div class="test-avatar" style="background: #f0fdf4; color: #15803d;">س</div><div><div class="test-name">سلمان الفرج</div><div class="test-role">مدير تشغيل - جدة</div></div></div></div>
+                    <div class="test-card"><div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="test-text">شكراً لخدمة العملاء على متابعتهم بعد الشغل للتأكد من رضانا، خدمة 5 نجوم.</p><div class="test-author"><div class="test-avatar" style="background: #eff6ff; color: #1d4ed8;">ت</div><div><div class="test-name">تركي العليان</div><div class="test-role">مالك فندق - الرياض</div></div></div></div>
+                </div>
             </div>
         </div>
     </section>
@@ -672,25 +1951,26 @@
             <div class="contact-grid">
                 <div class="contact-info reveal">
                     <div class="contact-items-wrapper">
-                        <div class="contact-item"><div class="contact-item-icon"><i class="fas fa-phone-alt"></i></div><div><div class="contact-item-label">اتصل بنا</div><div class="contact-item-value"><a href="tel:+966500000000" dir="ltr">+966 50 000 0000</a></div></div></div>
-                        <div class="contact-item"><div class="contact-item-icon"><i class="fab fa-whatsapp"></i></div><div><div class="contact-item-label">واتساب</div><div class="contact-item-value"><a href="https://wa.me/966500000000" dir="ltr">+966 50 000 0000</a></div></div></div>
+                        <div class="contact-item"><div class="contact-item-icon"><i class="fas fa-phone-alt"></i></div><div><div class="contact-item-label">اتصل بنا</div><div class="contact-item-value"><a href="tel:+966545759422" dir="ltr">+966545759422</a></div></div></div>
+                        <div class="contact-item"><div class="contact-item-icon"><i class="fab fa-whatsapp"></i></div><div><div class="contact-item-label">واتساب</div><div class="contact-item-value"><a href="https://wa.me/966545759422" dir="ltr">966545759422</a></div></div></div>
                         <div class="contact-item"><div class="contact-item-icon"><i class="fas fa-envelope"></i></div><div><div class="contact-item-label">البريد الإلكتروني</div><div class="contact-item-value"><a href="mailto:info@amdko.com">info@amdko.com</a></div></div></div>
-                        <div class="contact-item"><div class="contact-item-icon"><i class="fas fa-map-marker-alt"></i></div><div><div class="contact-item-label">العنوان</div><div class="contact-item-value">جدة، المملكة العربية السعودية</div></div></div>
+                        <div class="contact-item"><div class="contact-item-icon"><i class="fas fa-map-marker-alt"></i></div><div><div class="contact-item-label">العنوان</div><div class="contact-item-value">فرع جدة, طريق الأمير سلطان, برج المرجانة</div></div></div>
+                        <div class="contact-item" style="grid-column: span 2;"><div class="contact-item-icon"><i class="fas fa-city"></i></div><div><div class="contact-item-label">فروعنا الأخرى</div><div class="contact-item-value">الرياض - مكة المكرمة - خميس مشيط<br><span style="font-size: 0.9em; color: var(--gray-500);">Riyadh - Makkah - Khamis Mushait</span></div></div></div>
                     </div>
             </div>
         </div>
     </section>
     <footer class="footer">
         <div class="footer-grid">
-            <div class="footer-brand"><img src="./logo/logo_white.webp" alt="أمدكو" style="height: 75px; width: auto; margin-bottom: 12px;"><p>شركة أمد الأولى للخدمات - شريككم الموثوق في النظافة والتعقيم منذ أكثر من 15 عامًا.</p><div class="footer-socials"><a href="https://wa.me/966500000000" class="social-link social-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i></a><a href="#" class="social-link social-facebook" target="_blank"><i class="fab fa-facebook-f"></i></a><a href="#" class="social-link social-instagram" target="_blank"><i class="fab fa-instagram"></i></a><a href="#" class="social-link social-tiktok" target="_blank"><i class="fab fa-tiktok"></i></a></div></div>
+            <div class="footer-brand"><img src="./logo/logo_new.webp" alt="أمدكو" style="height: 75px; width: auto; margin-bottom: 12px;"><p>شركة أمد الأولى أمدكو - شريككم الموثوق في مكافحة الحشرات والتعقيم ضد الفيروسات والنظافة العامة خبرة منذ 13 عام.</p></div>
             <div class="footer-col"><h4>خدماتنا</h4><ul><li><a href="#services">مكافحة حشرات</a></li><li><a href="#services">تعقيم ضد الفيروسات</a></li><li><a href="#services">تنظيف بالبخار</a></li><li><a href="#services">تنظيف الخزانات</a></li></ul></div>
             <div class="footer-col"><h4>روابط سريعة</h4><ul><li><a href="#hero">الرئيسية</a></li><li><a href="#pricing">اطلب الآن</a></li><li><a href="#why-us">لماذا نحن</a></li><li><a href="#contact">تواصل معنا</a></li></ul></div>
-            <div class="footer-col"><h4>ساعات العمل</h4><ul><li><a href="#">السبت - الخميس</a></li><li><a href="#">8 صباحًا - 10 مساءً</a></li><li><a href="#">الجمعة</a></li><li><a href="#">2 ظهرًا - 10 مساءً</a></li></ul></div>
+            <div class="footer-col"><h4>ساعات العمل وفروعنا</h4><ul style="list-style: none; padding: 0; margin: 0;"><li style="color: var(--gray-400); margin-bottom: 12px;">السبت - الخميس (8 ص - 10 م)</li><li style="color: var(--gray-400); margin-bottom: 12px; margin-top: 20px;">فروعنا:</li><li style="color: var(--gray-400); margin-bottom: 12px;">الرياض - مكة المكرمة - خميس مشيط</li><li style="color: var(--gray-400); margin-bottom: 12px;">Riyadh - Makkah - Khamis mushait</li></ul></div>
         </div>
         <div class="footer-bottom"><span>&copy; 2024 أمدكو - جميع الحقوق محفوظة</span></div>
     </footer>
     <button class="mobile-cart-toggle" id="mobileCartToggle"><i class="fas fa-shopping-cart"></i><span class="mobile-cart-count">0</span></button>
-    <a href="https://wa.me/966500000000" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i><span class="wa-tooltip">تحدث معنا على واتساب</span></a>
+    <a href="https://wa.me/966545759422" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i><span class="wa-tooltip">تحدث معنا على واتساب</span></a>
     <button class="scroll-top" id="scrollTop"><i class="fas fa-chevron-up"></i></button>
     
     <div class="cart-toast" id="cartToast">
