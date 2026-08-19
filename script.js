@@ -8,7 +8,14 @@
         function openMenu(){mobileMenu.classList.add('open');mobileOverlay.classList.add('open');document.body.style.overflow='hidden'}
         function closeMenu(){mobileMenu.classList.remove('open');mobileOverlay.classList.remove('open');document.body.style.overflow=''}
         hamburger.addEventListener('click',openMenu);mobileClose.addEventListener('click',closeMenu);mobileOverlay.addEventListener('click',closeMenu);
-        mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
+                mobileMenu.querySelectorAll("a").forEach(a=>a.addEventListener("click",closeMenu));
+        const mobileDropdownBtns = document.querySelectorAll(".mobile-dropdown-btn");
+        mobileDropdownBtns.forEach(btn => {
+            btn.addEventListener("click", (e) => {
+                e.stopPropagation();
+                btn.parentElement.classList.toggle("active");
+            });
+        });
         const revealEls=document.querySelectorAll('.reveal');
         const revealObs=new IntersectionObserver(e=>{e.forEach(en=>{if(en.isIntersecting)en.target.classList.add('revealed')})},{threshold:0.05,rootMargin:'0px 0px 0px 0px'});
         revealEls.forEach(el=>revealObs.observe(el));
@@ -132,6 +139,7 @@
             // Render cart
             function renderCart() {
                 const cartItems = document.getElementById('cartItems');
+                if (!cartItems) return;
                 const cartEmpty = document.getElementById('cartEmpty');
                 const cartFooter = document.getElementById('cartFooter');
                 const cartCount = document.getElementById('cartCount');
@@ -203,45 +211,51 @@
             }
 
             // Clear cart
-            document.getElementById('clearCartBtn').addEventListener('click', () => {
-                cart = [];
-                document.querySelectorAll('.order-service-card').forEach(card => {
-                    card.classList.remove('in-cart');
-                    const qn = card.querySelector('.qty-num');
-                    if (qn) qn.textContent = '0';
+            const clearCartBtn = document.getElementById('clearCartBtn');
+            if (clearCartBtn) {
+                clearCartBtn.addEventListener('click', () => {
+                    cart = [];
+                    document.querySelectorAll('.order-service-card').forEach(card => {
+                        card.classList.remove('in-cart');
+                        const qn = card.querySelector('.qty-num');
+                        if (qn) qn.textContent = '0';
+                    });
+                    renderCart();
                 });
-                renderCart();
-            });
+            }
 
             // Send order via WhatsApp
-            document.getElementById('sendOrderBtn').addEventListener('click', () => {
-                playClickSound();
-                if (cart.length === 0) return;
+            const sendOrderBtn = document.getElementById('sendOrderBtn');
+            if (sendOrderBtn) {
+                sendOrderBtn.addEventListener('click', () => {
+                    playClickSound();
+                    if (cart.length === 0) return;
 
-                let total = 0;
-                let lines = cart.map(item => {
-                    const subtotal = item.price * item.qty;
-                    total += subtotal;
-                    return `• ${item.service} × ${item.qty} = ${subtotal.toLocaleString()} ر.س`;
+                    let total = 0;
+                    let lines = cart.map(item => {
+                        const subtotal = item.price * item.qty;
+                        total += subtotal;
+                        return `• ${item.service} × ${item.qty} = ${subtotal.toLocaleString()} ر.س`;
+                    });
+
+                    const msg = encodeURIComponent(
+                        `السلام عليكم 👋\n\n` +
+                        `🛒 *طلب جديد من موقع أمدكو*\n` +
+                        `━━━━━━━━━━━━━━━━\n` +
+                        lines.join('\n') + '\n' +
+                        `━━━━━━━━━━━━━━━━\n` +
+                        `💰 *الإجمالي: ${total.toLocaleString()} ر.س*\n\n` +
+                        `أرجو التواصل لتأكيد الطلب وتحديد الموعد.\n` +
+                        `شكراً لكم 🙏`
+                    );
+
+                    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, '_blank');
                 });
-
-                const msg = encodeURIComponent(
-                    `السلام عليكم 👋\n\n` +
-                    `🛒 *طلب جديد من موقع أمدكو*\n` +
-                    `━━━━━━━━━━━━━━━━\n` +
-                    lines.join('\n') + '\n' +
-                    `━━━━━━━━━━━━━━━━\n` +
-                    `💰 *الإجمالي: ${total.toLocaleString()} ر.س*\n\n` +
-                    `أرجو التواصل لتأكيد الطلب وتحديد الموعد.\n` +
-                    `شكراً لكم 🙏`
-                );
-
-                window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, '_blank');
-            });
+            }
 
             // Mobile cart toggle
             const mobileCartToggle = document.getElementById('mobileCartToggle');
-            const orderCart = document.getElementById('orderCart');
+            const orderCart = document.getElementById('cartDrawer') || document.getElementById('orderCart');
             const cartOverlay = document.getElementById('cartOverlay');
             const cartCloseBtn = document.getElementById('cartCloseBtn');
             const cartToast = document.getElementById('cartToast');
@@ -260,17 +274,19 @@
             }
 
             function openMobileCart() {
+                if (!orderCart) return;
                 orderCart.classList.add('mobile-open');
                 if (cartOverlay) cartOverlay.classList.add('open');
                 document.body.style.overflow = 'hidden';
             }
             function closeMobileCart() {
+                if (!orderCart) return;
                 orderCart.classList.remove('mobile-open');
                 if (cartOverlay) cartOverlay.classList.remove('open');
                 document.body.style.overflow = '';
             }
 
-            if (mobileCartToggle) {
+            if (mobileCartToggle && orderCart) {
                 mobileCartToggle.addEventListener('click', () => {
                     if (orderCart.classList.contains('mobile-open')) {
                         closeMobileCart();
@@ -286,3 +302,16 @@
                 cartOverlay.addEventListener('click', closeMobileCart);
             }
         })();
+
+        // Preloader Logic
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            if (preloader) {
+                setTimeout(() => {
+                    preloader.classList.add('fade-out');
+                    setTimeout(() => {
+                        preloader.remove();
+                    }, 600); // Wait for transition
+                }, 600); // Pulse a bit for premium feel
+            }
+        });
