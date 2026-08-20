@@ -228,7 +228,7 @@
         .contact-item:hover{border-color:var(--red);transform:translateY(-3px);box-shadow:0 10px 30px rgba(22,50,97,.08)}
         .contact-item-icon{width:50px;height:50px;background:var(--white);border-radius:14px;display:flex;align-items:center;justify-content:center;color:var(--red);font-size:20px;flex-shrink:0;box-shadow:0 4px 10px rgba(0,0,0,.05)}
         .contact-item-label{font-size:13px;color:var(--gray-400);font-weight:600;margin-bottom:3px}
-        .contact-item-value{font-size:15px;color:#2d2d2d;font-weight:700;word-break:break-all;}
+        .contact-item-value{font-size:15px;color:#2d2d2d;font-weight:700;word-break:normal;overflow-wrap:anywhere;}
         .contact-item-value a{color:#2d2d2d;text-decoration:none;transition:var(--tr)}
         .contact-item-value a:hover{color:var(--red)}
         .footer-socials{display:flex;gap:12px;margin-top:20px;justify-content:flex-start}
@@ -287,7 +287,7 @@
         .reveal{opacity:0;transform:translateY(40px);transition:opacity .7s ease,transform .7s ease}
         .reveal.revealed{opacity:1;transform:translateY(0)}
         @media(max-width:1024px){.order-services-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr 1fr}}
-        @media(max-width:992px){.portfolio-grid{column-count:2} .contact-items-wrapper{grid-template-columns:1fr}} @media(max-width:768px){.portfolio-grid{column-count:1} .nav-links{display:none}.hamburger{display:flex}.stats-c{grid-template-columns:repeat(2,1fr)}.services-grid{grid-template-columns:1fr}.why-grid{grid-template-columns:1fr}.test-grid{grid-template-columns:1fr}.contact-grid{grid-template-columns:1fr}.contact-items-wrapper{grid-template-columns:1fr}.form-row{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr}.footer-bottom{flex-direction:column;gap:10px;text-align:center}.order-tabs{flex-wrap:wrap;justify-content:center;overflow-x:visible;padding-bottom:0}.order-tab{flex-grow:1;justify-content:center;padding:12px 10px;font-size:13px;white-space:nowrap}.order-card-info h4{font-size:14px}.order-cart{width:100%}}
+        @media(max-width:992px){.portfolio-grid{column-count:2} .contact-items-wrapper{grid-template-columns:1fr} .contact-item {grid-column: span 1 !important;}} @media(max-width:768px){.portfolio-grid{column-count:1} .nav-links{display:none}.hamburger{display:flex}.stats-c{grid-template-columns:repeat(2,1fr)}.services-grid{grid-template-columns:1fr}.why-grid{grid-template-columns:1fr}.test-grid{grid-template-columns:1fr}.contact-grid{grid-template-columns:1fr}.contact-items-wrapper{grid-template-columns:1fr}.contact-item{grid-column:span 1 !important;}.form-row{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr}.footer-bottom{flex-direction:column;gap:10px;text-align:center}.order-tabs{flex-wrap:wrap;justify-content:center;overflow-x:visible;padding-bottom:0}.order-tab{flex-grow:1;justify-content:center;padding:12px 10px;font-size:13px;white-space:nowrap}.order-card-info h4{font-size:14px}.order-cart{width:100%}}
         @media(max-width:480px){
             .container { padding: 0 15px; }
             .stats-c{grid-template-columns:1fr}
@@ -454,3 +454,53 @@
             50% { transform: scale(1.1); opacity: 1; }
             100% { transform: scale(0.9); opacity: 0.8; }
         }
+
+/* Customers Slider */
+.customers-slider {
+    display: flex;
+    width: max-content;
+    animation: scrollCustomers 35s linear infinite;
+}
+.customers-slider:hover {
+    animation-play-state: paused;
+}
+.customers-slide-track {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    padding: 0 25px;
+}
+.customer-logo {
+    height: 80px;
+    max-width: 160px;
+    object-fit: contain;
+    filter: grayscale(100%) opacity(0.6);
+    transition: all 0.3s ease;
+}
+.customer-logo:hover {
+    filter: grayscale(0%) opacity(1);
+    transform: scale(1.05);
+}
+@keyframes scrollCustomers {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* Fix contact items on mobile */
+@media (max-width: 500px) {
+    .contact-items-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    .contact-item {
+        flex-direction: row;
+        text-align: right;
+        padding: 15px;
+    }
+    .contact-item-value {
+        font-size: 14px;
+        word-break: normal;
+        overflow-wrap: anywhere;
+    }
+}
