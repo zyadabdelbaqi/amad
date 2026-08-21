@@ -253,7 +253,7 @@
         .footer-brand p{font-size:14px;line-height:1.8;margin-bottom:20px}
         .footer-col h4{font-size:17px;font-weight:700;color:var(--white);margin-bottom:20px}
         .footer-col ul{list-style:none}
-        .footer-col ul li{margin-bottom:10px}
+        .footer-col ul li{margin-bottom:10px;font-size:14px}
         .footer-col ul li a{color:rgba(255,255,255,.6);text-decoration:none;font-size:14px;transition:var(--tr)}
         .footer-col ul li a:hover{color:var(--white);padding-right:5px}
         .footer-bottom{max-width:1200px;margin:0 auto;padding:20px 30px 0;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:center;align-items:center;font-size:13px}
