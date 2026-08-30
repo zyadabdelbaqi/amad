@@ -548,7 +548,7 @@
         const d = String(now.getDate()).padStart(2, '0');
         const h = String(now.getHours()).padStart(2, '0');
         const min = String(now.getMinutes()).padStart(2, '0');
-        document.getElementById('in-inv-num').value = `AMD-${y}${m}${d}-${h}${min}`;
+        document.getElementById('in-inv-num').value = `${y}${m}${d}${h}${min}`;
 
         let items = [
             { name: '', qty: 1, price: 0 }
@@ -746,7 +746,16 @@
         });
 
         document.getElementById('btn-print').addEventListener('click', () => {
+            const originalTitle = document.title;
+            const clientName = document.getElementById('in-client-name').value.trim();
+            const invNum = document.getElementById('in-inv-num').value.trim();
+            if (clientName) {
+                document.title = `فاتورة - ${clientName} - ${invNum}`;
+            } else {
+                document.title = `فاتورة - ${invNum}`;
+            }
             window.print();
+            document.title = originalTitle;
         });
 
         // Initial Render
