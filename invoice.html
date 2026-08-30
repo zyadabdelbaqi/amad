@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إنشاء فاتورة ضريبية - أمدكو</title>
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="invoice-manifest.json">
+    <meta name="theme-color" content="#163261">
+    <link rel="apple-touch-icon" href="./logo/logo_new.webp">
+    <!-- Add Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800;900&display=swap" rel="stylesheet">
+    <!-- QR Code Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <style>
+        :root {
+            --red: #163261;
+            --red-m: #1e3a8a;
+            --gold: #C39D68;
+            --gray-900: #1a1a1a;
+            --gray-600: #555;
+            --gray-200: #ddd;
+            --gray-50: #f5f5f5;
+            --white: #fff;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Almarai', sans-serif;
+        }
+        body {
+            background-color: var(--gray-50);
+            color: var(--gray-900);
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+        /* Layout */
+        .sidebar {
+            width: 400px;
+            background: var(--white);
+            border-left: 1px solid var(--gray-200);
+            padding: 20px;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            height: 100vh;
+            overflow-y: auto;
+        }
+        .main-content {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            background: #e9ecef;
+            height: 100vh;
+            overflow-y: auto;
+        }
+        /* Form Styles */
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--gray-600);
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--gray-200);
+            border-radius: 6px;
+            font-size: 14px;
+            outline: none;
+            transition: 0.3s;
+        }
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: var(--red);
+        }
+        .section-title {
+            font-size: 16px;
+            font-weight: 800;
+            color: var(--red);
+            border-bottom: 2px solid var(--gray-200);
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+            margin-top: 10px;
+        }
+        .btn {
+            background: var(--red);
+            color: var(--white);
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            font-weight: 700;
+            cursor: pointer;
+            width: 100%;
+            font-size: 15px;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .btn:hover {
+            background: var(--red-m);
+        }
+        .btn-gold {
+            background: var(--gold);
+        }
+        .btn-gold:hover {
+            background: #a38256;
+        }
+        .btn-danger {
+            background: #dc3545;
+            padding: 6px 12px;
+            width: auto;
+        }
+        
+        .item-card {
+            background: var(--gray-50);
+            border: 1px solid var(--gray-200);
+            border-radius: 6px;
+            padding: 15px;
+            margin-bottom: 10px;
+            position: relative;
+        }
+        .item-card .remove-btn {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: none;
+            border: none;
+            color: #dc3545;
+            font-weight: bold;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        
+        /* Invoice Preview */
+        .invoice-page {
+            background: var(--white);
+            width: 210mm;
+            min-height: 297mm;
+            padding: 15mm;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            position: relative;
+            flex-shrink: 0;
+            margin: 0 auto;
+        }
+        .invoice-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 2px solid var(--red);
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+        .invoice-header-right {
+            text-align: right;
+        }
+        .invoice-header-right h1 {
+            color: var(--red);
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+        .invoice-header-right p {
+            font-size: 13px;
+            color: var(--gray-600);
+            margin-bottom: 3px;
+        }
+        .invoice-header-left {
+            text-align: left;
+        }
+        .invoice-header-left img {
+            height: 80px;
+        }
+        .invoice-title {
+            text-align: center;
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--red);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        
+        .invoice-details {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 25px;
+        }
+        .invoice-details-box {
+            background: var(--gray-50);
+            padding: 15px;
+            border-radius: 8px;
+            width: 48%;
+            border: 1px solid var(--gray-200);
+        }
+        .invoice-details-box h3 {
+            font-size: 15px;
+            color: var(--gold);
+            margin-bottom: 10px;
+            border-bottom: 1px solid var(--gray-200);
+            padding-bottom: 5px;
+        }
+        .invoice-details-box p {
+            font-size: 13px;
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .invoice-details-box p span:first-child {
+            font-weight: 700;
+            color: var(--red);
+        }
+        
+        .invoice-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        .invoice-table th, .invoice-table td {
+            border: 1px solid var(--gray-200);
+            padding: 10px;
+            text-align: right;
+            font-size: 13px;
+        }
+        .invoice-table th {
+            background-color: var(--red);
+            color: var(--white);
+            font-weight: 700;
+        }
+        .invoice-table td:nth-child(2), .invoice-table th:nth-child(2) {
+            text-align: center;
+        }
+        .invoice-table td:nth-child(3), .invoice-table th:nth-child(3),
+        .invoice-table td:nth-child(4), .invoice-table th:nth-child(4) {
+            text-align: center;
+        }
+        
+        .totals-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 20px;
+        }
+        .invoice-totals {
+            width: 40%;
+            border-collapse: collapse;
+        }
+        .invoice-totals th, .invoice-totals td {
+            padding: 10px;
+            border: 1px solid var(--gray-200);
+            font-size: 14px;
+        }
+        .invoice-totals th {
+            text-align: right;
+            background: var(--gray-50);
+            color: var(--red);
+        }
+        .invoice-totals td {
+            text-align: center;
+            font-weight: 700;
+        }
+        .invoice-totals .grand-total th, .invoice-totals .grand-total td {
+            background: var(--red);
+            color: var(--white);
+            font-size: 16px;
+        }
+        
+        .qr-section {
+            display: flex;
+            justify-content: flex-start;
+            margin-bottom: 5px;
+        }
+        #qrcode {
+            padding: 10px;
+            border: 1px solid var(--gray-200);
+            border-radius: 8px;
+            background: var(--white);
+        }
+        
+        .invoice-footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 12px;
+            color: var(--gray-600);
+            border-top: 1px solid var(--gray-200);
+            padding-top: 15px;
+            line-height: 1.8;
+        }
+        
+        @media screen and (max-width: 900px) {
+            body {
+                flex-direction: column;
+                height: auto;
+                overflow: visible;
+            }
+            .sidebar {
+                width: 100%;
+                height: auto;
+                overflow-y: visible;
+                box-sizing: border-box;
+                border-left: none;
+                border-bottom: 2px solid var(--gray-200);
+            }
+            .main-content {
+                width: 100%;
+                height: auto;
+                overflow-y: visible;
+                box-sizing: border-box;
+                padding: 15px;
+                display: flex;
+                justify-content: center;
+                overflow-x: hidden;
+            }
+            .invoice-page {
+                margin: 0 auto;
+                transform: none;
+                zoom: 0.95;
+            }
+        }
+        @media screen and (max-width: 800px) {
+            .invoice-page { zoom: 0.85; }
+        }
+        @media screen and (max-width: 700px) {
+            .invoice-page { zoom: 0.75; }
+        }
+        @media screen and (max-width: 600px) {
+            .invoice-page { zoom: 0.65; }
+        }
+        @media screen and (max-width: 500px) {
+            .invoice-page { zoom: 0.55; }
+        }
+        @media screen and (max-width: 400px) {
+            .invoice-page { zoom: 0.45; }
+        }
+        
+        @media print {
+            @page {
+                size: A4;
+                margin: 0;
+            }
+            body {
+                background: var(--white);
+                margin: 0;
+                padding: 0;
+                display: block;
+            }
+            .sidebar {
+                display: none;
+            }
+            .main-content {
+                padding: 0;
+                background: none;
+                display: block;
+            }
+            .invoice-page {
+                box-shadow: none;
+                width: 210mm;
+                height: 297mm;
+                padding: 15mm;
+                box-sizing: border-box;
+                page-break-after: always;
+            }
+            .invoice-footer {
+                position: absolute;
+                bottom: 15mm;
+                left: 15mm;
+                right: 15mm;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar Input -->
+    <div class="sidebar">
+        <h2 style="color: var(--red); text-align: center; margin-bottom: 10px;">إنشاء فاتورة ضريبية</h2>
+        
+        <div class="section-title">بيانات المؤسسة (المُصدِر)</div>
+        <div class="form-group">
+            <label>اسم المؤسسة</label>
+            <input type="text" id="in-comp-name" value="شركة أمد الأولى المحدودة">
+        </div>
+        <div class="form-group">
+            <label>الرقم الضريبي</label>
+            <input type="text" id="in-comp-tax" value="300519298800003">
+        </div>
+
+        <div class="form-group">
+            <label>العنوان</label>
+            <input type="text" id="in-comp-address" value="جدة، طريق الأمير سلطان، برج المرجانة">
+        </div>
+
+        <div class="section-title">بيانات العميل والفاتورة</div>
+        <div class="form-group">
+            <label>رقم الفاتورة</label>
+            <input type="text" id="in-inv-num" value="">
+        </div>
+        <div class="form-group">
+            <label>تاريخ الفاتورة</label>
+            <input type="date" id="in-inv-date">
+        </div>
+        <div class="form-group">
+            <label>طريقة الدفع</label>
+            <select id="in-payment-method" style="width: 100%; padding: 12px 10px 12px 35px; border: 1px solid var(--gray-200); border-radius: 6px; font-size: 14px; font-family: inherit; line-height: 1.5; outline: none; background-color: #fff; background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23333%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'); background-repeat: no-repeat; background-position: left 15px center; background-size: 12px; appearance: none; -webkit-appearance: none; -moz-appearance: none; cursor: pointer;">
+                <option value="كاش / نقدي">كاش / نقدي</option>
+                <option value="تحويل بنكي">تحويل بنكي</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>اسم العميل (فاتورة إلى)</label>
+            <input type="text" id="in-client-name" placeholder="مجموعة المدار التجارية">
+        </div>
+        <div class="form-group">
+            <label>عنوان العميل</label>
+            <input type="text" id="in-client-address" placeholder="الرياض، العليا">
+        </div>
+        <div class="form-group">
+            <label>الرقم الضريبي للعميل (اختياري)</label>
+            <input type="text" id="in-client-tax" placeholder="300000000000003">
+        </div>
+        <div class="form-group">
+            <label>رقم السجل التجاري للعميل (اختياري)</label>
+            <input type="text" id="in-client-cr" placeholder="1010000000">
+        </div>
+        <div class="form-group">
+            <label>نسبة الخصم (%)</label>
+            <input type="number" id="in-discount-rate" value="0" min="0" max="100">
+        </div>
+        <div class="form-group">
+            <label>نسبة ضريبة القيمة المضافة (%)</label>
+            <input type="number" id="in-tax-rate" value="15" min="0" max="100">
+        </div>
+
+        <div class="section-title">بنود الفاتورة</div>
+        <div id="items-container"></div>
+        <button class="btn btn-gold" id="btn-add-item" style="margin-bottom: 20px;">+ إضافة بند جديد</button>
+        
+        <div class="form-group" style="margin-top: auto; margin-bottom: 20px;">
+            <label>ملاحظات إضافية (تظهر أسفل الفاتورة)</label>
+            <textarea id="in-notes" rows="3">شركة أمد الأولى المحدودة (أمدكو)</textarea>
+        </div>
+        
+        <button class="btn" id="btn-print">طباعة الفاتورة 🖨️</button>
+    </div>
+
+    <!-- Main Content (Invoice Preview) -->
+    <div class="main-content">
+        <div class="invoice-page">
+            
+            <div class="invoice-header">
+                <div class="invoice-header-right">
+                    <h1 id="out-comp-name">شركة أمد الأولى المحدودة</h1>
+                    <p><strong>الرقم الضريبي:</strong>&nbsp;<span id="out-comp-tax" dir="auto">300519298800003</span></p>
+
+                    <p><strong>العنوان:</strong>&nbsp;<span id="out-comp-address" dir="auto">جدة، طريق الأمير سلطان</span></p>
+                </div>
+                <div class="invoice-header-left">
+                    <!-- Logo -->
+                    <img src="./logo/logo_new.webp" alt="Logo">
+                </div>
+            </div>
+
+            <div class="invoice-title">فاتورة ضريبية <br> <span style="font-size: 14px; color: var(--gold)">Tax Invoice</span></div>
+
+            <div class="invoice-details">
+                <div class="invoice-details-box">
+                    <h3>بيانات العميل (Billed To)</h3>
+                    <p><span>الاسم:</span>&nbsp;<span id="out-client-name" dir="auto">-</span></p>
+                    <p id="wrap-client-address"><span>العنوان:</span>&nbsp;<span id="out-client-address" dir="auto">-</span></p>
+                    <p id="wrap-client-tax"><span>الرقم الضريبي:</span>&nbsp;<span id="out-client-tax" dir="auto">-</span></p>
+                    <p id="wrap-client-cr"><span>س.ت:</span>&nbsp;<span id="out-client-cr" dir="auto">-</span></p>
+                </div>
+                <div class="invoice-details-box">
+                    <h3>تفاصيل الفاتورة (Invoice Details)</h3>
+                    <p><span>رقم الفاتورة:</span>&nbsp;<span id="out-inv-num" dir="auto">-</span></p>
+                    <p><span>تاريخ الإصدار:</span>&nbsp;<span id="out-inv-date" dir="auto">-</span></p>
+                    <p><span>طريقة الدفع:</span>&nbsp;<span id="out-payment-method" dir="auto">-</span></p>
+                </div>
+            </div>
+
+            <table class="invoice-table">
+                <thead>
+                    <tr>
+                        <th style="width: 50%;">الوصف / Item Description</th>
+                        <th style="width: 15%;">الكمية / Qty</th>
+                        <th style="width: 15%;">سعر الوحدة / Unit Price</th>
+                        <th style="width: 20%;">الإجمالي / Total</th>
+                    </tr>
+                </thead>
+                <tbody id="out-items-body">
+                    <!-- Items will be injected here -->
+                </tbody>
+            </table>
+
+            <div class="totals-wrapper">
+                <div class="qr-section">
+                    <div id="qrcode"></div>
+                </div>
+                <table class="invoice-totals">
+                    <tr>
+                        <th>الإجمالي <br><small>Subtotal</small></th>
+                        <td><span id="out-subtotal">0.00</span> ر.س</td>
+                    </tr>
+                    <tr id="row-discount">
+                        <th>الخصم (<span id="out-discount-rate-display">0</span>%) <br><small>Discount</small></th>
+                        <td><span id="out-discount-amount">0.00</span> ر.س</td>
+                    </tr>
+                    <tr id="row-taxable">
+                        <th>الإجمالي الخاضع للضريبة <br><small>Taxable Amount</small></th>
+                        <td><span id="out-taxable-amount">0.00</span> ر.س</td>
+                    </tr>
+                    <tr>
+                        <th>ضريبة القيمة المضافة (<span id="out-tax-rate-display">15</span>%) <br><small>VAT</small></th>
+                        <td><span id="out-tax-amount">0.00</span> ر.س</td>
+                    </tr>
+                    <tr class="grand-total">
+                        <th>الإجمالي الكلي <br><small>Grand Total</small></th>
+                        <td><span id="out-grand-total">0.00</span> ر.س</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="invoice-footer" id="out-notes">
+                شركة أمد الأولى المحدودة (أمدكو)
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // Init Date
+        document.getElementById('in-inv-date').valueAsDate = new Date();
+
+        // Init Invoice Number (Auto-generate based on Date/Time)
+        const now = new Date();
+        const y = now.getFullYear();
+        const m = String(now.getMonth() + 1).padStart(2, '0');
+        const d = String(now.getDate()).padStart(2, '0');
+        const h = String(now.getHours()).padStart(2, '0');
+        const min = String(now.getMinutes()).padStart(2, '0');
+        document.getElementById('in-inv-num').value = `AMD-${y}${m}${d}-${h}${min}`;
+
+        let items = [
+            { name: '', qty: 1, price: 0 }
+        ];
+
+        function renderInputItems() {
+            const container = document.getElementById('items-container');
+            container.innerHTML = '';
+            items.forEach((item, index) => {
+                const div = document.createElement('div');
+                div.className = 'item-card';
+                div.innerHTML = `
+                    <button class="remove-btn" onclick="removeItem(${index})">×</button>
+                    <div class="form-group" style="margin-bottom: 10px;">
+                        <label>وصف البند #${index + 1}</label>
+                        <input type="text" value="${item.name}" oninput="updateItem(${index}, 'name', this.value)">
+                    </div>
+                    <div style="display: flex; gap: 10px;">
+                        <div class="form-group" style="flex: 1;">
+                            <label>الكمية</label>
+                            <input type="number" min="1" value="${item.qty}" oninput="updateItem(${index}, 'qty', this.value)">
+                        </div>
+                        <div class="form-group" style="flex: 1;">
+                            <label>سعر الوحدة</label>
+                            <input type="number" min="0" step="0.01" value="${item.price}" oninput="updateItem(${index}, 'price', this.value)">
+                        </div>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+            updatePreview();
+        }
+
+        window.removeItem = (index) => {
+            items.splice(index, 1);
+            renderInputItems();
+        };
+
+        window.updateItem = (index, field, value) => {
+            items[index][field] = field === 'name' ? value : parseFloat(value) || 0;
+            updatePreview();
+        };
+
+        document.getElementById('btn-add-item').addEventListener('click', () => {
+            items.push({ name: '', qty: 1, price: 0 });
+            renderInputItems();
+        });
+
+        // TLV Encoding for ZATCA QR Code
+        function getBuffer(hexStr) {
+            let buffer = new Uint8Array(hexStr.length / 2);
+            for (let i = 0; i < hexStr.length; i += 2) {
+                buffer[i/2] = parseInt(hexStr.substr(i, 2), 16);
+            }
+            return buffer;
+        }
+        
+        function toHex(str) {
+            let result = '';
+            let encoder = new TextEncoder();
+            let uint8array = encoder.encode(str);
+            for(let i = 0; i < uint8array.length; i++) {
+                result += uint8array[i].toString(16).padStart(2, '0');
+            }
+            return result;
+        }
+
+        function toTLV(tag, val) {
+            let hexVal = toHex(val);
+            let len = (hexVal.length / 2).toString(16).padStart(2, '0');
+            let t = tag.toString(16).padStart(2, '0');
+            return t + len + hexVal;
+        }
+
+        function generateZatcaQR(seller, taxNo, date, total, taxAmt) {
+            let tlv1 = toTLV(1, seller);
+            let tlv2 = toTLV(2, taxNo);
+            let tlv3 = toTLV(3, date); // Format: 2021-12-01T14:00:00Z
+            let tlv4 = toTLV(4, total.toFixed(2));
+            let tlv5 = toTLV(5, taxAmt.toFixed(2));
+            
+            let combinedHex = tlv1 + tlv2 + tlv3 + tlv4 + tlv5;
+            let buffer = getBuffer(combinedHex);
+            
+            // Base64 encode
+            let binary = '';
+            for (let i = 0; i < buffer.byteLength; i++) {
+                binary += String.fromCharCode(buffer[i]);
+            }
+            return btoa(binary);
+        }
+
+        let qrcodeInstance = null;
+
+        function updatePreview() {
+            // Update Text Fields
+            const sellerName = document.getElementById('in-comp-name').value;
+            const sellerTax = document.getElementById('in-comp-tax').value;
+            
+            document.getElementById('out-comp-name').innerText = sellerName;
+            document.getElementById('out-comp-tax').innerText = sellerTax;
+
+            document.getElementById('out-comp-address').innerText = document.getElementById('in-comp-address').value;
+
+            document.getElementById('out-inv-num').innerText = document.getElementById('in-inv-num').value;
+            document.getElementById('out-inv-date').innerText = document.getElementById('in-inv-date').value;
+            document.getElementById('out-payment-method').innerText = document.getElementById('in-payment-method').value;
+            
+            document.getElementById('out-client-name').innerText = document.getElementById('in-client-name').value || '-';
+            
+            const cAddress = document.getElementById('in-client-address').value;
+            document.getElementById('out-client-address').innerText = cAddress;
+            document.getElementById('wrap-client-address').style.display = cAddress ? 'flex' : 'none';
+
+            const cTax = document.getElementById('in-client-tax').value;
+            document.getElementById('out-client-tax').innerText = cTax;
+            document.getElementById('wrap-client-tax').style.display = cTax ? 'flex' : 'none';
+
+            const cCR = document.getElementById('in-client-cr').value;
+            document.getElementById('out-client-cr').innerText = cCR;
+            document.getElementById('wrap-client-cr').style.display = cCR ? 'flex' : 'none';
+
+            document.getElementById('out-notes').innerHTML = document.getElementById('in-notes').value.replace(/\n/g, '<br>');
+
+            const taxRate = parseFloat(document.getElementById('in-tax-rate').value) || 0;
+            const discountRate = parseFloat(document.getElementById('in-discount-rate').value) || 0;
+            document.getElementById('out-tax-rate-display').innerText = taxRate;
+            document.getElementById('out-discount-rate-display').innerText = discountRate;
+
+            // Render Items Table
+            const tbody = document.getElementById('out-items-body');
+            tbody.innerHTML = '';
+            let subtotal = 0;
+
+            items.forEach(item => {
+                const total = item.qty * item.price;
+                subtotal += total;
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td>${item.name}</td>
+                    <td>${item.qty}</td>
+                    <td>${item.price.toFixed(2)}</td>
+                    <td>${total.toFixed(2)}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+
+            const discountAmount = subtotal * (discountRate / 100);
+            const taxableAmount = subtotal - discountAmount;
+            const taxAmount = taxableAmount * (taxRate / 100);
+            const grandTotal = taxableAmount + taxAmount;
+
+            document.getElementById('out-subtotal').innerText = subtotal.toFixed(2);
+            document.getElementById('out-discount-amount').innerText = discountAmount.toFixed(2);
+            document.getElementById('out-taxable-amount').innerText = taxableAmount.toFixed(2);
+            document.getElementById('out-tax-amount').innerText = taxAmount.toFixed(2);
+            document.getElementById('out-grand-total').innerText = grandTotal.toFixed(2);
+
+            if (discountRate > 0) {
+                document.getElementById('row-discount').style.display = 'table-row';
+                document.getElementById('row-taxable').style.display = 'table-row';
+            } else {
+                document.getElementById('row-discount').style.display = 'none';
+                document.getElementById('row-taxable').style.display = 'none';
+            }
+
+            // Generate QR Code
+            let invDate = document.getElementById('in-inv-date').value;
+            if(!invDate) invDate = new Date().toISOString().split('T')[0];
+            
+            const qrBase64 = generateZatcaQR(sellerName, sellerTax, invDate + "T00:00:00Z", grandTotal, taxAmount);
+            
+            document.getElementById('qrcode').innerHTML = '';
+            if(qrcodeInstance) {
+                qrcodeInstance.clear();
+            }
+            qrcodeInstance = new QRCode(document.getElementById('qrcode'), {
+                text: qrBase64,
+                width: 100,
+                height: 100,
+                colorDark : "#163261",
+                colorLight : "#ffffff",
+                correctLevel : QRCode.CorrectLevel.M
+            });
+        }
+
+        // Attach event listeners to all static inputs
+        document.querySelectorAll('.sidebar input, .sidebar textarea, .sidebar select').forEach(input => {
+            if(!input.hasAttribute('oninput') && input.id !== 'btn-add-item') {
+                input.addEventListener('input', updatePreview);
+                if(input.tagName === 'SELECT') {
+                    input.addEventListener('change', updatePreview);
+                }
+            }
+        });
+
+        document.getElementById('btn-print').addEventListener('click', () => {
+            window.print();
+        });
+
+        // Initial Render
+        renderInputItems();
+    </script>
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./invoice-sw.js')
+                    .then(registration => {
+                        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                    })
+                    .catch(error => {
+                        console.log('ServiceWorker registration failed: ', error);
+                    });
+            });
+        }
+    </script>
+</body>
+</html>
