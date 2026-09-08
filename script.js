@@ -90,6 +90,7 @@
                     if (qty === 0) qty = 1;
                     qtyNum.textContent = qty;
                     const service = card.dataset.service;
+                    const serviceEn = card.dataset.serviceEn || service;
                     const price = parseInt(card.dataset.price);
 
                     const isFirst = cart.length === 0;
@@ -98,10 +99,11 @@
                     if (existing) {
                         existing.qty = qty;
                     } else {
-                        cart.push({ service, price, qty });
+                        cart.push({ service, serviceEn, price, qty });
                     }
                     card.classList.add('in-cart');
-                    addBtn.innerHTML = '<i class="fas fa-check"></i> تم الإضافة';
+                    const curLang = (window.i18n && window.i18n.getLang()) || 'ar';
+                    addBtn.innerHTML = '<i class="fas fa-check"></i> ' + (curLang === 'en' ? 'Added' : 'تم الإضافة');
                     addBtn.classList.add('added');
                     // Bounce the floating cart button
                     const toggleBtn = document.getElementById('mobileCartToggle');
@@ -110,17 +112,14 @@
                         setTimeout(() => toggleBtn.classList.remove('has-items'), 500);
                     }
                     setTimeout(() => {
-                        addBtn.innerHTML = 'أضف للطلب';
+                        const nowLang = (window.i18n && window.i18n.getLang()) || 'ar';
+                        addBtn.innerHTML = nowLang === 'en' ? 'Add to Order' : 'أضف للطلب';
                         addBtn.classList.remove('added');
                     }, 1500);
                     renderCart();
 
-                    // Smart open: first item opens drawer, rest show toast
-                    if (isFirst) {
-                        openMobileCart();
-                    } else {
-                        showToast(service);
-                    }
+                    // Open cart drawer on every add
+                    openMobileCart();
                 });
             });
 
@@ -128,10 +127,16 @@
             document.querySelectorAll('.quote-btn').forEach(btn => {
                 btn.addEventListener('click', () => {
                     const card = btn.closest('.order-service-card');
-                    const service = card.dataset.service;
-                    const msg = encodeURIComponent(
-                        `السلام عليكم 👋\n\nأرغب في طلب زيارة تقييم لخدمة: *${service}*\n\nأرجو التواصل معي لتحديد الموعد المناسب.\n\nشكراً لكم 🙏`
-                    );
+                    const curLang = (window.i18n && window.i18n.getLang()) || 'ar';
+                    const isEn = curLang === 'en';
+                    const service = (isEn && card.dataset.serviceEn) ? card.dataset.serviceEn : card.dataset.service;
+                    const msg = isEn
+                        ? encodeURIComponent(
+                            `Hello 👋\n\nI would like to request an inspection quote for: *${service}*\n\nPlease contact me to schedule a convenient appointment.\n\nThank you 🙏`
+                        )
+                        : encodeURIComponent(
+                            `السلام عليكم 👋\n\nأرغب في طلب زيارة تقييم لخدمة: *${service}*\n\nأرجو التواصل معي لتحديد الموعد المناسب.\n\nشكراً لكم 🙏`
+                        );
                     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, '_blank');
                 });
             });
@@ -169,27 +174,32 @@
 
                 let total = 0;
                 let totalItems = 0;
+                const curLang = (window.i18n && window.i18n.getLang()) || 'ar';
+                const isEn = curLang === 'en';
+                const currLabel = isEn ? ' SAR' : ' ر.س';
+                const qtyLabel = isEn ? 'Qty: ' : 'العدد: ';
 
                 cart.forEach((item, index) => {
                     total += item.price * item.qty;
                     totalItems += item.qty;
+                    const name = isEn ? (item.serviceEn || item.service) : item.service;
 
                     const el = document.createElement('div');
                     el.className = 'cart-item';
                     el.innerHTML = `
                         <div class="cart-item-info">
-                            <div class="cart-item-name">${item.service}</div>
-                            <div class="cart-item-qty">العدد: ${item.qty}</div>
+                            <div class="cart-item-name">${name}</div>
+                            <div class="cart-item-qty">${qtyLabel}${item.qty}</div>
                         </div>
-                        <div class="cart-item-price">${(item.price * item.qty).toLocaleString()} ر.س</div>
-                        <button class="cart-item-remove" data-index="${index}"><i class="fas fa-times"></i></button>
+                        <div class="cart-item-price">${(item.price * item.qty).toLocaleString()}${currLabel}</div>
+                        <button class="cart-item-remove" data-index="${index}" aria-label="${isEn ? 'Remove' : 'حذف'}"><i class="fas fa-times"></i></button>
                     `;
                     cartItems.appendChild(el);
                 });
 
                 cartCount.textContent = totalItems;
                 if (mobileCount) mobileCount.textContent = totalItems;
-                cartTotal.textContent = total.toLocaleString() + ' ر.س';
+                cartTotal.textContent = total.toLocaleString() + currLabel;
 
                 // Remove button listeners
                 cartItems.querySelectorAll('.cart-item-remove').forEach(btn => {
@@ -231,27 +241,55 @@
                     playClickSound();
                     if (cart.length === 0) return;
 
+                    const curLang = (window.i18n && window.i18n.getLang()) || 'ar';
+                    const isEn = curLang === 'en';
+                    const currLabel = isEn ? ' SAR' : ' ر.س';
+
                     let total = 0;
                     let lines = cart.map(item => {
                         const subtotal = item.price * item.qty;
                         total += subtotal;
-                        return `• ${item.service} × ${item.qty} = ${subtotal.toLocaleString()} ر.س`;
+                        const name = isEn ? (item.serviceEn || item.service) : item.service;
+                        return `• ${name} × ${item.qty} = ${subtotal.toLocaleString()}${currLabel}`;
                     });
 
-                    const msg = encodeURIComponent(
-                        `السلام عليكم 👋\n\n` +
-                        `🛒 *طلب جديد من موقع أمدكو*\n` +
-                        `━━━━━━━━━━━━━━━━\n` +
-                        lines.join('\n') + '\n' +
-                        `━━━━━━━━━━━━━━━━\n` +
-                        `💰 *الإجمالي: ${total.toLocaleString()} ر.س*\n\n` +
-                        `أرجو التواصل لتأكيد الطلب وتحديد الموعد.\n` +
-                        `شكراً لكم 🙏`
-                    );
+                    const msg = isEn
+                        ? encodeURIComponent(
+                            `Hello 👋\n\n` +
+                            `🛒 *New Order from Amdco Website*\n` +
+                            `━━━━━━━━━━━━━━━━\n` +
+                            lines.join('\n') + '\n' +
+                            `━━━━━━━━━━━━━━━━\n` +
+                            `💰 *Total: ${total.toLocaleString()} SAR*\n\n` +
+                            `Please contact me to confirm the order and schedule an appointment.\n` +
+                            `Thank you 🙏`
+                        )
+                        : encodeURIComponent(
+                            `السلام عليكم 👋\n\n` +
+                            `🛒 *طلب جديد من موقع أمدكو*\n` +
+                            `━━━━━━━━━━━━━━━━\n` +
+                            lines.join('\n') + '\n' +
+                            `━━━━━━━━━━━━━━━━\n` +
+                            `💰 *الإجمالي: ${total.toLocaleString()} ر.س*\n\n` +
+                            `أرجو التواصل لتأكيد الطلب وتحديد الموعد.\n` +
+                            `شكراً لكم 🙏`
+                        );
 
                     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, '_blank');
                 });
             }
+
+            // Sync cart language dynamically
+            document.addEventListener('langchange', (e) => {
+                const lang = (e.detail && e.detail.lang) ? e.detail.lang : 'ar';
+                document.querySelectorAll('.add-to-order-btn:not(.added)').forEach(btn => {
+                    btn.textContent = lang === 'en' ? 'Add to Order' : 'أضف للطلب';
+                });
+                document.querySelectorAll('.quote-btn').forEach(btn => {
+                    btn.textContent = lang === 'en' ? 'Request Quote' : 'طلب تسعيرة';
+                });
+                renderCart();
+            });
 
             // Mobile cart toggle
             const mobileCartToggle = document.getElementById('mobileCartToggle');

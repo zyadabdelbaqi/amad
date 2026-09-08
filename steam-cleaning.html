@@ -8,7 +8,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>أمدكو - شركة أمد الأولى للخدمات</title>
+<title data-i18n="title.steam">تنظيف الأثاث بالبخار - أمدكو</title>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&amp;display=swap" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
 <link href="style.css" rel="stylesheet"/>
@@ -23,309 +23,311 @@
 <img alt="أمدكو" src="./logo/logo_new.webp" style="height: 50px; width: auto; object-fit: contain; filter: drop-shadow(0 2px 10px rgba(0,0,0,0.5)); transition: transform 0.3s ease;"/>
 </a>
 <ul class="nav-links">
-<li><a class="active" href="index.html">الرئيسية</a></li>
+<li><a data-i18n="nav.home" href="index.html">الرئيسية</a></li>
 <li class="dropdown">
-<a class="dropbtn" href="javascript:void(0)">جميع الخدمات <i class="fas fa-chevron-down" style="font-size: 12px; margin-right: 4px;"></i></a>
+<a class="dropbtn" href="javascript:void(0)"><span data-i18n="nav.services">جميع الخدمات</span> <i class="fas fa-chevron-down" style="font-size: 12px; margin-inline-start: 4px;"></i></a>
 <div class="dropdown-content">
-<a href="pest-control.html">مكافحة الحشرات</a>
-<a href="sterilization.html">التعقيم ضد الفيروسات</a>
-<a href="steam-cleaning.html">تنظيف الأثاث بالبخار</a>
-<a href="tank-cleaning.html">تنظيف وتعقيم الخزانات</a>
-<a href="contracts.html">العقود السنوية</a>
+<a data-i18n="nav.pestControl" href="pest-control.html">مكافحة الحشرات</a>
+<a data-i18n="nav.sterilization" href="sterilization.html">التعقيم ضد الفيروسات</a>
+<a data-i18n="nav.steam" href="steam-cleaning.html">تنظيف الأثاث بالبخار</a>
+<a data-i18n="nav.tank" href="tank-cleaning.html">تنظيف وتعقيم الخزانات</a>
+<a data-i18n="nav.contracts" href="contracts.html">العقود السنوية</a>
 </div>
 </li>
 
-<li><a href="#about">عن الشركة</a></li>
-<li><a href="#why-us">لماذا أمدكو</a></li>
-<li><a href="#contact">تواصل معنا</a></li>
+<li><a data-i18n="nav.about" href="index.html#about">عن الشركة</a></li>
+<li><a data-i18n="nav.why" href="index.html#why-us">لماذا أمدكو</a></li>
+<li><a data-i18n="nav.contact" href="#contact">تواصل معنا</a></li>
 </ul>
+<button class="lang-switch-btn" aria-label="Switch to English">EN</button>
 <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
 </div>
 </nav>
 <div class="mobile-overlay" id="mobileOverlay"></div>
 <div class="mobile-menu" id="mobileMenu">
 <button class="mobile-close" id="mobileClose"><i class="fas fa-times"></i></button>
-<a href="index.html#hero">الرئيسية</a>
+<div class="mobile-lang-row">
+<button class="lang-switch-btn lang-mobile" aria-label="Switch to English">EN</button>
+</div>
+<a href="index.html#hero" data-i18n="nav.home">الرئيسية</a>
 <div class="mobile-dropdown">
-    <button class="mobile-dropdown-btn">جميع الخدمات <i class="fas fa-chevron-down"></i></button>
+    <button class="mobile-dropdown-btn"><span data-i18n="nav.services">جميع الخدمات</span> <i class="fas fa-chevron-down"></i></button>
     <div class="mobile-dropdown-content">
-        <a href="pest-control.html">مكافحة الحشرات</a>
-        <a href="sterilization.html">التعقيم</a>
-        <a href="steam-cleaning.html">التنظيف بالبخار</a>
-        <a href="tank-cleaning.html">تنظيف الخزانات</a>
-        <a href="contracts.html">العقود السنوية</a>
+        <a data-i18n="nav.pestControl" href="pest-control.html">مكافحة الحشرات</a>
+        <a data-i18n="nav.sterilizationShort" href="sterilization.html">التعقيم</a>
+        <a data-i18n="nav.steamShort" href="steam-cleaning.html">التنظيف بالبخار</a>
+        <a data-i18n="nav.tankShort" href="tank-cleaning.html">تنظيف الخزانات</a>
+        <a data-i18n="nav.contracts" href="contracts.html">العقود السنوية</a>
     </div>
 </div>
-<a href="index.html#about">عن الشركة</a>
-<a href="index.html#why-us">لماذا أمدكو</a>
-<a href="index.html#contact">تواصل معنا</a>
+<a href="index.html#about" data-i18n="nav.about">عن الشركة</a>
+<a href="index.html#why-us" data-i18n="nav.why">لماذا أمدكو</a>
+<a href="#contact" data-i18n="nav.contact">تواصل معنا</a>
 </div>
 <section class="hero dept-hero" style="min-height: 40vh; padding-top: 120px; position: relative; background: var(--white);">
 <div class="hero-content">
-<img src="./images/icons/steam_cleaning_icon.webp" class="service-hero-icon" alt="أيقونة الخدمة" />
-<h1 class="hero-title">تنظيف الأثاث بالبخار</h1>
-<p class="hero-desc">تنظيف عميق للأثاث باستخدام تقنية البخار عالي الضغط.</p>
+<img src="./images/icons/steam_cleaning_icon.webp" class="service-hero-icon" alt="أيقونة الخدمة" data-i18n-alt="alt.serviceHero" />
+<h1 class="hero-title" data-i18n="dept.steam.heroTitle">تنظيف الأثاث بالبخار</h1>
+<p class="hero-desc" data-i18n="dept.steam.heroDesc">تنظيف عميق للأثاث باستخدام تقنية البخار عالي الضغط.</p>
 </div>
 </section>
 <section class="section about-dept" style="padding-top: 0; padding-bottom: 60px; background: var(--gray-50);">
 <div class="section-c">
 <div class="dept-content reveal dept-grid" style="background: #fff; padding: 40px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-top: -60px; position: relative; z-index: 10;"><div class="dept-text">
-<h2 style="color: var(--red); margin-bottom: 20px; font-weight: 800;"> تنظيف الأثاث والمفروشات بالبخار والنظافة العامة</h2>
-<h3 style="color: var(--gold); font-size: 22px; margin-bottom: 15px; margin-top: 30px;">أولاً: خطوات وطريقة تنظيف الأثاث والمفروشات بالبخار</h3>
-<p style="font-size: 16px; line-height: 1.8; color: var(--gray-600); margin-bottom: 20px;">
+<h2 style="color: var(--red); margin-bottom: 20px; font-weight: 800;" data-i18n="dept.steam.aboutH2"> تنظيف الأثاث والمفروشات بالبخار والنظافة العامة</h2>
+<h3 style="color: var(--gold); font-size: 22px; margin-bottom: 15px; margin-top: 30px;" data-i18n="dept.steam.part1Title">أولاً: خطوات وطريقة تنظيف الأثاث والمفروشات بالبخار</h3>
+<p style="font-size: 16px; line-height: 1.8; color: var(--gray-600); margin-bottom: 20px;" data-i18n="dept.steam.part1Desc">
                 تعتمد أمدكو على آلية عمل متكاملة من 6 مراحل لضمان النظافة العميقة وحماية جودة الأنسجة:
             </p>
 <ul style="list-style: none; padding: 0;">
-<li style="margin-bottom: 15px;"><strong>1. المعاينة والفحص الميداني:</strong> تحديد نوع النسيج لاختيار الحرارة المناسبة، وفحص البقع لاختيار المذيب الآمن.</li>
-<li style="margin-bottom: 15px;"><strong>2. الشفط الجاف والتفريغ العميق:</strong> باستخدام مكنسات صناعية (Turbo Vacuum) لإزالة الغبار من عمق القماش.</li>
-<li style="margin-bottom: 15px;"><strong>3. المعالجة المسبقة للبقع:</strong> رش مواد تفكيك الدهون والفرك الخفيف بأفرش ناعمة.</li>
-<li style="margin-bottom: 15px;"><strong>4. التنظيف وضخ البخار الحراري:</strong> ضخ بخار بـ 100-140 درجة مئوية للقضاء على 99.9% من الجراثيم وبق الفراش.</li>
-<li style="margin-bottom: 15px;"><strong>5. الشفط المائي وسحب الرطوبة:</strong> بتقنية الشفط السريع لمنع تسرب الماء للحشوات.</li>
-<li style="margin-bottom: 15px;"><strong>6. التعقيم والتعطير والتجفيف السريع:</strong> إضافة معقمات وروائح ليكون الأثاث جاهزاً خلال 1-3 ساعات.</li>
+<li style="margin-bottom: 15px;" data-i18n-html="dept.steam.step1"><strong>1. المعاينة والفحص الميداني:</strong> تحديد نوع النسيج لاختيار الحرارة المناسبة، وفحص البقع لاختيار المذيب الآمن.</li>
+<li style="margin-bottom: 15px;" data-i18n-html="dept.steam.step2"><strong>2. الشفط الجاف والتفريغ العميق:</strong> باستخدام مكنسات صناعية (Turbo Vacuum) لإزالة الغبار من عمق القماش.</li>
+<li style="margin-bottom: 15px;" data-i18n-html="dept.steam.step3"><strong>3. المعالجة المسبقة للبقع:</strong> رش مواد تفكيك الدهون والفرك الخفيف بأفرش ناعمة.</li>
+<li style="margin-bottom: 15px;" data-i18n-html="dept.steam.step4"><strong>4. التنظيف وضخ البخار الحراري:</strong> ضخ بخار بـ 100-140 درجة مئوية للقضاء على 99.9% من الجراثيم وبق الفراش.</li>
+<li style="margin-bottom: 15px;" data-i18n-html="dept.steam.step5"><strong>5. الشفط المائي وسحب الرطوبة:</strong> بتقنية الشفط السريع لمنع تسرب الماء للحشوات.</li>
+<li style="margin-bottom: 15px;" data-i18n-html="dept.steam.step6"><strong>6. التعقيم والتعطير والتجفيف السريع:</strong> إضافة معقمات وروائح ليكون الأثاث جاهزاً خلال 1-3 ساعات.</li>
 </ul>
-<h3 style="color: var(--gold); font-size: 22px; margin-bottom: 15px; margin-top: 40px;"> ثانياً: خطة النظافة العامة الشاملة</h3>
-<p style="font-size: 16px; line-height: 1.8; color: var(--gray-600); margin-bottom: 20px;">
+<h3 style="color: var(--gold); font-size: 22px; margin-bottom: 15px; margin-top: 40px;" data-i18n="dept.steam.part2Title"> ثانياً: خطة النظافة العامة الشاملة</h3>
+<p style="font-size: 16px; line-height: 1.8; color: var(--gray-600); margin-bottom: 20px;" data-i18n="dept.steam.part2Desc">
                 تغطي أمدكو جميع متطلبات النظافة الشاملة للمنازل، الفلل، والمباني التجارية في المملكة:
             </p>
 <ul style="list-style: none; padding: 0;">
 <li style="margin-bottom: 15px; display: flex; align-items: flex-start; gap: 10px;">
 <i class="fas fa-check" style="color: var(--red); margin-top: 5px;"></i>
-<span><strong>جلي وتلميع الأرضيات:</strong> الرخام، السيراميك، والباركيه بأحدث أجهزة الألماس.</span>
+<span data-i18n-html="dept.steam.p2Item1"><strong>جلي وتلميع الأرضيات:</strong> الرخام، السيراميك، والباركيه بأحدث أجهزة الألماس.</span>
 </li>
 <li style="margin-bottom: 15px; display: flex; align-items: flex-start; gap: 10px;">
 <i class="fas fa-check" style="color: var(--red); margin-top: 5px;"></i>
-<span><strong>تنظيف المطابخ والحمامات:</strong> إزالة الدهون وتعقيم شامل للأدوات الصحية.</span>
+<span data-i18n-html="dept.steam.p2Item2"><strong>تنظيف المطابخ والحمامات:</strong> إزالة الدهون وتعقيم شامل للأدوات الصحية.</span>
 </li>
 <li style="margin-bottom: 15px; display: flex; align-items: flex-start; gap: 10px;">
 <i class="fas fa-check" style="color: var(--red); margin-top: 5px;"></i>
-<span><strong>تنظيف الواجهات والزجاج:</strong> تلميع الزجاج الداخلي والخارجي.</span>
+<span data-i18n-html="dept.steam.p2Item3"><strong>تنظيف الواجهات والزجاج:</strong> تلميع الزجاج الداخلي والخارجي.</span>
 </li>
 <li style="margin-bottom: 15px; display: flex; align-items: flex-start; gap: 10px;">
 <i class="fas fa-check" style="color: var(--red); margin-top: 5px;"></i>
-<span><strong>تنظيف ما بعد البناء والترميم:</strong> إزالة بقايا الدهان والإسمنت لتهيئتها للسكن الفوري.</span>
+<span data-i18n-html="dept.steam.p2Item4"><strong>تنظيف ما بعد البناء والترميم:</strong> إزالة بقايا الدهان والإسمنت لتهيئتها للسكن الفوري.</span>
 </li>
 </ul>
 <div style="background: rgba(195, 157, 104, 0.1); padding: 20px; border-radius: 8px; margin-top: 30px; border-right: 4px solid var(--gold);">
-<h4 style="color: var(--gold); margin-bottom: 10px;">⭐ مميزات خدمة "أمدكو"</h4>
-<p style="font-size: 15px; color: var(--gray-600); margin-bottom: 5px;"> <strong>مواد آمنة ومصرحة:</strong> من هيئة الغذاء والدواء.</p>
-<p style="font-size: 15px; color: var(--gray-600); margin-bottom: 5px;"> <strong>تقنيات تجفيف متطورة:</strong> لمنع تكون الفطريات.</p>
-<p style="font-size: 15px; color: var(--gray-600); margin-bottom: 0;"> <strong>كوادر مدربة:</strong> للتعامل مع المفروشات الفاخرة.</p>
+<h4 style="color: var(--gold); margin-bottom: 10px;" data-i18n="dept.steam.featH4">⭐ مميزات خدمة "أمدكو"</h4>
+<p style="font-size: 15px; color: var(--gray-600); margin-bottom: 5px;" data-i18n-html="dept.steam.f1"> <strong>مواد آمنة ومصرحة:</strong> من هيئة الغذاء والدواء.</p>
+<p style="font-size: 15px; color: var(--gray-600); margin-bottom: 5px;" data-i18n-html="dept.steam.f2"> <strong>تقنيات تجفيف متطورة:</strong> لمنع تكون الفطريات.</p>
+<p style="font-size: 15px; color: var(--gray-600); margin-bottom: 0;" data-i18n-html="dept.steam.f3"> <strong>كوادر مدربة:</strong> للتعامل مع المفروشات الفاخرة.</p>
 </div>
-</div><div class="dept-img-container"><img alt="صورة توضيحية للخدمة" src="./images/services/steam-cleaning.webp"/></div></div>
+</div><div class="dept-img-container"><img alt="صورة توضيحية للخدمة" data-i18n-alt="alt.serviceIllustration" src="./images/services/steam-cleaning.webp"/></div></div>
 </div>
 </section>
 <section class="section pricing" id="pricing" style="margin-bottom: 60px;">
 <div class="section-c">
 <div class="section-h reveal">
-<div class="section-badge">اطلب الآن</div>
-<h2 class="section-title">خدمات تنظيف الأثاث بالبخار</h2>
+<div class="section-badge" data-i18n="pricing.badge">اطلب الآن</div>
+<h2 class="section-title" data-i18n="pricing.steam.title">خدمات تنظيف الأثاث بالبخار</h2>
 </div>
 <div class="order-layout">
 <div class="order-services-wrap" style="width: 100%;">
-<div class="order-tab-content active" id="content-furniture-tanks">
+<div class="order-tab-content active" id="content-furniture-steam">
 <div class="order-category-header reveal">
 <div class="order-cat-icon"><i class="fas fa-couch"></i></div>
 <div>
-<h3>تنظيف الأثاث بالبخار</h3>
+<h3 data-i18n="pricing.steam.cat">قسم تنظيف الأثاث بالبخار</h3>
 </div>
 </div>
 <div class="order-services-grid">
-<div class="order-service-card reveal" data-price="1450" data-service="فيلا">
+<div class="order-service-card reveal" data-price="1450" data-service="فيلا" data-service-en="Villa">
 <div class="order-card-top">
 <div class="order-card-icon"><i class="fas fa-house-chimney"></i></div>
 <div class="order-card-info">
-<h4>فيلا</h4>
+<h4 data-i18n="svc.steam.villa">فيلا</h4>
 </div>
 <div class="order-card-price">
 <del style="color: #999; font-size: 0.85em; margin-left: 5px;">1500</del>
 <span class="price-val">1450</span>
-<span class="price-unit">ر.س</span>
+<span class="price-unit" data-i18n="cart.currency">ر.س</span>
 </div>
 </div>
 <div class="order-card-bottom">
 <div class="order-qty">
-<button aria-label="تقليل" class="qty-btn qty-minus"><i class="fas fa-minus"></i></button>
+<button aria-label="تقليل" data-i18n-aria="pricing.decrease" class="qty-btn qty-minus"><i class="fas fa-minus"></i></button>
 <span class="qty-num">0</span>
-<button aria-label="زيادة" class="qty-btn qty-plus"><i class="fas fa-plus"></i></button>
+<button aria-label="زيادة" data-i18n-aria="pricing.increase" class="qty-btn qty-plus"><i class="fas fa-plus"></i></button>
 </div>
-<button class="add-to-order-btn">أضف للطلب</button>
+<button class="add-to-order-btn" data-i18n="pricing.add">أضف للطلب</button>
 </div>
 </div>
-<div class="order-service-card reveal quote-card" data-price="0" data-service="سجاد">
+<div class="order-service-card reveal quote-card" data-price="0" data-service="سجاد" data-service-en="Carpet">
 <div class="order-card-top">
 <div class="order-card-icon"><i class="fas fa-rug"></i></div>
 <div class="order-card-info">
-<h4>سجاد</h4>
+<h4 data-i18n="svc.steam.carpet">سجاد</h4>
 </div>
 <div class="order-card-price quote-price">
 <span class="price-val"><i class="fas fa-eye"></i></span>
-<span class="price-unit">السعر عند الزيارة</span>
+<span class="price-unit" data-i18n="pricing.priceUponVisit">السعر عند الزيارة</span>
 </div>
 </div>
 <div class="order-card-bottom">
-<button class="add-to-order-btn quote-btn" style="width:100%">
-<i class="fab fa-whatsapp"></i> اطلب زيارة تقييم
-                                    </button>
+<button class="add-to-order-btn quote-btn" style="width:100%" data-i18n="pricing.quote">طلب تسعيرة</button>
 </div>
 </div>
-<div class="order-service-card reveal" data-price="100" data-service="أريكة لشخص واحد">
+<div class="order-service-card reveal" data-price="100" data-service="أريكة لشخص واحد" data-service-en="Single Armchair">
 <div class="order-card-top">
 <div class="order-card-icon"><i class="fas fa-chair"></i></div>
 <div class="order-card-info">
-<h4>أريكة لشخص واحد</h4>
+<h4 data-i18n="svc.steam.sofa1">أريكة لشخص واحد</h4>
 </div>
 <div class="order-card-price">
 <span class="price-val">100</span>
-<span class="price-unit">ر.س</span>
+<span class="price-unit" data-i18n="cart.currency">ر.س</span>
 </div>
 </div>
 <div class="order-card-bottom">
 <div class="order-qty">
-<button aria-label="تقليل" class="qty-btn qty-minus"><i class="fas fa-minus"></i></button>
+<button aria-label="تقليل" data-i18n-aria="pricing.decrease" class="qty-btn qty-minus"><i class="fas fa-minus"></i></button>
 <span class="qty-num">0</span>
-<button aria-label="زيادة" class="qty-btn qty-plus"><i class="fas fa-plus"></i></button>
+<button aria-label="زيادة" data-i18n-aria="pricing.increase" class="qty-btn qty-plus"><i class="fas fa-plus"></i></button>
 </div>
-<button class="add-to-order-btn">أضف للطلب</button>
+<button class="add-to-order-btn" data-i18n="pricing.add">أضف للطلب</button>
 </div>
 </div>
-<div class="order-service-card reveal" data-price="350" data-service="أريكة 7 أشخاص">
+<div class="order-service-card reveal" data-price="350" data-service="أريكة 7 أشخاص" data-service-en="7-Seater Sofa">
 <div class="order-card-top">
 <div class="order-card-icon"><i class="fas fa-couch"></i></div>
 <div class="order-card-info">
-<h4>أريكة 7 أشخاص</h4>
+<h4 data-i18n="svc.steam.sofa7">أريكة 7 أشخاص</h4>
 </div>
 <div class="order-card-price">
 <span class="price-val">350</span>
-<span class="price-unit">ر.س</span>
+<span class="price-unit" data-i18n="cart.currency">ر.س</span>
 </div>
 </div>
 <div class="order-card-bottom">
 <div class="order-qty">
-<button aria-label="تقليل" class="qty-btn qty-minus"><i class="fas fa-minus"></i></button>
+<button aria-label="تقليل" data-i18n-aria="pricing.decrease" class="qty-btn qty-minus"><i class="fas fa-minus"></i></button>
 <span class="qty-num">0</span>
-<button aria-label="زيادة" class="qty-btn qty-plus"><i class="fas fa-plus"></i></button>
+<button aria-label="زيادة" data-i18n-aria="pricing.increase" class="qty-btn qty-plus"><i class="fas fa-plus"></i></button>
 </div>
-<button class="add-to-order-btn">أضف للطلب</button>
+<button class="add-to-order-btn" data-i18n="pricing.add">أضف للطلب</button>
 </div>
 </div>
-<div class="order-service-card reveal" data-price="80" data-service="ستارة صغيرة">
+<div class="order-service-card reveal" data-price="80" data-service="ستارة صغيرة" data-service-en="Small Curtain">
 <div class="order-card-top">
 <div class="order-card-icon"><i class="fas fa-window-restore"></i></div>
 <div class="order-card-info">
-<h4>ستارة صغيرة</h4>
+<h4 data-i18n="svc.steam.curtainSmall">ستارة صغيرة</h4>
 </div>
 <div class="order-card-price">
 <span class="price-val">80</span>
-<span class="price-unit">ر.س</span>
+<span class="price-unit" data-i18n="cart.currency">ر.س</span>
 </div>
 </div>
 <div class="order-card-bottom">
 <div class="order-qty">
-<button aria-label="تقليل" class="qty-btn qty-minus"><i class="fas fa-minus"></i></button>
+<button aria-label="تقليل" data-i18n-aria="pricing.decrease" class="qty-btn qty-minus"><i class="fas fa-minus"></i></button>
 <span class="qty-num">0</span>
-<button aria-label="زيادة" class="qty-btn qty-plus"><i class="fas fa-plus"></i></button>
+<button aria-label="زيادة" data-i18n-aria="pricing.increase" class="qty-btn qty-plus"><i class="fas fa-plus"></i></button>
 </div>
-<button class="add-to-order-btn">أضف للطلب</button>
+<button class="add-to-order-btn" data-i18n="pricing.add">أضف للطلب</button>
 </div>
 </div>
-<div class="order-service-card reveal" data-price="120" data-service="ستارة متوسطة">
+<div class="order-service-card reveal" data-price="120" data-service="ستارة متوسطة" data-service-en="Medium Curtain">
 <div class="order-card-top">
 <div class="order-card-icon"><i class="fas fa-window-restore"></i></div>
 <div class="order-card-info">
-<h4>ستارة متوسطة</h4>
+<h4 data-i18n="svc.steam.curtainMed">ستارة متوسطة</h4>
 </div>
 <div class="order-card-price">
 <span class="price-val">120</span>
-<span class="price-unit">ر.س</span>
+<span class="price-unit" data-i18n="cart.currency">ر.س</span>
 </div>
 </div>
 <div class="order-card-bottom">
 <div class="order-qty">
-<button aria-label="تقليل" class="qty-btn qty-minus"><i class="fas fa-minus"></i></button>
+<button aria-label="تقليل" data-i18n-aria="pricing.decrease" class="qty-btn qty-minus"><i class="fas fa-minus"></i></button>
 <span class="qty-num">0</span>
-<button aria-label="زيادة" class="qty-btn qty-plus"><i class="fas fa-plus"></i></button>
+<button aria-label="زيادة" data-i18n-aria="pricing.increase" class="qty-btn qty-plus"><i class="fas fa-plus"></i></button>
 </div>
-<button class="add-to-order-btn">أضف للطلب</button>
+<button class="add-to-order-btn" data-i18n="pricing.add">أضف للطلب</button>
 </div>
 </div>
-<div class="order-service-card reveal" data-price="200" data-service="ستارة كبيرة">
+<div class="order-service-card reveal" data-price="200" data-service="ستارة كبيرة" data-service-en="Large Curtain">
 <div class="order-card-top">
 <div class="order-card-icon"><i class="fas fa-window-restore"></i></div>
 <div class="order-card-info">
-<h4>ستارة كبيرة</h4>
+<h4 data-i18n="svc.steam.curtainLarge">ستارة كبيرة</h4>
 </div>
 <div class="order-card-price">
 <span class="price-val">200</span>
-<span class="price-unit">ر.س</span>
+<span class="price-unit" data-i18n="cart.currency">ر.س</span>
 </div>
 </div>
 <div class="order-card-bottom">
 <div class="order-qty">
-<button aria-label="تقليل" class="qty-btn qty-minus"><i class="fas fa-minus"></i></button>
+<button aria-label="تقليل" data-i18n-aria="pricing.decrease" class="qty-btn qty-minus"><i class="fas fa-minus"></i></button>
 <span class="qty-num">0</span>
-<button aria-label="زيادة" class="qty-btn qty-plus"><i class="fas fa-plus"></i></button>
+<button aria-label="زيادة" data-i18n-aria="pricing.increase" class="qty-btn qty-plus"><i class="fas fa-plus"></i></button>
 </div>
-<button class="add-to-order-btn">أضف للطلب</button>
+<button class="add-to-order-btn" data-i18n="pricing.add">أضف للطلب</button>
 </div>
 </div>
-<div class="order-service-card reveal" data-price="100" data-service="جلسات عربيه - بالمتر">
+<div class="order-service-card reveal" data-price="100" data-service="جلسات عربيه - بالمتر" data-service-en="Arabic Majlis - per meter">
 <div class="order-card-top">
 <div class="order-card-icon"><i class="fas fa-couch"></i></div>
 <div class="order-card-info">
-<h4>جلسات عربيه - بالمتر</h4>
+<h4 data-i18n="svc.steam.majlis">جلسات عربيه - بالمتر</h4>
 </div>
 <div class="order-card-price">
 <span class="price-val">100</span>
-<span class="price-unit">ر.س</span>
+<span class="price-unit" data-i18n="cart.currency">ر.س</span>
 </div>
 </div>
 <div class="order-card-bottom">
 <div class="order-qty">
-<button aria-label="تقليل" class="qty-btn qty-minus"><i class="fas fa-minus"></i></button>
+<button aria-label="تقليل" data-i18n-aria="pricing.decrease" class="qty-btn qty-minus"><i class="fas fa-minus"></i></button>
 <span class="qty-num">0</span>
-<button aria-label="زيادة" class="qty-btn qty-plus"><i class="fas fa-plus"></i></button>
+<button aria-label="زيادة" data-i18n-aria="pricing.increase" class="qty-btn qty-plus"><i class="fas fa-plus"></i></button>
 </div>
-<button class="add-to-order-btn">أضف للطلب</button>
+<button class="add-to-order-btn" data-i18n="pricing.add">أضف للطلب</button>
 </div>
 </div>
-<div class="order-service-card reveal" data-price="150" data-service="مرتبة سرير مفرد">
+<div class="order-service-card reveal" data-price="150" data-service="مرتبة سرير مفرد" data-service-en="Single Mattress">
 <div class="order-card-top">
 <div class="order-card-icon"><i class="fas fa-bed"></i></div>
 <div class="order-card-info">
-<h4>مرتبة سرير مفرد</h4>
+<h4 data-i18n="svc.steam.mattressSingle">مرتبة سرير مفرد</h4>
 </div>
 <div class="order-card-price">
 <span class="price-val">150</span>
-<span class="price-unit">ر.س</span>
+<span class="price-unit" data-i18n="cart.currency">ر.س</span>
 </div>
 </div>
 <div class="order-card-bottom">
 <div class="order-qty">
-<button aria-label="تقليل" class="qty-btn qty-minus"><i class="fas fa-minus"></i></button>
+<button aria-label="تقليل" data-i18n-aria="pricing.decrease" class="qty-btn qty-minus"><i class="fas fa-minus"></i></button>
 <span class="qty-num">0</span>
-<button aria-label="زيادة" class="qty-btn qty-plus"><i class="fas fa-plus"></i></button>
+<button aria-label="زيادة" data-i18n-aria="pricing.increase" class="qty-btn qty-plus"><i class="fas fa-plus"></i></button>
 </div>
-<button class="add-to-order-btn">أضف للطلب</button>
+<button class="add-to-order-btn" data-i18n="pricing.add">أضف للطلب</button>
 </div>
 </div>
-<div class="order-service-card reveal" data-price="250" data-service="مرتبة سرير عائلي">
+<div class="order-service-card reveal" data-price="250" data-service="مرتبة سرير عائلي" data-service-en="King/Family Mattress">
 <div class="order-card-top">
 <div class="order-card-icon"><i class="fas fa-bed"></i></div>
 <div class="order-card-info">
-<h4>مرتبة سرير عائلي</h4>
+<h4 data-i18n="svc.steam.mattressKing">مرتبة سرير عائلي</h4>
 </div>
 <div class="order-card-price">
 <span class="price-val">250</span>
-<span class="price-unit">ر.س</span>
+<span class="price-unit" data-i18n="cart.currency">ر.س</span>
 </div>
 </div>
 <div class="order-card-bottom">
 <div class="order-qty">
-<button aria-label="تقليل" class="qty-btn qty-minus"><i class="fas fa-minus"></i></button>
+<button aria-label="تقليل" data-i18n-aria="pricing.decrease" class="qty-btn qty-minus"><i class="fas fa-minus"></i></button>
 <span class="qty-num">0</span>
-<button aria-label="زيادة" class="qty-btn qty-plus"><i class="fas fa-plus"></i></button>
+<button aria-label="زيادة" data-i18n-aria="pricing.increase" class="qty-btn qty-plus"><i class="fas fa-plus"></i></button>
 </div>
-<button class="add-to-order-btn">أضف للطلب</button>
+<button class="add-to-order-btn" data-i18n="pricing.add">أضف للطلب</button>
 </div>
 </div>
 
@@ -334,45 +336,45 @@
 </div>
 </div>
 </section>
-<section class="section portfolio" id="portfolio"><div class="section-c"><div class="section-header"><div class="section-badge">معرض أعمالنا</div><h2 class="section-title">جانب من أعمالنا ومعداتنا</h2></div><div class="gallery-grid"><div class="gallery-item"><img alt="أعمالنا في steam-cleaning" loading="lazy" src="./images/gallery/steam-cleaning/gallery_0.webp"/></div><div class="gallery-item"><img alt="أعمالنا في steam-cleaning" loading="lazy" src="./images/gallery/steam-cleaning/gallery_1.webp"/></div><div class="gallery-item"><img alt="أعمالنا في steam-cleaning" loading="lazy" src="./images/gallery/steam-cleaning/gallery_2.webp"/></div><div class="gallery-item"><img alt="أعمالنا في steam-cleaning" loading="lazy" src="./images/gallery/steam-cleaning/gallery_3.webp"/></div><div class="gallery-item"><img alt="أعمالنا في steam-cleaning" loading="lazy" src="./images/gallery/steam-cleaning/gallery_4.webp"/></div><div class="gallery-item"><img alt="أعمالنا في steam-cleaning" loading="lazy" src="./images/gallery/steam-cleaning/gallery_5.webp"/></div><div class="gallery-item"><img alt="أعمالنا في steam-cleaning" loading="lazy" src="./images/gallery/steam-cleaning/gallery_6.webp"/></div><div class="gallery-item"><img alt="أعمالنا في steam-cleaning" loading="lazy" src="./images/gallery/steam-cleaning/gallery_7.webp"/></div><div class="gallery-item"><img alt="أعمالنا في steam-cleaning" loading="lazy" src="./images/gallery/steam-cleaning/gallery_8.webp"/></div><div class="gallery-item"><img alt="أعمالنا في steam-cleaning" loading="lazy" src="./images/gallery/steam-cleaning/gallery_9.webp"/></div></div></div></section>
+<section class="section portfolio" id="portfolio"><div class="section-c"><div class="section-header"><div class="section-badge" data-i18n="portfolio.badge">معرض أعمالنا</div><h2 class="section-title" data-i18n="portfolio.title">جانب من أعمالنا ومعداتنا</h2></div><div class="gallery-grid"><div class="gallery-item"><img alt="أعمالنا في steam-cleaning" loading="lazy" src="./images/gallery/steam-cleaning/gallery_0.webp"/></div><div class="gallery-item"><img alt="أعمالنا في steam-cleaning" loading="lazy" src="./images/gallery/steam-cleaning/gallery_1.webp"/></div><div class="gallery-item"><img alt="أعمالنا في steam-cleaning" loading="lazy" src="./images/gallery/steam-cleaning/gallery_2.webp"/></div><div class="gallery-item"><img alt="أعمالنا في steam-cleaning" loading="lazy" src="./images/gallery/steam-cleaning/gallery_3.webp"/></div><div class="gallery-item"><img alt="أعمالنا في steam-cleaning" loading="lazy" src="./images/gallery/steam-cleaning/gallery_4.webp"/></div><div class="gallery-item"><img alt="أعمالنا في steam-cleaning" loading="lazy" src="./images/gallery/steam-cleaning/gallery_5.webp"/></div><div class="gallery-item"><img alt="أعمالنا في steam-cleaning" loading="lazy" src="./images/gallery/steam-cleaning/gallery_6.webp"/></div><div class="gallery-item"><img alt="أعمالنا في steam-cleaning" loading="lazy" src="./images/gallery/steam-cleaning/gallery_7.webp"/></div><div class="gallery-item"><img alt="أعمالنا في steam-cleaning" loading="lazy" src="./images/gallery/steam-cleaning/gallery_8.webp"/></div><div class="gallery-item"><img alt="أعمالنا في steam-cleaning" loading="lazy" src="./images/gallery/steam-cleaning/gallery_9.webp"/></div></div></div></section>
 <!-- Portfolio Section -->
 <section class="section about-company" id="about">
 <div class="section-c">
 <div class="section-h reveal">
-<div class="section-badge">من نحن</div>
-<h2 class="section-title">عن الشركة</h2>
+<div class="section-badge" data-i18n="about.badge">من نحن</div>
+<h2 class="section-title" data-i18n="about.title">عن الشركة</h2>
 </div>
 <div class="about-grid reveal">
 <div class="about-col">
 <div class="about-card blue-card" style="height: 100%;">
-<h3 class="about-card-title">عن الشركة <span style="direction: ltr;">ABOUT US</span></h3>
-<p>تدير شركة أمد الأولى المحدودة (أمدكو) نشاطاتها من فروعها الموزعة في العديد من مدن المملكة وتقدم الحلول المتكاملة ذات الجودة العالية في جميع مشاريعها وفق خطى ثابتة ومتطورة من عام 2005م إلى يومنا هذا.</p>
-<p class="en-text">Amd Aloula Company Ltd. (amdco) operates from different cities all around the Kingdom of Saudi Arabia. It provides integrated solutions of high quality in all its projects since it started from 2005 AD to the present day.</p>
+<h3 class="about-card-title"><span data-i18n="about.companyTitle">عن الشركة</span> <span style="direction: ltr;">ABOUT US</span></h3>
+<p class="only-ar">تدير شركة أمد الأولى المحدودة (أمدكو) نشاطاتها من فروعها الموزعة في العديد من مدن المملكة وتقدم الحلول المتكاملة ذات الجودة العالية في جميع مشاريعها وفق خطى ثابتة ومتطورة من عام 2005م إلى يومنا هذا.</p>
+<p class="en-text only-en">Amd Aloula Company Ltd. (amdco) operates from different cities all around the Kingdom of Saudi Arabia. It provides integrated solutions of high quality in all its projects since it started from 2005 AD to the present day.</p>
 </div>
 </div>
 <div class="about-col">
 <div class="about-card blue-card" style="flex: 1 0 auto;">
-<h3 class="about-card-title">رؤيتنا <span style="direction: ltr;">VISION</span></h3>
-<p>أن نكون وجهتك الأولى لتحقيق تطلعاتك ومشاريعك بنجاح وإتقان.</p>
-<p class="en-text">To be your first choice to achieve your aspirations and projects with success and perfection.</p>
+<h3 class="about-card-title"><span data-i18n="about.visionTitle">رؤيتنا</span> <span style="direction: ltr;">VISION</span></h3>
+<p class="only-ar">أن نكون وجهتك الأولى لتحقيق تطلعاتك ومشاريعك بنجاح وإتقان.</p>
+<p class="en-text only-en">To be your first choice to achieve your aspirations and projects with success and perfection.</p>
 </div>
 <div class="about-card blue-card" style="flex: 1 0 auto;">
-<h3 class="about-card-title">رسالتنا <span style="direction: ltr;">MISSION</span></h3>
-<p>تقديم خدمات متكاملة ومتميزة لتحقيق تطلعات عملائنا من خلال فريق عمل فعّال وتقنيات معلومات واتصالات متقدمة.</p>
-<p class="en-text">Providing integrated and distinguished services to achieve the aspirations of our customers through an effective team and advanced information and communication technologies.</p>
+<h3 class="about-card-title"><span data-i18n="about.missionTitle">رسالتنا</span> <span style="direction: ltr;">MISSION</span></h3>
+<p class="only-ar">تقديم خدمات متكاملة ومتميزة لتحقيق تطلعات عملائنا من خلال فريق عمل فعّال وتقنيات معلومات واتصالات متقدمة.</p>
+<p class="en-text only-en">Providing integrated and distinguished services to achieve the aspirations of our customers through an effective team and advanced information and communication technologies.</p>
 </div>
 </div>
 <div class="about-col">
 <div class="about-card gold-card" style="height: 100%;">
-<h3 class="about-card-title">أهدافنا <span style="direction: ltr;">TARGETS</span></h3>
-<ul class="targets-list ar-list">
-<li>تقديم أفضل الخدمات والحلول.</li>
-<li>بناء وتطوير كادر عمل محترف وتطبيق أحدث الأنظمة والتقنيات.</li>
-<li>بناء علاقات إستراتيجية مع العملاء والشركات ذات العلاقات التجارية والحكومية المختلفة.</li>
-<li>المساهمة في تعزيز المسؤولية المجتمعية.</li>
-<li>تحقيق أعلى العوائد للشركاء.</li>
+<h3 class="about-card-title"><span data-i18n="about.targetsTitle">أهدافنا</span> <span style="direction: ltr;">TARGETS</span></h3>
+<ul class="targets-list ar-list only-ar">
+<li data-i18n="about.target1">تقديم أفضل الخدمات والحلول.</li>
+<li data-i18n="about.target2">بناء وتطوير كادر عمل محترف وتطبيق أحدث الأنظمة والتقنيات.</li>
+<li data-i18n="about.target3">بناء علاقات إستراتيجية مع العملاء والشركات ذات العلاقات التجارية والحكومية المختلفة.</li>
+<li data-i18n="about.target4">المساهمة في تعزيز المسؤولية المجتمعية.</li>
+<li data-i18n="about.target5">تحقيق أعلى العوائد للشركاء.</li>
 </ul>
-<ul class="targets-list en-list" dir="ltr">
+<ul class="targets-list en-list only-en" dir="ltr">
 <li>Providing the best services and solutions.</li>
 <li>Building and developing a professional workforce and applying the latest systems and technologies.</li>
 <li>Building strategic relationships with clients and related commercial and governmental companies.</li>
@@ -391,33 +393,33 @@
 <img alt="فريق أمدكو" class="why-main-img" src="./why-us.webp"/>
 <div class="why-exp-badge">
 <span class="exp-num">10+</span>
-<span class="exp-text">سنوات خبرة</span>
+<span class="exp-text" data-i18n="why.exp">سنوات خبرة</span>
 </div>
 </div>
 <div class="why-text-col reveal">
-<div class="why-subtitle">مميزاتنا</div>
-<h2 class="why-main-title">لماذا أمدكو؟</h2>
-<p class="why-main-desc">شركة أمد الأولى للخدمات تأسست بخبرة تتجاوز العشر سنوات في مجال الخدمات المنزلية والصحية. نسعى دائماً لتقديم أعلى مستويات الجودة والاحترافية لعملائنا الكرام.</p>
+<div class="why-subtitle" data-i18n="why.badge.subtitle">مميزاتنا</div>
+<h2 class="why-main-title" data-i18n="why.title">لماذا أمدكو؟</h2>
+<p class="why-main-desc" data-i18n="why.desc">شركة أمد الأولى للخدمات تأسست بخبرة تتجاوز العشر سنوات في مجال الخدمات المنزلية والصحية. نسعى دائماً لتقديم أعلى مستويات الجودة والاحترافية لعملائنا الكرام.</p>
 <div class="why-features">
 <div class="why-feature">
 <div class="why-f-icon"><i class="fas fa-shield-alt"></i></div>
 <div class="why-f-text">
-<h4>ضمان الجودة</h4>
-<p>نضمن لكم نتائج مضمونة مع ضمان يصل إلى سنة كاملة على جميع خدماتنا</p>
+<h4 data-i18n="why.f1.title">ضمان الجودة</h4>
+<p data-i18n="why.f1.text">نضمن لكم نتائج مضمونة مع ضمان يصل إلى سنة كاملة على جميع خدماتنا</p>
 </div>
 </div>
 <div class="why-feature">
 <div class="why-f-icon"><i class="fas fa-clock"></i></div>
 <div class="why-f-text">
-<h4>سرعة الاستجابة</h4>
-<p>فريقنا جاهز للوصول إليكم في أسرع وقت ممكن مع خدمة طوارئ على مدار الساعة</p>
+<h4 data-i18n="why.f2.title">سرعة الاستجابة</h4>
+<p data-i18n="why.f2.text">فريقنا جاهز للوصول إليكم في أسرع وقت ممكن مع خدمة طوارئ على مدار الساعة</p>
 </div>
 </div>
 <div class="why-feature">
 <div class="why-f-icon"><i class="fas fa-tint"></i></div>
 <div class="why-f-text">
-<h4>مواد آمنة ومعتمدة</h4>
-<p>نستخدم فقط مواد معتمدة من هيئة الغذاء والدواء وآمنة تماماً للأطفال والحيوانات الأليفة</p>
+<h4 data-i18n="why.f3.title">مواد آمنة ومعتمدة</h4>
+<p data-i18n="why.f3.text">نستخدم فقط مواد معتمدة من هيئة الغذاء والدواء وآمنة تماماً للأطفال والحيوانات الأليفة</p>
 </div>
 </div>
 </div>
@@ -428,8 +430,8 @@
 <section class="section customers" id="customers" style="background: var(--white); padding: 60px 0; overflow: hidden; border-top: 1px solid var(--gray-200);">
 <div class="section-c">
 <div class="section-h reveal" style="margin-bottom: 40px;">
-<div class="section-badge">عملائنا</div>
-<h2 class="section-title">شركاء النجاح</h2>
+<div class="section-badge" data-i18n="customers.badge">عملائنا</div>
+<h2 class="section-title" data-i18n="customers.title">شركاء النجاح</h2>
 </div>
 <div class="customers-wrapper" style="position: relative; width: 100%; overflow: hidden;" dir="ltr">
 <div class="customers-slider">
@@ -465,14 +467,14 @@
 <div class="section-c">
 <div class="section-h reveal" style="margin-bottom: 50px;">
 <div class="section-badge" style="background: rgba(22, 50, 97, 0.1); color: var(--red); display: inline-flex; align-items: center; gap: 8px;">
-<i class="fas fa-check-circle"></i> أكثر من 2000 عميل سعيد
+<i class="fas fa-check-circle"></i> <span data-i18n="test.badge">أكثر من 2000 عميل سعيد</span>
                 </div>
-<h2 class="section-title">اخترنا لكم أفضل التقييمات</h2>
-<p class="section-desc">آراء من عملائنا الكرام الذين نفخر بخدمتهم في جميع أنحاء المملكة</p>
+<h2 class="section-title" data-i18n="test.title">اخترنا لكم أفضل التقييمات</h2>
+<p class="section-desc" data-i18n="test.desc">آراء من عملائنا الكرام الذين نفخر بخدمتهم في جميع أنحاء المملكة</p>
 <div style="display: flex; justify-content: center; gap: 5px; color: var(--gold); font-size: 24px; margin-top: 15px;">
 <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
 </div>
-<div style="font-size: 18px; font-weight: 700; margin-top: 5px; color: var(--red);">متوسط التقييم 4.9 من أصل 5 نجوم</div>
+<div style="font-size: 18px; font-weight: 700; margin-top: 5px; color: var(--red);" data-i18n="test.rating">متوسط التقييم 4.9 من أصل 5 نجوم</div>
 </div>
 </div>
 <div class="testimonials-marquee-wrapper reveal" dir="rtl">
@@ -536,41 +538,42 @@
 </section>
 <section class="section contact" id="contact">
 <div class="section-c">
-<div class="section-h reveal"><div class="section-badge">تواصل معنا</div><h2 class="section-title">نحن هنا لخدمتك</h2><p class="section-desc">تواصل معنا الآن واحصل على استشارة مجانية وعرض سعر خاص</p></div>
+<div class="section-h reveal"><div class="section-badge" data-i18n="contact.badge">تواصل معنا</div><h2 class="section-title" data-i18n="contact.title">نحن هنا لخدمتك</h2><p class="section-desc" data-i18n="contact.desc">تواصل معنا الآن واحصل على استشارة مجانية وعرض سعر خاص</p></div>
 <div class="contact-grid">
 <div class="contact-info reveal">
 <div class="contact-items-wrapper">
-<div class="contact-item" onclick="window.location.href='tel:+966545759422'" style="cursor: pointer;"><div class="contact-item-icon"><i class="fas fa-phone-alt"></i></div><div><div class="contact-item-label">اتصل بنا</div><div class="contact-item-value"><a dir="ltr" href="tel:+966545759422" onclick="event.stopPropagation()">+966545759422</a></div></div></div>
-<div class="contact-item" onclick="window.open('https://wa.me/966545759422', '_blank')" style="cursor: pointer;"><div class="contact-item-icon"><i class="fab fa-whatsapp"></i></div><div><div class="contact-item-label">واتساب</div><div class="contact-item-value"><a dir="ltr" href="https://wa.me/966545759422" onclick="event.stopPropagation()">966545759422</a></div></div></div>
-<div class="contact-item" onclick="window.location.href='mailto:info@amadco-sa.com'" style="cursor: pointer;"><div class="contact-item-icon"><i class="fas fa-envelope"></i></div><div><div class="contact-item-label">البريد الإلكتروني</div><div class="contact-item-value"><a href="mailto:info@amadco-sa.com" onclick="event.stopPropagation()">info@amadco-sa.com</a></div></div></div>
-<div class="contact-item" onclick="window.open('https://maps.google.com/?q=برج المرجانة، طريق الأمير سلطان، جدة', '_blank')" style="cursor: pointer;"><div class="contact-item-icon"><i class="fas fa-map-marker-alt"></i></div><div><div class="contact-item-label">العنوان</div><div class="contact-item-value">فرع جدة, طريق الأمير سلطان, برج المرجانة</div></div></div>
-<div class="contact-item" style="grid-column: span 2;"><div class="contact-item-icon"><i class="fas fa-city"></i></div><div><div class="contact-item-label">فروعنا الأخرى</div><div class="contact-item-value">الرياض - مكة المكرمة - خميس مشيط<br/><span style="font-size: 0.9em; color: var(--gray-500);">Riyadh - Makkah - Khamis Mushait</span></div></div></div>
+<div class="contact-item" onclick="window.location.href='tel:+966545759422'" style="cursor: pointer;"><div class="contact-item-icon"><i class="fas fa-phone-alt"></i></div><div><div class="contact-item-label" data-i18n="contact.call">اتصل بنا</div><div class="contact-item-value"><a dir="ltr" href="tel:+966545759422" onclick="event.stopPropagation()">+966545759422</a></div></div></div>
+<div class="contact-item" onclick="window.open('https://wa.me/966545759422', '_blank')" style="cursor: pointer;"><div class="contact-item-icon"><i class="fab fa-whatsapp"></i></div><div><div class="contact-item-label" data-i18n="contact.whatsapp">واتساب</div><div class="contact-item-value"><a dir="ltr" href="https://wa.me/966545759422" onclick="event.stopPropagation()">966545759422</a></div></div></div>
+<div class="contact-item" onclick="window.location.href='mailto:info@amadco-sa.com'" style="cursor: pointer;"><div class="contact-item-icon"><i class="fas fa-envelope"></i></div><div><div class="contact-item-label" data-i18n="contact.email">البريد الإلكتروني</div><div class="contact-item-value"><a href="mailto:info@amadco-sa.com" onclick="event.stopPropagation()">info@amadco-sa.com</a></div></div></div>
+<div class="contact-item" onclick="window.open('https://maps.google.com/?q=برج المرجانة، طريق الأمير سلطان، جدة', '_blank')" style="cursor: pointer;"><div class="contact-item-icon"><i class="fas fa-map-marker-alt"></i></div><div><div class="contact-item-label" data-i18n="contact.address">العنوان</div><div class="contact-item-value" data-i18n="contact.addressValue">فرع جدة, طريق الأمير سلطان, برج المرجانة</div></div></div>
+<div class="contact-item" style="grid-column: span 2;"><div class="contact-item-icon"><i class="fas fa-city"></i></div><div><div class="contact-item-label" data-i18n="contact.otherBranches">فروعنا الأخرى</div><div class="contact-item-value">الرياض - مكة المكرمة - خميس مشيط<br/><span style="font-size: 0.9em; color: var(--gray-500);">Riyadh - Makkah - Khamis Mushait</span></div></div></div>
 </div>
 </div>
 </div>
 </div></section>
 <footer class="footer">
 <div class="footer-grid">
-<div class="footer-brand"><img alt="أمدكو" src="./logo/logo_new.webp" style="height: 75px; width: auto; margin-bottom: 12px;"/><p>شركة أمد الأولى أمدكو - شريككم الموثوق في مكافحة الحشرات والتعقيم ضد الفيروسات والنظافة العامة خبرة منذ 13 عام.</p></div>
-<div class="footer-col"><h4>خدماتنا</h4><ul><li><a href="index.html#services">مكافحة حشرات</a></li><li><a href="index.html#services">تعقيم ضد الفيروسات</a></li><li><a href="index.html#services">تنظيف بالبخار</a></li><li><a href="index.html#services">تنظيف الخزانات</a></li></ul></div>
-<div class="footer-col"><h4>روابط سريعة</h4><ul><li><a href="index.html">الرئيسية</a></li><li><a href="#why-us">لماذا أمدكو</a></li><li><a href="#contact">تواصل معنا</a></li></ul></div>
-<div class="footer-col"><h4>ساعات العمل وفروعنا</h4><ul style="list-style: none; padding: 0; margin: 0;"><li style="color: var(--gray-400); margin-bottom: 12px;">السبت - الخميس (8 ص - 10 م)</li><li style="color: var(--gray-400); margin-bottom: 12px; margin-top: 20px;">فروعنا:</li><li style="color: var(--gray-400); margin-bottom: 12px;">الفرع الرئيسي: فرع جدة, طريق الأمير سلطان, برج المرجانة</li><li style="color: var(--gray-400); margin-bottom: 12px;">فروعنا الأخرى: الرياض - مكة المكرمة - خميس مشيط</li><li style="color: var(--gray-400); margin-bottom: 12px;">Jeddah - Riyadh - Makkah - Khamis mushait</li></ul></div>
+<div class="footer-brand"><img alt="أمدكو" src="./logo/logo_new.webp" style="height: 75px; width: auto; margin-bottom: 12px;"/><p data-i18n="footer.brand">شركة أمد الأولى أمدكو - شريككم الموثوق في مكافحة الحشرات والتعقيم ضد الفيروسات والنظافة العامة خبرة منذ 13 عام.</p></div>
+<div class="footer-col"><h4 data-i18n="footer.services">خدماتنا</h4><ul><li><a data-i18n="footer.f1" href="pest-control.html">مكافحة حشرات</a></li><li><a data-i18n="footer.f2" href="sterilization.html">تعقيم ضد الفيروسات</a></li><li><a data-i18n="footer.f3" href="steam-cleaning.html">تنظيف بالبخار</a></li><li><a data-i18n="footer.f4" href="tank-cleaning.html">تنظيف الخزانات</a></li></ul></div>
+<div class="footer-col"><h4 data-i18n="footer.links">روابط سريعة</h4><ul><li><a data-i18n="footer.l1" href="index.html">الرئيسية</a></li><li><a data-i18n="footer.l2" href="index.html#why-us">لماذا أمدكو</a></li><li><a data-i18n="footer.l3" href="#contact">تواصل معنا</a></li></ul></div>
+<div class="footer-col"><h4 data-i18n="footer.hours">ساعات العمل وفروعنا</h4><ul style="list-style: none; padding: 0; margin: 0;"><li style="color: var(--gray-400); margin-bottom: 12px;" data-i18n="footer.hoursValue">السبت - الخميس (8 ص - 10 م)</li><li style="color: var(--gray-400); margin-bottom: 12px; margin-top: 20px;" data-i18n="footer.branches">فروعنا:</li><li class="only-ar" style="color: var(--gray-400); margin-bottom: 12px;" data-i18n="footer.mainBranch">الفرع الرئيسي: فرع جدة, طريق الأمير سلطان, برج المرجانة</li><li class="only-en" style="color: var(--gray-400); margin-bottom: 12px;">Main Branch: Jeddah, Prince Sultan Road, Marjanna Tower</li><li class="only-ar" style="color: var(--gray-400); margin-bottom: 12px;" data-i18n="footer.otherBranches">فروعنا الأخرى: الرياض - مكة المكرمة - خميس مشيط</li><li class="only-en" style="color: var(--gray-400); margin-bottom: 12px;">Other branches: Riyadh - Makkah - Khamis Mushait</li><li style="color: var(--gray-400); margin-bottom: 12px;">Jeddah - Riyadh - Makkah - Khamis mushait</li></ul></div>
 </div>
-<div class="footer-bottom"><span>© 2024 أمدكو - جميع الحقوق محفوظة</span></div>
+<div class="footer-bottom"><span data-i18n="footer.rights">© 2024 أمدكو - جميع الحقوق محفوظة</span></div>
 </footer>
 <button class="mobile-cart-toggle" id="mobileCartToggle"><i class="fas fa-shopping-cart"></i><span class="mobile-cart-count">0</span></button>
-<a class="whatsapp-float" href="https://wa.me/966545759422" target="_blank"><i class="fab fa-whatsapp"></i><span class="wa-tooltip">تحدث معنا على واتساب</span></a>
+<a class="call-float" href="tel:+966545759422" aria-label="اتصل بنا"><i class="fas fa-phone-alt"></i><span class="call-tooltip" data-i18n="call.tooltip">اتصل بنا الآن</span></a>
+<a class="whatsapp-float" href="https://wa.me/966545759422" target="_blank" aria-label="واتساب"><i class="fab fa-whatsapp"></i><span class="wa-tooltip" data-i18n="wa.tooltip">تحدث معنا على واتساب</span></a>
 <button class="scroll-top" id="scrollTop"><i class="fas fa-chevron-up"></i></button>
 <div class="cart-toast" id="cartToast">
 <i class="fas fa-check-circle"></i>
-<span>تم إضافة <strong class="toast-name"></strong> للطلب</span>
+<span data-i18n-html="cart.toast">تم إضافة <strong class="toast-name"></strong> للطلب</span>
 </div>
 
 <!-- Cart UI -->
 <div class="cart-overlay" id="cartOverlay"></div>
 <div class="order-cart" id="cartDrawer">
     <div class="cart-header">
-        <h3>عربة الطلبات</h3>
+        <h3 data-i18n="cart.title">عربة الطلبات</h3>
         <div class="cart-icon-wrap">
             <i class="fas fa-shopping-cart"></i>
             <span class="cart-count" id="cartCount">0</span>
@@ -584,36 +587,27 @@
     
     <div class="cart-empty" id="cartEmpty">
         <i class="fas fa-shopping-basket"></i>
-        <p>السلة فارغة</p>
-        <span>أضف خدمات لتظهر هنا</span>
+        <p data-i18n="cart.empty">السلة فارغة</p>
+        <span data-i18n="cart.emptySub">أضف خدمات لتظهر هنا</span>
     </div>
 
     <div class="cart-footer" id="cartFooter" style="display: none;">
         <div class="cart-total">
-            <span>الإجمالي:</span>
+            <span data-i18n="cart.total">الإجمالي:</span>
             <strong id="cartTotal">0 ر.س</strong>
         </div>
         <button class="cart-submit-btn" id="sendOrderBtn">
             <i class="fab fa-whatsapp"></i>
-            إرسال الطلب واتساب
+            <span data-i18n="cart.send">إرسال الطلب واتساب</span>
         </button>
         <button class="cart-clear-btn" id="clearCartBtn">
             <i class="fas fa-trash-alt"></i>
-            إفراغ السلة
+            <span data-i18n="cart.clear">إفراغ السلة</span>
         </button>
     </div>
 </div>
 
-<button class="mobile-cart-toggle" id="mobileCartToggle" style="display: none;">
-    <i class="fas fa-shopping-cart"></i>
-    <span class="mobile-cart-count">0</span>
-</button>
-
-<div class="cart-toast" id="cartToast">
-    <i class="fas fa-check-circle"></i>
-    تمت إضافة <span class="toast-name">الخدمة</span> للسلة
-</div>
-
+<script src="i18n.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
