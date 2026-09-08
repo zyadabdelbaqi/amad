@@ -149,7 +149,7 @@
             background: var(--white);
             width: 210mm;
             min-height: 297mm;
-            padding: 15mm;
+            padding: 8mm 15mm 15mm 15mm;
             box-shadow: 0 0 15px rgba(0,0,0,0.1);
             position: relative;
             flex-shrink: 0;
@@ -160,16 +160,24 @@
             justify-content: space-between;
             align-items: flex-start;
             border-bottom: 2px solid var(--red);
-            padding-bottom: 15px;
-            margin-bottom: 20px;
+            padding-bottom: 12px;
+            margin-bottom: 18px;
         }
         .invoice-header-right {
             text-align: right;
         }
+        .invoice-logo {
+            height: 65px;
+            width: auto;
+            object-fit: contain;
+            margin-top: -6px;
+            margin-bottom: 8px;
+            display: block;
+        }
         .invoice-header-right h1 {
             color: var(--red);
-            font-size: 24px;
-            margin-bottom: 12px;
+            font-size: 22px;
+            margin-bottom: 8px;
         }
         .invoice-header-right p {
             font-size: 13px;
@@ -178,9 +186,8 @@
         }
         .invoice-header-left {
             text-align: left;
-        }
-        .invoice-header-left img {
-            height: 80px;
+            display: flex;
+            align-items: flex-start;
         }
         .invoice-title {
             text-align: center;
@@ -247,7 +254,7 @@
         
         .totals-wrapper {
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-end;
             align-items: flex-end;
             margin-bottom: 20px;
         }
@@ -278,10 +285,9 @@
         .qr-section {
             display: flex;
             justify-content: flex-start;
-            margin-bottom: 5px;
         }
         #qrcode {
-            padding: 10px;
+            padding: 8px;
             border: 1px solid var(--gray-200);
             border-radius: 8px;
             background: var(--white);
@@ -366,7 +372,7 @@
                 box-shadow: none;
                 width: 210mm;
                 height: 297mm;
-                padding: 15mm;
+                padding: 8mm 15mm 15mm 15mm;
                 box-sizing: border-box;
                 page-break-after: always;
             }
@@ -459,14 +465,16 @@
             
             <div class="invoice-header">
                 <div class="invoice-header-right">
+                    <img src="./logo/logo_new.webp" alt="Logo" class="invoice-logo">
                     <h1 id="out-comp-name">شركة أمد الأولى المحدودة</h1>
                     <p><strong>الرقم الضريبي:</strong>&nbsp;<span id="out-comp-tax" dir="auto">300519298800003</span></p>
 
                     <p><strong>العنوان:</strong>&nbsp;<span id="out-comp-address" dir="auto">جدة، طريق الأمير سلطان</span></p>
                 </div>
                 <div class="invoice-header-left">
-                    <!-- Logo -->
-                    <img src="./logo/logo_new.webp" alt="Logo">
+                    <div class="qr-section">
+                        <div id="qrcode"></div>
+                    </div>
                 </div>
             </div>
 
@@ -503,9 +511,6 @@
             </table>
 
             <div class="totals-wrapper">
-                <div class="qr-section">
-                    <div id="qrcode"></div>
-                </div>
                 <table class="invoice-totals">
                     <tr>
                         <th>الإجمالي <br><small>Subtotal</small></th>
