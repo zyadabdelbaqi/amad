@@ -355,12 +355,12 @@
     'pricing.contracts.catSub': { ar: 'عقود سنوية لضمان بيئة خالية من الحشرات', en: 'Annual contracts to ensure a pest-free environment' },
 
     /* Services: Annual Contracts */
-    'svc.contracts.duplex': { ar: 'فيلا دوبلكس صغيره - 3 زيارات في السنة', en: 'Small Duplex Villa - 3 Visits/Year' },
+    'svc.contracts.duplex': { ar: 'فيلا دوبلكس صغيره', en: 'Small Duplex Villa' },
     'svc.contracts.duplexTitle': { ar: 'فيلا دوبلكس صغيره', en: 'Small Duplex Villa' },
-    'svc.contracts.duplexSub': { ar: '3 زيارات في السنة', en: '3 Visits/Year' },
-    'svc.contracts.villaLarge': { ar: 'فيلا كبيرة - 3 زيارات في السنة', en: 'Large Villa - 3 Visits/Year' },
+    'svc.contracts.duplexSub': { ar: '', en: '' },
+    'svc.contracts.villaLarge': { ar: 'فيلا كبيرة', en: 'Large Villa' },
     'svc.contracts.villaLargeTitle': { ar: 'فيلا كبيرة', en: 'Large Villa' },
-    'svc.contracts.villaLargeSub': { ar: '3 زيارات في السنة', en: '3 Visits/Year' },
+    'svc.contracts.villaLargeSub': { ar: '', en: '' },
     'svc.contracts.villaInspect': { ar: 'فيلا كبيرة - السعر بعد المعاينة', en: 'Large Villa - Price on Inspection' },
     'svc.contracts.rest': { ar: 'المطاعم - عقد سنوي', en: 'Restaurants - Annual Contract' },
     'svc.contracts.factory': { ar: 'المصانع والشركات - عقد سنوي', en: 'Factories & Companies - Annual Contract' },
