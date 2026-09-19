@@ -398,7 +398,7 @@
         </div>
         <div class="form-group">
             <label>الرقم الضريبي</label>
-            <input type="text" id="in-comp-tax" value="300519298800003">
+            <input type="text" id="in-comp-tax" value="300230364900003">
         </div>
 
         <div class="form-group">
@@ -467,7 +467,7 @@
                 <div class="invoice-header-right">
                     <img src="./logo/logo_new.webp" alt="Logo" class="invoice-logo">
                     <h1 id="out-comp-name">شركة أمد الأولى المحدودة</h1>
-                    <p><strong>الرقم الضريبي:</strong>&nbsp;<span id="out-comp-tax" dir="auto">300519298800003</span></p>
+                    <p><strong>الرقم الضريبي:</strong>&nbsp;<span id="out-comp-tax" dir="auto">300230364900003</span></p>
 
                     <p><strong>العنوان:</strong>&nbsp;<span id="out-comp-address" dir="auto">جدة، طريق الأمير سلطان</span></p>
                 </div>
@@ -546,14 +546,10 @@
         // Init Date
         document.getElementById('in-inv-date').valueAsDate = new Date();
 
-        // Init Invoice Number (Auto-generate based on Date/Time)
-        const now = new Date();
-        const y = now.getFullYear();
-        const m = String(now.getMonth() + 1).padStart(2, '0');
-        const d = String(now.getDate()).padStart(2, '0');
-        const h = String(now.getHours()).padStart(2, '0');
-        const min = String(now.getMinutes()).padStart(2, '0');
-        document.getElementById('in-inv-num').value = `${y}${m}${d}${h}${min}`;
+        // Init Invoice Number (Sequential)
+        let lastInvNum = localStorage.getItem('lastInvoiceNum');
+        let nextInvNum = lastInvNum ? parseInt(lastInvNum) + 1 : 1001;
+        document.getElementById('in-inv-num').value = nextInvNum;
 
         let items = [
             { name: '', qty: 1, price: 0 }
@@ -754,6 +750,12 @@
             const originalTitle = document.title;
             const clientName = document.getElementById('in-client-name').value.trim();
             const invNum = document.getElementById('in-inv-num').value.trim();
+            
+            // Save invoice number to make it sequential for the next one
+            if (!isNaN(parseInt(invNum))) {
+                localStorage.setItem('lastInvoiceNum', parseInt(invNum));
+            }
+
             if (clientName) {
                 document.title = `فاتورة - ${clientName} - ${invNum}`;
             } else {
