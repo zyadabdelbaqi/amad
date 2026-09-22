@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMDCO ID Badge (8.5cm x 5cm)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-blue': '#1a365d',
+                        'brand-blue-dark': '#102440',
+                        'brand-gold': '#c09867',
+                        'brand-gold-light': '#dfbe92',
+                        'brand-bg': '#f8fafc',
+                        'brand-text': '#2d3748',
+                    },
+                    fontFamily: {
+                        'cairo': ['Cairo', 'sans-serif'],
+                        'poppins': ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f1f5f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            font-family: 'Poppins', 'Cairo', sans-serif;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        /* 8.5cm x 5cm (85mm x 50mm) Card */
+        .badge-container {
+            width: 85mm;
+            height: 50mm;
+            max-width: 85mm;
+            max-height: 50mm;
+            background-color: #ffffff;
+            border-radius: 3.5mm;
+            border: 1px solid #e2e8f0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.08), 0 4px 12px -2px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Decorative Bottom Shapes */
+        .bottom-slant-bg {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 10.5mm;
+            background: #1a365d;
+            clip-path: polygon(0 25%, 100% 0, 100% 100%, 0% 100%);
+            z-index: 10;
+        }
+
+        .bottom-gold-line {
+            position: absolute;
+            bottom: 9.7mm;
+            left: 0;
+            width: 100%;
+            height: 0.85mm;
+            background: linear-gradient(90deg, #b88d57, #dfbe92, #c09867);
+            transform: rotate(-1.4deg);
+            transform-origin: left center;
+            z-index: 11;
+        }
+
+        @media print {
+            html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+                background-color: #ffffff !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            body {
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                min-height: 100vh;
+            }
+            .badge-container {
+                border: 0.5px solid #cbd5e1 !important;
+                box-shadow: none !important;
+                page-break-inside: avoid;
+                break-inside: avoid;
+                margin: auto;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            @page {
+                size: auto;
+                margin: 0mm;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="badge-container flex flex-col justify-between select-none">
+        
+        <!-- Decorative Bottom Shapes -->
+        <div class="bottom-slant-bg"></div>
+        <div class="bottom-gold-line"></div>
+
+        <!-- Top Header & Main Body -->
+        <div class="relative z-20 px-[3.5mm] pt-[2.5mm] flex flex-col flex-1">
+            
+            <!-- Header Row: Logo & Department -->
+            <div class="flex items-center justify-between border-b border-gray-100 pb-[1.5mm]" dir="ltr">
+                <!-- Logo -->
+                <div class="h-[6.5mm] flex items-center">
+                    <img src="logo.png" alt="AMDCO Logo" class="h-full object-contain object-left" onerror="this.src='https://placehold.co/120x30/ffffff/1a365d?text=AMDCO'; this.onerror=null;">
+                </div>
+
+                <!-- Department Tagline -->
+                <div class="flex flex-col items-center text-center font-cairo" dir="rtl">
+                    <span class="text-[7px] font-bold text-brand-blue leading-tight">قسم الصيانة والتشغيل</span>
+                    <span class="text-[4.8px] font-semibold text-brand-gold tracking-wider uppercase font-poppins" dir="ltr">Maintenance & Operation Dept.</span>
+                </div>
+            </div>
+
+            <!-- Middle Content: QR (Right) + Employee Info (Center) + Photo (Left) -->
+            <div class="flex items-center justify-between gap-[2mm] px-[2.5mm] -translate-y-[2mm] flex-1">
+                
+                <!-- QR Code (Right in RTL) -->
+                <div class="flex-shrink-0 flex flex-col items-center justify-center">
+                    <div class="bg-white p-[0.8mm] rounded-[2.2mm] border border-brand-gold/60 shadow-sm">
+                        <img src="qr.png" alt="QR Code" class="w-[12.5mm] h-[12.5mm] object-contain" onerror="this.src='https://placehold.co/50x50/ffffff/1a365d?text=QR'; this.onerror=null;">
+                    </div>
+                </div>
+
+                <!-- Employee Details (Center) -->
+                <div class="flex flex-col items-center justify-center text-center flex-1 px-[0.5mm] -translate-y-[2.2mm]" dir="ltr">
+                    <!-- Employee Name -->
+                    <h2 class="text-[11.5px] font-black font-poppins text-brand-blue tracking-tight leading-none mb-[0.8mm]">
+                        MOHAMED DEIF
+                    </h2>
+                    
+                    <!-- Job Title -->
+                    <span class="text-[4.8px] font-bold font-poppins text-brand-gold tracking-[0.22em] uppercase leading-tight mb-[1.2mm]">
+                        SUPERVISOR
+                    </span>
+
+                    <!-- Department / Team Names -->
+                    <div class="flex flex-col items-center text-center gap-[0.3px]">
+                        <span class="text-[5.2px] font-bold text-brand-blue font-poppins tracking-[0.02em] leading-tight">
+                            PEST CONTROL & PUBLIC HEALTH TEAM
+                        </span>
+                        <span class="text-[5px] font-semibold text-brand-blue font-cairo leading-tight" dir="rtl">
+                            فريق مكافحة حشرات وآفات صحة العامة
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Profile Photo (Left in RTL) -->
+                <div class="relative flex-shrink-0 z-30 translate-x-[1.5mm]">
+                    <div class="overflow-hidden rounded-[2.5mm] border border-brand-gold/60 shadow-sm bg-gray-50 flex items-center justify-center" style="width: 16.5mm; height: 21mm;">
+                        <img src="1.png" alt="Mohamed Deif" class="w-full h-full object-cover object-top" onerror="this.src='https://placehold.co/75x95/e2e8f0/64748b?text=Photo'; this.onerror=null;">
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Footer / Contact Bar (Inside the bottom shape) -->
+        <div class="relative z-20 px-[3.5mm] pb-[1.4mm] pt-[1mm] grid grid-cols-3 items-center text-white font-poppins text-[4.8px]" dir="ltr">
+            <!-- Phone -->
+            <div class="flex items-center justify-start gap-[0.8mm]">
+                <div class="w-[2.8mm] h-[2.8mm] rounded-full border border-brand-gold/40 bg-brand-gold/10 flex-shrink-0 flex items-center justify-center text-brand-gold-light">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-[1.6mm] w-[1.6mm]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    </svg>
+                </div>
+                <span class="font-medium tracking-tight whitespace-nowrap">+966 54 575 9422</span>
+            </div>
+
+            <!-- Email -->
+            <div class="flex items-center justify-center gap-[0.8mm]">
+                <div class="w-[2.8mm] h-[2.8mm] rounded-full border border-brand-gold/40 bg-brand-gold/10 flex-shrink-0 flex items-center justify-center text-brand-gold-light">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-[1.6mm] w-[1.6mm]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                </div>
+                <span class="font-medium whitespace-nowrap">info@amadco-sa.com</span>
+            </div>
+
+            <!-- Website -->
+            <div class="flex items-center justify-end gap-[0.8mm]">
+                <div class="w-[2.8mm] h-[2.8mm] rounded-full border border-brand-gold/40 bg-brand-gold/10 flex-shrink-0 flex items-center justify-center text-brand-gold-light">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-[1.6mm] w-[1.6mm]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                    </svg>
+                </div>
+                <span class="font-medium whitespace-nowrap">www.amadco-sa.com</span>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# Prevent indexing of utility scripts
+Disallow: /*.py$
+Disallow: /*.js$
+Allow: /script.js
+Allow: /i18n.js
+Disallow: /scratch/
+Disallow: /brain/
+
+Sitemap: https://www.amadco-sa.com/sitemap.xml

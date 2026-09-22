@@ -1,0 +1,20 @@
+{
+  "name": "أمدكو - صانع الفواتير",
+  "short_name": "فواتير أمد",
+  "start_url": "./invoice.html",
+  "display": "standalone",
+  "background_color": "#f5f5f5",
+  "theme_color": "#163261",
+  "icons": [
+    {
+      "src": "./logo/logo_new.webp",
+      "sizes": "192x192",
+      "type": "image/webp"
+    },
+    {
+      "src": "./logo/logo_new.webp",
+      "sizes": "512x512",
+      "type": "image/webp"
+    }
+  ]
+}

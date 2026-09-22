@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>برنامج طباعة الفواتير الضريبية</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Alexandria', sans-serif;
+            background-color: #f3f4f6;
+            direction: rtl;
+            text-align: right;
+        }
+
+        /* ضبط الأرقام والرموز الإنجليزية لمنع انقلابها في وضع RTL */
+        .ltr-text {
+            direction: ltr !important;
+            unicode-bidi: isolate !important;
+            display: inline-block;
+        }
+
+        /* إعدادات الطباعة الاحترافية A4 */
+        @media print {
+            *, *:before, *:after {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                color-adjust: exact !important;
+            }
+
+            html, body {
+                width: 100% !important;
+                height: auto !important;
+                min-height: auto !important;
+                overflow: visible !important;
+                background-color: #ffffff !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                display: block !important;
+            }
+
+            #control-panel {
+                display: none !important;
+            }
+
+            .preview-wrapper {
+                width: 100% !important;
+                height: auto !important;
+                overflow: visible !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                background: transparent !important;
+                display: block !important;
+            }
+
+            #invoice-preview-container {
+                width: 100% !important;
+                max-width: 100% !important;
+                min-height: auto !important;
+                margin: 0 !important;
+                padding: 5mm 8mm !important;
+                box-shadow: none !important;
+                border: none !important;
+                border-radius: 0 !important;
+                page-break-after: avoid;
+                page-break-inside: avoid;
+            }
+
+            @page {
+                size: A4 portrait;
+                margin: 6mm 8mm;
+            }
+
+            .no-print {
+                display: none !important;
+            }
+
+            /* الحفاظ على دقة الجداول والخطوط أثناء الطباعة */
+            table {
+                page-break-inside: avoid;
+            }
+            tr {
+                page-break-inside: avoid;
+                page-break-after: auto;
+            }
+        }
+
+        /* تنسيق الجداول للفاتورة */
+        .invoice-table th {
+            background-color: #f8fafc;
+            color: #1e293b;
+            font-weight: 700;
+            padding: 8px 6px;
+            border: 1px solid #cbd5e1;
+            text-align: center;
+        }
+        .invoice-table td {
+            padding: 8px 6px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body class="h-screen flex flex-col md:flex-row overflow-hidden">
+
+    <!-- لوحة التحكم وإدخال البيانات -->
+    <div id="control-panel" class="w-full md:w-1/3 bg-white h-full overflow-y-auto border-b md:border-b-0 md:border-l border-gray-200 p-6 flex flex-col shadow-lg z-10 relative">
+        <h2 class="text-2xl font-bold text-gray-800 mb-6 border-b pb-3 text-right">إعدادات الفاتورة</h2>
+
+        <!-- بيانات الشركة -->
+        <div class="mb-6 bg-gray-50 p-4 rounded-lg text-right">
+            <h3 class="font-bold text-lg mb-3 text-indigo-700">بيانات مؤسستك</h3>
+            <div class="space-y-3">
+                <div>
+                    <label class="block text-sm font-medium mb-1 text-gray-700">شعار المؤسسة (لوجو)</label>
+                    <input type="file" id="inp-company-logo" accept="image/*" class="w-full border p-1 rounded bg-white text-sm focus:ring focus:ring-indigo-200 cursor-pointer">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-1 text-gray-700">اسم المؤسسة</label>
+                    <input type="text" id="inp-company-name" value="شركة الأفق للحلول الرقمية وتقنية المعلومات" class="w-full border p-2 rounded focus:ring focus:ring-indigo-200 text-right">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-1 text-gray-700">الرقم الضريبي</label>
+                    <input type="text" id="inp-company-vat" value="310684547700003" class="w-full border p-2 rounded focus:ring focus:ring-indigo-200 font-mono text-left ltr-text">
+                </div>
+                <div class="grid grid-cols-2 gap-2">
+                    <div>
+                        <label class="block text-sm font-medium mb-1 text-gray-700">رقم السجل</label>
+                        <input type="text" id="inp-company-cr" value="1010642981" class="w-full border p-2 rounded focus:ring focus:ring-indigo-200 font-mono text-left ltr-text">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-1 text-gray-700">الجوال</label>
+                        <input type="text" id="inp-company-phone" value="0548891234" class="w-full border p-2 rounded focus:ring focus:ring-indigo-200 font-mono text-left ltr-text">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-1 text-gray-700">العنوان</label>
+                    <input type="text" id="inp-company-address" value="الرياض - طريق الملك فهد - حي العليا" class="w-full border p-2 rounded focus:ring focus:ring-indigo-200 text-right">
+                </div>
+            </div>
+        </div>
+
+        <!-- بيانات الفاتورة والعميل -->
+        <div class="mb-6 bg-gray-50 p-4 rounded-lg text-right">
+            <h3 class="font-bold text-lg mb-3 text-indigo-700">بيانات العميل والفاتورة</h3>
+            <div class="space-y-3">
+                <div class="grid grid-cols-2 gap-2">
+                    <div>
+                        <label class="block text-sm font-medium mb-1 text-gray-700">رقم الفاتورة</label>
+                        <input type="text" id="inp-invoice-number" value="INV-2026-1082" class="w-full border p-2 rounded focus:ring focus:ring-indigo-200 font-mono text-left ltr-text">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-1 text-gray-700">تاريخ الفاتورة</label>
+                        <input type="date" id="inp-invoice-date" value="2026-05-20" class="w-full border p-2 rounded focus:ring focus:ring-indigo-200 font-mono text-left ltr-text">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-1 text-gray-700">اسم العميل (فاتورة إلى)</label>
+                    <input type="text" id="inp-client-name" value="مجموعة المدار التجارية للمقاولات والتوريدات" class="w-full border p-2 rounded focus:ring focus:ring-indigo-200 text-right">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-1 text-gray-700">الرقم الضريبي للعميل (اختياري)</label>
+                    <input type="text" id="inp-client-vat" value="300987654300003" class="w-full border p-2 rounded focus:ring focus:ring-indigo-200 font-mono text-left ltr-text">
+                </div>
+                <!-- حقل نسبة الضريبة المتغيرة -->
+                <div>
+                    <label class="block text-sm font-medium mb-1 text-gray-700">نسبة ضريبة القيمة المضافة (%)</label>
+                    <input type="number" id="inp-tax-rate" value="15" min="0" max="100" step="0.5" class="w-full border p-2 rounded focus:ring focus:ring-indigo-200 font-bold text-indigo-700 bg-white font-mono text-center" placeholder="15">
+                </div>
+            </div>
+        </div>
+
+        <!-- بنود الفاتورة -->
+        <div class="mb-6 bg-gray-50 p-4 rounded-lg flex-grow">
+            <div class="flex justify-between items-center mb-3">
+                <h3 class="font-bold text-lg text-indigo-700">بنود الفاتورة</h3>
+                <button onclick="addItem()" class="bg-indigo-600 text-white px-3 py-1 rounded text-sm hover:bg-indigo-700 transition">إضافة بند +</button>
+            </div>
+
+            <div id="items-container" class="space-y-4">
+                <!-- Items will be injected here via JS -->
+            </div>
+        </div>
+
+        <!-- أزرار الإجراءات -->
+        <div class="mt-auto pt-4 border-t flex gap-3">
+            <button onclick="printInvoice()" class="w-full bg-green-600 text-white font-bold py-3 rounded-lg hover:bg-green-700 transition shadow-lg flex items-center justify-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+                </svg>
+                طباعة الفاتورة
+            </button>
+        </div>
+    </div>
+
+    <!-- مساحة معاينة الفاتورة (التي ستتم طباعتها) -->
+    <div class="preview-wrapper w-full md:w-2/3 bg-gray-200 h-full overflow-y-auto p-4 md:p-8 flex justify-center">
+        <!-- ورقة A4 -->
+        <div id="invoice-preview-container" class="bg-white shadow-2xl w-full max-w-[210mm] min-h-[297mm] p-[10mm] md:p-[12mm] flex flex-col relative rounded-sm">
+
+            <!-- الترويسة -->
+            <div class="flex justify-between items-start border-b-2 border-gray-900 pb-4 mb-5 gap-4">
+                <div class="w-5/12 text-right">
+                    <img id="out-company-logo" src="" alt="شعار المؤسسة" class="max-h-16 max-w-full mb-2 hidden object-contain">
+                    <h1 id="out-company-name" class="text-base md:text-lg font-bold text-gray-900 mb-1 leading-snug break-words">اسم المؤسسة</h1>
+                    <p class="text-gray-600 text-xs mb-0.5">الرقم الضريبي: <span id="out-company-vat" class="font-medium text-gray-900 font-mono ltr-text">---</span></p>
+                    <p class="text-gray-600 text-xs mb-0.5">س.ت: <span id="out-company-cr" class="font-medium text-gray-900 font-mono ltr-text">---</span></p>
+                    <p class="text-gray-600 text-xs">جوال: <span id="out-company-phone" class="font-medium text-gray-900 font-mono ltr-text">---</span></p>
+                </div>
+
+                <div class="w-4/12 text-center flex flex-col items-center justify-center pt-1">
+                    <h2 class="text-xl md:text-2xl font-extrabold text-gray-900 border-2 border-gray-900 px-4 py-1.5 rounded-lg mb-1 tracking-wide whitespace-nowrap shadow-sm">فاتورة ضريبية</h2>
+                    <h3 class="text-xs font-bold text-gray-600 tracking-wider uppercase">Tax Invoice</h3>
+                </div>
+
+                <div class="w-3/12 flex justify-start pl-1">
+                    <!-- حاوية كيو آر كود -->
+                    <div id="qrcode" class="border border-gray-300 p-1.5 bg-white rounded shadow-sm inline-block"></div>
+                </div>
+            </div>
+
+            <!-- معلومات الفاتورة والعميل -->
+            <div class="grid grid-cols-2 gap-4 mb-5 text-right">
+                <div class="bg-gray-50 border border-gray-200 p-3.5 rounded">
+                    <h3 class="font-bold text-gray-800 mb-2 border-b border-gray-200 pb-1 text-xs md:text-sm">فاتورة إلى / Billed To:</h3>
+                    <p id="out-client-name" class="font-bold text-sm md:text-base text-gray-900 mb-1.5">اسم العميل</p>
+                    <p class="text-xs text-gray-600">الرقم الضريبي: <span id="out-client-vat" class="font-medium font-mono text-gray-900 ltr-text">---</span></p>
+                </div>
+
+                <div class="bg-gray-50 border border-gray-200 p-3.5 rounded">
+                    <h3 class="font-bold text-gray-800 mb-2 border-b border-gray-200 pb-1 text-xs md:text-sm">تفاصيل الفاتورة / Invoice Details:</h3>
+                    <table class="w-full text-xs">
+                        <tr>
+                            <td class="py-1 font-medium text-gray-600 w-1/2 text-right">رقم الفاتورة | Inv No:</td>
+                            <td class="py-1 text-left"><span id="out-invoice-number" class="font-bold font-mono text-gray-900 ltr-text">---</span></td>
+                        </tr>
+                        <tr>
+                            <td class="py-1 font-medium text-gray-600 w-1/2 text-right">التاريخ | Date:</td>
+                            <td class="py-1 text-left"><span id="out-invoice-date" class="font-bold font-mono text-gray-900 ltr-text">---</span></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- جدول البنود -->
+            <div class="mb-5 flex-grow">
+                <table class="w-full invoice-table text-xs">
+                    <thead>
+                        <tr>
+                            <th class="w-8">م</th>
+                            <th class="text-right w-1/4">البند <br><span class="text-[10px] font-normal text-gray-500">Item</span></th>
+                            <th class="text-right">الوصف <br><span class="text-[10px] font-normal text-gray-500">Description</span></th>
+                            <th class="w-14">الكمية <br><span class="text-[10px] font-normal text-gray-500">Qty</span></th>
+                            <th class="w-20">السعر <br><span class="text-[10px] font-normal text-gray-500">Price</span></th>
+                            <th class="w-20">الضريبة (<span id="header-tax-rate">15</span>%) <br><span class="text-[10px] font-normal text-gray-500">VAT</span></th>
+                            <th class="w-24">المجموع <br><span class="text-[10px] font-normal text-gray-500">Total</span></th>
+                        </tr>
+                    </thead>
+                    <tbody id="out-items-table">
+                        <!-- Items dynamically generated here -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- الإجماليات والتفاصيل البنكية -->
+            <div class="flex justify-between items-end mt-auto pt-3 border-t border-gray-200 text-right">
+                <div class="w-1/2 text-xs text-gray-600 pe-4">
+                    <p class="mb-0.5 font-bold text-gray-800">العنوان:</p>
+                    <p id="out-company-address" class="mb-3 text-gray-700">---</p>
+
+                    <p class="font-bold text-gray-800 mb-1 border-b border-gray-300 pb-0.5 inline-block">تفاصيل الدفع البنكي:</p>
+                    <p class="text-gray-700">اسم البنك: <span class="font-medium text-gray-900">مصرف الراجحي</span></p>
+                    <p class="font-mono text-[11px] mt-0.5 text-gray-900 ltr-text">IBAN: SA4480000412608010293847</p>
+                </div>
+
+                <div class="w-5/12">
+                    <table class="w-full text-xs border-collapse text-right">
+                        <tr>
+                            <td class="p-2 border border-gray-200 font-bold text-gray-700 bg-gray-50">الإجمالي (بدون ضريبة)</td>
+                            <td class="p-2 border border-gray-200 font-bold text-left"><span id="out-subtotal" class="font-mono ltr-text">0.00</span></td>
+                        </tr>
+                        <tr>
+                            <td class="p-2 border border-gray-200 font-bold text-gray-700 bg-gray-50">ضريبة القيمة المضافة (<span id="summary-tax-rate" class="ltr-text">15</span>%)</td>
+                            <td class="p-2 border border-gray-200 font-bold text-left"><span id="out-tax-total" class="font-mono text-gray-700 ltr-text">0.00</span></td>
+                        </tr>
+                        <tr class="bg-gray-900 text-white">
+                            <td class="p-2.5 border border-gray-900 font-bold text-sm">الإجمالي المستحق</td>
+                            <td class="p-2.5 border border-gray-900 font-bold text-sm text-left">
+                                <span id="out-grand-total" class="font-mono ltr-text">0.00</span> <span class="text-xs font-normal">ر.س</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="mt-4 text-center text-[10px] text-gray-400 border-t pt-1.5 border-dashed">
+                تم إصدار هذه الفاتورة آلياً - This invoice is computer generated
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // State
+        let items = [
+            { id: 1, title: 'تطوير وتصميم منصة إلكترونية', desc: 'برمجة وتصميم منصة أعمال تفاعلية متجاوبة مع لوحة تحكم سحابية', qty: 1, price: 4500.00 },
+            { id: 2, title: 'استضافة سحابية ودعم فني سنوي', desc: 'خادم سحابي مخصص عالي السرعة مع نسخ احتياطي تلقائي وصيانة سنوية', qty: 1, price: 1200.00 }
+        ];
+
+        let qrcodeInstance = null;
+
+        // Initialize
+        window.onload = () => {
+            let lastInv = localStorage.getItem('lastInvoiceNumFwater');
+            let nextInv = lastInv ? parseInt(lastInv) + 1 : 1083;
+            document.getElementById('inp-invoice-number').value = `INV-${new Date().getFullYear()}-${nextInv}`;
+            document.getElementById('inp-invoice-date').valueAsDate = new Date();
+            
+            setupInputListeners();
+            renderItemsForm();
+            updatePreview();
+        };
+
+        function printInvoice() {
+            const invVal = document.getElementById('inp-invoice-number').value;
+            const match = invVal.match(/\d+$/);
+            if (match) {
+                localStorage.setItem('lastInvoiceNumFwater', match[0]);
+            }
+            window.print();
+        }
+
+        function setupInputListeners() {
+            const inputs = [
+                'inp-company-name', 'inp-company-vat', 'inp-company-cr', 'inp-company-phone', 'inp-company-address',
+                'inp-invoice-number', 'inp-invoice-date', 'inp-client-name', 'inp-client-vat', 'inp-tax-rate'
+            ];
+            inputs.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.addEventListener('input', updatePreview);
+            });
+
+            document.getElementById('inp-company-logo').addEventListener('change', function(e) {
+                const file = e.target.files[0];
+                const logoEl = document.getElementById('out-company-logo');
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(event) {
+                        logoEl.src = event.target.result;
+                        logoEl.classList.remove('hidden');
+                    };
+                    reader.readAsDataURL(file);
+                } else {
+                    logoEl.src = "";
+                    logoEl.classList.add('hidden');
+                }
+            });
+        }
+
+        function generateId() {
+            return Math.floor(Math.random() * 1000000);
+        }
+
+        // --- Items Management ---
+        function addItem() {
+            items.push({ id: generateId(), title: 'بند جديد', desc: '', qty: 1, price: 0 });
+            renderItemsForm();
+            updatePreview();
+        }
+
+        function removeItem(id) {
+            items = items.filter(item => item.id !== id);
+            renderItemsForm();
+            updatePreview();
+        }
+
+        function updateItem(id, field, value) {
+            const item = items.find(i => i.id === id);
+            if (item) {
+                item[field] = field === 'qty' || field === 'price' ? parseFloat(value) || 0 : value;
+                updatePreview();
+            }
+        }
+
+        function renderItemsForm() {
+            const container = document.getElementById('items-container');
+            container.innerHTML = '';
+
+            items.forEach((item, index) => {
+                const itemHTML = `
+                    <div class="border p-3 rounded bg-white relative shadow-sm">
+                        <button onclick="removeItem(${item.id})" class="absolute top-2 left-2 text-red-500 hover:text-red-700 bg-red-50 rounded-full w-6 h-6 flex items-center justify-center font-bold">&times;</button>
+                        <div class="font-bold text-sm text-gray-500 border-b pb-1 mb-2">بند #${index + 1}</div>
+
+                        <div class="grid grid-cols-1 gap-2 mb-2">
+                            <input type="text" placeholder="اسم البند" value="${item.title}" oninput="updateItem(${item.id}, 'title', this.value)" class="w-full border p-2 rounded text-sm focus:ring focus:ring-indigo-200">
+                            <input type="text" placeholder="الوصف (اختياري)" value="${item.desc}" oninput="updateItem(${item.id}, 'desc', this.value)" class="w-full border p-2 rounded text-sm focus:ring focus:ring-indigo-200">
+                        </div>
+                        <div class="grid grid-cols-2 gap-2">
+                            <div>
+                                <label class="text-xs text-gray-500">الكمية</label>
+                                <input type="number" min="1" step="1" value="${item.qty}" oninput="updateItem(${item.id}, 'qty', this.value)" class="w-full border p-2 rounded text-sm focus:ring focus:ring-indigo-200 text-center">
+                            </div>
+                            <div>
+                                <label class="text-xs text-gray-500">سعر الوحدة</label>
+                                <input type="number" min="0" step="0.01" value="${item.price}" oninput="updateItem(${item.id}, 'price', this.value)" class="w-full border p-2 rounded text-sm focus:ring focus:ring-indigo-200 text-center">
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.insertAdjacentHTML('beforeend', itemHTML);
+            });
+        }
+
+        // --- Core Preview Logic ---
+        function updatePreview() {
+            // Update Basic Texts
+            const mapping = {
+                'inp-company-name': 'out-company-name',
+                'inp-company-vat': 'out-company-vat',
+                'inp-company-cr': 'out-company-cr',
+                'inp-company-phone': 'out-company-phone',
+                'inp-company-address': 'out-company-address',
+                'inp-invoice-number': 'out-invoice-number',
+                'inp-invoice-date': 'out-invoice-date',
+                'inp-client-name': 'out-client-name',
+                'inp-client-vat': 'out-client-vat',
+            };
+
+            for (const [inp, out] of Object.entries(mapping)) {
+                const inputEl = document.getElementById(inp);
+                const outEl = document.getElementById(out);
+                if (inputEl && outEl) {
+                    outEl.textContent = inputEl.value || '---';
+                }
+            }
+
+            // Get dynamic tax rate (default to 15 if empty or invalid)
+            const taxRateInput = parseFloat(document.getElementById('inp-tax-rate').value);
+            const taxRate = isNaN(taxRateInput) || taxRateInput < 0 ? 0 : taxRateInput;
+
+            // Update tax percentage labels on invoice
+            const headerTaxRateEl = document.getElementById('header-tax-rate');
+            const summaryTaxRateEl = document.getElementById('summary-tax-rate');
+            if (headerTaxRateEl) headerTaxRateEl.textContent = taxRate;
+            if (summaryTaxRateEl) summaryTaxRateEl.textContent = taxRate;
+
+            // Update Items Table & Math
+            const tableBody = document.getElementById('out-items-table');
+            tableBody.innerHTML = '';
+
+            let subtotal = 0;
+
+            items.forEach((item, index) => {
+                const itemTotalWithoutTax = item.qty * item.price;
+                const itemTax = itemTotalWithoutTax * (taxRate / 100);
+                const itemGrandTotal = itemTotalWithoutTax + itemTax;
+
+                subtotal += itemTotalWithoutTax;
+
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td>${index + 1}</td>
+                    <td class="text-right font-bold text-gray-800">${item.title}</td>
+                    <td class="text-right text-gray-600 text-xs">${item.desc}</td>
+                    <td>${item.qty}</td>
+                    <td class="font-mono">${item.price.toFixed(2)}</td>
+                    <td class="font-mono text-gray-500">${itemTax.toFixed(2)}</td>
+                    <td class="font-mono font-bold bg-gray-50">${itemGrandTotal.toFixed(2)}</td>
+                `;
+                tableBody.appendChild(tr);
+            });
+
+            // Calculate Totals
+            const totalTax = subtotal * (taxRate / 100);
+            const grandTotal = subtotal + totalTax;
+
+            document.getElementById('out-subtotal').textContent = subtotal.toFixed(2);
+            document.getElementById('out-tax-total').textContent = totalTax.toFixed(2);
+            document.getElementById('out-grand-total').textContent = grandTotal.toFixed(2);
+
+            updateQRCode(
+                document.getElementById('inp-company-name').value,
+                document.getElementById('inp-company-vat').value,
+                document.getElementById('inp-invoice-date').value,
+                grandTotal.toFixed(2),
+                totalTax.toFixed(2)
+            );
+        }
+
+        // --- QR Code ZATCA (Basic Representation) ---
+        function updateQRCode(sellerName, vatNumber, date, total, tax) {
+            const qrContainer = document.getElementById("qrcode");
+            qrContainer.innerHTML = ""; // Clear existing
+
+            try {
+                // ZATCA requires TLV (Tag-Length-Value) Base64 encoding
+                // This avoids the Arabic text length overflow bug in qrcode.js by converting to ASCII Base64
+                const getHex = (tag, value) => {
+                    const encoder = new TextEncoder();
+                    const valBytes = encoder.encode(String(value));
+                    const tagHex = tag.toString(16).padStart(2, '0');
+                    const lenHex = valBytes.length.toString(16).padStart(2, '0');
+                    return tagHex + lenHex + Array.from(valBytes).map(b => b.toString(16).padStart(2, '0')).join('');
+                };
+
+                const hexString =
+                    getHex(1, sellerName) +
+                    getHex(2, vatNumber) +
+                    getHex(3, date) +
+                    getHex(4, total) +
+                    getHex(5, tax);
+
+                const hexArray = hexString.match(/.{2}/g) || [];
+                const uintArray = new Uint8Array(hexArray.map(byte => parseInt(byte, 16)));
+
+                let binary = '';
+                for (let i = 0; i < uintArray.length; i++) {
+                    binary += String.fromCharCode(uintArray[i]);
+                }
+                const base64QRData = btoa(binary);
+
+                qrcodeInstance = new QRCode(qrContainer, {
+                    text: base64QRData,
+                    width: 100,
+                    height: 100,
+                    colorDark : "#000000",
+                    colorLight : "#ffffff",
+                    correctLevel : QRCode.CorrectLevel.L
+                });
+            } catch (e) {
+                console.error("QR Code Generation Error:", e);
+                // Safe fallback string if encoding fails
+                qrcodeInstance = new QRCode(qrContainer, {
+                    text: `INV-${total}`,
+                    width: 100,
+                    height: 100,
+                    correctLevel : QRCode.CorrectLevel.L
+                });
+            }
+        }
+    </script>
+</body>
+</html>

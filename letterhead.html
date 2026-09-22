@@ -1,0 +1,1643 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ورق مراسلات رسمي - شركة أمد الأولى المحدودة (أمدكو)</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="./logo/logo_new.webp">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #163261;
+            --primary-dark: #0e2040;
+            --primary-light: #244b8a;
+            --gold: #C39D68;
+            --gold-light: #dfc298;
+            --gray-900: #1e293b;
+            --gray-700: #334155;
+            --gray-500: #64748b;
+            --gray-300: #cbd5e1;
+            --gray-200: #e2e8f0;
+            --gray-100: #f1f5f9;
+            --gray-50: #f8fafc;
+            --white: #ffffff;
+            --sidebar-width: 380px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        body {
+            font-family: 'Almarai', sans-serif;
+            background-color: #0f172a;
+            color: var(--gray-900);
+            min-height: 100vh;
+            display: flex;
+            direction: rtl;
+            overflow-x: hidden;
+        }
+
+        /* Layout */
+        .app-layout {
+            display: flex;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            direction: rtl;
+        }
+
+        /* Control Sidebar */
+        .sidebar {
+            width: var(--sidebar-width);
+            background: #ffffff;
+            border-left: 1px solid var(--gray-200);
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            z-index: 20;
+            box-shadow: -4px 0 25px rgba(0, 0, 0, 0.15);
+            direction: rtl;
+        }
+
+        .sidebar-header {
+            padding: 18px 20px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .sidebar-header .title-box {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .sidebar-header .title-box i {
+            font-size: 22px;
+            color: var(--gold);
+        }
+
+        .sidebar-header h2 {
+            font-size: 16px;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .sidebar-header p {
+            font-size: 11px;
+            color: var(--gray-300);
+            margin: 0;
+        }
+
+        .sidebar-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .sidebar-content::-webkit-scrollbar {
+            width: 6px;
+        }
+        .sidebar-content::-webkit-scrollbar-thumb {
+            background: var(--gray-300);
+            border-radius: 4px;
+        }
+
+        /* Preset Templates */
+        .template-selector {
+            background: var(--gray-50);
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px solid var(--gray-200);
+        }
+
+        .template-selector label {
+            display: block;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .template-btn-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .btn-tpl {
+            padding: 7px 10px;
+            font-size: 11.5px;
+            font-weight: 600;
+            background: var(--white);
+            border: 1px solid var(--gray-300);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: var(--gray-700);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            justify-content: center;
+            font-family: inherit;
+        }
+
+        .btn-tpl:hover, .btn-tpl.active {
+            background: var(--primary);
+            color: var(--white);
+            border-color: var(--primary);
+        }
+
+        /* Form Controls */
+        .form-section {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: 10px;
+            padding: 14px;
+        }
+
+        .form-section-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .form-section-title i {
+            color: var(--gold);
+        }
+
+        .form-group {
+            margin-bottom: 12px;
+        }
+
+        .form-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 11.5px;
+            font-weight: 700;
+            color: var(--gray-700);
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        textarea {
+            width: 100%;
+            padding: 8px 10px;
+            font-size: 12.5px;
+            font-family: inherit;
+            border: 1px solid var(--gray-300);
+            border-radius: 6px;
+            outline: none;
+            transition: all 0.2s;
+            background: var(--gray-50);
+            color: var(--gray-900);
+        }
+
+        input[type="text"]:focus,
+        textarea:focus {
+            background: #ffffff;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(22, 50, 97, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 90px;
+            line-height: 1.6;
+        }
+
+        /* Switches */
+        .switch-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 6px 0;
+        }
+
+        .switch-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--gray-700);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 40px;
+            height: 22px;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--gray-300);
+            transition: .3s;
+            border-radius: 22px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .3s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: var(--primary);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(18px);
+        }
+
+        /* Sidebar Footer Actions */
+        .sidebar-actions {
+            padding: 14px 16px;
+            background: var(--gray-50);
+            border-top: 1px solid var(--gray-200);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            width: 100%;
+            padding: 11px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            font-size: 13.5px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: 0 4px 12px rgba(22, 50, 97, 0.25);
+            font-family: inherit;
+            transition: all 0.2s;
+        }
+
+        .btn-primary:hover {
+            opacity: 0.95;
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            width: 100%;
+            padding: 9px;
+            background: var(--white);
+            color: var(--gray-700);
+            border: 1px solid var(--gray-300);
+            border-radius: 8px;
+            font-size: 12.5px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            font-family: inherit;
+            transition: all 0.2s;
+        }
+
+        .btn-secondary:hover {
+            background: var(--gray-100);
+            color: var(--gray-900);
+        }
+
+        /* Main Preview Canvas Area */
+        .preview-area {
+            flex: 1;
+            background: #1e293b;
+            background-image: 
+                radial-gradient(circle at 25px 25px, rgba(255, 255, 255, 0.05) 2%, transparent 0%),
+                radial-gradient(circle at 75px 75px, rgba(255, 255, 255, 0.05) 2%, transparent 0%);
+            background-size: 100px 100px;
+            overflow-y: auto;
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            direction: rtl;
+        }
+
+        /* Floating Toolbar */
+        .floating-toolbar {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 7px 16px;
+            border-radius: 30px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .floating-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-family: inherit;
+            transition: all 0.2s;
+        }
+
+        .floating-btn:hover {
+            background: var(--gold);
+            color: var(--primary-dark);
+            border-color: var(--gold);
+        }
+
+        .floating-btn.active {
+            background: var(--primary);
+            border-color: var(--gold);
+            color: #fff;
+        }
+
+        .toolbar-divider {
+            width: 1px;
+            height: 18px;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* ========================================================
+           A4 Letterhead Sheet Styles (Exact 210mm x 297mm)
+           ======================================================== */
+        .letterhead-sheet {
+            width: 210mm;
+            min-height: 297mm;
+            height: 297mm;
+            background: #ffffff;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.45);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 14mm 18mm 14mm 18mm;
+            box-sizing: border-box;
+            overflow: hidden;
+            font-family: 'Almarai', sans-serif;
+            color: #1a1a1a;
+            direction: rtl;
+            text-align: right;
+        }
+
+        /* Watermark */
+        .sheet-watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 660px;
+            max-width: 88%;
+            opacity: 0.055;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* 1. Header (Logo Centered) */
+        .letterhead-header {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding-bottom: 10px;
+            direction: rtl;
+        }
+
+        .header-logo-container {
+            text-align: center;
+        }
+
+        .header-logo-img {
+            height: 90px;
+            width: auto;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* 2. Document Body Area */
+        .letterhead-body {
+            position: relative;
+            z-index: 1;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 12px 0;
+            font-size: 13.5px;
+            line-height: 1.8;
+            color: #222;
+            direction: rtl;
+            text-align: right;
+        }
+
+        .recipient-box {
+            margin-bottom: 12px;
+            font-size: 14px;
+            text-align: right;
+        }
+
+        .recipient-name {
+            font-weight: 800;
+            color: var(--primary);
+            font-size: 14.5px;
+        }
+
+        .recipient-greeting {
+            color: #475569;
+            margin-top: 4px;
+            font-size: 12.5px;
+        }
+
+        .subject-box {
+            background: #f8fafc;
+            border-right: 4px solid var(--primary);
+            border-left: none;
+            padding: 7px 12px;
+            margin-bottom: 16px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            direction: rtl;
+            text-align: right;
+        }
+
+        .subject-label {
+            font-weight: 800;
+            color: var(--primary);
+            white-space: nowrap;
+        }
+
+        .subject-text {
+            font-weight: 700;
+            color: #1e293b;
+        }
+
+        .content-paragraphs {
+            flex: 1;
+            text-align: justify;
+            text-justify: inter-word;
+            white-space: pre-line;
+            outline: none;
+            min-height: 140px;
+            direction: rtl;
+        }
+
+        .content-paragraphs[contenteditable="true"]:hover {
+            background: rgba(22, 50, 97, 0.02);
+            border-radius: 4px;
+            cursor: text;
+        }
+
+        .content-paragraphs[contenteditable="true"]:focus {
+            background: rgba(22, 50, 97, 0.04);
+            outline: 1px dashed var(--primary);
+            padding: 4px;
+        }
+
+        /* Signature & Parties Section (Exact Match to Official Two-Party Document) */
+        .letter-sign-section {
+            margin-top: auto;
+            padding-top: 10px;
+            margin-bottom: 4px;
+            direction: rtl;
+        }
+
+        .sign-closing-statement {
+            text-align: center;
+            font-family: 'Almarai', sans-serif;
+            font-size: 13px;
+            font-weight: 800;
+            color: #1e293b;
+            margin-bottom: 16px;
+            letter-spacing: 0.2px;
+        }
+
+        .parties-container {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            justify-items: center;
+            direction: rtl;
+            padding: 0 5px;
+            gap: 15px;
+        }
+
+        .party-block {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+            max-width: 190px;
+        }
+
+        .party-first {
+            grid-column: 1;
+        }
+
+        .party-title {
+            font-family: 'Almarai', sans-serif;
+            font-size: 13.5px;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 4px;
+        }
+
+        .party-name {
+            font-family: 'Almarai', sans-serif;
+            font-size: 12.5px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 4px;
+        }
+
+        .stamp-wrapper {
+            grid-column: 2;
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 10px;
+            user-select: none;
+        }
+
+        .party-second {
+            grid-column: 3;
+        }
+
+        .official-seal-placeholder {
+            width: 100px;
+            height: 100px;
+            border: 2px dashed rgba(22, 50, 97, 0.4);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 9.5px;
+            font-weight: 700;
+            text-align: center;
+            padding: 5px;
+            opacity: 0.75;
+            transform: rotate(-8deg);
+            background: rgba(239, 246, 255, 0.25);
+            transition: all 0.2s ease;
+        }
+
+        .official-seal-placeholder i {
+            font-size: 18px;
+            color: var(--gold);
+            margin-bottom: 3px;
+        }
+
+        .party-sign-slot {
+            width: 180px;
+            margin: 4px 0 6px 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sign-label-row {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            width: 100%;
+        }
+
+        .sign-tag {
+            font-family: 'Almarai', sans-serif;
+            font-size: 11.5px;
+            font-weight: 700;
+            color: #334155;
+            white-space: nowrap;
+        }
+
+        .sign-line-dots {
+            flex: 1;
+            height: 1px;
+            border-bottom: 1.5px dotted #94a3b8;
+            margin-top: 4px;
+        }
+
+        .sign-blank-space {
+            height: 25px;
+        }
+
+
+        /* ========================================================
+           3. Footer (Exact recreation of AMADCO Document Footer)
+           ======================================================== */
+        .letterhead-footer {
+            position: relative;
+            z-index: 1;
+            border-top: 1.5px solid #cbd5e1;
+            padding-top: 8px;
+            margin-top: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: stretch;
+            direction: rtl;
+            gap: 12px;
+        }
+
+        /* Right Column: Company Name & Email */
+        .footer-company-side {
+            width: 210px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: right;
+            direction: rtl;
+            padding-left: 10px;
+            border-left: 1.5px solid var(--primary);
+        }
+
+        .footer-co-name-ar {
+            font-size: 14px;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1.3;
+            margin-bottom: 2px;
+        }
+
+        .footer-co-name-en {
+            font-family: 'Inter', sans-serif;
+            font-size: 9.5px;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 4px;
+            letter-spacing: 0.3px;
+            direction: ltr;
+            text-align: right;
+        }
+
+        .footer-co-email {
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            color: #334155;
+            direction: ltr;
+            text-align: right;
+        }
+
+        /* Left Column: Details (Services, Address, Branches, CR & Web) */
+        .footer-details-side {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 4px;
+            direction: rtl;
+        }
+
+        /* 5 Services Columns (Arabic directly below English) */
+        .footer-services-grid {
+            display: flex;
+            direction: rtl;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 4px;
+        }
+
+        .service-col {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            flex: 1;
+            padding: 0 4px;
+        }
+
+        .service-col:not(:last-child) {
+            border-left: 1px solid #cbd5e1;
+        }
+
+        .service-col .service-en {
+            font-family: 'Inter', sans-serif;
+            font-size: 6.6px;
+            font-weight: 700;
+            color: #475569;
+            letter-spacing: 0.1px;
+            white-space: nowrap;
+            line-height: 1.2;
+            direction: ltr;
+        }
+
+        .service-col .service-ar {
+            font-family: 'Almarai', sans-serif;
+            font-size: 7.6px;
+            font-weight: 700;
+            color: var(--primary);
+            white-space: nowrap;
+            line-height: 1.3;
+            margin-top: 2px;
+            direction: rtl;
+        }
+
+        /* Address & Contact */
+        .footer-address-block {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+            margin: 2px 0;
+            text-align: center;
+            direction: rtl;
+        }
+
+        .address-ar {
+            font-family: 'Almarai', sans-serif;
+            font-size: 7.2px;
+            font-weight: 700;
+            color: #1e293b;
+            direction: rtl;
+            line-height: 1.3;
+            white-space: nowrap;
+        }
+
+        .address-en {
+            font-family: 'Inter', sans-serif;
+            font-size: 6.6px;
+            font-weight: 600;
+            color: #475569;
+            direction: ltr;
+            line-height: 1.3;
+            white-space: nowrap;
+        }
+
+        /* Branches */
+        .footer-branches-block {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            direction: rtl;
+        }
+
+        .branches-badge {
+            background: #475569;
+            color: #ffffff;
+            padding: 1px 6px;
+            border-radius: 3px;
+            font-weight: 700;
+            font-size: 7.5px;
+            white-space: nowrap;
+        }
+
+        .branches-list {
+            color: #1e293b;
+            font-weight: 600;
+            font-size: 7.5px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            direction: rtl;
+        }
+
+        /* Bottom CR & Website */
+        .footer-bottom-block {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 7.5px;
+            padding-top: 1px;
+            direction: rtl;
+        }
+
+        .footer-cr {
+            font-weight: 700;
+            color: #475569;
+            direction: rtl;
+        }
+
+        .footer-website {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            color: var(--primary);
+            direction: ltr;
+            letter-spacing: 0.5px;
+        }
+
+        /* Blank mode style override */
+        .blank-mode .letterhead-body {
+            visibility: hidden;
+        }
+
+        /* Blank with Stamp mode style override */
+        .blank-stamp-mode:not(.direct-editing) .recipient-box,
+        .blank-stamp-mode:not(.direct-editing) .subject-box,
+        .blank-stamp-mode:not(.direct-editing) .content-paragraphs,
+        .blank-stamp-mode:not(.direct-editing) .sign-closing-statement,
+        .blank-stamp-mode #party1Block,
+        .blank-stamp-mode #party2Block {
+            display: none !important;
+        }
+
+        .blank-stamp-mode .letterhead-body {
+            visibility: visible !important;
+        }
+
+        .blank-stamp-mode .parties-container {
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            padding: 0 !important;
+        }
+
+        .blank-stamp-mode .letter-sign-section {
+            margin-top: auto !important;
+            margin-bottom: 0 !important;
+            padding-top: 0 !important;
+        }
+
+        /* ========================================================
+           Print Media Rules
+           ======================================================== */
+        @page {
+            size: A4 portrait;
+            margin: 0;
+        }
+
+        @media print {
+            body {
+                background: #ffffff !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                display: block !important;
+            }
+
+            .sidebar, 
+            .floating-toolbar,
+            .toast-notification {
+                display: none !important;
+            }
+
+            .app-layout {
+                display: block !important;
+                width: 100% !important;
+                height: auto !important;
+            }
+
+            .preview-area {
+                background: none !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                overflow: visible !important;
+                display: block !important;
+            }
+
+            .letterhead-sheet {
+                box-shadow: none !important;
+                margin: 0 !important;
+                width: 210mm !important;
+                height: 297mm !important;
+                min-height: 297mm !important;
+                page-break-after: always;
+                page-break-inside: avoid;
+                padding: 14mm 18mm 14mm 18mm !important;
+            }
+
+            .content-paragraphs[contenteditable="true"]:focus,
+            .content-paragraphs[contenteditable="true"]:hover {
+                outline: none !important;
+                background: none !important;
+                padding: 0 !important;
+            }
+        }
+
+        /* Notification Toast */
+        .toast-notification {
+            position: fixed;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: #0f172a;
+            color: #ffffff;
+            border: 1px solid var(--gold);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 12.5px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 100;
+        }
+
+        .toast-notification.show {
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .app-layout {
+                flex-direction: column;
+                height: auto;
+                overflow: auto;
+            }
+            .sidebar {
+                width: 100%;
+                height: auto;
+            }
+            .preview-area {
+                padding: 20px 10px;
+                overflow: auto;
+            }
+            .letterhead-sheet {
+                transform: scale(0.9);
+                transform-origin: top center;
+                margin-bottom: -40px;
+            }
+        }
+        @media (max-width: 768px) {
+            .letterhead-sheet {
+                transform: scale(0.7);
+                margin-bottom: -150px;
+            }
+        }
+        @media (max-width: 500px) {
+            .letterhead-sheet {
+                transform: scale(0.48);
+                margin-bottom: -260px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app-layout">
+        
+        <!-- Sidebar Controls -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="title-box">
+                    <i class="fas fa-file-invoice"></i>
+                    <div>
+                        <h2>نموذج ورق المراسلات</h2>
+                        <p>شركة أمد الأولى المحدودة (أمدكو)</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-content">
+                <!-- Preset Templates Selection -->
+                <div class="template-selector">
+                    <label><i class="fas fa-layer-group"></i> القوالب الجاهزة</label>
+                    <div class="template-btn-grid">
+                        <button class="btn-tpl active" data-template="official" onclick="loadTemplate('official', this)">
+                            <i class="fas fa-envelope-open-text"></i> خطاب رسمي
+                        </button>
+                        <button class="btn-tpl" data-template="proposal" onclick="loadTemplate('proposal', this)">
+                            <i class="fas fa-file-signature"></i> عرض سعر
+                        </button>
+                        <button class="btn-tpl" data-template="certificate" onclick="loadTemplate('certificate', this)">
+                            <i class="fas fa-award"></i> شهادة إنجاز
+                        </button>
+                        <button class="btn-tpl" data-template="blank" onclick="loadTemplate('blank', this)">
+                            <i class="fas fa-file"></i> ترويسة فارغة
+                        </button>
+                        <button class="btn-tpl" data-template="blank_stamp" style="grid-column: span 2;" onclick="loadTemplate('blank_stamp', this)">
+                            <i class="fas fa-stamp"></i> ترويسة فارغة بالختم فقط
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Form Inputs -->
+                <div class="form-section">
+                    <div class="form-section-title">
+                        <i class="fas fa-info-circle"></i> بيانات المراسلة
+                    </div>
+
+                    <div class="form-group">
+                        <label>الموجّه إليه (السادة / إلى)</label>
+                        <input type="text" id="in-recipient" value="السادة / شركة التطوير العقاري المحترمين" oninput="updateDocument()">
+                    </div>
+
+                    <div class="form-group">
+                        <label>التحية الافتتاحية</label>
+                        <input type="text" id="in-greeting" value="السلام عليكم ورحمة الله وبركاته،،، وبعد:" oninput="updateDocument()">
+                    </div>
+
+                    <div class="form-group">
+                        <label>الموضوع</label>
+                        <input type="text" id="in-subject" value="تقديم خدمات مكافحة الحشرات والتعقيم الدوري" oninput="updateDocument()">
+                    </div>
+
+                    <div class="form-group">
+                        <label>نص الخطاب / المحتوى</label>
+                        <textarea id="in-content" rows="6" oninput="updateDocument()">بالإشارة إلى الموضوع أعلاه، يسرنا في شركة أمد الأولى المحدودة (أمدكو) أن نتقدم إليكم بخالص التحية والتقدير، معربين عن رغبتنا الصادقة في التعاون المثمر معكم.
+
+نحيطكم علماً بجاهزية فرقنا الفنية المتخصصة لتنفيذ أعمال الرش والتعقيم الشامل ومكافحة الآفات بأحدث المعايير المعتمدة وأعلى درجات السلامة البيئية مع تقديم ضمان معتمد لكافة الخدمات.
+
+شاكرين لكم حسن تعاونكم الدائم،،،</textarea>
+                    </div>
+                </div>
+
+                <!-- Signature Section Controls -->
+                <div class="form-section">
+                    <div class="form-section-title">
+                        <i class="fas fa-file-signature"></i> التوقيع والاعتماد (الأطراف)
+                    </div>
+
+                    <div class="form-group">
+                        <label>عبارة الختام</label>
+                        <input type="text" id="in-closing" value="والله ولي التوفيق،،،" oninput="updateDocument()">
+                    </div>
+
+                    <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 10px; margin-bottom: 10px;">
+                        <span style="font-size: 11px; font-weight: 800; color: var(--primary); display: block; margin-bottom: 6px;">
+                            <i class="fas fa-building"></i> الطرف الأول
+                        </span>
+                        <div class="form-group" style="margin-bottom: 6px;">
+                            <label style="font-size: 10.5px;">المسمى / الصفة</label>
+                            <input type="text" id="in-party1-title" value="الطرف الاول" oninput="updateDocument()">
+                        </div>
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label style="font-size: 10.5px;">اسم الجهة</label>
+                            <input type="text" id="in-party1-name" value="شركة أمد الأولى المحدودة" oninput="updateDocument()">
+                        </div>
+                    </div>
+
+                    <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 10px; margin-bottom: 10px;">
+                        <span style="font-size: 11px; font-weight: 800; color: #475569; display: block; margin-bottom: 6px;">
+                            <i class="fas fa-handshake"></i> الطرف الثاني
+                        </span>
+                        <div class="form-group" style="margin-bottom: 6px;">
+                            <label style="font-size: 10.5px;">المسمى / الصفة</label>
+                            <input type="text" id="in-party2-title" value="الطرف الثاني" oninput="updateDocument()">
+                        </div>
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label style="font-size: 10.5px;">اسم الجهة</label>
+                            <input type="text" id="in-party2-name" value="شركة درة الفيصل للتجارة" oninput="updateDocument()">
+                        </div>
+                    </div>
+
+                    <div class="switch-row">
+                        <span class="switch-label"><i class="fas fa-stamp"></i> إظهار ختم الشركة</span>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="toggle-stamp" checked onchange="toggleStamp()">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="switch-row">
+                        <span class="switch-label"><i class="fas fa-pen-nib"></i> إظهار سطر ومكان التوقيع</span>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="toggle-sig" checked onchange="toggleSignature()">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="switch-row">
+                        <span class="switch-label"><i class="fas fa-users"></i> إظهار الطرف الثاني</span>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="toggle-party2" checked onchange="toggleParty2()">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="switch-row">
+                        <span class="switch-label"><i class="fas fa-water"></i> إظهار العلامة المائية</span>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="toggle-watermark" checked onchange="toggleWatermark()">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Action Buttons -->
+            <div class="sidebar-actions">
+                <button class="btn-primary" onclick="window.print()">
+                    <i class="fas fa-print"></i> طباعة / تصدير PDF
+                </button>
+                <div style="display: flex; gap: 8px; margin-top: 8px;">
+                    <button class="btn-secondary" style="flex: 1; padding: 9px 6px;" onclick="loadTemplate('blank')">
+                        <i class="fas fa-eraser"></i> ترويسة فارغة
+                    </button>
+                    <button class="btn-secondary" style="flex: 1; padding: 9px 6px; border-color: #1d4ed8; color: #1d4ed8;" onclick="loadTemplate('blank_stamp')">
+                        <i class="fas fa-stamp"></i> فارغة بالختم
+                    </button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Preview Area -->
+        <main class="preview-area">
+            
+            <!-- Floating Quick Bar -->
+            <div class="floating-toolbar">
+                <button class="floating-btn" onclick="window.print()">
+                    <i class="fas fa-print"></i> طباعة A4
+                </button>
+                <div class="toolbar-divider"></div>
+                <button class="floating-btn" id="btn-toggle-edit" onclick="toggleDirectEdit()">
+                    <i class="fas fa-edit"></i> تعديل مباشر في الورقة
+                </button>
+                <button class="floating-btn" onclick="copyDocumentText()">
+                    <i class="fas fa-copy"></i> نسخ النص
+                </button>
+                <div class="toolbar-divider"></div>
+                <a href="index.html" class="floating-btn" style="text-decoration: none;">
+                    <i class="fas fa-home"></i> العودة للموقع
+                </a>
+            </div>
+
+            <!-- The A4 Sheet Component -->
+            <div class="letterhead-sheet" id="letterheadSheet">
+                
+                <!-- Watermark Logo (Vector SVG for Infinite Quality) -->
+                <img src="./logo/logo_icon.svg" alt="AMADCO Icon" class="sheet-watermark" id="sheetWatermark">
+
+                <!-- 1. Top Header -->
+                <header class="letterhead-header">
+                    <div class="header-logo-container">
+                        <img src="./logo/logo_new.webp" alt="أمدكو - AMADCO" class="header-logo-img">
+                    </div>
+                </header>
+
+                <!-- 2. Main Letter Body -->
+                <section class="letterhead-body" id="letterBody">
+                    <div class="recipient-box">
+                        <div class="recipient-name" id="doc-recipient">السادة / شركة التطوير العقاري المحترمين</div>
+                        <div class="recipient-greeting" id="doc-greeting">السلام عليكم ورحمة الله وبركاته،،، وبعد:</div>
+                    </div>
+
+                    <div class="subject-box" id="subjectContainer">
+                        <span class="subject-label">الموضوع :</span>
+                        <span class="subject-text" id="doc-subject">تقديم خدمات مكافحة الحشرات والتعقيم الدوري</span>
+                    </div>
+
+                    <!-- Editable Paragraphs -->
+                    <div class="content-paragraphs" id="doc-content" contenteditable="false">بالإشارة إلى الموضوع أعلاه، يسرنا في شركة أمد الأولى المحدودة (أمدكو) أن نتقدم إليكم بخالص التحية والتقدير، معربين عن رغبتنا الصادقة في التعاون المثمر معكم.
+
+نحيطكم علماً بجاهزية فرقنا الفنية المتخصصة لتنفيذ أعمال الرش والتعقيم الشامل ومكافحة الآفات بأحدث المعايير المعتمدة وأعلى درجات السلامة البيئية مع تقديم ضمان معتمد لكافة الخدمات.
+
+شاكرين لكم حسن تعاونكم الدائم،،،</div>
+
+                    <!-- Signature Section (Two Parties + Blue Stamp & Signature) -->
+                    <div class="letter-sign-section" id="signSection">
+                        
+                        <!-- Closing Statement (Centered) -->
+                        <div class="sign-closing-statement" id="doc-closing">والله ولي التوفيق،،،</div>
+
+                        <!-- Parties Grid: Party 1 on Right, Party 2 on Left -->
+                        <div class="parties-container">
+                            
+                            <!-- Party 1 (Right): Amadco + Signature Slot -->
+                            <div class="party-block party-first" id="party1Block">
+                                <div class="party-title" id="doc-party1-title">الطرف الاول</div>
+                                <div class="party-name" id="doc-party1-name">شركة أمد الأولى المحدودة</div>
+                                
+                                <!-- Dedicated Blank Signature Slot -->
+                                <div class="party-sign-slot" id="p1SignSlot">
+                                    <div class="sign-label-row">
+                                        <span class="sign-tag">التوقيع :</span>
+                                        <div class="sign-line-dots"></div>
+                                    </div>
+                                    <div class="sign-blank-space"></div>
+                                </div>
+                            </div>
+
+                            <!-- Official Company Seal in Center -->
+                            <div class="stamp-wrapper" id="stampWrapper">
+                                <div class="official-seal-placeholder">
+                                    <i class="fas fa-certificate"></i>
+                                    <span>شركة أمد الأولى المحدودة</span>
+                                    <span style="font-size: 8px; font-family: 'Inter', sans-serif;">AMADCO - C.R 4030833105</span>
+                                    <span style="font-size: 7px; color: var(--primary);">قسم الاعتماد والتوثيق</span>
+                                </div>
+                            </div>
+
+                            <!-- Party 2 (Left): Client/Partner Details + Signature Slot -->
+                            <div class="party-block party-second" id="party2Block">
+                                <div class="party-title" id="doc-party2-title">الطرف الثاني</div>
+                                <div class="party-name" id="doc-party2-name">شركة درة الفيصل للتجارة</div>
+                                
+                                <!-- Dedicated Blank Signature Slot -->
+                                <div class="party-sign-slot" id="p2SignSlot">
+                                    <div class="sign-label-row">
+                                        <span class="sign-tag">التوقيع :</span>
+                                        <div class="sign-line-dots"></div>
+                                    </div>
+                                    <div class="sign-blank-space"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 3. Bottom Footer -->
+                <footer class="letterhead-footer">
+                    
+                    <!-- Right Section: Company Name & Email -->
+                    <div class="footer-company-side">
+                        <div class="footer-co-name-ar">شركة أمد الأولى المحدودة</div>
+                        <div class="footer-co-name-en">AMAD AL-AOULA COMPANY LTD.</div>
+                        <div class="footer-co-email">info@amadco-sa.com</div>
+                    </div>
+
+                    <!-- Left Section: Details (Services, Address, Branches, CR & Website) -->
+                    <div class="footer-details-side">
+                        
+                        <!-- Row 1: 5 Columns with English on top and Arabic directly underneath -->
+                        <div class="footer-services-grid">
+                            <div class="service-col">
+                                <div class="service-en">GENERAL CONTRACTING</div>
+                                <div class="service-ar">مـقـاولات</div>
+                            </div>
+                            <div class="service-col">
+                                <div class="service-en">MAINTENANCE & OPERATION</div>
+                                <div class="service-ar">صـيـانـة وتـشـغـيـل</div>
+                            </div>
+                            <div class="service-col">
+                                <div class="service-en">PEST CONTROL & PUBLIC HEALTH</div>
+                                <div class="service-ar">مكافحة حشرات وآفات عامة</div>
+                            </div>
+                            <div class="service-col">
+                                <div class="service-en">GENERAL CLEANING</div>
+                                <div class="service-ar">نـظـافـة عـامـة</div>
+                            </div>
+                            <div class="service-col">
+                                <div class="service-en">AIR CONDITIONING</div>
+                                <div class="service-ar">تـبـريـد وتـكـيـيـف</div>
+                            </div>
+                        </div>
+
+                        <!-- Row 2: Head Office Address & Contact -->
+                        <div class="footer-address-block">
+                            <div class="address-ar">
+                                المركز الرئيسي: جدة - طريق الأمير سلطان، برج المرجانة ، هاتف: <span dir="ltr" style="font-family: 'Inter', sans-serif;">+966 54 575 9422</span> ، الرقم الموحد: <span dir="ltr" style="font-family: 'Inter', sans-serif;">920008880</span>
+                            </div>
+                            <div class="address-en">
+                                Head Office: Jeddah, Prince Sultan Road, Al Murjanah Tower, Tel: +966 54 575 9422, Toll Free: 920008880
+                            </div>
+                        </div>
+
+                        <!-- Row 3: Branches -->
+                        <div class="footer-branches-block">
+                            <span class="branches-badge">فروعنا Branches</span>
+                            <span class="branches-list">الرياض - مكة المكرمة - خميس مشيط &nbsp;|&nbsp; Riyadh - Makkah - Khamis Mushait</span>
+                        </div>
+
+                        <!-- Row 4: CR & Website -->
+                        <div class="footer-bottom-block">
+                            <div class="footer-cr">
+                                س.ت C.R: 4030833105
+                            </div>
+                            <div class="footer-website">
+                                www.amadco-sa.com
+                            </div>
+                        </div>
+
+                    </div>
+
+                </footer>
+
+            </div>
+        </main>
+
+    </div>
+
+    <!-- Notification Toast -->
+    <div class="toast-notification" id="toast">
+        <i class="fas fa-check-circle" style="color: var(--gold);"></i>
+        <span id="toastMsg">تم التحديث بنجاح</span>
+    </div>
+
+    <script>
+        // Initialize on DOM ready
+        document.addEventListener('DOMContentLoaded', function() {
+            updateDocument();
+        });
+
+        // Update document preview from input fields
+        function updateDocument() {
+            var recInput = document.getElementById('in-recipient');
+            var recEl = document.getElementById('doc-recipient');
+            if (recEl && recInput) recEl.innerText = recInput.value;
+
+            var grtInput = document.getElementById('in-greeting');
+            var grtEl = document.getElementById('doc-greeting');
+            if (grtEl && grtInput) grtEl.innerText = grtInput.value;
+
+            var subInput = document.getElementById('in-subject');
+            var subEl = document.getElementById('doc-subject');
+            if (subEl && subInput) subEl.innerText = subInput.value;
+
+            var cntInput = document.getElementById('in-content');
+            var cntEl = document.getElementById('doc-content');
+            if (cntEl && cntInput) cntEl.innerText = cntInput.value;
+
+            var closingInput = document.getElementById('in-closing');
+            var closingEl = document.getElementById('doc-closing');
+            if (closingEl && closingInput) closingEl.innerText = closingInput.value;
+
+            var p1TitleInput = document.getElementById('in-party1-title');
+            var p1TitleEl = document.getElementById('doc-party1-title');
+            if (p1TitleEl && p1TitleInput) p1TitleEl.innerText = p1TitleInput.value;
+
+            var p1NameInput = document.getElementById('in-party1-name');
+            var p1NameEl = document.getElementById('doc-party1-name');
+            if (p1NameEl && p1NameInput) p1NameEl.innerText = p1NameInput.value;
+
+            var p2TitleInput = document.getElementById('in-party2-title');
+            var p2TitleEl = document.getElementById('doc-party2-title');
+            if (p2TitleEl && p2TitleInput) p2TitleEl.innerText = p2TitleInput.value;
+
+            var p2NameInput = document.getElementById('in-party2-name');
+            var p2NameEl = document.getElementById('doc-party2-name');
+            if (p2NameEl && p2NameInput) p2NameEl.innerText = p2NameInput.value;
+        }
+
+        // Templates
+        var templates = {
+            official: {
+                recipient: 'السادة / شركة التطوير العقاري المحترمين',
+                greeting: 'السلام عليكم ورحمة الله وبركاته،،، وبعد:',
+                subject: 'تقديم خدمات مكافحة الحشرات والتعقيم الدوري',
+                content: 'بالإشارة إلى الموضوع أعلاه، يسرنا في شركة أمد الأولى المحدودة (أمدكو) أن نتقدم إليكم بخالص التحية والتقدير، معربين عن رغبتنا الصادقة في التعاون المثمر معكم.\n\nنحيطكم علماً بجاهزية فرقنا الفنية المتخصصة لتنفيذ أعمال الرش والتعقيم الشامل ومكافحة الآفات بأحدث المعايير المعتمدة وأعلى درجات السلامة البيئية مع تقديم ضمان معتمد لكافة الخدمات.\n\nشاكرين لكم حسن تعاونكم الدائم،،،',
+                closing: 'والله ولي التوفيق،،،',
+                party1Title: 'الطرف الاول',
+                party1Name: 'شركة أمد الأولى المحدودة',
+                party2Title: 'الطرف الثاني',
+                party2Name: 'شركة درة الفيصل للتجارة'
+            },
+            proposal: {
+                recipient: 'السادة / إدارة المجمع السكني والتجاري المحترمين',
+                greeting: 'تحية طيبة وبعد،،،',
+                subject: 'عرض فني ومالي لأعمال نظافة وتعقيم الخزانات ومكافحة الآفات',
+                content: 'بناءً على المعاينة الميدانية لموقعكم الكريم، يطيب لنا في شركة أمد الأولى المحدودة تقديم عرضنا المتكامل لتقديم خدمات النظافة المتخصصة ومكافحة الآفات وفق الآتي:\n\n1. نظافة وتعقيم خزانات المياه الأرضية والعلوية بمواد مصرحة من هيئة الغذاء والدواء.\n2. رش وقائي شامل للمباني والممرات والحدائق ضد الحشرات الزاحفة والطائرة.\n3. متابعة دورية وتقديم تقارير فنية شهرية معتمدة لكافة الزيارات.\n\nنأمل أن ينال عرضنا استحسانكم وقبولكم.',
+                closing: 'والله ولي التوفيق،،،',
+                party1Title: 'الطرف الاول',
+                party1Name: 'شركة أمد الأولى المحدودة',
+                party2Title: 'الطرف الثاني',
+                party2Name: 'إدارة المجمع السكني والتجاري'
+            },
+            certificate: {
+                recipient: 'إلى من يهمه الأمر المحترمين',
+                greeting: 'السلام عليكم ورحمة الله وبركاته،،،',
+                subject: 'شهادة إنجاز وضمان أعمال المكافحة والتعقيم',
+                content: 'تشهد شركة أمد الأولى المحدودة (أمدكو) بأن الموقع المذكور أدناه قد تم تطبيق برنامج المكافحة المتكاملة والتعقيم الصحي له بنجاح تام وفق أعلى معايير الجودة والسلامة المهنية.\n\n• الموقع المستفيد: مجمع الأعمال المركزي\n• نوع الخدمة: مكافحة آفات شاملة + تعقيم بيئي\n• فترة الضمان: سارية لمدة (12) شهراً من تاريخ إصدار هذه الشهادة.\n\nوقد مُنحت هذه الشهادة بناءً على طلبهم دون أدنى مسؤولية على الشركة تجاه الغير.',
+                closing: 'والله الموفق،،،',
+                party1Title: 'الطرف الأول (جهة الاعتماد)',
+                party1Name: 'شركة أمد الأولى المحدودة',
+                party2Title: 'الطرف الثاني (الجهة المستفيدة)',
+                party2Name: 'مجمع الأعمال المركزي'
+            },
+            blank: {
+                recipient: '',
+                greeting: '',
+                subject: '',
+                content: '',
+                closing: '',
+                party1Title: '',
+                party1Name: '',
+                party2Title: '',
+                party2Name: ''
+            },
+            blank_stamp: {
+                recipient: '',
+                greeting: '',
+                subject: '',
+                content: '',
+                closing: '',
+                party1Title: '',
+                party1Name: '',
+                party2Title: '',
+                party2Name: ''
+            }
+        };
+
+        function loadTemplate(key, btnEl) {
+            var allBtns = document.querySelectorAll('.btn-tpl');
+            for (var i = 0; i < allBtns.length; i++) {
+                allBtns[i].classList.remove('active');
+            }
+            if (btnEl) {
+                btnEl.classList.add('active');
+            } else {
+                var matchBtn = document.querySelector('.btn-tpl[data-template="' + key + '"]');
+                if (matchBtn) matchBtn.classList.add('active');
+            }
+
+            var t = templates[key];
+            if (!t) return;
+
+            var inRec = document.getElementById('in-recipient');
+            if (inRec) inRec.value = t.recipient;
+            var inGrt = document.getElementById('in-greeting');
+            if (inGrt) inGrt.value = t.greeting;
+            var inSub = document.getElementById('in-subject');
+            if (inSub) inSub.value = t.subject;
+            var inCnt = document.getElementById('in-content');
+            if (inCnt) inCnt.value = t.content;
+            
+            var inClosing = document.getElementById('in-closing');
+            if (inClosing) inClosing.value = t.closing || '';
+            var inP1Title = document.getElementById('in-party1-title');
+            if (inP1Title) inP1Title.value = t.party1Title || '';
+            var inP1Name = document.getElementById('in-party1-name');
+            if (inP1Name) inP1Name.value = t.party1Name || '';
+            var inP2Title = document.getElementById('in-party2-title');
+            if (inP2Title) inP2Title.value = t.party2Title || '';
+            var inP2Name = document.getElementById('in-party2-name');
+            if (inP2Name) inP2Name.value = t.party2Name || '';
+
+            var sheet = document.getElementById('letterheadSheet');
+            sheet.classList.remove('blank-mode', 'blank-stamp-mode');
+
+            if (key === 'blank') {
+                sheet.classList.add('blank-mode');
+                showToast('تم تفريغ الورقة (ترويسة فارغة كلياً)');
+            } else if (key === 'blank_stamp') {
+                sheet.classList.add('blank-stamp-mode');
+                var stampCheck = document.getElementById('toggle-stamp');
+                if (stampCheck) {
+                    stampCheck.checked = true;
+                    toggleStamp();
+                }
+                var sigCheck = document.getElementById('toggle-sig');
+                if (sigCheck) {
+                    sigCheck.checked = false;
+                    toggleSignature();
+                }
+                showToast('تم تطبيق ترويسة فارغة بالختم فقط');
+            } else {
+                showToast('تم تحميل القالب المحدد');
+            }
+
+            updateDocument();
+        }
+
+        function resetToBlank() {
+            loadTemplate('blank');
+        }
+
+        function toggleStamp() {
+            var checked = document.getElementById('toggle-stamp').checked;
+            var el = document.getElementById('stampWrapper');
+            if (el) el.style.display = checked ? 'inline-flex' : 'none';
+        }
+
+        function toggleSignature() {
+            var checked = document.getElementById('toggle-sig').checked;
+            var slots = document.querySelectorAll('.party-sign-slot');
+            for (var i = 0; i < slots.length; i++) {
+                slots[i].style.display = checked ? 'flex' : 'none';
+            }
+        }
+
+        function toggleParty2() {
+            var checked = document.getElementById('toggle-party2').checked;
+            var el = document.getElementById('party2Block');
+            if (el) el.style.display = checked ? 'flex' : 'none';
+        }
+
+        function toggleWatermark() {
+            var checked = document.getElementById('toggle-watermark').checked;
+            document.getElementById('sheetWatermark').style.display = checked ? 'block' : 'none';
+        }
+
+        var isDirectEdit = false;
+        function toggleDirectEdit() {
+            isDirectEdit = !isDirectEdit;
+            var contentEl = document.getElementById('doc-content');
+            var btn = document.getElementById('btn-toggle-edit');
+            var sheet = document.getElementById('letterheadSheet');
+
+            if (sheet) {
+                if (isDirectEdit) sheet.classList.add('direct-editing');
+                else sheet.classList.remove('direct-editing');
+            }
+
+            contentEl.contentEditable = isDirectEdit;
+            if (isDirectEdit) {
+                btn.classList.add('active');
+                btn.innerHTML = '<i class="fas fa-check"></i> إنهاء التعديل المباشر';
+                contentEl.focus();
+                showToast('يمكنك الآن النقر والكتابة مباشرة في نص الورقة');
+            } else {
+                btn.classList.remove('active');
+                btn.innerHTML = '<i class="fas fa-edit"></i> تعديل مباشر في الورقة';
+                document.getElementById('in-content').value = contentEl.innerText;
+                showToast('تم حفظ التعديلات');
+            }
+        }
+
+        function copyDocumentText() {
+            var content = document.getElementById('doc-content').innerText;
+            if (navigator && navigator.clipboard) {
+                navigator.clipboard.writeText(content).then(function() {
+                    showToast('تم نسخ نص المراسلة إلى الحافظة');
+                }).catch(function() {
+                    fallbackCopy(content);
+                });
+            } else {
+                fallbackCopy(content);
+            }
+        }
+
+        function fallbackCopy(text) {
+            var textArea = document.createElement("textarea");
+            textArea.value = text;
+            textArea.style.position = "fixed";
+            textArea.style.opacity = "0";
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            try {
+                document.execCommand('copy');
+                showToast('تم نسخ نص المراسلة إلى الحافظة');
+            } catch (err) {
+                showToast('تعذر النسخ التلقائي');
+            }
+            document.body.removeChild(textArea);
+        }
+
+        function showToast(msg) {
+            var toast = document.getElementById('toast');
+            var toastMsg = document.getElementById('toastMsg');
+            if (toast && toastMsg) {
+                toastMsg.innerText = msg;
+                toast.classList.add('show');
+                setTimeout(function() {
+                    toast.classList.remove('show');
+                }, 2500);
+            }
+        }
+    </script>
+</body>
+</html>
