@@ -123,15 +123,17 @@
 <a href="index.html#why-us" data-i18n="nav.why">لماذا أمدكو</a>
 <a href="index.html#contact" data-i18n="nav.contact">تواصل معنا</a>
 </div>
-<section class="hero" id="hero">
+<section class="hero" id="hero" style="flex-direction: column; justify-content: flex-start; padding-top: 66px; background: transparent; min-height: auto;">
+<picture class="hero-img-ar">
+  <source media="(max-width: 768px)" srcset="./images/hero/hero-mobile.webp">
+  <img alt="هيرو الحشرات" src="./images/hero/hero.webp" style="width: 100%; height: auto; display: block; margin-bottom: 80px;"/>
+</picture>
+<picture class="hero-img-en" style="display: none;">
+  <source media="(max-width: 768px)" srcset="./images/hero/hero-en-mobile.webp">
+  <img alt="Pest Control Hero" src="./images/hero/hero-en.webp" style="width: 100%; height: auto; display: block; margin-bottom: 80px;"/>
+</picture>
 <div class="hero-content">
-<img alt="شركة أمدكو" class="hero-logo" src="./logo/logo_new.webp" style="height: 110px; width: auto; object-fit: contain; display: block; margin: 0 auto 20px;"/>
-<div class="hero-badge" style="background: rgba(22, 50, 97, 0.05); color: var(--red); font-size: 16px; padding: 8px 24px; border-radius: 30px; font-weight: 700; margin-bottom: 20px; display: inline-block;" data-i18n="hero.badge">شركة أمد الأولى للخدمات المنزلية</div>
-<h1 class="hero-title">
-                <span data-i18n="hero.title.prefix">الخيار الأول في</span><br/>
-<span class="hero-title-highlight" style="color: var(--gold);" data-i18n="hero.title.highlight">مكافحة الحشرات والتعقيم والخدمات المنزلية</span>
-            </h1>
-<p class="hero-desc" data-i18n="hero.desc">نقدم خدمات تنظيف ومكافحة حشرات احترافية بمعايير عالمية وضمان حقيقي لراحتك وسلامة عائلتك.</p>
+
 <div class="hero-buttons">
 <a class="btn btn-gold" href="#contact" style="background: var(--gold); color: #fff; box-shadow: 0 8px 25px rgba(195, 157, 104, 0.4);" data-i18n="hero.bookNow">احجز موعدك الآن</a>
 <a class="btn btn-red" href="https://wa.me/966545759422" target="_blank"><i class="fab fa-whatsapp"></i> <span data-i18n="hero.contactUs">تواصل معنا</span></a>

@@ -540,3 +540,5 @@ html[dir="ltr"] .footer-col{text-align:left}
 html[dir="ltr"] .footer-brand{text-align:left}
 html[dir="ltr"] .cart-close-btn{left:auto;right:20px}
 html[dir="ltr"] .cart-header{padding-right:65px;padding-left:24px}
+html[dir="ltr"] .hero-img-ar { display: none !important; }
+html[dir="ltr"] .hero-img-en { display: block !important; }
