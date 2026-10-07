@@ -2,6 +2,15 @@
 
 <html dir="rtl" lang="ar">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18495747241"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-18495747241');
+</script>
+
 <link rel="icon" href="./favicon/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
@@ -71,6 +80,24 @@
 </script>
 
     
+<!-- Google Ads conversion tracking -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) !== 'undefined') {
+      window.location = url;
+    }
+  };
+
+  gtag('event', 'conversion', {
+    'send_to': 'AW-18495747241/K98qCKzD2JQdEKnpuvNE',
+    'event_callback': callback
+  });
+
+  return false;
+}
+</script>
+
 </head>
 <body>
 <div class="preloader" id="preloader">
@@ -602,7 +629,7 @@
 <div class="contact-info reveal">
 <div class="contact-items-wrapper">
 <div class="contact-item" onclick="window.location.href='tel:+966545759422'" style="cursor: pointer;"><div class="contact-item-icon"><i class="fas fa-phone-alt"></i></div><div><div class="contact-item-label" data-i18n="contact.call">اتصل بنا</div><div class="contact-item-value"><a dir="ltr" href="tel:+966545759422" onclick="event.stopPropagation()">+966545759422</a></div></div></div>
-<div class="contact-item" onclick="window.open('https://wa.me/966545759422', '_blank')" style="cursor: pointer;"><div class="contact-item-icon"><i class="fab fa-whatsapp"></i></div><div><div class="contact-item-label" data-i18n="contact.whatsapp">واتساب</div><div class="contact-item-value"><a dir="ltr" href="https://wa.me/966545759422" onclick="event.stopPropagation()">966545759422</a></div></div></div>
+<div class="contact-item" onclick="return gtag_report_conversion('https://wa.me/966545759422');" style="cursor: pointer;"><div class="contact-item-icon"><i class="fab fa-whatsapp"></i></div><div><div class="contact-item-label" data-i18n="contact.whatsapp">واتساب</div><div class="contact-item-value"><a dir="ltr" href="https://wa.me/966545759422" onclick="event.stopPropagation()">966545759422</a></div></div></div>
 <div class="contact-item" onclick="window.location.href='mailto:info@amadco-sa.com'" style="cursor: pointer;"><div class="contact-item-icon"><i class="fas fa-envelope"></i></div><div><div class="contact-item-label" data-i18n="contact.email">البريد الإلكتروني</div><div class="contact-item-value"><a href="mailto:info@amadco-sa.com" onclick="event.stopPropagation()">info@amadco-sa.com</a></div></div></div>
 <div class="contact-item" onclick="window.open('https://maps.google.com/?q=برج المرجانة، طريق الأمير سلطان، جدة', '_blank')" style="cursor: pointer;"><div class="contact-item-icon"><i class="fas fa-map-marker-alt"></i></div><div><div class="contact-item-label" data-i18n="contact.address">العنوان</div><div class="contact-item-value" data-i18n="contact.addressValue">فرع جدة, طريق الأمير سلطان, برج المرجانة</div></div></div>
 <div class="contact-item" style="grid-column: span 2;"><div class="contact-item-icon"><i class="fas fa-city"></i></div><div><div class="contact-item-label" data-i18n="contact.otherBranches">فروعنا الأخرى</div><div class="contact-item-value">الرياض - مكة المكرمة - خميس مشيط<br/><span style="font-size: 0.9em; color: var(--gray-500);">Riyadh - Makkah - Khamis Mushait</span></div></div></div>
@@ -621,7 +648,7 @@
 </footer>
 <button class="mobile-cart-toggle" id="mobileCartToggle"><i class="fas fa-shopping-cart"></i><span class="mobile-cart-count">0</span></button>
 <a class="call-float" href="tel:+966545759422" aria-label="اتصل بنا"><i class="fas fa-phone-alt"></i><span class="call-tooltip" data-i18n="call.tooltip">اتصل بنا الآن</span></a>
-<a class="whatsapp-float" href="https://wa.me/966545759422" target="_blank" aria-label="واتساب"><i class="fab fa-whatsapp"></i><span class="wa-tooltip" data-i18n="wa.tooltip">تحدث معنا على واتساب</span></a>
+<a class="whatsapp-float" href="https://wa.me/966545759422" target="_blank" aria-label="واتساب" onclick="return gtag_report_conversion(this.href);"><i class="fab fa-whatsapp"></i><span class="wa-tooltip" data-i18n="wa.tooltip">تحدث معنا على واتساب</span></a>
 <button class="scroll-top" id="scrollTop"><i class="fas fa-chevron-up"></i></button>
 <div class="cart-toast" id="cartToast">
 <i class="fas fa-check-circle"></i>

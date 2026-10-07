@@ -15,6 +15,10 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- PDF Export Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    
     <style>
         :root {
             --primary: #163261;
@@ -31,6 +35,7 @@
             --gray-50: #f8fafc;
             --white: #ffffff;
             --sidebar-width: 380px;
+            --content-font: 'Almarai', sans-serif;
         }
 
         * {
@@ -210,7 +215,8 @@
 
         input[type="text"],
         input[type="date"],
-        textarea {
+        textarea,
+        select {
             width: 100%;
             padding: 8px 10px;
             font-size: 12.5px;
@@ -224,7 +230,8 @@
         }
 
         input[type="text"]:focus,
-        textarea:focus {
+        textarea:focus,
+        select:focus {
             background: #ffffff;
             border-color: var(--primary);
             box-shadow: 0 0 0 3px rgba(22, 50, 97, 0.1);
@@ -234,6 +241,29 @@
             resize: vertical;
             min-height: 90px;
             line-height: 1.6;
+        }
+
+        .rich-textarea {
+            width: 100%;
+            padding: 8px 10px;
+            font-size: 12.5px;
+            font-family: inherit;
+            border: 1px solid var(--gray-300);
+            border-radius: 6px;
+            outline: none;
+            transition: all 0.2s;
+            background: var(--gray-50);
+            color: var(--gray-900);
+            min-height: 120px;
+            max-height: 350px;
+            overflow-y: auto;
+            white-space: normal;
+        }
+
+        .rich-textarea:focus {
+            background: #ffffff;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(22, 50, 97, 0.1);
         }
 
         /* Switches */
@@ -365,9 +395,8 @@
             background-size: 100px 100px;
             overflow-y: auto;
             padding: 30px 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            display: block;
+            text-align: center;
             direction: rtl;
         }
 
@@ -381,7 +410,8 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
             padding: 7px 16px;
             border-radius: 30px;
-            margin-bottom: 20px;
+            width: max-content;
+            margin: 0 auto 20px auto;
             display: flex;
             align-items: center;
             gap: 10px;
@@ -428,7 +458,8 @@
         .letterhead-sheet {
             width: 210mm;
             min-height: 297mm;
-            height: 297mm;
+            height: max-content !important;
+            margin: 0 auto;
             background: #ffffff;
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.45);
             position: relative;
@@ -437,7 +468,7 @@
             justify-content: space-between;
             padding: 14mm 18mm 14mm 18mm;
             box-sizing: border-box;
-            overflow: hidden;
+            overflow: visible;
             font-family: 'Almarai', sans-serif;
             color: #1a1a1a;
             direction: rtl;
@@ -485,7 +516,7 @@
         .letterhead-body {
             position: relative;
             z-index: 1;
-            flex: 1;
+            flex: none; /* Replaced flex: 1 to allow natural height expansion */
             display: flex;
             flex-direction: column;
             padding: 12px 0;
@@ -540,13 +571,68 @@
         }
 
         .content-paragraphs {
-            flex: 1;
+            flex: none;
             text-align: justify;
             text-justify: inter-word;
-            white-space: pre-line;
             outline: none;
             min-height: 140px;
             direction: rtl;
+        }
+
+        .content-paragraphs p, .rich-textarea p {
+            margin: 0 0 8px 0 !important;
+        }
+
+        /* RTL List Fix for html2canvas */
+        .content-paragraphs ul, .content-paragraphs ol, .rich-textarea ul, .rich-textarea ol {
+            list-style: none !important;
+            padding-right: 15px !important;
+            margin: 0 0 8px 0 !important;
+        }
+
+        .content-paragraphs li, .rich-textarea li {
+            margin-bottom: 4px;
+        }
+
+        .content-paragraphs li p, .rich-textarea li p {
+            display: inline !important; /* Prevents paragraph from dropping below the marker */
+        }
+
+        .content-paragraphs ul li::before, .rich-textarea ul li::before {
+            content: "•";
+            display: inline-block;
+            margin-left: 8px;
+            font-weight: bold;
+        }
+
+        .content-paragraphs ol, .rich-textarea ol {
+            counter-reset: custom-counter;
+        }
+
+        .content-paragraphs ol li::before, .rich-textarea ol li::before {
+            counter-increment: custom-counter;
+            content: counter(custom-counter) "-";
+            display: inline-block;
+            margin-left: 8px;
+            font-weight: bold;
+        }
+
+        /* Apply font to EVERYTHING in the paper, except FontAwesome icons */
+        .letterhead-sheet, .letterhead-sheet *:not(i), .rich-textarea, .rich-textarea *:not(i) {
+            font-family: var(--content-font) !important;
+        }
+
+        .content-paragraphs, .content-paragraphs *, .rich-textarea, .rich-textarea * {
+            background-color: transparent !important;
+            position: static !important;
+            height: auto !important;
+            min-height: 0 !important;
+            max-height: none !important;
+            line-height: 1.8 !important;
+            float: none !important;
+            transform: none !important;
+            margin-top: 0 !important;
+            white-space: normal !important;
         }
 
         .content-paragraphs[contenteditable="true"]:hover {
@@ -576,7 +662,6 @@
             font-weight: 800;
             color: #1e293b;
             margin-bottom: 16px;
-            letter-spacing: 0.2px;
         }
 
         .parties-container {
@@ -645,7 +730,8 @@
             font-size: 9.5px;
             font-weight: 700;
             text-align: center;
-            padding: 5px;
+            padding: 12px 5px 0 5px;
+            box-sizing: border-box;
             opacity: 0.75;
             transform: rotate(-8deg);
             background: rgba(239, 246, 255, 0.25);
@@ -698,79 +784,79 @@
         .letterhead-footer {
             position: relative;
             z-index: 1;
-            border-top: 1.5px solid #cbd5e1;
             padding-top: 8px;
-            margin-top: 8px;
+            margin-top: auto !important;
             display: flex;
             justify-content: space-between;
-            align-items: stretch;
+            align-items: center;
             direction: rtl;
-            gap: 12px;
+            gap: 15px;
         }
 
         /* Right Column: Company Name & Email */
         .footer-company-side {
-            width: 210px;
+            width: auto;
             display: flex;
             flex-direction: column;
             justify-content: center;
             text-align: right;
             direction: rtl;
-            padding-left: 10px;
-            border-left: 1.5px solid var(--primary);
+            padding-right: 15px;
+            border-left: 1px solid var(--primary);
+            padding-left: 15px;
         }
 
         .footer-co-name-ar {
-            font-size: 14px;
-            font-weight: 800;
+            font-size: 19px;
+            font-weight: 400;
             color: var(--primary);
-            line-height: 1.3;
+            line-height: 1.2;
             margin-bottom: 2px;
         }
 
         .footer-co-name-en {
-            font-family: 'Inter', sans-serif;
-            font-size: 9.5px;
-            font-weight: 800;
+            font-size: 11px;
+            font-weight: 700;
             color: var(--primary);
-            margin-bottom: 4px;
-            letter-spacing: 0.3px;
+            margin-bottom: 2px;
+            letter-spacing: 0.5px;
             direction: ltr;
             text-align: right;
         }
 
         .footer-co-email {
-            font-family: 'Inter', sans-serif;
-            font-size: 11px;
-            font-weight: 700;
-            color: #334155;
+            font-size: 17px;
+            font-weight: 400;
+            color: var(--primary);
             direction: ltr;
             text-align: right;
+            letter-spacing: 1.5px;
+            text-transform: lowercase;
         }
 
-        /* Left Column: Details (Services, Address, Branches, CR & Web) */
+        /* Left Column: Details */
         .footer-details-side {
             flex: 1;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            gap: 4px;
+            gap: 6px;
             direction: rtl;
+            text-align: right;
         }
 
-        /* 5 Services Columns (Arabic directly below English) */
+        /* Services Grid */
         .footer-services-grid {
             display: flex;
             direction: rtl;
             align-items: center;
             justify-content: space-between;
-            border-bottom: 1px solid #e2e8f0;
-            padding-bottom: 4px;
+            margin-bottom: 2px;
         }
 
         .service-col {
             display: flex;
-            flex-direction: column;
+            flex-direction: column-reverse; /* Arabic on top */
             align-items: center;
             justify-content: center;
             text-align: center;
@@ -778,29 +864,27 @@
             padding: 0 4px;
         }
 
-        .service-col:not(:last-child) {
-            border-left: 1px solid #cbd5e1;
+        .service-col:not(:first-child) {
+            border-right: 1px solid #94a3b8;
         }
 
         .service-col .service-en {
-            font-family: 'Inter', sans-serif;
-            font-size: 6.6px;
-            font-weight: 700;
-            color: #475569;
-            letter-spacing: 0.1px;
+            font-size: 7px;
+            font-weight: 400;
+            color: #C39D68;
+            letter-spacing: 0.5px;
             white-space: nowrap;
             line-height: 1.2;
             direction: ltr;
         }
 
         .service-col .service-ar {
-            font-family: 'Almarai', sans-serif;
-            font-size: 7.6px;
-            font-weight: 700;
+            font-size: 10px;
+            font-weight: 400;
             color: var(--primary);
             white-space: nowrap;
             line-height: 1.3;
-            margin-top: 2px;
+            margin-bottom: 2px;
             direction: rtl;
         }
 
@@ -808,55 +892,54 @@
         .footer-address-block {
             display: flex;
             flex-direction: column;
-            gap: 3px;
-            margin: 2px 0;
-            text-align: center;
+            gap: 2px;
+            margin: 0;
+            text-align: right;
             direction: rtl;
         }
 
         .address-ar {
-            font-family: 'Almarai', sans-serif;
-            font-size: 7.2px;
-            font-weight: 700;
-            color: #1e293b;
+            font-size: 9px;
+            font-weight: 400;
+            color: #64748b;
             direction: rtl;
             line-height: 1.3;
             white-space: nowrap;
         }
 
         .address-en {
-            font-family: 'Inter', sans-serif;
-            font-size: 6.6px;
-            font-weight: 600;
-            color: #475569;
+            font-size: 8px;
+            font-weight: 400;
+            color: #64748b;
             direction: ltr;
             line-height: 1.3;
             white-space: nowrap;
+            text-align: right;
         }
 
         /* Branches */
         .footer-branches-block {
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 6px;
+            justify-content: flex-start;
+            gap: 8px;
             direction: rtl;
         }
 
         .branches-badge {
-            background: #475569;
+            background: #94a3b8;
             color: #ffffff;
-            padding: 1px 6px;
-            border-radius: 3px;
+            padding: 2px 10px;
+            border-radius: 12px;
             font-weight: 700;
-            font-size: 7.5px;
+            font-size: 8.5px;
             white-space: nowrap;
         }
 
         .branches-list {
-            color: #1e293b;
-            font-weight: 600;
-            font-size: 7.5px;
+            color: #64748b;
+            font-weight: 400;
+            font-size: 8.5px;
             display: flex;
             align-items: center;
             gap: 4px;
@@ -868,23 +951,23 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 7.5px;
-            padding-top: 1px;
-            direction: rtl;
+            font-size: 8.5px;
+            direction: ltr;
         }
 
         .footer-cr {
-            font-weight: 700;
-            color: #475569;
-            direction: rtl;
+            font-weight: 400;
+            color: #64748b;
+            direction: ltr;
         }
 
         .footer-website {
-            font-family: 'Inter', sans-serif;
-            font-weight: 700;
-            color: var(--primary);
+            font-weight: 400;
+            color: #64748b;
             direction: ltr;
             letter-spacing: 0.5px;
+            flex: 1;
+            text-align: center;
         }
 
         /* Blank mode style override */
@@ -923,16 +1006,18 @@
            Print Media Rules
            ======================================================== */
         @page {
-            size: A4 portrait;
-            margin: 0;
+            size: A4;
+            margin: 0mm;
         }
 
         @media print {
-            body {
+            html, body {
                 background: #ffffff !important;
                 padding: 0 !important;
                 margin: 0 !important;
-                display: block !important;
+                width: 210mm !important;
+                height: auto !important;
+                min-height: 297mm !important;
             }
 
             .sidebar, 
@@ -953,17 +1038,21 @@
                 margin: 0 !important;
                 overflow: visible !important;
                 display: block !important;
+                width: 100% !important;
             }
 
             .letterhead-sheet {
                 box-shadow: none !important;
                 margin: 0 !important;
                 width: 210mm !important;
-                height: 297mm !important;
                 min-height: 297mm !important;
+                height: auto !important; /* Allow growing for multiple pages */
                 page-break-after: always;
                 page-break-inside: avoid;
-                padding: 14mm 18mm 14mm 18mm !important;
+                padding: 10mm 15mm 15mm 15mm !important;
+                transform: none !important;
+                position: relative !important;
+                overflow: visible !important; /* Don't cut off long text */
             }
 
             .content-paragraphs[contenteditable="true"]:focus,
@@ -1081,26 +1170,35 @@
 
                     <div class="form-group">
                         <label>الموجّه إليه (السادة / إلى)</label>
-                        <input type="text" id="in-recipient" value="السادة / شركة التطوير العقاري المحترمين" oninput="updateDocument()">
+                        <input type="text" id="in-recipient" value="إلى السادة: إدارة [مؤسسة ملء التجارية] المحترمين" oninput="updateDocument()">
                     </div>
 
                     <div class="form-group">
                         <label>التحية الافتتاحية</label>
-                        <input type="text" id="in-greeting" value="السلام عليكم ورحمة الله وبركاته،،، وبعد:" oninput="updateDocument()">
+                        <input type="text" id="in-greeting" value="السلام عليكم ورحمة الله وبركاته،،،" oninput="updateDocument()">
                     </div>
 
                     <div class="form-group">
                         <label>الموضوع</label>
-                        <input type="text" id="in-subject" value="تقديم خدمات مكافحة الحشرات والتعقيم الدوري" oninput="updateDocument()">
+                        <input type="text" id="in-subject" value="عرض سعر وتقديم خدمات الإدارة المتكاملة لمكافحة آفات الصحة العامة (عقد سنوي / دوري)" oninput="updateDocument()">
                     </div>
 
                     <div class="form-group">
-                        <label>نص الخطاب / المحتوى</label>
-                        <textarea id="in-content" rows="6" oninput="updateDocument()">بالإشارة إلى الموضوع أعلاه، يسرنا في شركة أمد الأولى المحدودة (أمدكو) أن نتقدم إليكم بخالص التحية والتقدير، معربين عن رغبتنا الصادقة في التعاون المثمر معكم.
+                        <label>نوع خط النص</label>
+                        <select id="in-font-family" onchange="changeFontFamily()">
+                            <option value="'Almarai', sans-serif">Almarai (الافتراضي)</option>
+                            <option value="system-ui, -apple-system, sans-serif">System Default (خط النظام)</option>
+                            <option value="Arial, Helvetica, sans-serif">Arial</option>
+                            <option value="'Times New Roman', Times, serif">Times New Roman</option>
+                            <option value="custom_name" style="font-weight:bold; color:#0ea5e9;">+ كتابة اسم خط مثبت بجهازي...</option>
+                            <option value="custom_upload" style="font-weight:bold; color:var(--primary);">+ رفع ملفات الخط (عادي و Bold)...</option>
+                        </select>
+                        <input type="file" id="font-upload" accept=".ttf,.otf,.woff,.woff2,.ttc" multiple style="display: none;" onchange="handleFontUpload(event)">
+                    </div>
 
-نحيطكم علماً بجاهزية فرقنا الفنية المتخصصة لتنفيذ أعمال الرش والتعقيم الشامل ومكافحة الآفات بأحدث المعايير المعتمدة وأعلى درجات السلامة البيئية مع تقديم ضمان معتمد لكافة الخدمات.
-
-شاكرين لكم حسن تعاونكم الدائم،،،</textarea>
+                    <div class="form-group">
+                        <label>نص الخطاب / المحتوى (يدعم النسخ واللصق بالتنسيق)</label>
+                        <div id="in-content" class="rich-textarea" contenteditable="true" oninput="updateDocument()">يطيب لنا (شركة أمد الأولى المحدودة) أن نتقدم لكم بخالص التحية والتقدير، ويسرنا أن نضع بين أيديكم عرضنا الفني والمالي لتقديم خدمات مكافحة آفات الصحة العامة والحشرات في منشأتكم الموقرة. (كوفي ملء) وعنوانه: جدة، حى الاندلس ، شارع عبدالله المطري.<br>رقم السجل التجاري :5850137499<br><br><b>1: إدراكاً منا لأهمية قطاع المقاهي والأغذية والمشروبات</b> وحساسية بيئة العمل التي تتطلب أعلى مستويات النظافة والامتثال للاشتراطات البلدية والرقابية، فإننا نعتمد استراتيجية الإدارة المتكاملة للآفات، وتهدف هذه المنظومة إلى توفير بيئة صحية وآمنة تماماً لروادكم وفريق عملكم دون أي تأثير سلبي على المنتجات أو سير العمل اليومي.<br><br><b>2: مرتكزات الخدمة لقطاع المقاهي:</b><br>- مواد آمنة ومعتمدة: استخدام مبيدات وطعوم صحة عامة مسجلة ومعتمدة رسمياً، عديمة الرائحة وآمنة في مناطق تحضير الأغذية والمشروبات.<br>- مكافحة جميع انواع الحشرات داخل الكوفي بمادتى (AGENDA EC 25) المسجل بالهيئة العامة للغذاء والدواء برقم (179-136-1231) و (Medronil5% SC) المسجل بالهيئه العامة للغذاء والدواء برقم (1349-141-182).<br><br><b>3: معالجة تخصصية للبؤر الحساسة:</b> التركيز على مناطق مكائن الإسبريسو، ثلاجات العرض، آماكن التجهيز والتمديدات الكهربائية، نقاط الصرف، والمستودعات الخلفية.<br><br><b>4: مرونة التوقيت:</b> تنفيذ الزيارات وجداول الرش بما يتناسب مع ساعات التشغيل، تفادياً للتأثير على حركة الزبائن.<br><br><b>5: التوثيق والامتثال النظامي:</b> تزويد المنشأة بملف متابعة متكامل، وتقارير فنية معتمدة لكل زيارة لتقديمها للجهات التفتيشية والرقابية.<br><br><b>نطاق العمل المستهدف:</b><br>الحشرات الزاحفة: المعالجة الوقائية والعلاجية للصرصور الألماني، النمل، وباقي الحشرات عبر تقنية الحقن بالجيل والمحاليل السائلة عديمة الرائحة.<br><br><b>6: المبلغ وطريقة الدفع:</b><br>- السعر الاجمالى شامل ضريبة القيمة المضافة 3000 ريال (ثلاثة الآف ريال) بواقع 12 زيارة فى العام.<br>- تدفع علي دفعتين او تدفع قيمة كل زياره وهيا 250 ريال عند الانتهاء من الزياره. وإي اعمال اضافية يتم الإتفاق على قيمتها.<br><br>نأمل أن ينال عرضنا استحسانكم، ومستعدون للإجابة عن أي استفسار أو التنسيق لزيارة المعاينة الأولية.</div>
                     </div>
                 </div>
 
@@ -1112,7 +1210,7 @@
 
                     <div class="form-group">
                         <label>عبارة الختام</label>
-                        <input type="text" id="in-closing" value="والله ولي التوفيق،،،" oninput="updateDocument()">
+                        <input type="text" id="in-closing" value="وتفضلوا بقبول فائق الاحترام والتقدير،،،" oninput="updateDocument()">
                     </div>
 
                     <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 10px; margin-bottom: 10px;">
@@ -1139,7 +1237,7 @@
                         </div>
                         <div class="form-group" style="margin-bottom: 0;">
                             <label style="font-size: 10.5px;">اسم الجهة</label>
-                            <input type="text" id="in-party2-name" value="شركة درة الفيصل للتجارة" oninput="updateDocument()">
+                            <input type="text" id="in-party2-name" value="مؤسسة ملء التجارية" oninput="updateDocument()">
                         </div>
                     </div>
 
@@ -1179,8 +1277,11 @@
 
             <!-- Footer Action Buttons -->
             <div class="sidebar-actions">
-                <button class="btn-primary" onclick="window.print()">
-                    <i class="fas fa-print"></i> طباعة / تصدير PDF
+                <button class="btn-primary" onclick="exportPDF()" style="background-color: #0ea5e9;">
+                    <i class="fas fa-file-pdf"></i> تصدير PDF (مضغوط في صفحة واحدة)
+                </button>
+                <button class="btn-primary" onclick="window.print()" style="margin-top: 8px;">
+                    <i class="fas fa-print"></i> طباعة (مقسمة لعدة صفحات)
                 </button>
                 <div style="display: flex; gap: 8px; margin-top: 8px;">
                     <button class="btn-secondary" style="flex: 1; padding: 9px 6px;" onclick="loadTemplate('blank')">
@@ -1240,11 +1341,7 @@
                     </div>
 
                     <!-- Editable Paragraphs -->
-                    <div class="content-paragraphs" id="doc-content" contenteditable="false">بالإشارة إلى الموضوع أعلاه، يسرنا في شركة أمد الأولى المحدودة (أمدكو) أن نتقدم إليكم بخالص التحية والتقدير، معربين عن رغبتنا الصادقة في التعاون المثمر معكم.
-
-نحيطكم علماً بجاهزية فرقنا الفنية المتخصصة لتنفيذ أعمال الرش والتعقيم الشامل ومكافحة الآفات بأحدث المعايير المعتمدة وأعلى درجات السلامة البيئية مع تقديم ضمان معتمد لكافة الخدمات.
-
-شاكرين لكم حسن تعاونكم الدائم،،،</div>
+                    <div class="content-paragraphs" id="doc-content" contenteditable="false">بالإشارة إلى الموضوع أعلاه، يسرنا في شركة أمد الأولى المحدودة (أمدكو) أن نتقدم إليكم بخالص التحية والتقدير، معربين عن رغبتنا الصادقة في التعاون المثمر معكم.<br><br>نحيطكم علماً بجاهزية فرقنا الفنية المتخصصة لتنفيذ أعمال الرش والتعقيم الشامل ومكافحة الآفات بأحدث المعايير المعتمدة وأعلى درجات السلامة البيئية مع تقديم ضمان معتمد لكافة الخدمات.<br><br>شاكرين لكم حسن تعاونكم الدائم،،،</div>
 
                     <!-- Signature Section (Two Parties + Blue Stamp & Signature) -->
                     <div class="letter-sign-section" id="signSection">
@@ -1273,9 +1370,8 @@
                             <!-- Official Company Seal in Center -->
                             <div class="stamp-wrapper" id="stampWrapper">
                                 <div class="official-seal-placeholder">
-                                    <i class="fas fa-certificate"></i>
                                     <span>شركة أمد الأولى المحدودة</span>
-                                    <span style="font-size: 8px; font-family: 'Inter', sans-serif;">AMADCO - C.R 4030833105</span>
+                                    <span style="font-size: 8px; font-family: 'Inter', sans-serif;">AMADCO - C.R 4030388105</span>
                                     <span style="font-size: 7px; color: var(--primary);">قسم الاعتماد والتوثيق</span>
                                 </div>
                             </div>
@@ -1305,61 +1401,57 @@
                     <!-- Right Section: Company Name & Email -->
                     <div class="footer-company-side">
                         <div class="footer-co-name-ar">شركة أمد الأولى المحدودة</div>
-                        <div class="footer-co-name-en">AMAD AL-AOULA COMPANY LTD.</div>
-                        <div class="footer-co-email">info@amadco-sa.com</div>
+                        <div class="footer-co-name-en">AMD AL-AOULA COMPANY LTD.</div>
+                        <div class="footer-co-email">info@amdco-sa.com</div>
                     </div>
 
-                    <!-- Left Section: Details (Services, Address, Branches, CR & Website) -->
+                    <!-- Left Section: Details -->
                     <div class="footer-details-side">
                         
-                        <!-- Row 1: 5 Columns with English on top and Arabic directly underneath -->
+                        <!-- Row 1: 5 Columns with Arabic on top via flex column-reverse -->
                         <div class="footer-services-grid">
                             <div class="service-col">
-                                <div class="service-en">GENERAL CONTRACTING</div>
-                                <div class="service-ar">مـقـاولات</div>
+                                <div class="service-en">TRADING</div>
+                                <div class="service-ar">تــــــــجــــــــارة</div>
                             </div>
                             <div class="service-col">
-                                <div class="service-en">MAINTENANCE & OPERATION</div>
-                                <div class="service-ar">صـيـانـة وتـشـغـيـل</div>
-                            </div>
-                            <div class="service-col">
-                                <div class="service-en">PEST CONTROL & PUBLIC HEALTH</div>
-                                <div class="service-ar">مكافحة حشرات وآفات عامة</div>
-                            </div>
-                            <div class="service-col">
-                                <div class="service-en">GENERAL CLEANING</div>
-                                <div class="service-ar">نـظـافـة عـامـة</div>
+                                <div class="service-en">CONTRACTING</div>
+                                <div class="service-ar">مــــــــقــــــــاولات</div>
                             </div>
                             <div class="service-col">
                                 <div class="service-en">AIR CONDITIONING</div>
-                                <div class="service-ar">تـبـريـد وتـكـيـيـف</div>
+                                <div class="service-ar">تــــــــبــــــــريــــــــد</div>
+                            </div>
+                            <div class="service-col">
+                                <div class="service-en">SHADES</div>
+                                <div class="service-ar">مــــــــظــــــــلات</div>
+                            </div>
+                            <div class="service-col">
+                                <div class="service-en">PROTECTING & SURVEILLANCE</div>
+                                <div class="service-ar">أمــــــــن وســــــــلامــــــــة</div>
                             </div>
                         </div>
 
-                        <!-- Row 2: Head Office Address & Contact -->
+                        <!-- Row 2: Address -->
                         <div class="footer-address-block">
                             <div class="address-ar">
-                                المركز الرئيسي: جدة - طريق الأمير سلطان، برج المرجانة ، هاتف: <span dir="ltr" style="font-family: 'Inter', sans-serif;">+966 54 575 9422</span> ، الرقم الموحد: <span dir="ltr" style="font-family: 'Inter', sans-serif;">920008880</span>
+                                المركز الرئيسي: جدة طريق الأمير سلطان، برج المرجانة ، هاتف: <span dir="ltr">+966 12 601 7677</span> ، الرقم الموحد: <span dir="ltr">920008880</span>
                             </div>
                             <div class="address-en">
-                                Head Office: Jeddah, Prince Sultan Road, Al Murjanah Tower, Tel: +966 54 575 9422, Toll Free: 920008880
+                                Head Office, Jeddah, Prince Sultan Road, Al Murjanah Tower, Tel: +966 12 601 7677, Toll Free 920008880
                             </div>
                         </div>
 
                         <!-- Row 3: Branches -->
                         <div class="footer-branches-block">
                             <span class="branches-badge">فروعنا Branches</span>
-                            <span class="branches-list">الرياض - مكة المكرمة - خميس مشيط &nbsp;|&nbsp; Riyadh - Makkah - Khamis Mushait</span>
+                            <span class="branches-list">الرياض - مكة المكرمة - خميس مشيط &nbsp;&nbsp;&nbsp; Riyadh - Makkah - Khamis Mushait</span>
                         </div>
 
                         <!-- Row 4: CR & Website -->
                         <div class="footer-bottom-block">
-                            <div class="footer-cr">
-                                س.ت C.R: 4030833105
-                            </div>
-                            <div class="footer-website">
-                                www.amadco-sa.com
-                            </div>
+                            <div class="footer-cr">CR. 4030388105 س.ت</div>
+                            <div class="footer-website">www.amdco-sa.com</div>
                         </div>
 
                     </div>
@@ -1399,7 +1491,7 @@
 
             var cntInput = document.getElementById('in-content');
             var cntEl = document.getElementById('doc-content');
-            if (cntEl && cntInput) cntEl.innerText = cntInput.value;
+            if (cntEl && cntInput) cntEl.innerHTML = cntInput.innerHTML;
 
             var closingInput = document.getElementById('in-closing');
             var closingEl = document.getElementById('doc-closing');
@@ -1503,7 +1595,9 @@
             var inSub = document.getElementById('in-subject');
             if (inSub) inSub.value = t.subject;
             var inCnt = document.getElementById('in-content');
-            if (inCnt) inCnt.value = t.content;
+            if (inCnt) {
+                inCnt.innerHTML = t.content.replace(/\n/g, '<br>');
+            }
             
             var inClosing = document.getElementById('in-closing');
             if (inClosing) inClosing.value = t.closing || '';
@@ -1592,7 +1686,7 @@
             } else {
                 btn.classList.remove('active');
                 btn.innerHTML = '<i class="fas fa-edit"></i> تعديل مباشر في الورقة';
-                document.getElementById('in-content').value = contentEl.innerText;
+                document.getElementById('in-content').innerHTML = contentEl.innerHTML;
                 showToast('تم حفظ التعديلات');
             }
         }
@@ -1637,6 +1731,124 @@
                     toast.classList.remove('show');
                 }, 2500);
             }
+        }
+
+        function changeFontFamily() {
+            var select = document.getElementById('in-font-family');
+            var font = select.value;
+            
+            if (font === 'custom_name') {
+                var customName = prompt('أدخل اسم الخط المثبت بجهازك (مثال: Sakkal Majalla, Traditional Arabic):');
+                if (customName && customName.trim() !== '') {
+                    var newOption = document.createElement('option');
+                    newOption.value = '"' + customName.trim() + '", sans-serif';
+                    newOption.text = customName.trim();
+                    select.add(newOption, select.options[1]);
+                    select.value = newOption.value;
+                    document.documentElement.style.setProperty('--content-font', newOption.value);
+                } else {
+                    select.selectedIndex = 0;
+                    changeFontFamily();
+                }
+                return;
+            }
+
+            if (font === 'custom_upload') {
+                document.getElementById('font-upload').click();
+                return;
+            }
+            document.documentElement.style.setProperty('--content-font', font);
+        }
+
+        function handleFontUpload(event) {
+            var files = event.target.files;
+            if (!files || files.length === 0) {
+                document.getElementById('in-font-family').selectedIndex = 0;
+                changeFontFamily();
+                return;
+            }
+
+            var fontName = 'CustomFont_' + Date.now();
+            var loadPromises = [];
+
+            for (var i = 0; i < files.length; i++) {
+                var file = files[i];
+                var fontUrl = URL.createObjectURL(file);
+                
+                var weight = 'normal';
+                var fname = file.name.toLowerCase();
+                if (fname.includes('bold')) weight = 'bold';
+                else if (fname.includes('light')) weight = '300';
+                else if (fname.includes('medium')) weight = '500';
+                else if (fname.includes('black') || fname.includes('heavy')) weight = '900';
+
+                var newFont = new FontFace(fontName, 'url(' + fontUrl + ')', { weight: weight });
+                loadPromises.push(newFont.load().then(function(loadedFont) {
+                    document.fonts.add(loadedFont);
+                }));
+            }
+
+            Promise.all(loadPromises).then(function() {
+                var newOption = document.createElement('option');
+                newOption.value = '"' + fontName + '", sans-serif';
+                newOption.text = files.length > 1 ? 'خط مرفق (' + files.length + ' أوزان)' : files[0].name;
+                var select = document.getElementById('in-font-family');
+                select.add(newOption, select.options[1]);
+                select.value = newOption.value;
+                document.documentElement.style.setProperty('--content-font', newOption.value);
+                showToast('تم تحميل الخطوط وتطبيقها بنجاح');
+            }).catch(function(error) {
+                console.error(error);
+                showToast('عذراً، حدث خطأ أثناء تحميل الخطوط');
+                document.getElementById('in-font-family').selectedIndex = 0;
+                changeFontFamily();
+            });
+            
+            event.target.value = '';
+        }
+
+        // --- PDF Export Logic ---
+        function exportPDF() {
+            var element = document.querySelector('.letterhead-sheet');
+            
+            showToast('جاري تجهيز وتصدير الـ PDF... يرجى الانتظار');
+            
+            // Temporarily remove styles that might mess up canvas rendering
+            var originalBoxShadow = element.style.boxShadow;
+            var originalTransform = element.style.transform;
+            element.style.boxShadow = 'none';
+            element.style.transform = 'none';
+            
+            html2canvas(element, { scale: 2, useCORS: true }).then(function(canvas) {
+                var imgData = canvas.toDataURL('image/jpeg', 1.0);
+                
+                var pdf = new window.jspdf.jsPDF('p', 'mm', 'a4');
+                var pdfWidth = 210;
+                var pdfHeight = 297;
+                
+                var imgWidth = canvas.width;
+                var imgHeight = canvas.height;
+                
+                var pdfWidth = 210;
+                var pdfHeight = (imgHeight * pdfWidth) / imgWidth; // Calculate exact height needed
+                
+                // Create PDF with custom dimensions so text never shrinks
+                var pdf = new window.jspdf.jsPDF('p', 'mm', [pdfWidth, pdfHeight]);
+                
+                pdf.addImage(imgData, 'JPEG', 0, 0, pdfWidth, pdfHeight);
+                pdf.save('AMADCO_Document.pdf');
+                
+                // Restore styles
+                element.style.boxShadow = originalBoxShadow;
+                element.style.transform = originalTransform;
+                
+                showToast('تم تصدير ملف PDF بنجاح!');
+            }).catch(function(err) {
+                console.error(err);
+                showToast('حدث خطأ أثناء تصدير الـ PDF');
+                element.style.boxShadow = originalBoxShadow;
+                element.style.transform = originalTransform;
+            });
         }
     </script>
 </body>
