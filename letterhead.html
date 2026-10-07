@@ -1,25 +1,22 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+
+<html dir="rtl" lang="ar">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ورق مراسلات رسمي - شركة أمد الأولى المحدودة (أمدكو)</title>
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="apple-touch-icon" href="./logo/logo_new.webp">
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- PDF Export Libraries -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ورق مراسلات رسمي - شركة أمد الأولى المحدودة (أمدكو)</title>
+<link href="favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="./logo/logo_new.webp" rel="apple-touch-icon"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<!-- PDF Export Libraries -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
         :root {
             --primary: #163261;
             --primary-dark: #0e2040;
@@ -1122,354 +1119,321 @@
             }
         }
     </style>
-</head>
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+
+  gtag('event', 'conversion', {
+    'send_to': 'AW-18495747241/K98qCKzD2JQdEKnpuVNE',
+    'event_callback': callback
+  });
+
+  return false;
+}
+</script></head>
 <body>
-
-    <div class="app-layout">
-        
-        <!-- Sidebar Controls -->
-        <aside class="sidebar">
-            <div class="sidebar-header">
-                <div class="title-box">
-                    <i class="fas fa-file-invoice"></i>
-                    <div>
-                        <h2>نموذج ورق المراسلات</h2>
-                        <p>شركة أمد الأولى المحدودة (أمدكو)</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="sidebar-content">
-                <!-- Preset Templates Selection -->
-                <div class="template-selector">
-                    <label><i class="fas fa-layer-group"></i> القوالب الجاهزة</label>
-                    <div class="template-btn-grid">
-                        <button class="btn-tpl active" data-template="official" onclick="loadTemplate('official', this)">
-                            <i class="fas fa-envelope-open-text"></i> خطاب رسمي
+<div class="app-layout">
+<!-- Sidebar Controls -->
+<aside class="sidebar">
+<div class="sidebar-header">
+<div class="title-box">
+<i class="fas fa-file-invoice"></i>
+<div>
+<h2>نموذج ورق المراسلات</h2>
+<p>شركة أمد الأولى المحدودة (أمدكو)</p>
+</div>
+</div>
+</div>
+<div class="sidebar-content">
+<!-- Preset Templates Selection -->
+<div class="template-selector">
+<label><i class="fas fa-layer-group"></i> القوالب الجاهزة</label>
+<div class="template-btn-grid">
+<button class="btn-tpl active" data-template="official" onclick="loadTemplate('official', this)">
+<i class="fas fa-envelope-open-text"></i> خطاب رسمي
                         </button>
-                        <button class="btn-tpl" data-template="proposal" onclick="loadTemplate('proposal', this)">
-                            <i class="fas fa-file-signature"></i> عرض سعر
+<button class="btn-tpl" data-template="proposal" onclick="loadTemplate('proposal', this)">
+<i class="fas fa-file-signature"></i> عرض سعر
                         </button>
-                        <button class="btn-tpl" data-template="certificate" onclick="loadTemplate('certificate', this)">
-                            <i class="fas fa-award"></i> شهادة إنجاز
+<button class="btn-tpl" data-template="certificate" onclick="loadTemplate('certificate', this)">
+<i class="fas fa-award"></i> شهادة إنجاز
                         </button>
-                        <button class="btn-tpl" data-template="blank" onclick="loadTemplate('blank', this)">
-                            <i class="fas fa-file"></i> ترويسة فارغة
+<button class="btn-tpl" data-template="blank" onclick="loadTemplate('blank', this)">
+<i class="fas fa-file"></i> ترويسة فارغة
                         </button>
-                        <button class="btn-tpl" data-template="blank_stamp" style="grid-column: span 2;" onclick="loadTemplate('blank_stamp', this)">
-                            <i class="fas fa-stamp"></i> ترويسة فارغة بالختم فقط
+<button class="btn-tpl" data-template="blank_stamp" onclick="loadTemplate('blank_stamp', this)" style="grid-column: span 2;">
+<i class="fas fa-stamp"></i> ترويسة فارغة بالختم فقط
                         </button>
+</div>
+</div>
+<!-- Form Inputs -->
+<div class="form-section">
+<div class="form-section-title">
+<i class="fas fa-info-circle"></i> بيانات المراسلة
                     </div>
-                </div>
-
-                <!-- Form Inputs -->
-                <div class="form-section">
-                    <div class="form-section-title">
-                        <i class="fas fa-info-circle"></i> بيانات المراسلة
+<div class="form-group">
+<label>الموجّه إليه (السادة / إلى)</label>
+<input id="in-recipient" oninput="updateDocument()" type="text" value="إلى السادة: إدارة [مؤسسة ملء التجارية] المحترمين"/>
+</div>
+<div class="form-group">
+<label>التحية الافتتاحية</label>
+<input id="in-greeting" oninput="updateDocument()" type="text" value="السلام عليكم ورحمة الله وبركاته،،،"/>
+</div>
+<div class="form-group">
+<label>الموضوع</label>
+<input id="in-subject" oninput="updateDocument()" type="text" value="عرض سعر وتقديم خدمات الإدارة المتكاملة لمكافحة آفات الصحة العامة (عقد سنوي / دوري)"/>
+</div>
+<div class="form-group">
+<label>نوع خط النص</label>
+<select id="in-font-family" onchange="changeFontFamily()">
+<option value="'Almarai', sans-serif">Almarai (الافتراضي)</option>
+<option value="system-ui, -apple-system, sans-serif">System Default (خط النظام)</option>
+<option value="Arial, Helvetica, sans-serif">Arial</option>
+<option value="'Times New Roman', Times, serif">Times New Roman</option>
+<option style="font-weight:bold; color:#0ea5e9;" value="custom_name">+ كتابة اسم خط مثبت بجهازي...</option>
+<option style="font-weight:bold; color:var(--primary);" value="custom_upload">+ رفع ملفات الخط (عادي و Bold)...</option>
+</select>
+<input accept=".ttf,.otf,.woff,.woff2,.ttc" id="font-upload" multiple="" onchange="handleFontUpload(event)" style="display: none;" type="file"/>
+</div>
+<div class="form-group">
+<label>نص الخطاب / المحتوى (يدعم النسخ واللصق بالتنسيق)</label>
+<div class="rich-textarea" contenteditable="true" id="in-content" oninput="updateDocument()">يطيب لنا (شركة أمد الأولى المحدودة) أن نتقدم لكم بخالص التحية والتقدير، ويسرنا أن نضع بين أيديكم عرضنا الفني والمالي لتقديم خدمات مكافحة آفات الصحة العامة والحشرات في منشأتكم الموقرة. (كوفي ملء) وعنوانه: جدة، حى الاندلس ، شارع عبدالله المطري.<br/>رقم السجل التجاري :5850137499<br/><br/><b>1: إدراكاً منا لأهمية قطاع المقاهي والأغذية والمشروبات</b> وحساسية بيئة العمل التي تتطلب أعلى مستويات النظافة والامتثال للاشتراطات البلدية والرقابية، فإننا نعتمد استراتيجية الإدارة المتكاملة للآفات، وتهدف هذه المنظومة إلى توفير بيئة صحية وآمنة تماماً لروادكم وفريق عملكم دون أي تأثير سلبي على المنتجات أو سير العمل اليومي.<br/><br/><b>2: مرتكزات الخدمة لقطاع المقاهي:</b><br/>- مواد آمنة ومعتمدة: استخدام مبيدات وطعوم صحة عامة مسجلة ومعتمدة رسمياً، عديمة الرائحة وآمنة في مناطق تحضير الأغذية والمشروبات.<br/>- مكافحة جميع انواع الحشرات داخل الكوفي بمادتى (AGENDA EC 25) المسجل بالهيئة العامة للغذاء والدواء برقم (179-136-1231) و (Medronil5% SC) المسجل بالهيئه العامة للغذاء والدواء برقم (1349-141-182).<br/><br/><b>3: معالجة تخصصية للبؤر الحساسة:</b> التركيز على مناطق مكائن الإسبريسو، ثلاجات العرض، آماكن التجهيز والتمديدات الكهربائية، نقاط الصرف، والمستودعات الخلفية.<br/><br/><b>4: مرونة التوقيت:</b> تنفيذ الزيارات وجداول الرش بما يتناسب مع ساعات التشغيل، تفادياً للتأثير على حركة الزبائن.<br/><br/><b>5: التوثيق والامتثال النظامي:</b> تزويد المنشأة بملف متابعة متكامل، وتقارير فنية معتمدة لكل زيارة لتقديمها للجهات التفتيشية والرقابية.<br/><br/><b>نطاق العمل المستهدف:</b><br/>الحشرات الزاحفة: المعالجة الوقائية والعلاجية للصرصور الألماني، النمل، وباقي الحشرات عبر تقنية الحقن بالجيل والمحاليل السائلة عديمة الرائحة.<br/><br/><b>6: المبلغ وطريقة الدفع:</b><br/>- السعر الاجمالى شامل ضريبة القيمة المضافة 3000 ريال (ثلاثة الآف ريال) بواقع 12 زيارة فى العام.<br/>- تدفع علي دفعتين او تدفع قيمة كل زياره وهيا 250 ريال عند الانتهاء من الزياره. وإي اعمال اضافية يتم الإتفاق على قيمتها.<br/><br/>نأمل أن ينال عرضنا استحسانكم، ومستعدون للإجابة عن أي استفسار أو التنسيق لزيارة المعاينة الأولية.</div>
+</div>
+</div>
+<!-- Signature Section Controls -->
+<div class="form-section">
+<div class="form-section-title">
+<i class="fas fa-file-signature"></i> التوقيع والاعتماد (الأطراف)
                     </div>
-
-                    <div class="form-group">
-                        <label>الموجّه إليه (السادة / إلى)</label>
-                        <input type="text" id="in-recipient" value="إلى السادة: إدارة [مؤسسة ملء التجارية] المحترمين" oninput="updateDocument()">
-                    </div>
-
-                    <div class="form-group">
-                        <label>التحية الافتتاحية</label>
-                        <input type="text" id="in-greeting" value="السلام عليكم ورحمة الله وبركاته،،،" oninput="updateDocument()">
-                    </div>
-
-                    <div class="form-group">
-                        <label>الموضوع</label>
-                        <input type="text" id="in-subject" value="عرض سعر وتقديم خدمات الإدارة المتكاملة لمكافحة آفات الصحة العامة (عقد سنوي / دوري)" oninput="updateDocument()">
-                    </div>
-
-                    <div class="form-group">
-                        <label>نوع خط النص</label>
-                        <select id="in-font-family" onchange="changeFontFamily()">
-                            <option value="'Almarai', sans-serif">Almarai (الافتراضي)</option>
-                            <option value="system-ui, -apple-system, sans-serif">System Default (خط النظام)</option>
-                            <option value="Arial, Helvetica, sans-serif">Arial</option>
-                            <option value="'Times New Roman', Times, serif">Times New Roman</option>
-                            <option value="custom_name" style="font-weight:bold; color:#0ea5e9;">+ كتابة اسم خط مثبت بجهازي...</option>
-                            <option value="custom_upload" style="font-weight:bold; color:var(--primary);">+ رفع ملفات الخط (عادي و Bold)...</option>
-                        </select>
-                        <input type="file" id="font-upload" accept=".ttf,.otf,.woff,.woff2,.ttc" multiple style="display: none;" onchange="handleFontUpload(event)">
-                    </div>
-
-                    <div class="form-group">
-                        <label>نص الخطاب / المحتوى (يدعم النسخ واللصق بالتنسيق)</label>
-                        <div id="in-content" class="rich-textarea" contenteditable="true" oninput="updateDocument()">يطيب لنا (شركة أمد الأولى المحدودة) أن نتقدم لكم بخالص التحية والتقدير، ويسرنا أن نضع بين أيديكم عرضنا الفني والمالي لتقديم خدمات مكافحة آفات الصحة العامة والحشرات في منشأتكم الموقرة. (كوفي ملء) وعنوانه: جدة، حى الاندلس ، شارع عبدالله المطري.<br>رقم السجل التجاري :5850137499<br><br><b>1: إدراكاً منا لأهمية قطاع المقاهي والأغذية والمشروبات</b> وحساسية بيئة العمل التي تتطلب أعلى مستويات النظافة والامتثال للاشتراطات البلدية والرقابية، فإننا نعتمد استراتيجية الإدارة المتكاملة للآفات، وتهدف هذه المنظومة إلى توفير بيئة صحية وآمنة تماماً لروادكم وفريق عملكم دون أي تأثير سلبي على المنتجات أو سير العمل اليومي.<br><br><b>2: مرتكزات الخدمة لقطاع المقاهي:</b><br>- مواد آمنة ومعتمدة: استخدام مبيدات وطعوم صحة عامة مسجلة ومعتمدة رسمياً، عديمة الرائحة وآمنة في مناطق تحضير الأغذية والمشروبات.<br>- مكافحة جميع انواع الحشرات داخل الكوفي بمادتى (AGENDA EC 25) المسجل بالهيئة العامة للغذاء والدواء برقم (179-136-1231) و (Medronil5% SC) المسجل بالهيئه العامة للغذاء والدواء برقم (1349-141-182).<br><br><b>3: معالجة تخصصية للبؤر الحساسة:</b> التركيز على مناطق مكائن الإسبريسو، ثلاجات العرض، آماكن التجهيز والتمديدات الكهربائية، نقاط الصرف، والمستودعات الخلفية.<br><br><b>4: مرونة التوقيت:</b> تنفيذ الزيارات وجداول الرش بما يتناسب مع ساعات التشغيل، تفادياً للتأثير على حركة الزبائن.<br><br><b>5: التوثيق والامتثال النظامي:</b> تزويد المنشأة بملف متابعة متكامل، وتقارير فنية معتمدة لكل زيارة لتقديمها للجهات التفتيشية والرقابية.<br><br><b>نطاق العمل المستهدف:</b><br>الحشرات الزاحفة: المعالجة الوقائية والعلاجية للصرصور الألماني، النمل، وباقي الحشرات عبر تقنية الحقن بالجيل والمحاليل السائلة عديمة الرائحة.<br><br><b>6: المبلغ وطريقة الدفع:</b><br>- السعر الاجمالى شامل ضريبة القيمة المضافة 3000 ريال (ثلاثة الآف ريال) بواقع 12 زيارة فى العام.<br>- تدفع علي دفعتين او تدفع قيمة كل زياره وهيا 250 ريال عند الانتهاء من الزياره. وإي اعمال اضافية يتم الإتفاق على قيمتها.<br><br>نأمل أن ينال عرضنا استحسانكم، ومستعدون للإجابة عن أي استفسار أو التنسيق لزيارة المعاينة الأولية.</div>
-                    </div>
-                </div>
-
-                <!-- Signature Section Controls -->
-                <div class="form-section">
-                    <div class="form-section-title">
-                        <i class="fas fa-file-signature"></i> التوقيع والاعتماد (الأطراف)
-                    </div>
-
-                    <div class="form-group">
-                        <label>عبارة الختام</label>
-                        <input type="text" id="in-closing" value="وتفضلوا بقبول فائق الاحترام والتقدير،،،" oninput="updateDocument()">
-                    </div>
-
-                    <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 10px; margin-bottom: 10px;">
-                        <span style="font-size: 11px; font-weight: 800; color: var(--primary); display: block; margin-bottom: 6px;">
-                            <i class="fas fa-building"></i> الطرف الأول
+<div class="form-group">
+<label>عبارة الختام</label>
+<input id="in-closing" oninput="updateDocument()" type="text" value="وتفضلوا بقبول فائق الاحترام والتقدير،،،"/>
+</div>
+<div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 10px; margin-bottom: 10px;">
+<span style="font-size: 11px; font-weight: 800; color: var(--primary); display: block; margin-bottom: 6px;">
+<i class="fas fa-building"></i> الطرف الأول
                         </span>
-                        <div class="form-group" style="margin-bottom: 6px;">
-                            <label style="font-size: 10.5px;">المسمى / الصفة</label>
-                            <input type="text" id="in-party1-title" value="الطرف الاول" oninput="updateDocument()">
-                        </div>
-                        <div class="form-group" style="margin-bottom: 0;">
-                            <label style="font-size: 10.5px;">اسم الجهة</label>
-                            <input type="text" id="in-party1-name" value="شركة أمد الأولى المحدودة" oninput="updateDocument()">
-                        </div>
-                    </div>
-
-                    <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 10px; margin-bottom: 10px;">
-                        <span style="font-size: 11px; font-weight: 800; color: #475569; display: block; margin-bottom: 6px;">
-                            <i class="fas fa-handshake"></i> الطرف الثاني
+<div class="form-group" style="margin-bottom: 6px;">
+<label style="font-size: 10.5px;">المسمى / الصفة</label>
+<input id="in-party1-title" oninput="updateDocument()" type="text" value="الطرف الاول"/>
+</div>
+<div class="form-group" style="margin-bottom: 0;">
+<label style="font-size: 10.5px;">اسم الجهة</label>
+<input id="in-party1-name" oninput="updateDocument()" type="text" value="شركة أمد الأولى المحدودة"/>
+</div>
+</div>
+<div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 10px; margin-bottom: 10px;">
+<span style="font-size: 11px; font-weight: 800; color: #475569; display: block; margin-bottom: 6px;">
+<i class="fas fa-handshake"></i> الطرف الثاني
                         </span>
-                        <div class="form-group" style="margin-bottom: 6px;">
-                            <label style="font-size: 10.5px;">المسمى / الصفة</label>
-                            <input type="text" id="in-party2-title" value="الطرف الثاني" oninput="updateDocument()">
-                        </div>
-                        <div class="form-group" style="margin-bottom: 0;">
-                            <label style="font-size: 10.5px;">اسم الجهة</label>
-                            <input type="text" id="in-party2-name" value="مؤسسة ملء التجارية" oninput="updateDocument()">
-                        </div>
-                    </div>
-
-                    <div class="switch-row">
-                        <span class="switch-label"><i class="fas fa-stamp"></i> إظهار ختم الشركة</span>
-                        <label class="toggle-switch">
-                            <input type="checkbox" id="toggle-stamp" checked onchange="toggleStamp()">
-                            <span class="slider"></span>
-                        </label>
-                    </div>
-
-                    <div class="switch-row">
-                        <span class="switch-label"><i class="fas fa-pen-nib"></i> إظهار سطر ومكان التوقيع</span>
-                        <label class="toggle-switch">
-                            <input type="checkbox" id="toggle-sig" checked onchange="toggleSignature()">
-                            <span class="slider"></span>
-                        </label>
-                    </div>
-
-                    <div class="switch-row">
-                        <span class="switch-label"><i class="fas fa-users"></i> إظهار الطرف الثاني</span>
-                        <label class="toggle-switch">
-                            <input type="checkbox" id="toggle-party2" checked onchange="toggleParty2()">
-                            <span class="slider"></span>
-                        </label>
-                    </div>
-
-                    <div class="switch-row">
-                        <span class="switch-label"><i class="fas fa-water"></i> إظهار العلامة المائية</span>
-                        <label class="toggle-switch">
-                            <input type="checkbox" id="toggle-watermark" checked onchange="toggleWatermark()">
-                            <span class="slider"></span>
-                        </label>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Footer Action Buttons -->
-            <div class="sidebar-actions">
-                <button class="btn-primary" onclick="exportPDF()" style="background-color: #0ea5e9;">
-                    <i class="fas fa-file-pdf"></i> تصدير PDF (مضغوط في صفحة واحدة)
+<div class="form-group" style="margin-bottom: 6px;">
+<label style="font-size: 10.5px;">المسمى / الصفة</label>
+<input id="in-party2-title" oninput="updateDocument()" type="text" value="الطرف الثاني"/>
+</div>
+<div class="form-group" style="margin-bottom: 0;">
+<label style="font-size: 10.5px;">اسم الجهة</label>
+<input id="in-party2-name" oninput="updateDocument()" type="text" value="مؤسسة ملء التجارية"/>
+</div>
+</div>
+<div class="switch-row">
+<span class="switch-label"><i class="fas fa-stamp"></i> إظهار ختم الشركة</span>
+<label class="toggle-switch">
+<input checked="" id="toggle-stamp" onchange="toggleStamp()" type="checkbox"/>
+<span class="slider"></span>
+</label>
+</div>
+<div class="switch-row">
+<span class="switch-label"><i class="fas fa-pen-nib"></i> إظهار سطر ومكان التوقيع</span>
+<label class="toggle-switch">
+<input checked="" id="toggle-sig" onchange="toggleSignature()" type="checkbox"/>
+<span class="slider"></span>
+</label>
+</div>
+<div class="switch-row">
+<span class="switch-label"><i class="fas fa-users"></i> إظهار الطرف الثاني</span>
+<label class="toggle-switch">
+<input checked="" id="toggle-party2" onchange="toggleParty2()" type="checkbox"/>
+<span class="slider"></span>
+</label>
+</div>
+<div class="switch-row">
+<span class="switch-label"><i class="fas fa-water"></i> إظهار العلامة المائية</span>
+<label class="toggle-switch">
+<input checked="" id="toggle-watermark" onchange="toggleWatermark()" type="checkbox"/>
+<span class="slider"></span>
+</label>
+</div>
+</div>
+</div>
+<!-- Footer Action Buttons -->
+<div class="sidebar-actions">
+<button class="btn-primary" onclick="exportPDF()" style="background-color: #0ea5e9;">
+<i class="fas fa-file-pdf"></i> تصدير PDF (مضغوط في صفحة واحدة)
                 </button>
-                <button class="btn-primary" onclick="window.print()" style="margin-top: 8px;">
-                    <i class="fas fa-print"></i> طباعة (مقسمة لعدة صفحات)
+<button class="btn-primary" onclick="window.print()" style="margin-top: 8px;">
+<i class="fas fa-print"></i> طباعة (مقسمة لعدة صفحات)
                 </button>
-                <div style="display: flex; gap: 8px; margin-top: 8px;">
-                    <button class="btn-secondary" style="flex: 1; padding: 9px 6px;" onclick="loadTemplate('blank')">
-                        <i class="fas fa-eraser"></i> ترويسة فارغة
+<div style="display: flex; gap: 8px; margin-top: 8px;">
+<button class="btn-secondary" onclick="loadTemplate('blank')" style="flex: 1; padding: 9px 6px;">
+<i class="fas fa-eraser"></i> ترويسة فارغة
                     </button>
-                    <button class="btn-secondary" style="flex: 1; padding: 9px 6px; border-color: #1d4ed8; color: #1d4ed8;" onclick="loadTemplate('blank_stamp')">
-                        <i class="fas fa-stamp"></i> فارغة بالختم
+<button class="btn-secondary" onclick="loadTemplate('blank_stamp')" style="flex: 1; padding: 9px 6px; border-color: #1d4ed8; color: #1d4ed8;">
+<i class="fas fa-stamp"></i> فارغة بالختم
                     </button>
-                </div>
-            </div>
-        </aside>
-
-        <!-- Main Preview Area -->
-        <main class="preview-area">
-            
-            <!-- Floating Quick Bar -->
-            <div class="floating-toolbar">
-                <button class="floating-btn" onclick="window.print()">
-                    <i class="fas fa-print"></i> طباعة A4
+</div>
+</div>
+</aside>
+<!-- Main Preview Area -->
+<main class="preview-area">
+<!-- Floating Quick Bar -->
+<div class="floating-toolbar">
+<button class="floating-btn" onclick="window.print()">
+<i class="fas fa-print"></i> طباعة A4
                 </button>
-                <div class="toolbar-divider"></div>
-                <button class="floating-btn" id="btn-toggle-edit" onclick="toggleDirectEdit()">
-                    <i class="fas fa-edit"></i> تعديل مباشر في الورقة
+<div class="toolbar-divider"></div>
+<button class="floating-btn" id="btn-toggle-edit" onclick="toggleDirectEdit()">
+<i class="fas fa-edit"></i> تعديل مباشر في الورقة
                 </button>
-                <button class="floating-btn" onclick="copyDocumentText()">
-                    <i class="fas fa-copy"></i> نسخ النص
+<button class="floating-btn" onclick="copyDocumentText()">
+<i class="fas fa-copy"></i> نسخ النص
                 </button>
-                <div class="toolbar-divider"></div>
-                <a href="index.html" class="floating-btn" style="text-decoration: none;">
-                    <i class="fas fa-home"></i> العودة للموقع
+<div class="toolbar-divider"></div>
+<a class="floating-btn" href="index.html" style="text-decoration: none;">
+<i class="fas fa-home"></i> العودة للموقع
                 </a>
-            </div>
-
-            <!-- The A4 Sheet Component -->
-            <div class="letterhead-sheet" id="letterheadSheet">
-                
-                <!-- Watermark Logo (Vector SVG for Infinite Quality) -->
-                <img src="./logo/logo_icon.svg" alt="AMADCO Icon" class="sheet-watermark" id="sheetWatermark">
-
-                <!-- 1. Top Header -->
-                <header class="letterhead-header">
-                    <div class="header-logo-container">
-                        <img src="./logo/logo_new.webp" alt="أمدكو - AMADCO" class="header-logo-img">
-                    </div>
-                </header>
-
-                <!-- 2. Main Letter Body -->
-                <section class="letterhead-body" id="letterBody">
-                    <div class="recipient-box">
-                        <div class="recipient-name" id="doc-recipient">السادة / شركة التطوير العقاري المحترمين</div>
-                        <div class="recipient-greeting" id="doc-greeting">السلام عليكم ورحمة الله وبركاته،،، وبعد:</div>
-                    </div>
-
-                    <div class="subject-box" id="subjectContainer">
-                        <span class="subject-label">الموضوع :</span>
-                        <span class="subject-text" id="doc-subject">تقديم خدمات مكافحة الحشرات والتعقيم الدوري</span>
-                    </div>
-
-                    <!-- Editable Paragraphs -->
-                    <div class="content-paragraphs" id="doc-content" contenteditable="false">بالإشارة إلى الموضوع أعلاه، يسرنا في شركة أمد الأولى المحدودة (أمدكو) أن نتقدم إليكم بخالص التحية والتقدير، معربين عن رغبتنا الصادقة في التعاون المثمر معكم.<br><br>نحيطكم علماً بجاهزية فرقنا الفنية المتخصصة لتنفيذ أعمال الرش والتعقيم الشامل ومكافحة الآفات بأحدث المعايير المعتمدة وأعلى درجات السلامة البيئية مع تقديم ضمان معتمد لكافة الخدمات.<br><br>شاكرين لكم حسن تعاونكم الدائم،،،</div>
-
-                    <!-- Signature Section (Two Parties + Blue Stamp & Signature) -->
-                    <div class="letter-sign-section" id="signSection">
-                        
-                        <!-- Closing Statement (Centered) -->
-                        <div class="sign-closing-statement" id="doc-closing">والله ولي التوفيق،،،</div>
-
-                        <!-- Parties Grid: Party 1 on Right, Party 2 on Left -->
-                        <div class="parties-container">
-                            
-                            <!-- Party 1 (Right): Amadco + Signature Slot -->
-                            <div class="party-block party-first" id="party1Block">
-                                <div class="party-title" id="doc-party1-title">الطرف الاول</div>
-                                <div class="party-name" id="doc-party1-name">شركة أمد الأولى المحدودة</div>
-                                
-                                <!-- Dedicated Blank Signature Slot -->
-                                <div class="party-sign-slot" id="p1SignSlot">
-                                    <div class="sign-label-row">
-                                        <span class="sign-tag">التوقيع :</span>
-                                        <div class="sign-line-dots"></div>
-                                    </div>
-                                    <div class="sign-blank-space"></div>
-                                </div>
-                            </div>
-
-                            <!-- Official Company Seal in Center -->
-                            <div class="stamp-wrapper" id="stampWrapper">
-                                <div class="official-seal-placeholder">
-                                    <span>شركة أمد الأولى المحدودة</span>
-                                    <span style="font-size: 8px; font-family: 'Inter', sans-serif;">AMADCO - C.R 4030388105</span>
-                                    <span style="font-size: 7px; color: var(--primary);">قسم الاعتماد والتوثيق</span>
-                                </div>
-                            </div>
-
-                            <!-- Party 2 (Left): Client/Partner Details + Signature Slot -->
-                            <div class="party-block party-second" id="party2Block">
-                                <div class="party-title" id="doc-party2-title">الطرف الثاني</div>
-                                <div class="party-name" id="doc-party2-name">شركة درة الفيصل للتجارة</div>
-                                
-                                <!-- Dedicated Blank Signature Slot -->
-                                <div class="party-sign-slot" id="p2SignSlot">
-                                    <div class="sign-label-row">
-                                        <span class="sign-tag">التوقيع :</span>
-                                        <div class="sign-line-dots"></div>
-                                    </div>
-                                    <div class="sign-blank-space"></div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </section>
-
-                <!-- 3. Bottom Footer -->
-                <footer class="letterhead-footer">
-                    
-                    <!-- Right Section: Company Name & Email -->
-                    <div class="footer-company-side">
-                        <div class="footer-co-name-ar">شركة أمد الأولى المحدودة</div>
-                        <div class="footer-co-name-en">AMD AL-AOULA COMPANY LTD.</div>
-                        <div class="footer-co-email">info@amdco-sa.com</div>
-                    </div>
-
-                    <!-- Left Section: Details -->
-                    <div class="footer-details-side">
-                        
-                        <!-- Row 1: 5 Columns with Arabic on top via flex column-reverse -->
-                        <div class="footer-services-grid">
-                            <div class="service-col">
-                                <div class="service-en">TRADING</div>
-                                <div class="service-ar">تــــــــجــــــــارة</div>
-                            </div>
-                            <div class="service-col">
-                                <div class="service-en">CONTRACTING</div>
-                                <div class="service-ar">مــــــــقــــــــاولات</div>
-                            </div>
-                            <div class="service-col">
-                                <div class="service-en">AIR CONDITIONING</div>
-                                <div class="service-ar">تــــــــبــــــــريــــــــد</div>
-                            </div>
-                            <div class="service-col">
-                                <div class="service-en">SHADES</div>
-                                <div class="service-ar">مــــــــظــــــــلات</div>
-                            </div>
-                            <div class="service-col">
-                                <div class="service-en">PROTECTING & SURVEILLANCE</div>
-                                <div class="service-ar">أمــــــــن وســــــــلامــــــــة</div>
-                            </div>
-                        </div>
-
-                        <!-- Row 2: Address -->
-                        <div class="footer-address-block">
-                            <div class="address-ar">
+</div>
+<!-- The A4 Sheet Component -->
+<div class="letterhead-sheet" id="letterheadSheet">
+<!-- Watermark Logo (Vector SVG for Infinite Quality) -->
+<img alt="AMADCO Icon" class="sheet-watermark" id="sheetWatermark" src="./logo/logo_icon.svg"/>
+<!-- 1. Top Header -->
+<header class="letterhead-header">
+<div class="header-logo-container">
+<img alt="أمدكو - AMADCO" class="header-logo-img" src="./logo/logo_new.webp"/>
+</div>
+</header>
+<!-- 2. Main Letter Body -->
+<section class="letterhead-body" id="letterBody">
+<div class="recipient-box">
+<div class="recipient-name" id="doc-recipient">السادة / شركة التطوير العقاري المحترمين</div>
+<div class="recipient-greeting" id="doc-greeting">السلام عليكم ورحمة الله وبركاته،،، وبعد:</div>
+</div>
+<div class="subject-box" id="subjectContainer">
+<span class="subject-label">الموضوع :</span>
+<span class="subject-text" id="doc-subject">تقديم خدمات مكافحة الحشرات والتعقيم الدوري</span>
+</div>
+<!-- Editable Paragraphs -->
+<div class="content-paragraphs" contenteditable="false" id="doc-content">بالإشارة إلى الموضوع أعلاه، يسرنا في شركة أمد الأولى المحدودة (أمدكو) أن نتقدم إليكم بخالص التحية والتقدير، معربين عن رغبتنا الصادقة في التعاون المثمر معكم.<br/><br/>نحيطكم علماً بجاهزية فرقنا الفنية المتخصصة لتنفيذ أعمال الرش والتعقيم الشامل ومكافحة الآفات بأحدث المعايير المعتمدة وأعلى درجات السلامة البيئية مع تقديم ضمان معتمد لكافة الخدمات.<br/><br/>شاكرين لكم حسن تعاونكم الدائم،،،</div>
+<!-- Signature Section (Two Parties + Blue Stamp & Signature) -->
+<div class="letter-sign-section" id="signSection">
+<!-- Closing Statement (Centered) -->
+<div class="sign-closing-statement" id="doc-closing">والله ولي التوفيق،،،</div>
+<!-- Parties Grid: Party 1 on Right, Party 2 on Left -->
+<div class="parties-container">
+<!-- Party 1 (Right): Amadco + Signature Slot -->
+<div class="party-block party-first" id="party1Block">
+<div class="party-title" id="doc-party1-title">الطرف الاول</div>
+<div class="party-name" id="doc-party1-name">شركة أمد الأولى المحدودة</div>
+<!-- Dedicated Blank Signature Slot -->
+<div class="party-sign-slot" id="p1SignSlot">
+<div class="sign-label-row">
+<span class="sign-tag">التوقيع :</span>
+<div class="sign-line-dots"></div>
+</div>
+<div class="sign-blank-space"></div>
+</div>
+</div>
+<!-- Official Company Seal in Center -->
+<div class="stamp-wrapper" id="stampWrapper">
+<div class="official-seal-placeholder">
+<span>شركة أمد الأولى المحدودة</span>
+<span style="font-size: 8px; font-family: 'Inter', sans-serif;">AMADCO - C.R 4030388105</span>
+<span style="font-size: 7px; color: var(--primary);">قسم الاعتماد والتوثيق</span>
+</div>
+</div>
+<!-- Party 2 (Left): Client/Partner Details + Signature Slot -->
+<div class="party-block party-second" id="party2Block">
+<div class="party-title" id="doc-party2-title">الطرف الثاني</div>
+<div class="party-name" id="doc-party2-name">شركة درة الفيصل للتجارة</div>
+<!-- Dedicated Blank Signature Slot -->
+<div class="party-sign-slot" id="p2SignSlot">
+<div class="sign-label-row">
+<span class="sign-tag">التوقيع :</span>
+<div class="sign-line-dots"></div>
+</div>
+<div class="sign-blank-space"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 3. Bottom Footer -->
+<footer class="letterhead-footer">
+<!-- Right Section: Company Name & Email -->
+<div class="footer-company-side">
+<div class="footer-co-name-ar">شركة أمد الأولى المحدودة</div>
+<div class="footer-co-name-en">AMD AL-AOULA COMPANY LTD.</div>
+<div class="footer-co-email">info@amdco-sa.com</div>
+</div>
+<!-- Left Section: Details -->
+<div class="footer-details-side">
+<!-- Row 1: 5 Columns with Arabic on top via flex column-reverse -->
+<div class="footer-services-grid">
+<div class="service-col">
+<div class="service-en">TRADING</div>
+<div class="service-ar">تــــــــجــــــــارة</div>
+</div>
+<div class="service-col">
+<div class="service-en">CONTRACTING</div>
+<div class="service-ar">مــــــــقــــــــاولات</div>
+</div>
+<div class="service-col">
+<div class="service-en">AIR CONDITIONING</div>
+<div class="service-ar">تــــــــبــــــــريــــــــد</div>
+</div>
+<div class="service-col">
+<div class="service-en">SHADES</div>
+<div class="service-ar">مــــــــظــــــــلات</div>
+</div>
+<div class="service-col">
+<div class="service-en">PROTECTING &amp; SURVEILLANCE</div>
+<div class="service-ar">أمــــــــن وســــــــلامــــــــة</div>
+</div>
+</div>
+<!-- Row 2: Address -->
+<div class="footer-address-block">
+<div class="address-ar">
                                 المركز الرئيسي: جدة طريق الأمير سلطان، برج المرجانة ، هاتف: <span dir="ltr">+966 12 601 7677</span> ، الرقم الموحد: <span dir="ltr">920008880</span>
-                            </div>
-                            <div class="address-en">
+</div>
+<div class="address-en">
                                 Head Office, Jeddah, Prince Sultan Road, Al Murjanah Tower, Tel: +966 12 601 7677, Toll Free 920008880
                             </div>
-                        </div>
-
-                        <!-- Row 3: Branches -->
-                        <div class="footer-branches-block">
-                            <span class="branches-badge">فروعنا Branches</span>
-                            <span class="branches-list">الرياض - مكة المكرمة - خميس مشيط &nbsp;&nbsp;&nbsp; Riyadh - Makkah - Khamis Mushait</span>
-                        </div>
-
-                        <!-- Row 4: CR & Website -->
-                        <div class="footer-bottom-block">
-                            <div class="footer-cr">CR. 4030388105 س.ت</div>
-                            <div class="footer-website">www.amdco-sa.com</div>
-                        </div>
-
-                    </div>
-
-                </footer>
-
-            </div>
-        </main>
-
-    </div>
-
-    <!-- Notification Toast -->
-    <div class="toast-notification" id="toast">
-        <i class="fas fa-check-circle" style="color: var(--gold);"></i>
-        <span id="toastMsg">تم التحديث بنجاح</span>
-    </div>
-
-    <script>
+</div>
+<!-- Row 3: Branches -->
+<div class="footer-branches-block">
+<span class="branches-badge">فروعنا Branches</span>
+<span class="branches-list">الرياض - مكة المكرمة - خميس مشيط     Riyadh - Makkah - Khamis Mushait</span>
+</div>
+<!-- Row 4: CR & Website -->
+<div class="footer-bottom-block">
+<div class="footer-cr">CR. 4030388105 س.ت</div>
+<div class="footer-website">www.amdco-sa.com</div>
+</div>
+</div>
+</footer>
+</div>
+</main>
+</div>
+<!-- Notification Toast -->
+<div class="toast-notification" id="toast">
+<i class="fas fa-check-circle" style="color: var(--gold);"></i>
+<span id="toastMsg">تم التحديث بنجاح</span>
+</div>
+<script>
         // Initialize on DOM ready
         document.addEventListener('DOMContentLoaded', function() {
             updateDocument();

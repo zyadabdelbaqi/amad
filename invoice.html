@@ -1,18 +1,19 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+
+<html dir="rtl" lang="ar">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>إنشاء فاتورة ضريبية - أمدكو</title>
-    <!-- PWA Manifest -->
-    <link rel="manifest" href="invoice-manifest.json">
-    <meta name="theme-color" content="#163261">
-    <link rel="apple-touch-icon" href="./logo/logo_new.webp">
-    <!-- Add Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800;900&display=swap" rel="stylesheet">
-    <!-- QR Code Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>إنشاء فاتورة ضريبية - أمدكو</title>
+<!-- PWA Manifest -->
+<link href="invoice-manifest.json" rel="manifest"/>
+<meta content="#163261" name="theme-color"/>
+<link href="./logo/logo_new.webp" rel="apple-touch-icon"/>
+<!-- Add Font -->
+<link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800;900&amp;display=swap" rel="stylesheet"/>
+<!-- QR Code Library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
         :root {
             --red: #163261;
             --red-m: #1e3a8a;
@@ -384,165 +385,163 @@
             }
         }
     </style>
-</head>
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+
+  gtag('event', 'conversion', {
+    'send_to': 'AW-18495747241/K98qCKzD2JQdEKnpuVNE',
+    'event_callback': callback
+  });
+
+  return false;
+}
+</script></head>
 <body>
-
-    <!-- Sidebar Input -->
-    <div class="sidebar">
-        <h2 style="color: var(--red); text-align: center; margin-bottom: 10px;">إنشاء فاتورة ضريبية</h2>
-        
-        <div class="section-title">بيانات المؤسسة (المُصدِر)</div>
-        <div class="form-group">
-            <label>اسم المؤسسة</label>
-            <input type="text" id="in-comp-name" value="شركة أمد الأولى المحدودة">
-        </div>
-        <div class="form-group">
-            <label>الرقم الضريبي</label>
-            <input type="text" id="in-comp-tax" value="310684547700003">
-        </div>
-
-        <div class="form-group">
-            <label>العنوان</label>
-            <input type="text" id="in-comp-address" value="جدة، طريق الأمير سلطان، برج المرجانة">
-        </div>
-
-        <div class="section-title">بيانات العميل والفاتورة</div>
-        <div class="form-group">
-            <label>رقم الفاتورة</label>
-            <input type="text" id="in-inv-num" value="">
-        </div>
-        <div class="form-group">
-            <label>تاريخ الفاتورة</label>
-            <input type="date" id="in-inv-date">
-        </div>
-        <div class="form-group">
-            <label>طريقة الدفع</label>
-            <select id="in-payment-method" style="width: 100%; padding: 12px 10px 12px 35px; border: 1px solid var(--gray-200); border-radius: 6px; font-size: 14px; font-family: inherit; line-height: 1.5; outline: none; background-color: #fff; background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23333%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'); background-repeat: no-repeat; background-position: left 15px center; background-size: 12px; appearance: none; -webkit-appearance: none; -moz-appearance: none; cursor: pointer;">
-                <option value="كاش / نقدي">كاش / نقدي</option>
-                <option value="تحويل بنكي">تحويل بنكي</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label>اسم العميل (فاتورة إلى)</label>
-            <input type="text" id="in-client-name" placeholder="مجموعة المدار التجارية">
-        </div>
-        <div class="form-group">
-            <label>عنوان العميل</label>
-            <input type="text" id="in-client-address" placeholder="الرياض، العليا">
-        </div>
-        <div class="form-group">
-            <label>الرقم الضريبي للعميل (اختياري)</label>
-            <input type="text" id="in-client-tax" placeholder="300000000000003">
-        </div>
-        <div class="form-group">
-            <label>رقم السجل التجاري للعميل (اختياري)</label>
-            <input type="text" id="in-client-cr" placeholder="1010000000">
-        </div>
-        <div class="form-group">
-            <label>نسبة الخصم (%)</label>
-            <input type="number" id="in-discount-rate" value="0" min="0" max="100">
-        </div>
-        <div class="form-group">
-            <label>نسبة ضريبة القيمة المضافة (%)</label>
-            <input type="number" id="in-tax-rate" value="15" min="0" max="100">
-        </div>
-
-        <div class="section-title">بنود الفاتورة</div>
-        <div id="items-container"></div>
-        <button class="btn btn-gold" id="btn-add-item" style="margin-bottom: 20px;">+ إضافة بند جديد</button>
-        
-        <div class="form-group" style="margin-top: auto; margin-bottom: 20px;">
-            <label>ملاحظات إضافية (تظهر أسفل الفاتورة)</label>
-            <textarea id="in-notes" rows="3">شركة أمد الأولى المحدودة (أمدكو)</textarea>
-        </div>
-        
-        <button class="btn" id="btn-print">طباعة الفاتورة 🖨️</button>
-    </div>
-
-    <!-- Main Content (Invoice Preview) -->
-    <div class="main-content">
-        <div class="invoice-page">
-            
-            <div class="invoice-header">
-                <div class="invoice-header-right">
-                    <img src="./logo/logo_new.webp" alt="Logo" class="invoice-logo">
-                    <h1 id="out-comp-name">شركة أمد الأولى المحدودة</h1>
-                    <p><strong>الرقم الضريبي:</strong>&nbsp;<span id="out-comp-tax" dir="auto">310684547700003</span></p>
-
-                    <p><strong>العنوان:</strong>&nbsp;<span id="out-comp-address" dir="auto">جدة، طريق الأمير سلطان</span></p>
-                </div>
-                <div class="invoice-header-left">
-                    <div class="qr-section">
-                        <div id="qrcode"></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="invoice-title">فاتورة ضريبية <br> <span style="font-size: 14px; color: var(--gold)">Tax Invoice</span></div>
-
-            <div class="invoice-details">
-                <div class="invoice-details-box">
-                    <h3>بيانات العميل (Billed To)</h3>
-                    <p><span>الاسم:</span>&nbsp;<span id="out-client-name" dir="auto">-</span></p>
-                    <p id="wrap-client-address"><span>العنوان:</span>&nbsp;<span id="out-client-address" dir="auto">-</span></p>
-                    <p id="wrap-client-tax"><span>الرقم الضريبي:</span>&nbsp;<span id="out-client-tax" dir="auto">-</span></p>
-                    <p id="wrap-client-cr"><span>س.ت:</span>&nbsp;<span id="out-client-cr" dir="auto">-</span></p>
-                </div>
-                <div class="invoice-details-box">
-                    <h3>تفاصيل الفاتورة (Invoice Details)</h3>
-                    <p><span>رقم الفاتورة:</span>&nbsp;<span id="out-inv-num" dir="auto">-</span></p>
-                    <p><span>تاريخ الإصدار:</span>&nbsp;<span id="out-inv-date" dir="auto">-</span></p>
-                    <p><span>طريقة الدفع:</span>&nbsp;<span id="out-payment-method" dir="auto">-</span></p>
-                </div>
-            </div>
-
-            <table class="invoice-table">
-                <thead>
-                    <tr>
-                        <th style="width: 50%;">الوصف / Item Description</th>
-                        <th style="width: 15%;">الكمية / Qty</th>
-                        <th style="width: 15%;">سعر الوحدة / Unit Price</th>
-                        <th style="width: 20%;">الإجمالي / Total</th>
-                    </tr>
-                </thead>
-                <tbody id="out-items-body">
-                    <!-- Items will be injected here -->
-                </tbody>
-            </table>
-
-            <div class="totals-wrapper">
-                <table class="invoice-totals">
-                    <tr>
-                        <th>الإجمالي <br><small>Subtotal</small></th>
-                        <td><span id="out-subtotal">0.00</span> ر.س</td>
-                    </tr>
-                    <tr id="row-discount">
-                        <th>الخصم (<span id="out-discount-rate-display">0</span>%) <br><small>Discount</small></th>
-                        <td><span id="out-discount-amount">0.00</span> ر.س</td>
-                    </tr>
-                    <tr id="row-taxable">
-                        <th>الإجمالي الخاضع للضريبة <br><small>Taxable Amount</small></th>
-                        <td><span id="out-taxable-amount">0.00</span> ر.س</td>
-                    </tr>
-                    <tr>
-                        <th>ضريبة القيمة المضافة (<span id="out-tax-rate-display">15</span>%) <br><small>VAT</small></th>
-                        <td><span id="out-tax-amount">0.00</span> ر.س</td>
-                    </tr>
-                    <tr class="grand-total">
-                        <th>الإجمالي الكلي <br><small>Grand Total</small></th>
-                        <td><span id="out-grand-total">0.00</span> ر.س</td>
-                    </tr>
-                </table>
-            </div>
-
-            <div class="invoice-footer" id="out-notes">
+<!-- Sidebar Input -->
+<div class="sidebar">
+<h2 style="color: var(--red); text-align: center; margin-bottom: 10px;">إنشاء فاتورة ضريبية</h2>
+<div class="section-title">بيانات المؤسسة (المُصدِر)</div>
+<div class="form-group">
+<label>اسم المؤسسة</label>
+<input id="in-comp-name" type="text" value="شركة أمد الأولى المحدودة"/>
+</div>
+<div class="form-group">
+<label>الرقم الضريبي</label>
+<input id="in-comp-tax" type="text" value="310684547700003"/>
+</div>
+<div class="form-group">
+<label>العنوان</label>
+<input id="in-comp-address" type="text" value="جدة، طريق الأمير سلطان، برج المرجانة"/>
+</div>
+<div class="section-title">بيانات العميل والفاتورة</div>
+<div class="form-group">
+<label>رقم الفاتورة</label>
+<input id="in-inv-num" type="text" value=""/>
+</div>
+<div class="form-group">
+<label>تاريخ الفاتورة</label>
+<input id="in-inv-date" type="date"/>
+</div>
+<div class="form-group">
+<label>طريقة الدفع</label>
+<select id="in-payment-method" style="width: 100%; padding: 12px 10px 12px 35px; border: 1px solid var(--gray-200); border-radius: 6px; font-size: 14px; font-family: inherit; line-height: 1.5; outline: none; background-color: #fff; background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23333%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'); background-repeat: no-repeat; background-position: left 15px center; background-size: 12px; appearance: none; -webkit-appearance: none; -moz-appearance: none; cursor: pointer;">
+<option value="كاش / نقدي">كاش / نقدي</option>
+<option value="تحويل بنكي">تحويل بنكي</option>
+</select>
+</div>
+<div class="form-group">
+<label>اسم العميل (فاتورة إلى)</label>
+<input id="in-client-name" placeholder="مجموعة المدار التجارية" type="text"/>
+</div>
+<div class="form-group">
+<label>عنوان العميل</label>
+<input id="in-client-address" placeholder="الرياض، العليا" type="text"/>
+</div>
+<div class="form-group">
+<label>الرقم الضريبي للعميل (اختياري)</label>
+<input id="in-client-tax" placeholder="300000000000003" type="text"/>
+</div>
+<div class="form-group">
+<label>رقم السجل التجاري للعميل (اختياري)</label>
+<input id="in-client-cr" placeholder="1010000000" type="text"/>
+</div>
+<div class="form-group">
+<label>نسبة الخصم (%)</label>
+<input id="in-discount-rate" max="100" min="0" type="number" value="0"/>
+</div>
+<div class="form-group">
+<label>نسبة ضريبة القيمة المضافة (%)</label>
+<input id="in-tax-rate" max="100" min="0" type="number" value="15"/>
+</div>
+<div class="section-title">بنود الفاتورة</div>
+<div id="items-container"></div>
+<button class="btn btn-gold" id="btn-add-item" style="margin-bottom: 20px;">+ إضافة بند جديد</button>
+<div class="form-group" style="margin-top: auto; margin-bottom: 20px;">
+<label>ملاحظات إضافية (تظهر أسفل الفاتورة)</label>
+<textarea id="in-notes" rows="3">شركة أمد الأولى المحدودة (أمدكو)</textarea>
+</div>
+<button class="btn" id="btn-print">طباعة الفاتورة 🖨️</button>
+</div>
+<!-- Main Content (Invoice Preview) -->
+<div class="main-content">
+<div class="invoice-page">
+<div class="invoice-header">
+<div class="invoice-header-right">
+<img alt="Logo" class="invoice-logo" src="./logo/logo_new.webp"/>
+<h1 id="out-comp-name">شركة أمد الأولى المحدودة</h1>
+<p><strong>الرقم الضريبي:</strong> <span dir="auto" id="out-comp-tax">310684547700003</span></p>
+<p><strong>العنوان:</strong> <span dir="auto" id="out-comp-address">جدة، طريق الأمير سلطان</span></p>
+</div>
+<div class="invoice-header-left">
+<div class="qr-section">
+<div id="qrcode"></div>
+</div>
+</div>
+</div>
+<div class="invoice-title">فاتورة ضريبية <br/> <span style="font-size: 14px; color: var(--gold)">Tax Invoice</span></div>
+<div class="invoice-details">
+<div class="invoice-details-box">
+<h3>بيانات العميل (Billed To)</h3>
+<p><span>الاسم:</span> <span dir="auto" id="out-client-name">-</span></p>
+<p id="wrap-client-address"><span>العنوان:</span> <span dir="auto" id="out-client-address">-</span></p>
+<p id="wrap-client-tax"><span>الرقم الضريبي:</span> <span dir="auto" id="out-client-tax">-</span></p>
+<p id="wrap-client-cr"><span>س.ت:</span> <span dir="auto" id="out-client-cr">-</span></p>
+</div>
+<div class="invoice-details-box">
+<h3>تفاصيل الفاتورة (Invoice Details)</h3>
+<p><span>رقم الفاتورة:</span> <span dir="auto" id="out-inv-num">-</span></p>
+<p><span>تاريخ الإصدار:</span> <span dir="auto" id="out-inv-date">-</span></p>
+<p><span>طريقة الدفع:</span> <span dir="auto" id="out-payment-method">-</span></p>
+</div>
+</div>
+<table class="invoice-table">
+<thead>
+<tr>
+<th style="width: 50%;">الوصف / Item Description</th>
+<th style="width: 15%;">الكمية / Qty</th>
+<th style="width: 15%;">سعر الوحدة / Unit Price</th>
+<th style="width: 20%;">الإجمالي / Total</th>
+</tr>
+</thead>
+<tbody id="out-items-body">
+<!-- Items will be injected here -->
+</tbody>
+</table>
+<div class="totals-wrapper">
+<table class="invoice-totals">
+<tr>
+<th>الإجمالي <br/><small>Subtotal</small></th>
+<td><span id="out-subtotal">0.00</span> ر.س</td>
+</tr>
+<tr id="row-discount">
+<th>الخصم (<span id="out-discount-rate-display">0</span>%) <br/><small>Discount</small></th>
+<td><span id="out-discount-amount">0.00</span> ر.س</td>
+</tr>
+<tr id="row-taxable">
+<th>الإجمالي الخاضع للضريبة <br/><small>Taxable Amount</small></th>
+<td><span id="out-taxable-amount">0.00</span> ر.س</td>
+</tr>
+<tr>
+<th>ضريبة القيمة المضافة (<span id="out-tax-rate-display">15</span>%) <br/><small>VAT</small></th>
+<td><span id="out-tax-amount">0.00</span> ر.س</td>
+</tr>
+<tr class="grand-total">
+<th>الإجمالي الكلي <br/><small>Grand Total</small></th>
+<td><span id="out-grand-total">0.00</span> ر.س</td>
+</tr>
+</table>
+</div>
+<div class="invoice-footer" id="out-notes">
                 شركة أمد الأولى المحدودة (أمدكو)
             </div>
-
-        </div>
-    </div>
-
-    <script>
+</div>
+</div>
+<script>
         // Init Date
         document.getElementById('in-inv-date').valueAsDate = new Date();
 
@@ -768,8 +767,8 @@
         // Initial Render
         renderInputItems();
     </script>
-    <!-- Service Worker Registration -->
-    <script>
+<!-- Service Worker Registration -->
+<script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('./invoice-sw.js')
