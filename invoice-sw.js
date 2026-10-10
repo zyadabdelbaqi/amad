@@ -1,4 +1,4 @@
-const CACHE_NAME = 'invoice-app-v4';
+const CACHE_NAME = 'invoice-app-v5';
 const urlsToCache = [
   './invoice.html',
   './logo/logo_new.webp',

@@ -424,6 +424,10 @@ function gtag_report_conversion(url) {
 <input id="in-inv-num" type="text" value=""/>
 </div>
 <div class="form-group">
+<label>وقت الفاتورة</label>
+<input id="in-inv-time" type="time"/>
+</div>
+<div class="form-group">
 <label>تاريخ الفاتورة</label>
 <input id="in-inv-date" type="date"/>
 </div>
@@ -495,6 +499,7 @@ function gtag_report_conversion(url) {
 <div class="invoice-details-box">
 <h3>تفاصيل الفاتورة (Invoice Details)</h3>
 <p><span>رقم الفاتورة:</span> <span dir="auto" id="out-inv-num">-</span></p>
+<p><span>وقت الإصدار:</span> <span dir="auto" id="out-inv-time">-</span></p>
 <p><span>تاريخ الإصدار:</span> <span dir="auto" id="out-inv-date">-</span></p>
 <p><span>طريقة الدفع:</span> <span dir="auto" id="out-payment-method">-</span></p>
 </div>
@@ -542,8 +547,12 @@ function gtag_report_conversion(url) {
 </div>
 </div>
 <script>
-        // Init Date
-        document.getElementById('in-inv-date').valueAsDate = new Date();
+        // Init Date and Time
+        const now = new Date();
+        document.getElementById('in-inv-date').valueAsDate = now;
+        const hours = now.getHours().toString().padStart(2, '0');
+        const minutes = now.getMinutes().toString().padStart(2, '0');
+        document.getElementById('in-inv-time').value = `${hours}:${minutes}`;
 
         // Init Invoice Number (Sequential)
         let lastInvNum = localStorage.getItem('lastInvoiceNum');
@@ -654,6 +663,7 @@ function gtag_report_conversion(url) {
             document.getElementById('out-comp-address').innerText = document.getElementById('in-comp-address').value;
 
             document.getElementById('out-inv-num').innerText = document.getElementById('in-inv-num').value;
+            document.getElementById('out-inv-time').innerText = document.getElementById('in-inv-time').value;
             document.getElementById('out-inv-date').innerText = document.getElementById('in-inv-date').value;
             document.getElementById('out-payment-method').innerText = document.getElementById('in-payment-method').value;
             
@@ -718,8 +728,10 @@ function gtag_report_conversion(url) {
             // Generate QR Code
             let invDate = document.getElementById('in-inv-date').value;
             if(!invDate) invDate = new Date().toISOString().split('T')[0];
+            let invTimeVal = document.getElementById('in-inv-time').value;
+            if(!invTimeVal) invTimeVal = "00:00";
             
-            const qrBase64 = generateZatcaQR(sellerName, sellerTax, invDate + "T00:00:00Z", grandTotal, taxAmount);
+            const qrBase64 = generateZatcaQR(sellerName, sellerTax, invDate + "T" + invTimeVal + ":00Z", grandTotal, taxAmount);
             
             document.getElementById('qrcode').innerHTML = '';
             if(qrcodeInstance) {
