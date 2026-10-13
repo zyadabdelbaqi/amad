@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>أمد ديجيتال | ابنِ هويتك الرقمية المتكاملة اليوم</title>
+<meta content="صفحة هبوط لتقديم خدمات الويب والهوية الشاملة: تصميم مواقع سريعة، نظم عروض أسعار وفواتير بالهوية، وهوية مطبوعة مع QR كود تفاعلي." name="description"/>
+<meta content="تصميم مواقع, هوية رقمية, عروض أسعار, فواتير, QR كود, هوية مطبوعة,تجربة مستخدم" name="keywords"/>
+<meta content="أمد ديجيتال" name="author"/>
+<meta content="#06070b" name="theme-color"/>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --bg:#06070b;
+  --bg-2:#0a0c12;
+  --panel:#0f121a;
+  --panel-2:#141926;
+  --line:rgba(255,255,255,.08);
+  --line-2:rgba(255,255,255,.16);
+  --txt:#eef1f7;
+  --muted:#98a2b8;
+  --muted-2:#6d768c;
+  --gold:#c39d68;
+  --gold-2:#e9cf99;
+  --blue:#3b82f6;
+  --r:20px;
+  --tr:all .45s cubic-bezier(.22,.61,.36,1);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Tajawal','Cairo',system-ui,-apple-system,'Segoe UI',sans-serif;
+  background:var(--bg);
+  color:var(--txt);
+  line-height:1.8;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  background:
+    radial-gradient(900px 600px at 82% -5%, rgba(195,157,104,.14), transparent 60%),
+    radial-gradient(800px 600px at 5% 15%, rgba(59,130,246,.12), transparent 60%),
+    radial-gradient(1000px 800px at 50% 110%, rgba(195,157,104,.08), transparent 65%);
+}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+img{max-width:100%;display:block}
+
+.bg-words{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none;filter:blur(7px);opacity:.13}
+.bg-words span{
+  position:absolute;
+  color:#cdd6e6;
+  font-weight:800;
+  white-space:nowrap;
+  letter-spacing:2px;
+}
+
+.wrap{position:relative;z-index:1}
+
+.nav{
+  position:fixed;top:0;right:0;left:0;z-index:1000;
+  background:rgba(6,7,11,.72);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--line);
+  transition:var(--tr);
+}
+.nav.scrolled{background:rgba(6,7,11,.92);box-shadow:0 20px 50px rgba(0,0,0,.5)}
+.nav-c{max-width:1220px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:900}
+.brand-mark{
+  width:42px;height:42px;border-radius:13px;
+  background:linear-gradient(135deg,var(--gold),#8a6a3c);
+  display:flex;align-items:center;justify-content:center;
+  color:#141007;font-size:20px;font-weight:900;
+  box-shadow:0 8px 24px rgba(195,157,104,.35);
+}
+.brand-txt{display:flex;flex-direction:column;line-height:1.1}
+.brand-txt b{font-size:19px;letter-spacing:.5px}
+.brand-txt small{font-size:11px;color:var(--muted);font-weight:600;letter-spacing:3px}
+.nav-links{display:flex;align-items:center;gap:6px}
+.nav-links a{padding:9px 15px;border-radius:10px;font-weight:600;font-size:15px;color:#c7cede;transition:var(--tr)}
+.nav-links a:hover{color:var(--gold-2);background:rgba(255,255,255,.05)}
+.nav-cta{
+  padding:11px 24px;border-radius:50px;font-weight:800;font-size:15px;
+  background:linear-gradient(135deg,var(--gold),#a9824b);color:#120d05;
+  box-shadow:0 8px 26px rgba(195,157,104,.32);transition:var(--tr);white-space:nowrap;
+}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 12px 34px rgba(195,157,104,.5)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:0}
+.burger span{width:26px;height:2px;background:var(--txt);border-radius:3px;transition:var(--tr)}
+
+.mobile-menu{display:none;flex-direction:column;gap:4px;padding:12px 20px 22px;border-top:1px solid var(--line)}
+.mobile-menu.open{display:flex}
+.mobile-menu a{padding:12px 14px;border-radius:12px;font-weight:600;color:#c7cede}
+.mobile-menu a:hover{background:rgba(255,255,255,.05);color:var(--gold-2)}
+
+.container{max-width:1220px;margin:0 auto;padding:0 28px}
+.section{padding:104px 0;position:relative}
+
+.hero{padding:168px 0 96px}
+.hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:56px;align-items:center}
+.pill{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:7px 18px;border-radius:50px;
+  background:rgba(195,157,104,.1);
+  border:1px solid rgba(195,157,104,.28);
+  color:var(--gold-2);font-size:13px;font-weight:700;margin-bottom:26px;
+}
+.pill i{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 12px var(--gold)}
+h1.hero-title{
+  font-size:clamp(34px,5.4vw,62px);font-weight:900;line-height:1.2;
+  letter-spacing:-.5px;margin-bottom:22px;
+}
+.grad{
+  background:linear-gradient(120deg,var(--gold-2),var(--gold) 55%,#a9824b);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero-desc{font-size:clamp(16px,1.7vw,19px);color:var(--muted);max-width:560px;font-weight:500;margin-bottom:36px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:15px 34px;border-radius:50px;font-family:inherit;
+  font-size:16px;font-weight:800;cursor:pointer;border:0;transition:var(--tr);
+}
+.btn-primary{background:linear-gradient(135deg,var(--gold-2),var(--gold));color:#120d05;box-shadow:0 12px 34px rgba(195,157,104,.3)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 18px 44px rgba(195,157,104,.48)}
+.btn-ghost{background:rgba(255,255,255,.04);color:var(--txt);border:1px solid var(--line-2)}
+.btn-ghost:hover{background:rgba(255,255,255,.08);transform:translateY(-3px)}
+.hero-stats{display:flex;gap:34px;margin-top:44px;flex-wrap:wrap}
+.stat b{display:block;font-size:28px;font-weight:900;color:#fff}
+.stat span{font-size:13px;color:var(--muted);font-weight:600}
+
+.stage{perspective:2000px}
+.mock{
+  position:relative;border-radius:20px;overflow:hidden;
+  background:linear-gradient(160deg,#0e121c,#080a10);
+  border:1px solid var(--line-2);
+  box-shadow:-40px 50px 100px rgba(0,0,0,.6),0 0 90px rgba(195,157,104,.12);
+  transform:rotateX(24deg) rotateY(-10deg) rotateZ(-2.5deg);
+  transition:transform .8s cubic-bezier(.22,.61,.36,1);
+}
+.stage:hover .mock{transform:rotateX(12deg) rotateY(-5deg) rotateZ(-1deg)}
+.mock-bar{display:flex;align-items:center;gap:8px;padding:13px 16px;background:rgba(255,255,255,.03);border-bottom:1px solid var(--line)}
+.dot{width:10px;height:10px;border-radius:50%}
+.dot.r{background:#ff5f57}.dot.y{background:#febc2e}.dot.g{background:#28c840}
+.mock-url{flex:1;margin-inline-start:12px;background:rgba(255,255,255,.05);border-radius:8px;padding:5px 14px;font-size:11px;color:var(--muted-2);direction:ltr;text-align:left}
+.mock-body{padding:22px 22px 26px;display:flex;flex-direction:column;gap:16px}
+.mock-nav{display:flex;align-items:center;justify-content:space-between}
+.mock-logo{width:52px;height:12px;border-radius:4px;background:linear-gradient(90deg,var(--gold),#7a5c34)}
+.mock-navlinks{display:flex;gap:10px}
+.mock-navlinks i{width:34px;height:8px;border-radius:4px;background:rgba(255,255,255,.10);display:block}
+.mock-hero{text-align:center;padding:18px 10px 6px}
+.mock-line{height:15px;border-radius:5px;background:rgba(255,255,255,.14);margin:0 auto 10px}
+.mock-line.w1{width:72%}.mock-line.w2{width:52%}
+.mock-line.gold{background:linear-gradient(90deg,var(--gold),#8a6a3c);width:60%}
+.mock-btn{width:120px;height:30px;border-radius:50px;background:linear-gradient(135deg,var(--gold-2),var(--gold));margin:14px auto 0}
+.mock-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:8px}
+.mock-card{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:12px;padding:14px 12px;display:flex;flex-direction:column;gap:8px}
+.mock-card .ic{width:26px;height:26px;border-radius:8px;background:linear-gradient(135deg,rgba(195,157,104,.35),rgba(195,157,104,.08))}
+.mock-card .ln{height:8px;border-radius:4px;background:rgba(255,255,255,.12)}
+.mock-card .ln.s{width:65%}
+.mock-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
+.chip{font-size:10px;font-weight:700;color:var(--muted);background:rgba(255,255,255,.05);border:1px solid var(--line);padding:5px 11px;border-radius:50px}
+
+.section-head{text-align:center;max-width:720px;margin:0 auto 62px}
+.kicker{display:inline-block;font-size:13px;font-weight:800;letter-spacing:4px;color:var(--gold);margin-bottom:14px;text-transform:uppercase}
+.section-title{font-size:clamp(28px,4.4vw,46px);font-weight:900;line-height:1.25;margin-bottom:16px;letter-spacing:-.5px}
+.section-sub{font-size:17px;color:var(--muted);font-weight:500}
+
+.svc{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:center;padding:52px 0}
+.svc:not(:last-child){border-bottom:1px solid var(--line)}
+.svc.rev .svc-visual{order:-1}
+.svc-num{font-size:14px;font-weight:900;letter-spacing:3px;color:var(--gold);margin-bottom:14px}
+.svc h3{font-size:clamp(24px,3.2vw,36px);font-weight:900;line-height:1.3;margin-bottom:18px}
+.svc p{font-size:17px;color:var(--muted);max-width:520px;margin-bottom:26px}
+.svc-list{display:grid;gap:12px;margin-bottom:30px}
+.svc-list li{display:flex;align-items:center;gap:12px;font-size:15px;font-weight:600;color:#cfd6e4}
+.tick{
+  width:24px;height:24px;border-radius:50%;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(195,157,104,.14);color:var(--gold-2);font-size:12px;
+  border:1px solid rgba(195,157,104,.3);
+}
+.svc-visual{
+  border-radius:var(--r);padding:30px;
+  background:linear-gradient(150deg,var(--panel-2),#0a0d15);
+  border:1px solid var(--line);
+  box-shadow:0 30px 60px rgba(0,0,0,.45);
+  position:relative;overflow:hidden;
+}
+.svc-visual::after{content:"";position:absolute;inset:0;background:radial-gradient(400px 200px at 80% 0,rgba(195,157,104,.14),transparent 70%);pointer-events:none}
+.vis-icon{
+  width:64px;height:64px;border-radius:18px;display:flex;align-items:center;justify-content:center;
+  font-size:26px;margin-bottom:22px;
+  background:linear-gradient(135deg,rgba(195,157,104,.25),rgba(195,157,104,.05));
+  border:1px solid rgba(195,157,104,.3);color:var(--gold-2);
+}
+.vis-bars{display:flex;flex-direction:column;gap:12px;position:relative;z-index:1}
+.vis-bar{display:flex;align-items:center;justify-content:space-between;gap:14px;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:12px;padding:13px 16px;font-size:14px;font-weight:600;color:#cfd6e4}
+.vis-bar .val{color:var(--gold-2);font-weight:800}
+.vis-bar .bar{flex:1;height:6px;border-radius:50px;background:rgba(255,255,255,.08);overflow:hidden}
+.vis-bar .bar b{display:block;height:100%;border-radius:50px;background:linear-gradient(90deg,var(--gold),var(--gold-2))}
+.qr{width:120px;height:120px;border-radius:14px;background:#fff;padding:12px;margin:0 auto 18px;position:relative;z-index:1}
+.qr-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;width:100%;height:100%}
+.qr-grid i{background:#0a0d15;border-radius:1px}
+.qr-grid i.off{background:transparent}
+
+.systems{background:linear-gradient(180deg,transparent,rgba(255,255,255,.015),transparent)}
+.dsm-wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:center}
+.dsm-trigger{
+  width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:15px 20px;border-radius:14px;font-family:inherit;font-size:15px;font-weight:800;color:var(--txt);
+  background:var(--panel);border:1px solid var(--line-2);cursor:pointer;transition:var(--tr);
+}
+.dsm-trigger:hover{border-color:rgba(195,157,104,.4)}
+.dsm-trigger .chev{transition:transform .35s ease;color:var(--muted)}
+.dsm.open .dsm-trigger .chev{transform:rotate(180deg)}
+.dsm-panel{
+  margin-top:12px;border-radius:16px;overflow:hidden;
+  background:linear-gradient(170deg,var(--panel-2),#090b11);
+  border:1px solid var(--line-2);
+  box-shadow:0 30px 70px rgba(0,0,0,.55);
+  max-height:0;opacity:0;transform:translateY(-8px);
+  transition:max-height .45s ease,opacity .35s ease,transform .35s ease;
+}
+.dsm.open .dsm-panel{max-height:560px;opacity:1;transform:translateY(0)}
+.dsm-inner{padding:10px}
+.dsm-item{
+  display:flex;align-items:center;gap:14px;width:100%;
+  padding:12px 14px;border-radius:12px;cursor:pointer;
+  background:transparent;border:0;font-family:inherit;text-align:right;transition:var(--tr);
+}
+.dsm-item:hover{background:rgba(255,255,255,.05)}
+.dsm-ico{
+  width:38px;height:38px;border-radius:11px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:900;font-size:15px;color:#fff;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.12),0 6px 16px rgba(0,0,0,.35);
+}
+.dsm-txt{display:flex;flex-direction:column;line-height:1.35}
+.dsm-txt b{font-size:15px;font-weight:800;color:#eef1f7}
+.dsm-txt span{font-size:12px;color:var(--muted-2);font-weight:600}
+.dsm-badge{margin-inline-start:auto;font-size:11px;font-weight:700;color:var(--gold-2);background:rgba(195,157,104,.12);border:1px solid rgba(195,157,104,.25);padding:4px 10px;border-radius:50px}
+.dsm-item.import{border:1px dashed var(--line-2);justify-content:center;margin-top:6px}
+.dsm-item.import .dsm-txt b{color:var(--gold-2)}
+.dsm-item.import .dsm-ico{background:transparent;box-shadow:inset 0 0 0 1px var(--line-2);color:var(--gold-2);font-size:20px}
+.dsm-note{margin-top:22px;font-size:14px;color:var(--muted);border-inline-start:2px solid var(--gold);padding-inline-start:16px}
+.ico-chakra{background:linear-gradient(135deg,#2bd9c4,#1a9e8f)}
+.ico-mui{background:linear-gradient(135deg,#2a6bf2,#0d47d9)}
+.ico-shad{background:linear-gradient(135deg,#ffffff,#d7dbe4);color:#0a0d15}
+.ico-wapo{background:linear-gradient(135deg,#2b2b2b,#000)}
+.ico-aws{background:linear-gradient(135deg,#2b2f36,#171a1f);color:#ff9900;font-size:12px}
+.ico-porsche{background:linear-gradient(135deg,#c8a24d,#8a1f1f)}
+
+.cta-band{
+  border-radius:26px;padding:56px 48px;text-align:center;position:relative;overflow:hidden;
+  background:linear-gradient(140deg,var(--panel-2),#0a0d15);
+  border:1px solid var(--line-2);
+}
+.cta-band::before{content:"";position:absolute;inset:0;background:radial-gradient(600px 300px at 50% -20%,rgba(195,157,104,.22),transparent 65%)}
+.cta-band h2{position:relative;font-size:clamp(26px,4vw,42px);font-weight:900;margin-bottom:14px;line-height:1.3}
+.cta-band p{position:relative;font-size:17px;color:var(--muted);max-width:560px;margin:0 auto 30px}
+
+footer{border-top:1px solid var(--line);padding:46px 0 34px;margin-top:40px}
+.foot-grid{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.foot-links{display:flex;gap:20px;flex-wrap:wrap}
+.foot-links a{color:var(--muted);font-size:14px;font-weight:600;transition:var(--tr)}
+.foot-links a:hover{color:var(--gold-2)}
+.copy{font-size:13px;color:var(--muted-2)}
+
+.wa{
+  position:fixed;bottom:26px;left:26px;z-index:900;
+  width:58px;height:58px;border-radius:50%;
+  background:#25d366;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 12px 34px rgba(37,211,102,.42);transition:var(--tr);
+}
+.wa:hover{transform:translateY(-4px) scale(1.05)}
+.wa svg{width:30px;height:30px;fill:#fff}
+
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s cubic-bezier(.22,.61,.36,1)}
+.reveal.in{opacity:1;transform:none}
+
+@media (max-width:1024px){
+  .hero-grid{grid-template-columns:1fr;gap:48px}
+  .stage{order:-1;max-width:560px;margin:0 auto}
+  .mock{transform:rotateX(16deg) rotateY(-6deg)}
+  .dsm-wrap{grid-template-columns:1fr;gap:40px}
+}
+@media (max-width:820px){
+  .nav-links,.nav-cta{display:none}
+  .burger{display:flex}
+  .svc{grid-template-columns:1fr;gap:32px;padding:44px 0}
+  .svc.rev .svc-visual{order:0}
+  .hero{padding:140px 0 70px}
+  .section{padding:76px 0}
+  .cta-band{padding:40px 24px}
+  .foot-grid{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<div class="bg-words" id="bgWords"></div>
+
+<div class="wrap">
+
+<nav class="nav" id="nav">
+  <div class="nav-c">
+    <a class="brand" href="#hero">
+      <span class="brand-mark">أ</span>
+      <span class="brand-txt"><b>أمد ديجيتال</b><small>DIGITAL IDENTITY</small></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#hero">الرئيسية</a></li>
+      <li><a href="#web">تصميم المواقع</a></li>
+      <li><a href="#invoices">العروض والفواتير</a></li>
+      <li><a href="#branding">الهوية والـ QR</a></li>
+      <li><a href="#systems">أدواتنا</a></li>
+    </ul>
+    <a class="nav-cta" href="#contact">ابدأ الآن</a>
+    <button aria-label="القائمة" class="burger" id="burger"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#hero">الرئيسية</a>
+    <a href="#web">تصميم المواقع</a>
+    <a href="#invoices">العروض والفواتير</a>
+    <a href="#branding">الهوية والـ QR</a>
+    <a href="#systems">أدواتنا</a>
+    <a href="#contact">ابدأ الآن</a>
+  </div>
+</nav>
+
+<header class="hero" id="hero">
+  <div class="container hero-grid">
+    <div class="reveal">
+      <span class="pill"><i></i> حلول رقمية متكاملة تحت سقف واحد</span>
+      <h1 class="hero-title">ابنِ <span class="grad">هويتك الرقمية</span><br/>المتكاملة اليوم</h1>
+      <p class="hero-desc">صمم وابنِ هويتك الرقمية بلمسة احترافية كاملة. من المواقع السريعة إلى نظم عروض الأسعار والفواتير بالهوية، نوفر حلولاً شاملة لنشر هويتك بدقة.</p>
+      <div class="hero-btns">
+        <a class="btn btn-primary" href="#web">ابدأ الآن</a>
+        <a class="btn btn-ghost" href="#systems">شاهد أدواتنا</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><b>+120</b><span>مشروع منجز</span></div>
+        <div class="stat"><b>+40</b><span>هوية رقمية</span></div>
+        <div class="stat"><b>24/7</b><span>دعم ومتابعة</span></div>
+      </div>
+    </div>
+    <div class="stage reveal">
+      <div class="mock">
+        <div class="mock-bar">
+          <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+          <span class="mock-url">amad-digital.com</span>
+        </div>
+        <div class="mock-body">
+          <div class="mock-nav">
+            <span class="mock-logo"></span>
+            <span class="mock-navlinks"><i></i><i></i><i></i></span>
+          </div>
+          <div class="mock-hero">
+            <div class="mock-line w1"></div>
+            <div class="mock-line gold w2"></div>
+            <div class="mock-line w1" style="width:64%"></div>
+            <div class="mock-btn"></div>
+          </div>
+          <div class="mock-cards">
+            <div class="mock-card"><span class="ic"></span><span class="ln"></span><span class="ln s"></span></div>
+            <div class="mock-card"><span class="ic"></span><span class="ln"></span><span class="ln s"></span></div>
+            <div class="mock-card"><span class="ic"></span><span class="ln"></span><span class="ln s"></span></div>
+          </div>
+          <div class="mock-row">
+            <span class="chip">تسويق</span><span class="chip">عروض أسعار</span><span class="chip">فواتير</span><span class="chip">QR تفاعلي</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="section" id="web">
+  <div class="container">
+    <div class="svc reveal">
+      <div class="svc-text">
+        <div class="svc-num">٠١ / تصميم المواقع</div>
+        <h3>تصميم مواقع ويب مبتكرة وسريعة</h3>
+        <p>تصميم مواقع ويب مبتكرة وسريعة وبحس متطور لتجربة مستخدم لا تنسى.</p>
+        <ul class="svc-list">
+          <li><span class="tick">✓</span> واجهات مخصصة تعكس هويتك</li>
+          <li><span class="tick">✓</span> سرعة تحميل عالية وأداء متفوق</li>
+          <li><span class="tick">✓</span> متوافق كلياً مع الجوال</li>
+        </ul>
+        <a class="btn btn-primary" href="#contact">ابدأ الآن</a>
+      </div>
+      <div class="svc-visual">
+        <div class="vis-icon">&#9889;</div>
+        <div class="vis-bars">
+          <div class="vis-bar"><span class="val">98</span><span class="bar"><b style="width:98%"></b></span> الأداء</div>
+          <div class="vis-bar"><span class="val">100</span><span class="bar"><b style="width:100%"></b></span> التجاوب</div>
+          <div class="vis-bar"><span class="val">96</span><span class="bar"><b style="width:96%"></b></span> تجربة المستخدم</div>
+          <div class="vis-bar"><span class="val">99</span><span class="bar"><b style="width:99%"></b></span> أفضل الممارسات</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="invoices">
+  <div class="container">
+    <div class="svc rev reveal">
+      <div class="svc-text">
+        <div class="svc-num">٠٢ / المستندات</div>
+        <h3>إدارة نظم عروض الأسعار والفواتير</h3>
+        <p>إدارة نظم عروض الأسعار والفواتير بنفس الهوية، لتوليد وثائق احترافية بضغطة زر.</p>
+        <ul class="svc-list">
+          <li><span class="tick">✓</span> قوالب بهويتك البصرية</li>
+          <li><span class="tick">✓</span> تصدير PDF و مشاركة فورية</li>
+          <li><span class="tick">✓</span> أرشفة وتنظيم كامل للوثائق</li>
+        </ul>
+        <a class="btn btn-primary" href="#contact">ابدأ الآن</a>
+      </div>
+      <div class="svc-visual">
+        <div class="vis-icon">&#128209;</div>
+        <div class="vis-bars">
+          <div class="vis-bar">عرض سعر #1042 <span class="val">تم الإرسال</span></div>
+          <div class="vis-bar">فاتورة #2091 <span class="val">مدفوعة</span></div>
+          <div class="vis-bar">عرض سعر #1043 <span class="val">قيد المراجعة</span></div>
+          <div class="vis-bar">فاتورة #2092 <span class="val">تم التوليد</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="branding">
+  <div class="container">
+    <div class="svc reveal">
+      <div class="svc-text">
+        <div class="svc-num">٠٣ / الهوية</div>
+        <h3>هوية مطبوعة وQR كود تفاعلي</h3>
+        <p>تصميم هوية مطبوعة كاملة مع دمج QR كود تفاعلي يربط عالمك المادي برقمك الرقمي.</p>
+        <ul class="svc-list">
+          <li><span class="tick">✓</span> مطبوعات احترافية متكاملة</li>
+          <li><span class="tick">✓</span> QR كود يربط المطبوع بالرقمي</li>
+          <li><span class="tick">✓</span> تتبع وقياس تفاعل العملاء</li>
+        </ul>
+        <a class="btn btn-primary" href="#contact">ابدأ الآن</a>
+      </div>
+      <div class="svc-visual">
+        <div class="qr">
+          <div class="qr-grid" id="qrGrid"></div>
+        </div>
+        <div class="vis-bars">
+          <div class="vis-bar">مسح الكود <span class="val">+ 320</span></div>
+          <div class="vis-bar">الوصول للرابط <span class="val">نشط</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section systems" id="systems">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="kicker">أدوات نستخدمها</span>
+      <h2 class="section-title">نظامنا يعمل مع <span class="grad">كل أنظمة التصميم</span></h2>
+      <p class="section-sub">نستورد وننسّق مكوّناتك من أشهر أنظمة التصميم العالمية، لنبني واجهات متسقة وسريعة.</p>
+    </div>
+    <div class="dsm-wrap">
+      <div class="reveal">
+        <span class="kicker">Design Systems</span>
+        <h3 style="font-size:26px;font-weight:900;margin-bottom:14px">قائمة أنظمة التصميم المدعومة</h3>
+        <p class="dsm-note">افتح القائمة لتصفح الأنظمة الأصلية المتاحة، أو استورد نظام تصميمك الخاص لتبدأ فوراً.</p>
+      </div>
+      <div class="dsm open reveal" id="dsm">
+        <button class="dsm-trigger" id="dsmTrigger">
+          <span>&#128193; Design Systems — أنظمة التصميم</span>
+          <span class="chev">&#9662;</span>
+        </button>
+        <div class="dsm-panel">
+          <div class="dsm-inner">
+            <button class="dsm-item">
+              <span class="dsm-ico ico-chakra">
+                <svg height="18" viewBox="0 0 24 24" width="18"><path d="M13.2 2 4 14.2h6.1L9.4 22 19 9.4h-6.3z" fill="#fff"/></svg>
+              </span>
+              <span class="dsm-txt"><b>Chakra UI</b><span>React Component Library</span></span>
+              <span class="dsm-badge">مدعوم</span>
+            </button>
+            <button class="dsm-item">
+              <span class="dsm-ico ico-mui">M</span>
+              <span class="dsm-txt"><b>Material UI</b><span>Google Material Design</span></span>
+              <span class="dsm-badge">مدعوم</span>
+            </button>
+            <button class="dsm-item">
+              <span class="dsm-ico ico-shad">S</span>
+              <span class="dsm-txt"><b>shadcn/ui</b><span>Radix + Tailwind</span></span>
+              <span class="dsm-badge">مدعوم</span>
+            </button>
+            <button class="dsm-item">
+              <span class="dsm-ico ico-wapo" style="font-family:Georgia,serif">W</span>
+              <span class="dsm-txt"><b>The Washington Post</b><span>Newsroom Design System</span></span>
+              <span class="dsm-badge">مدعوم</span>
+            </button>
+            <button class="dsm-item">
+              <span class="dsm-ico ico-aws">aws</span>
+              <span class="dsm-txt"><b>AWS Cloudscape</b><span>Cloud Design System</span></span>
+              <span class="dsm-badge">مدعوم</span>
+            </button>
+            <button class="dsm-item">
+              <span class="dsm-ico ico-porsche" style="font-family:Georgia,serif">P</span>
+              <span class="dsm-txt"><b>Porsche</b><span>Automotive Design System</span></span>
+              <span class="dsm-badge">مدعوم</span>
+            </button>
+            <button class="dsm-item import">
+              <span class="dsm-ico">+</span>
+              <span class="dsm-txt"><b>Import your design system</b><span>استورد نظام تصميمك الخاص</span></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="container">
+    <div class="cta-band reveal">
+      <h2>جاهز لبناء هويتك الرقمية المتكاملة؟</h2>
+      <p>ابدأ الآن واحصل على استشارة تصميم مجانية، ولننشر هويتك بدقة واحتراف.</p>
+      <div class="hero-btns" style="justify-content:center">
+        <a class="btn btn-primary" href="https://wa.me/966545759422" rel="noopener" target="_blank">ابدأ الآن</a>
+        <a class="btn btn-ghost" href="#hero">تحدث معنا</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container foot-grid">
+    <a class="brand" href="#hero">
+      <span class="brand-mark">أ</span>
+      <span class="brand-txt"><b>أمد ديجيتال</b><small>DIGITAL IDENTITY</small></span>
+    </a>
+    <div class="foot-links">
+      <a href="#web">تصميم المواقع</a>
+      <a href="#invoices">العروض والفواتير</a>
+      <a href="#branding">الهوية والـ QR</a>
+      <a href="#systems">أدواتنا</a>
+    </div>
+    <div class="copy">© <span id="year"></span> أمد ديجيتال. جميع الحقوق محفوظة.</div>
+  </div>
+</footer>
+
+</div>
+
+<a aria-label="واتساب" class="wa" href="https://wa.me/966545759422" rel="noopener" target="_blank">
+  <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.4A10 10 0 1 0 12 2Zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 1 1 12 20Zm4.5-5.9c-.2-.1-1.4-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.6.1a6.5 6.5 0 0 1-1.9-1.2 7.2 7.2 0 0 1-1.3-1.7c-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.3-.5s0-.3 0-.5-.6-1.5-.9-2c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3a3 3 0 0 0-.9 2.1 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.6 4c.6.3 1.1.4 1.5.5a3.3 3.3 0 0 0 1.5.1 2.7 2.7 0 0 0 1.7-1.2 2.1 2.1 0 0 0 .2-1.2c-.1-.1-.2-.2-.4-.3Z"/></svg>
+</a>
+
+<script>
+(function(){
+  var phrases=["هوية رقمية","تصميم مواقع","عروض أسعار","فواتير احترافية","QR تفاعلي","تجربة مستخدم","هوية مطبوعة","نظم متكاملة","سرعة وأداء","أمد ديجيتال","تصميم مبتكر","ربط رقمي"];
+  var bg=document.getElementById("bgWords");
+  var cols=Math.max(4,Math.ceil(window.innerWidth/220));
+  var rows=Math.max(6,Math.ceil(window.innerHeight/120));
+  var frag=document.createDocumentFragment();
+  for(var y=0;y<rows;y++){
+    for(var x=0;x<cols;x++){
+      var s=document.createElement("span");
+      var p=phrases[(x+y*3)%phrases.length];
+      s.textContent=p;
+      s.style.top=(y*120+Math.random()*30-15)+"px";
+      s.style.right=(x*(100/cols)+Math.random()*4-2)+"%";
+      s.style.fontSize=(18+Math.random()*22)+"px";
+      s.style.transform="rotate("+(Math.random()*10-5)+"deg)";
+      frag.appendChild(s);
+    }
+  }
+  bg.appendChild(frag);
+
+  var nav=document.getElementById("nav");
+  window.addEventListener("scroll",function(){
+    nav.classList.toggle("scrolled",window.scrollY>30);
+  },{passive:true});
+
+  var burger=document.getElementById("burger");
+  var mobile=document.getElementById("mobileMenu");
+  burger.addEventListener("click",function(){mobile.classList.toggle("open");});
+  mobile.querySelectorAll("a").forEach(function(a){a.addEventListener("click",function(){mobile.classList.remove("open");});});
+
+  var dsm=document.getElementById("dsm");
+  document.getElementById("dsmTrigger").addEventListener("click",function(){dsm.classList.toggle("open");});
+
+  var qg=document.getElementById("qrGrid");
+  var seed=7;
+  for(var i=0;i<49;i++){
+    seed=(seed*1103515245+12345)&2147483647;
+    var cell=document.createElement("i");
+    if(((seed>>16)&1)===0)cell.className="off";
+    qg.appendChild(cell);
+  }
+
+  document.getElementById("year").textContent=new Date().getFullYear();
+
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}
+    });
+  },{threshold:.15});
+  document.querySelectorAll(".reveal").forEach(function(el){io.observe(el);});
+})();
+</script>
+</body>
+</html>

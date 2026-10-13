@@ -1,10 +1,12 @@
 import os
+import urllib.parse
 from datetime import datetime
 
 base_url = "https://www.amadco-sa.com"
 html_files = [
     "index.html",
     "pest-control.html",
+    "ارخص-شركة-مكافحة-حشرات-بجدة.html",
     "sterilization.html",
     "steam-cleaning.html",
     "tank-cleaning.html",
@@ -13,7 +15,8 @@ html_files = [
 
 priorities = {
     "index.html": "1.0",
-    "pest-control.html": "0.9",
+    "pest-control.html": "1.0",
+    "ارخص-شركة-مكافحة-حشرات-بجدة.html": "1.0",
     "tank-cleaning.html": "0.9",
     "sterilization.html": "0.8",
     "steam-cleaning.html": "0.8",
@@ -22,7 +25,8 @@ priorities = {
 
 frequencies = {
     "index.html": "weekly",
-    "pest-control.html": "monthly",
+    "pest-control.html": "weekly",
+    "ارخص-شركة-مكافحة-حشرات-بجدة.html": "weekly",
     "tank-cleaning.html": "monthly",
     "sterilization.html": "monthly",
     "steam-cleaning.html": "monthly",
@@ -38,7 +42,8 @@ def generate_sitemap():
     ]
     
     for filename in html_files:
-        url = f"{base_url}/{filename}" if filename != "index.html" else f"{base_url}/"
+        quoted_filename = urllib.parse.quote(filename)
+        url = f"{base_url}/{quoted_filename}" if filename != "index.html" else f"{base_url}/"
         priority = priorities.get(filename, "0.5")
         freq = frequencies.get(filename, "monthly")
         
