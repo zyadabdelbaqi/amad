@@ -10,7 +10,7 @@
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700;800;900&amp;family=Almarai:wght@300;400;700;800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
 <!-- Font Awesome -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
 <!-- PDF Export Libraries -->
@@ -32,7 +32,7 @@
             --gray-50: #f8fafc;
             --white: #ffffff;
             --sidebar-width: 380px;
-            --content-font: 'Almarai', sans-serif;
+            --content-font: 'Alexandria', sans-serif;
         }
 
         * {
@@ -44,7 +44,7 @@
         }
 
         body {
-            font-family: 'Almarai', sans-serif;
+            font-family: 'Alexandria', sans-serif;
             background-color: #0f172a;
             color: var(--gray-900);
             min-height: 100vh;
@@ -466,7 +466,7 @@
             padding: 14mm 18mm 14mm 18mm;
             box-sizing: border-box;
             overflow: visible;
-            font-family: 'Almarai', sans-serif;
+            font-family: var(--content-font);
             color: #1a1a1a;
             direction: rtl;
             text-align: right;
@@ -654,7 +654,7 @@
 
         .sign-closing-statement {
             text-align: center;
-            font-family: 'Almarai', sans-serif;
+            font-family: inherit;
             font-size: 13px;
             font-weight: 800;
             color: #1e293b;
@@ -685,7 +685,7 @@
         }
 
         .party-title {
-            font-family: 'Almarai', sans-serif;
+            font-family: inherit;
             font-size: 13.5px;
             font-weight: 800;
             color: #0f172a;
@@ -693,7 +693,7 @@
         }
 
         .party-name {
-            font-family: 'Almarai', sans-serif;
+            font-family: inherit;
             font-size: 12.5px;
             font-weight: 700;
             color: #1e293b;
@@ -756,7 +756,7 @@
         }
 
         .sign-tag {
-            font-family: 'Almarai', sans-serif;
+            font-family: inherit;
             font-size: 11.5px;
             font-weight: 700;
             color: #334155;
@@ -1190,7 +1190,8 @@ function gtag_report_conversion(url) {
 <div class="form-group">
 <label>نوع خط النص</label>
 <select id="in-font-family" onchange="changeFontFamily()">
-<option value="'Almarai', sans-serif">Almarai (الافتراضي)</option>
+<option value="'Alexandria', sans-serif">Alexandria (إسكندرية - الافتراضي)</option>
+<option value="'Almarai', sans-serif">Almarai (المراعي)</option>
 <option value="system-ui, -apple-system, sans-serif">System Default (خط النظام)</option>
 <option value="Arial, Helvetica, sans-serif">Arial</option>
 <option value="'Times New Roman', Times, serif">Times New Roman</option>

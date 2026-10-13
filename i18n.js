@@ -131,6 +131,7 @@
     'footer.services': { ar: 'خدماتنا', en: 'Our Services' },
     'footer.links': { ar: 'روابط سريعة', en: 'Quick Links' },
     'footer.f1': { ar: 'مكافحة حشرات', en: 'Pest Control' },
+    'footer.pestOffers': { ar: 'عروض مكافحة الحشرات', en: 'Pest Control Offers' },
     'footer.f2': { ar: 'تعقيم ضد الفيروسات', en: 'Virus Disinfection' },
     'footer.f3': { ar: 'تنظيف بالبخار', en: 'Steam Cleaning' },
     'footer.f4': { ar: 'تنظيف الخزانات', en: 'Tank Cleaning' },
