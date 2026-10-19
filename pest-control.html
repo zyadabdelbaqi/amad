@@ -223,7 +223,11 @@ function gtag_report_conversion(url) {
 <li class="dropdown">
 <a class="dropbtn" href="javascript:void(0)"><span data-i18n="nav.services">جميع الخدمات</span> <i class="fas fa-chevron-down" style="font-size: 12px; margin-inline-start: 4px;"></i></a>
 <div class="dropdown-content">
-<a data-i18n="nav.pestControl" href="pest-control.html">مكافحة الحشرات</a>
+<a data-i18n="nav.pestControl" href="pest-control.html" style="font-weight: 800; border-bottom: 2px solid var(--gold) !important;">مكافحة الحشرات (الرئيسية)</a>
+<a href="مكافحة-الصراصير-بجدة.html" style="padding-right: 25px !important; font-size: 13.5px;"><i class="fas fa-spider" style="color: var(--gold); margin-left: 6px;"></i> مكافحة الصراصير بجدة</a>
+<a href="مكافحة-بق-الفراش-بجدة.html" style="padding-right: 25px !important; font-size: 13.5px;"><i class="fas fa-bed" style="color: var(--gold); margin-left: 6px;"></i> مكافحة بق الفراش بجدة</a>
+<a href="مكافحة-النمل-الابيض-بجدة.html" style="padding-right: 25px !important; font-size: 13.5px;"><i class="fas fa-bug" style="color: var(--gold); margin-left: 6px;"></i> مكافحة النمل الأبيض والدفان</a>
+<a href="مكافحة-الفئران-بجدة.html" style="padding-right: 25px !important; font-size: 13.5px;"><i class="fas fa-paw" style="color: var(--gold); margin-left: 6px;"></i> مكافحة الفئران والقوارض</a>
 <a data-i18n="nav.sterilization" href="sterilization.html">التعقيم ضد الفيروسات</a>
 <a data-i18n="nav.steam" href="steam-cleaning.html">تنظيف الأثاث بالبخار</a>
 <a data-i18n="nav.tank" href="tank-cleaning.html">تنظيف وتعقيم الخزانات</a>
@@ -248,7 +252,11 @@ function gtag_report_conversion(url) {
 <div class="mobile-dropdown">
 <button class="mobile-dropdown-btn"><span data-i18n="nav.services">جميع الخدمات</span> <i class="fas fa-chevron-down"></i></button>
 <div class="mobile-dropdown-content">
-<a data-i18n="nav.pestControl" href="pest-control.html">مكافحة الحشرات</a>
+<a data-i18n="nav.pestControl" href="pest-control.html" style="font-weight: 800; color: var(--gold) !important;">مكافحة الحشرات (الرئيسية)</a>
+<a href="مكافحة-الصراصير-بجدة.html">← مكافحة الصراصير بجدة</a>
+<a href="مكافحة-بق-الفراش-بجدة.html">← مكافحة بق الفراش بجدة</a>
+<a href="مكافحة-النمل-الابيض-بجدة.html">← مكافحة النمل الأبيض والدفان</a>
+<a href="مكافحة-الفئران-بجدة.html">← مكافحة الفئران والقوارض</a>
 <a data-i18n="nav.sterilizationShort" href="sterilization.html">التعقيم</a>
 <a data-i18n="nav.steamShort" href="steam-cleaning.html">التنظيف بالبخار</a>
 <a data-i18n="nav.tankShort" href="tank-cleaning.html">تنظيف الخزانات</a>
@@ -300,7 +308,94 @@ function gtag_report_conversion(url) {
   </div>
 </section>
 
-<section class="section about-dept" style="padding-top: 40px; padding-bottom: 60px; background: var(--gray-50);">
+<!-- The User-Requested & SEO-Optimized Pest Dropdown Selector & Quick Navigation Component -->
+<div class="section-c">
+  <div class="pest-selector-wrapper reveal">
+    <div class="pest-selector-header">
+      <h3 class="pest-selector-title">
+        <i class="fas fa-crosshairs"></i>
+        <span>اختر نوع الحشرة لعرض خطة الإبادة والأسعار المعتمدة بجدة:</span>
+      </h3>
+      <span class="pest-selector-badge"><i class="fas fa-shield-halved"></i> مبيدات معتمدة SFDA وضمان كتابي</span>
+    </div>
+    
+    <div class="pest-selector-row">
+      <!-- Interactive SEO-Rich Dropdown -->
+      <div class="pest-custom-dropdown" id="pestSelectorDropdown">
+        <button type="button" class="pest-dropdown-trigger" aria-label="اختر الحشرة">
+          <span class="trigger-left">
+            <i class="fas fa-bug trigger-icon"></i>
+            <span>قائمة الحشرات التي نقوم برشها (اختر الحشرة) ▾</span>
+          </span>
+          <i class="fas fa-chevron-down chevron"></i>
+        </button>
+        <div class="pest-dropdown-menu">
+          <a href="مكافحة-الصراصير-بجدة.html" class="pest-dropdown-item">
+            <div class="pest-item-info">
+              <div class="pest-item-icon"><i class="fas fa-spider"></i></div>
+              <div>
+                <span class="pest-item-title">مكافحة الصراصير بجدة</span>
+                <span class="pest-item-desc">جل ألماني أصلي + رش بدون رائحة وبدون تفريغ المطبخ</span>
+              </div>
+            </div>
+            <span class="pest-item-badge">الأكثر طلباً</span>
+          </a>
+          <a href="مكافحة-بق-الفراش-بجدة.html" class="pest-dropdown-item">
+            <div class="pest-item-info">
+              <div class="pest-item-icon"><i class="fas fa-bed"></i></div>
+              <div>
+                <span class="pest-item-title">مكافحة بق الفراش بجدة</span>
+                <span class="pest-item-desc">إبادة تامة للبق وبيوضه بالتبخير والمبيدات المصرحة</span>
+              </div>
+            </div>
+            <span class="pest-item-badge">ضمان شامل</span>
+          </a>
+          <a href="مكافحة-النمل-الابيض-بجدة.html" class="pest-dropdown-item">
+            <div class="pest-item-info">
+              <div class="pest-item-icon"><i class="fas fa-shield-virus"></i></div>
+              <div>
+                <span class="pest-item-title">مكافحة النمل الأبيض والدفان</span>
+                <span class="pest-item-desc">رش قبل البناء وحقن الأبواب والفلل بضمان 10 سنوات</span>
+              </div>
+            </div>
+            <span class="pest-item-badge">ضمان 10 سنوات</span>
+          </a>
+          <a href="مكافحة-الفئران-بجدة.html" class="pest-dropdown-item">
+            <div class="pest-item-info">
+              <div class="pest-item-icon"><i class="fas fa-paw"></i></div>
+              <div>
+                <span class="pest-item-title">مكافحة الفئران والقوارض</span>
+                <span class="pest-item-desc">محطات طعوم بيولوجية ومصائد حديثة للمنازل والمستودعات</span>
+              </div>
+            </div>
+            <span class="pest-item-badge">إبادة سريعة</span>
+          </a>
+          <a href="#pricing" class="pest-dropdown-item">
+            <div class="pest-item-info">
+              <div class="pest-item-icon"><i class="fas fa-tags"></i></div>
+              <div>
+                <span class="pest-item-title">جميع باقات وأسعار مكافحة الحشرات</span>
+                <span class="pest-item-desc">استوديو، شقق، فلل، قصور، رش حدائق وغرف تفتيش</span>
+              </div>
+            </div>
+            <span class="pest-item-badge" style="background: #fef3c7; color: #b45309;">خصم 15%</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick 1-Click Chips for Fast Mobile/Desktop Access -->
+      <div class="pest-quick-chips">
+        <a href="مكافحة-الصراصير-بجدة.html" class="pest-chip"><i class="fas fa-spider"></i> الصراصير</a>
+        <a href="مكافحة-بق-الفراش-بجدة.html" class="pest-chip"><i class="fas fa-bed"></i> بق الفراش</a>
+        <a href="مكافحة-النمل-الابيض-بجدة.html" class="pest-chip"><i class="fas fa-bug"></i> النمل الأبيض (الدفان)</a>
+        <a href="مكافحة-الفئران-بجدة.html" class="pest-chip"><i class="fas fa-paw"></i> الفئران والقوارض</a>
+        <a href="#pricing" class="pest-chip"><i class="fas fa-tags"></i> عروض وباقات الأسعار</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="section about-dept" style="padding-top: 20px; padding-bottom: 60px; background: var(--gray-50);">
 <div class="section-c">
 <div class="dept-content reveal dept-grid" style="background: #fff; padding: 40px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); position: relative; z-index: 10;"><div class="dept-text">
 <h2 data-i18n="dept.pest.aboutH2" style="color: var(--red); margin-bottom: 20px; font-weight: 800;"> لا تدع الحشرات تشاركك راحتك في بيتك! </h2>
@@ -354,47 +449,47 @@ function gtag_report_conversion(url) {
         <span class="only-en" style="display:none;">Most In-Demand Pest Control Services in Jeddah</span>
       </h2>
       <p class="section-desc">
-        <span class="only-ar">حلول إبادة جذرية مصممة خصيصاً لمناخ وطبيعة حشرات مدينة جدة مع ضمان عدم عودتها</span>
+        <span class="only-ar">حلول إبادة جذرية مصممة خصيصاً لمناخ وطبيعة حشرات مدينة جدة مع ضمان عدم عودتها (اضغط على الحشرة لمعرفة تفاصيل الخدمة)</span>
         <span class="only-en" style="display:none;">Comprehensive eradication solutions tailored for Jeddah's climate with guaranteed non-recurrence</span>
       </p>
     </div>
     <div class="seo-grid-4 reveal">
-      <div class="seo-card" style="padding-top: 0; overflow: hidden;">
+      <a href="مكافحة-الصراصير-بجدة.html" class="seo-card" style="padding-top: 0; overflow: hidden; text-decoration: none; color: inherit;">
         <div style="height: 180px; margin: 0 -20px 16px -20px; overflow: hidden;">
           <img src="./images/services/cockroach-treatment.webp" alt="مكافحة الصراصير بجدة بالجل الألماني" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;"/>
         </div>
         <div class="seo-card-icon" style="margin-top: -35px; position: relative; z-index: 2; background: #ffffff; box-shadow: 0 4px 15px rgba(0,0,0,0.1);"><i class="fas fa-spider"></i></div>
         <h3><span class="only-ar">مكافحة الصراصير بجدة</span><span class="only-en" style="display:none;">Cockroach Control</span></h3>
         <p><span class="only-ar">إبادة فورية وشاملة لصراصير المطابخ والمجاري (الألمانية والأمريكية) باستخدام الجل السحري والمبيدات السائلة بدون رائحة وبدون الحاجة لإخلاء أواني المطبخ.</span><span class="only-en" style="display:none;">Immediate eradication of kitchen and sewer cockroaches using odorless gel and spray without emptying cupboards.</span></p>
-        <span class="seo-card-badge"><i class="fas fa-check-circle"></i> <span class="only-ar">إبادة من الجلسة الأولى</span><span class="only-en" style="display:none;">First Session Results</span></span>
-      </div>
-      <div class="seo-card" style="padding-top: 0; overflow: hidden;">
+        <span class="seo-card-badge" style="background: var(--gold); color: #fff;"><i class="fas fa-arrow-left"></i> <span class="only-ar">عرض تفاصيل الخدمة والأسعار</span></span>
+      </a>
+      <a href="مكافحة-بق-الفراش-بجدة.html" class="seo-card" style="padding-top: 0; overflow: hidden; text-decoration: none; color: inherit;">
         <div style="height: 180px; margin: 0 -20px 16px -20px; overflow: hidden;">
           <img src="./images/services/bedbug-treatment.webp" alt="مكافحة بق الفراش بجدة بالتبخير الحراري" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;"/>
         </div>
         <div class="seo-card-icon" style="margin-top: -35px; position: relative; z-index: 2; background: #ffffff; box-shadow: 0 4px 15px rgba(0,0,0,0.1);"><i class="fas fa-bed"></i></div>
         <h3><span class="only-ar">مكافحة بق الفراش بجدة</span><span class="only-en" style="display:none;">Bed Bug Extermination</span></h3>
-        <p><span class="only-ar">القضاء على حشرة بق الفراش بأحدث المبيدات المصرحة من هيئة الغذاء والدواء لضمان نوم هادئ وصحي لأسرتك.</span><span class="only-en" style="display:none;">Elimination of bed bugs using the latest SFDA-approved pesticides ensuring a quiet and healthy sleep for your family.</span></p>
-        <span class="seo-card-badge"><i class="fas fa-shield-alt"></i> <span class="only-ar">ضمان عدم العودة</span><span class="only-en" style="display:none;">Guaranteed Elimination</span></span>
-      </div>
-      <div class="seo-card" style="padding-top: 0; overflow: hidden;">
+        <p><span class="only-ar">القضاء على حشرة بق الفراش بأحدث المبيدات المصرحة من هيئة الغذاء والدواء والتبخير الحراري لضمان نوم هادئ وصحي لأسرتك.</span><span class="only-en" style="display:none;">Elimination of bed bugs using the latest SFDA-approved pesticides ensuring a quiet and healthy sleep for your family.</span></p>
+        <span class="seo-card-badge" style="background: var(--gold); color: #fff;"><i class="fas fa-arrow-left"></i> <span class="only-ar">عرض تفاصيل الخدمة والأسعار</span></span>
+      </a>
+      <a href="مكافحة-النمل-الابيض-بجدة.html" class="seo-card" style="padding-top: 0; overflow: hidden; text-decoration: none; color: inherit;">
         <div style="height: 180px; margin: 0 -20px 16px -20px; overflow: hidden;">
           <img src="./images/services/termite-treatment.webp" alt="مكافحة النمل الأبيض والدفان بجدة" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;"/>
         </div>
         <div class="seo-card-icon" style="margin-top: -35px; position: relative; z-index: 2; background: #ffffff; box-shadow: 0 4px 15px rgba(0,0,0,0.1);"><i class="fas fa-bug"></i></div>
         <h3><span class="only-ar">مكافحة النمل الأبيض ورش ماقبل البناء (الدفان)</span><span class="only-en" style="display:none;">Termite & Pre-Construction Treatment</span></h3>
-        <p><span class="only-ar">حماية المباني والأبواب الخشبية من العتة؛ رش الدفان قبل صبة النظافة بضمان معتمد 10 سنوات، ومعالجة الفلل القائمة بالحقن الأرضي بأحدث المبيدات المعتمدة والمصرحة من هيئة الغذاء والدواء مع الضمان.</span><span class="only-en" style="display:none;">Pre-construction soil barrier and post-construction ground injection using certified SFDA-approved pesticides with certified 10-year warranty.</span></p>
-        <span class="seo-card-badge"><i class="fas fa-award"></i> <span class="only-ar">ضمان معتمد 10 سنوات</span><span class="only-en" style="display:none;">Certified 10-Year Warranty</span></span>
-      </div>
-      <div class="seo-card" style="padding-top: 0; overflow: hidden;">
+        <p><span class="only-ar">حماية المباني والأبواب الخشبية من العتة؛ رش الدفان قبل صبة النظافة بضمان معتمد 10 سنوات، ومعالجة الفلل القائمة بالحقن الأرضي بأحدث المبيدات المعتمدة.</span><span class="only-en" style="display:none;">Pre-construction soil barrier and post-construction ground injection using certified SFDA-approved pesticides with certified 10-year warranty.</span></p>
+        <span class="seo-card-badge" style="background: var(--gold); color: #fff;"><i class="fas fa-arrow-left"></i> <span class="only-ar">عرض تفاصيل الخدمة والأسعار</span></span>
+      </a>
+      <a href="مكافحة-الفئران-بجدة.html" class="seo-card" style="padding-top: 0; overflow: hidden; text-decoration: none; color: inherit;">
         <div style="height: 180px; margin: 0 -20px 16px -20px; overflow: hidden;">
           <img src="./images/gallery/pest-control/gallery_extra_3.webp" alt="مكافحة الفئران والقوارض بجدة" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;"/>
         </div>
         <div class="seo-card-icon" style="margin-top: -35px; position: relative; z-index: 2; background: #ffffff; box-shadow: 0 4px 15px rgba(0,0,0,0.1);"><i class="fas fa-paw"></i></div>
         <h3><span class="only-ar">مكافحة الفئران والقوارض</span><span class="only-en" style="display:none;">Rodent & Mice Control</span></h3>
         <p><span class="only-ar">محطات طعوم آمنة ومصائد بيولوجية متطورة للقضاء على الفئران والجرذان في المنازل، المستودعات، والمطاعم مع سد الثغرات ومسارات الدخول.</span><span class="only-en" style="display:none;">Advanced safe bait stations and mechanical traps for rats and mice in homes, warehouses, and restaurants.</span></p>
-        <span class="seo-card-badge"><i class="fas fa-bolt"></i> <span class="only-ar">حلول سريعة وفعالة</span><span class="only-en" style="display:none;">Fast & Effective Solutions</span></span>
-      </div>
+        <span class="seo-card-badge" style="background: var(--gold); color: #fff;"><i class="fas fa-arrow-left"></i> <span class="only-ar">عرض تفاصيل الخدمة والأسعار</span></span>
+      </a>
     </div>
   </div>
 </section>

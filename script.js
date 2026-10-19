@@ -7,14 +7,32 @@
         const hamburger=document.getElementById('hamburger'),mobileMenu=document.getElementById('mobileMenu'),mobileOverlay=document.getElementById('mobileOverlay'),mobileClose=document.getElementById('mobileClose');
         function openMenu(){mobileMenu.classList.add('open');mobileOverlay.classList.add('open');document.body.style.overflow='hidden'}
         function closeMenu(){mobileMenu.classList.remove('open');mobileOverlay.classList.remove('open');document.body.style.overflow=''}
-        hamburger.addEventListener('click',openMenu);mobileClose.addEventListener('click',closeMenu);mobileOverlay.addEventListener('click',closeMenu);
-                mobileMenu.querySelectorAll("a").forEach(a=>a.addEventListener("click",closeMenu));
+        if (hamburger && mobileMenu && mobileOverlay && mobileClose) {
+            hamburger.addEventListener('click',openMenu);
+            mobileClose.addEventListener('click',closeMenu);
+            mobileOverlay.addEventListener('click',closeMenu);
+            mobileMenu.querySelectorAll("a").forEach(a=>a.addEventListener("click",closeMenu));
+        }
         const mobileDropdownBtns = document.querySelectorAll(".mobile-dropdown-btn");
         mobileDropdownBtns.forEach(btn => {
             btn.addEventListener("click", (e) => {
                 e.stopPropagation();
                 btn.parentElement.classList.toggle("active");
             });
+        });
+
+        // Pest Dropdown Selector Toggle
+        document.addEventListener("click", (e) => {
+            const pestTrigger = e.target.closest(".pest-dropdown-trigger");
+            const allPestDropdowns = document.querySelectorAll(".pest-custom-dropdown");
+            if (pestTrigger) {
+                e.stopPropagation();
+                const parent = pestTrigger.closest(".pest-custom-dropdown");
+                allPestDropdowns.forEach(d => { if (d !== parent) d.classList.remove("active"); });
+                if (parent) parent.classList.toggle("active");
+            } else if (!e.target.closest(".pest-dropdown-menu")) {
+                allPestDropdowns.forEach(d => d.classList.remove("active"));
+            }
         });
         const revealEls=document.querySelectorAll('.reveal');
         const revealObs=new IntersectionObserver(e=>{e.forEach(en=>{if(en.isIntersecting)en.target.classList.add('revealed')})},{threshold:0.05,rootMargin:'0px 0px 0px 0px'});
